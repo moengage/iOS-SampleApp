@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupSDK(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        var sdkConfig = MOSDKConfig(withAppID: "DAO6UGZ73D9RTK8B5W96TPYN")
-        sdkConfig.appGroupID = "group.com.alphadevs.MoEngage.NotificationServices"
+        var sdkConfig = MOSDKConfig(withAppID: "<YOUR APP ID>")
+        sdkConfig.appGroupID = "<YOUR APP GROUP ID>"
         // Enable logs to see the api calls happening in moengage
         sdkConfig.enableLogs = true
         sdkConfig.moeDataCenter = .data_center_01
