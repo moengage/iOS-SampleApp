@@ -50,7 +50,7 @@ extension ViewController: UITableViewDelegate {
             geofenceMonitoring()
         case .realTimeTrigger:
             MOAnalytics.sharedInstance.trackEvent("Product Purchased")
-        case .trackNonIteractiveEvent:
+        case .trackNonInteractiveEvent:
             trackNonInteractiveEvents()
         case .logout:
             logout()
@@ -61,7 +61,7 @@ extension ViewController: UITableViewDelegate {
     /// Track events to track user behavior in an app
     /// Create a dictionary of event attributes and pass that to generate an instance of MOProperties. MOProperties also allows you to add additinal attributes.
     /// It supports tracking of Int, Double, Float, String, Bool, Date, Location value types
-    private func trackEvents () {
+    private func trackEvents() {
         var eventAttrDict : Dictionary<String,Any> = Dictionary()
         eventAttrDict["ProductName"] = "iPhone XS Max"
         eventAttrDict["BrandName"] = "Apple"
@@ -82,7 +82,7 @@ extension ViewController: UITableViewDelegate {
     
     /// User attributes are specific traits of a user, like an email, username, mobile, gender, etc.
     /// Available User attributes: Unique Id, name, lastname, firstname, emailId, mobileNumber, gender, dateOfBirth, date, iso date and locaion
-    private func trackUserAttributes () {
+    private func trackUserAttributes() {
         let uniqueID = "test\(Int(Date().timeIntervalSince1970))@gmail.com"
         MOAnalytics.sharedInstance.setUniqueID(uniqueID)
                 
@@ -115,7 +115,7 @@ extension ViewController: UITableViewDelegate {
     
     // MARK: - INBOX MESSAGES
     // To get inbox messages from MoEngage
-    func getInboxMessages () {
+    func getInboxMessages() {
         MOInbox.sharedInstance.pushInboxViewController(toNavigationController: self.navigationController!, withInboxWithControllerDelegate: self)
         
     }

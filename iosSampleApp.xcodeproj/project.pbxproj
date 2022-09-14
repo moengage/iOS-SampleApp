@@ -13,8 +13,8 @@
 		145648AA28C62E2C009A41AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145648A828C62E2C009A41AB /* Main.storyboard */; };
 		145648AC28C62E2F009A41AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145648AB28C62E2F009A41AB /* Assets.xcassets */; };
 		145648AF28C62E2F009A41AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145648AD28C62E2F009A41AB /* LaunchScreen.storyboard */; };
-		145648B828C62EB5009A41AB /* MoESampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B628C62EB5009A41AB /* MoESampleModel.swift */; };
-		145648B928C62EB5009A41AB /* MoESampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B728C62EB5009A41AB /* MoESampleViewModel.swift */; };
+		145648B828C62EB5009A41AB /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B628C62EB5009A41AB /* SampleModel.swift */; };
+		145648B928C62EB5009A41AB /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B728C62EB5009A41AB /* SampleViewModel.swift */; };
 		14AA0D6128C71E1800AF5E0D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0D6028C71E1800AF5E0D /* NotificationService.swift */; };
 		14AA0D6528C71E1800AF5E0D /* NotificationServices.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14AA0D5E28C71E1800AF5E0D /* NotificationServices.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14AA0D7028C7276400AF5E0D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AA0D6F28C7276400AF5E0D /* UserNotifications.framework */; };
@@ -69,8 +69,8 @@
 		145648AB28C62E2F009A41AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		145648AE28C62E2F009A41AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		145648B028C62E2F009A41AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		145648B628C62EB5009A41AB /* MoESampleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoESampleModel.swift; sourceTree = "<group>"; };
-		145648B728C62EB5009A41AB /* MoESampleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoESampleViewModel.swift; sourceTree = "<group>"; };
+		145648B628C62EB5009A41AB /* SampleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
+		145648B728C62EB5009A41AB /* SampleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
 		145648BB28C645C6009A41AB /* MOGeofence.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MOGeofence.xcframework; path = "../ios-SDK/Frameworks/MOGeofence.xcframework"; sourceTree = "<group>"; };
 		145648BF28C64614009A41AB /* MOCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MOCore.xcframework; path = "../ios-SDK/Frameworks/MOCore.xcframework"; sourceTree = "<group>"; };
 		14AA0D4428C712CE00AF5E0D /* iosSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosSampleApp.entitlements; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				14AA0D4428C712CE00AF5E0D /* iosSampleApp.entitlements */,
-				145648B628C62EB5009A41AB /* MoESampleModel.swift */,
-				145648B728C62EB5009A41AB /* MoESampleViewModel.swift */,
+				145648B628C62EB5009A41AB /* SampleModel.swift */,
+				145648B728C62EB5009A41AB /* SampleViewModel.swift */,
 				145648A228C62E2C009A41AB /* AppDelegate.swift */,
 				145648A428C62E2C009A41AB /* SceneDelegate.swift */,
 				145648A628C62E2C009A41AB /* ViewController.swift */,
@@ -433,11 +433,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				145648B928C62EB5009A41AB /* MoESampleViewModel.swift in Sources */,
+				145648B928C62EB5009A41AB /* SampleViewModel.swift in Sources */,
 				145648A728C62E2C009A41AB /* ViewController.swift in Sources */,
 				145648A328C62E2C009A41AB /* AppDelegate.swift in Sources */,
 				145648A528C62E2C009A41AB /* SceneDelegate.swift in Sources */,
-				145648B828C62EB5009A41AB /* MoESampleModel.swift in Sources */,
+				145648B828C62EB5009A41AB /* SampleModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
