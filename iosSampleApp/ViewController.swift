@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Moengage Sample App"
+        navigationItem.title = "MoEngage Sample App"
         tableView.rowHeight = 75
         tableView.estimatedRowHeight = 100
         MOInApp.sharedInstance().setInAppDelegate(self)

@@ -61,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		0475DDCC33DBA8C0D3EA8CA3 /* Pods-NotificationServices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationServices.release.xcconfig"; path = "Target Support Files/Pods-NotificationServices/Pods-NotificationServices.release.xcconfig"; sourceTree = "<group>"; };
-		1456489F28C62E2C009A41AB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1456489F28C62E2C009A41AB /* MoEngageiOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoEngageiOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145648A228C62E2C009A41AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		145648A428C62E2C009A41AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		145648A628C62E2C009A41AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 		145648A028C62E2C009A41AB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1456489F28C62E2C009A41AB /* iOSSampleApp.app */,
+				1456489F28C62E2C009A41AB /* MoEngageiOSSampleApp.app */,
 				14AA0D5E28C71E1800AF5E0D /* NotificationServices.appex */,
 				14AA0D6E28C7276400AF5E0D /* PushTemplateExtension.appex */,
 			);
@@ -215,9 +215,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1456489E28C62E2C009A41AB /* iosSampleApp */ = {
+		1456489E28C62E2C009A41AB /* MoEngageiOSSampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 145648B328C62E2F009A41AB /* Build configuration list for PBXNativeTarget "iosSampleApp" */;
+			buildConfigurationList = 145648B328C62E2F009A41AB /* Build configuration list for PBXNativeTarget "MoEngageiOSSampleApp" */;
 			buildPhases = (
 				BE2CCACE1701006B9A04EE67 /* [CP] Check Pods Manifest.lock */,
 				1456489B28C62E2C009A41AB /* Sources */,
@@ -232,9 +232,9 @@
 				14AA0D6428C71E1800AF5E0D /* PBXTargetDependency */,
 				14AA0D7B28C7276400AF5E0D /* PBXTargetDependency */,
 			);
-			name = iosSampleApp;
+			name = MoEngageiOSSampleApp;
 			productName = iosSampleApp;
-			productReference = 1456489F28C62E2C009A41AB /* iOSSampleApp.app */;
+			productReference = 1456489F28C62E2C009A41AB /* MoEngageiOSSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		14AA0D5D28C71E1800AF5E0D /* NotificationServices */ = {
@@ -294,7 +294,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1456489A28C62E2C009A41AB /* Build configuration list for PBXProject "iosSampleApp" */;
+			buildConfigurationList = 1456489A28C62E2C009A41AB /* Build configuration list for PBXProject "MoEngageiOSSampleApp" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -307,7 +307,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1456489E28C62E2C009A41AB /* iosSampleApp */,
+				1456489E28C62E2C009A41AB /* MoEngageiOSSampleApp */,
 				14AA0D5D28C71E1800AF5E0D /* NotificationServices */,
 				14AA0D6D28C7276400AF5E0D /* PushTemplateExtension */,
 			);
@@ -641,7 +641,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.companyName.Appname;
-				PRODUCT_NAME = iOSSampleApp;
+				PRODUCT_NAME = MoEngageiOSSampleApp;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -675,7 +675,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.companyName.Appname;
-				PRODUCT_NAME = iOSSampleApp;
+				PRODUCT_NAME = MoEngageiOSSampleApp;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -797,7 +797,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1456489A28C62E2C009A41AB /* Build configuration list for PBXProject "iosSampleApp" */ = {
+		1456489A28C62E2C009A41AB /* Build configuration list for PBXProject "MoEngageiOSSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				145648B128C62E2F009A41AB /* Debug */,
@@ -806,7 +806,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		145648B328C62E2F009A41AB /* Build configuration list for PBXNativeTarget "iosSampleApp" */ = {
+		145648B328C62E2F009A41AB /* Build configuration list for PBXNativeTarget "MoEngageiOSSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				145648B428C62E2F009A41AB /* Debug */,
