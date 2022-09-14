@@ -73,7 +73,7 @@
 		145648B728C62EB5009A41AB /* SampleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
 		145648BB28C645C6009A41AB /* MOGeofence.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MOGeofence.xcframework; path = "../ios-SDK/Frameworks/MOGeofence.xcframework"; sourceTree = "<group>"; };
 		145648BF28C64614009A41AB /* MOCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MOCore.xcframework; path = "../ios-SDK/Frameworks/MOCore.xcframework"; sourceTree = "<group>"; };
-		14AA0D4428C712CE00AF5E0D /* iosSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iosSampleApp.entitlements; sourceTree = "<group>"; };
+		14AA0D4428C712CE00AF5E0D /* MoEngageiOSSampleApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MoEngageiOSSampleApp.entitlements; sourceTree = "<group>"; };
 		14AA0D5E28C71E1800AF5E0D /* NotificationServices.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServices.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AA0D6028C71E1800AF5E0D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		14AA0D6228C71E1800AF5E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		1456489628C62E2C009A41AB = {
 			isa = PBXGroup;
 			children = (
-				145648A128C62E2C009A41AB /* iosSampleApp */,
+				145648A128C62E2C009A41AB /* MoEngageiOSSampleApp */,
 				14AA0D5F28C71E1800AF5E0D /* NotificationServices */,
 				14AA0D7328C7276400AF5E0D /* PushTemplateExtension */,
 				145648A028C62E2C009A41AB /* Products */,
@@ -160,10 +160,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		145648A128C62E2C009A41AB /* iosSampleApp */ = {
+		145648A128C62E2C009A41AB /* MoEngageiOSSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				14AA0D4428C712CE00AF5E0D /* iosSampleApp.entitlements */,
+				14AA0D4428C712CE00AF5E0D /* MoEngageiOSSampleApp.entitlements */,
 				145648B628C62EB5009A41AB /* SampleModel.swift */,
 				145648B728C62EB5009A41AB /* SampleViewModel.swift */,
 				145648A228C62E2C009A41AB /* AppDelegate.swift */,
@@ -174,7 +174,7 @@
 				145648AD28C62E2F009A41AB /* LaunchScreen.storyboard */,
 				145648B028C62E2F009A41AB /* Info.plist */,
 			);
-			path = iosSampleApp;
+			path = MoEngageiOSSampleApp;
 			sourceTree = "<group>";
 		};
 		145648BA28C645C6009A41AB /* Frameworks */ = {
@@ -621,12 +621,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iosSampleApp/iosSampleApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MoEngageiOSSampleApp/MoEngageiOSSampleApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = iosSampleApp/Info.plist;
+				INFOPLIST_FILE = MoEngageiOSSampleApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location Services are required for testing Geofence.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location Services are required for testing Geofence.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location Services are required for testing Geofence.";
@@ -655,12 +655,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iosSampleApp/iosSampleApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = MoEngageiOSSampleApp/MoEngageiOSSampleApp.entitlements;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = iosSampleApp/Info.plist;
+				INFOPLIST_FILE = MoEngageiOSSampleApp/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Location Services are required for testing Geofence.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Location Services are required for testing Geofence.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location Services are required for testing Geofence.";
@@ -676,6 +676,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.companyName.Appname;
 				PRODUCT_NAME = MoEngageiOSSampleApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
