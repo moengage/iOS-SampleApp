@@ -15,7 +15,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set App Group ID
-        MORichNotification.setAppGroupID("<YOUR APP GROUP ID>")
+        MORichNotification.setAppGroupID("group.com.alphadevs.MoEngage.NotificationServices")
     }
     
     func didReceive(_ notification: UNNotification) {

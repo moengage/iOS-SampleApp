@@ -11,6 +11,7 @@ target 'MoEngageiOSSampleApp' do
   pod 'MoEngageGeofence'
   pod 'MoEngageCards'
   pod 'MoEngageInApp'
+  pod 'MoEngageRichNotification'
 end
 
 target 'NotificationServices' do

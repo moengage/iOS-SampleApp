@@ -18,7 +18,7 @@ class NotificationService: UNNotificationServiceExtension {
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         
         // Set App group Id
-        MORichNotification.setAppGroupID("<YOUR APP GROUP ID>")
+        MORichNotification.setAppGroupID("group.com.alphadevs.MoEngage.NotificationServices")
         
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
