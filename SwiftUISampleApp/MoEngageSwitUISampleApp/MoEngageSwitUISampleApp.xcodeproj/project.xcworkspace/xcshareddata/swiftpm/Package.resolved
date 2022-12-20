@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "moengage-ios-cards",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/moengage/MoEngage-iOS-Cards.git",
+      "state" : {
+        "revision" : "f09289485a9b0bf22de95eb4580f31ae49a220cb",
+        "version" : "4.1.0"
+      }
+    },
+    {
+      "identity" : "moengage-ios-inapps",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/moengage/MoEngage-iOS-InApps.git",
+      "state" : {
+        "revision" : "94a560cf07301bdd4c25ad59457eb50ed9ec5251",
+        "version" : "4.1.0"
+      }
+    },
+    {
+      "identity" : "moengage-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/moengage/MoEngage-iOS-SDK.git",
+      "state" : {
+        "revision" : "5e0363686d1be045ca4d9849a71a0742847995e3",
+        "version" : "9.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
