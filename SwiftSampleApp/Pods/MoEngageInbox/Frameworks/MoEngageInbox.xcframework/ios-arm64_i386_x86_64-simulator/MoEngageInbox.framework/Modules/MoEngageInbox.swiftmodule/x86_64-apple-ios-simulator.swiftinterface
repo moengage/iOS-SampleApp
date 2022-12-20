@@ -1,0 +1,119 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MoEngageInbox
+import Foundation
+import MOCore
+import MoEngageAnalytics
+@_exported import MoEngageInbox
+import MoEngageMessaging
+import Swift
+import UIKit
+import _Concurrency
+@_inheritsConvenienceInitializers @objc public class MOInboxNavigationBarStyle : ObjectiveC.NSObject {
+  @objc public var navigationBarColor: UIKit.UIColor?
+  @objc public var navigationBarTintColor: UIKit.UIColor?
+  @objc public var navigationBarTitleColor: UIKit.UIColor?
+  @objc public var navigationBarTitleFont: UIKit.UIFont?
+  @objc public var navigationBarTransluscent: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class MOInboxUIConfiguration : ObjectiveC.NSObject {
+  @objc public var navigationBarTitle: Swift.String
+  @objc public var navigationBarStyle: MoEngageInbox.MOInboxNavigationBarStyle?
+  @objc public var enablePullToRefresh: Swift.Bool
+  @objc public var pullToRefreshTintColor: UIKit.UIColor
+  @objc public var inboxViewControllerBGColor: UIKit.UIColor
+  @objc public var inboxTableViewBGColor: UIKit.UIColor
+  @objc public var cellDefaultBackgroundColor: UIKit.UIColor
+  @objc public var cellUnreadBackgroundColor: UIKit.UIColor
+  @objc public var cellSelectionTintColor: UIKit.UIColor
+  @objc public var cellHeaderLabelTextColor: UIKit.UIColor
+  @objc public var cellMessageLabelTextColor: UIKit.UIColor
+  @objc public var cellTimestampLabelTextColor: UIKit.UIColor
+  @objc public var cellHeaderLabelFont: UIKit.UIFont
+  @objc public var cellMessageLabelFont: UIKit.UIFont
+  @objc public var cellTimestampLabelFont: UIKit.UIFont
+  @objc public var timestampDateFormat: Swift.String
+  @objc public var emptyInboxText: Swift.String
+  @objc public var emptyInboxTextColor: UIKit.UIColor
+  @objc public var emptyInboxTextFont: UIKit.UIFont
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class InboxDelegateHandler : MOCore.InboxDelegate {
+  override public func logout(sdkInstance: MOCore.SdkInstance, onCompleted: @escaping () -> ())
+  override public func updateModule(sdkInstance: MOCore.SdkInstance)
+  override public func initializeInbox(sdkInstance: MOCore.SdkInstance)
+  override public func applicationDidEnterForeground(sdkInstance: MOCore.SdkInstance)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class MOInboxEntry : ObjectiveC.NSObject, Foundation.NSCoding {
+  @objc public var appID: Swift.String
+  @objc public var campaignID: Swift.String?
+  @objc public var notificationPayloadDict: [Swift.String : Any]
+  @objc public var screenDataDict: [Swift.String : Any]
+  @objc public var moengageDict: [Swift.String : Any]
+  @objc final public let notificationTitle: Swift.String
+  @objc final public let notificationSubTitle: Swift.String
+  @objc public var notificationBody: Swift.String
+  @objc final public let notificationSound: Swift.String?
+  @objc final public let notificationMediaURL: Swift.String?
+  @objc public var receivedDate: Foundation.Date? {
+    get
+  }
+  @objc public var clickedDate: Foundation.Date? {
+    get
+  }
+  @objc public var inboxExpiryDate: Foundation.Date?
+  @objc final public let screenName: Swift.String?
+  @objc final public let deepLinkURL: Swift.String?
+  @objc final public let richLandingURL: Swift.String?
+  @objc final public let couponCode: Swift.String?
+  @objc public var isRead: Swift.Bool {
+    get
+  }
+  @objc public func encode(with aCoder: Foundation.NSCoder)
+  @objc required public init(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public protocol MOInboxViewControllerDelegate {
+  @objc optional func inboxViewControllerDismissed()
+  @objc optional func inboxEntryDeleted(_ inboxItem: MoEngageInbox.MOInboxEntry)
+  @objc optional func inboxEntryClicked(_ inboxItem: MoEngageInbox.MOInboxEntry)
+}
+@_inheritsConvenienceInitializers @objc @_Concurrency.MainActor(unsafe) public class MOInboxViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension MoEngageInbox.MOInboxViewController : UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didHighlightRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didUnhighlightRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, canEditRowAt indexPath: Foundation.IndexPath) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, commit editingStyle: UIKit.UITableViewCell.EditingStyle, forRowAt indexPath: Foundation.IndexPath)
+}
+@objc public protocol MOInboxDelegate {
+  @objc optional func inboxSyncedSuccessfully(withAccountMeta accountMeta: MOCore.MOAccountMeta)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class MOInbox : ObjectiveC.NSObject {
+  @objc public static let sharedInstance: MoEngageInbox.MOInbox
+  @objc public func setInboxDelegate(delegate: MoEngageInbox.MOInboxDelegate, forAppID appID: Swift.String? = nil)
+  @objc public func getInboxMessages(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((Swift.Array<MoEngageInbox.MOInboxEntry>, MOCore.MOAccountMeta?) -> Swift.Void))
+  @objc public func getAllNotificationCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((Swift.Int, MOCore.MOAccountMeta?) -> Swift.Void))
+  @objc public func getUnreadNotificationCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((Swift.Int, MOCore.MOAccountMeta?) -> Swift.Void))
+  @objc public func processInboxNotification(withCampaignID cid: Swift.String, forAppID appID: Swift.String? = nil)
+  @objc public func markInboxNotificationClicked(withCampaignID cid: Swift.String, forAppID appID: Swift.String? = nil)
+  @objc public func trackInboxClick(withCampaignID cid: Swift.String, forAppID appID: Swift.String? = nil)
+  @objc public func removeInboxMessage(withCampaignID cid: Swift.String, forAppID appID: Swift.String? = nil)
+  @objc public func removeInboxMessages(forAppID appID: Swift.String? = nil)
+  @objc public func presentInboxViewController(withUIConfiguration uiConfig: MoEngageInbox.MOInboxUIConfiguration? = nil, withInboxWithControllerDelegate delegate: MoEngageInbox.MOInboxViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil)
+  @objc public func pushInboxViewController(toNavigationController navController: UIKit.UINavigationController, withUIConfiguration uiConfig: MoEngageInbox.MOInboxUIConfiguration? = nil, withInboxWithControllerDelegate delegate: MoEngageInbox.MOInboxViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil)
+  @objc public func getInboxViewController(withUIConfiguration uiConfig: MoEngageInbox.MOInboxUIConfiguration? = nil, withInboxWithControllerDelegate delegate: MoEngageInbox.MOInboxViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping (MoEngageInbox.MOInboxViewController?) -> ())
+  @objc deinit
+}

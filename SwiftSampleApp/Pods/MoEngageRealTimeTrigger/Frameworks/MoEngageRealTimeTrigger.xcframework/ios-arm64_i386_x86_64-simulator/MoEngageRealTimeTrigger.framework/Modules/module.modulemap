@@ -1,0 +1,11 @@
+framework module MoEngageRealTimeTrigger {
+  umbrella header "MoEngageRealTimeTrigger.h"
+
+  export *
+  module * { export * }
+}
+
+module MoEngageRealTimeTrigger.Swift {
+    header "MoEngageRealTimeTrigger-Swift.h"
+    requires objc
+}

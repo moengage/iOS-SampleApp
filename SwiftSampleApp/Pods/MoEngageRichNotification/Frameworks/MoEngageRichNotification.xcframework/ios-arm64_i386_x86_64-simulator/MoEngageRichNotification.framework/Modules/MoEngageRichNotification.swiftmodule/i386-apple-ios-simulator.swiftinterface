@@ -1,0 +1,25 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MoEngageRichNotification
+import AVFoundation
+import CommonCrypto
+import Foundation
+import ImageIO
+import MOCore
+import MoEngageAnalytics
+import MoEngageMessaging
+@_exported import MoEngageRichNotification
+import Swift
+import UIKit
+import UserNotifications
+import UserNotificationsUI
+import _Concurrency
+public typealias contentHandler = ((UserNotifications.UNNotificationContent) -> Swift.Void)
+@_inheritsConvenienceInitializers @objc public class MORichNotification : ObjectiveC.NSObject {
+  @objc public static func handle(richNotificationRequest request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping MoEngageRichNotification.contentHandler)
+  @objc public static func handle(localNotificationRequest request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping MoEngageRichNotification.contentHandler)
+  @objc public static func addPushTemplate(toController controller: UIKit.UIViewController, withNotification notification: UserNotifications.UNNotification)
+  @objc public static func setAppGroupID(_ appGroupID: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}

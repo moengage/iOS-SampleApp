@@ -1,0 +1,28 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MoEngageGeofence
+import CoreLocation
+import Foundation
+import MOCore
+import MoEngageAnalytics
+@_exported import MoEngageGeofence
+import Swift
+import UIKit
+import _Concurrency
+@objc public protocol MOGeofenceDelegate {
+  @objc func geofenceEnterTriggered(withLocationManager locationManager: CoreLocation.CLLocationManager?, andRegion region: CoreLocation.CLRegion?, forAccountMeta accountMeta: MOCore.MOAccountMeta)
+  @objc func geofenceExitTriggered(withLocationManager locationManager: CoreLocation.CLLocationManager?, andRegion region: CoreLocation.CLRegion?, forAccountMeta accountMeta: MOCore.MOAccountMeta)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GeofenceDelegateHandler : MOCore.GeofenceDelegate {
+  override public func initializeGeofence(sdkInstance: MOCore.SdkInstance)
+  override public func moengageSDKStateUpdated(sdkInstance: MOCore.SdkInstance)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class MOGeofence : ObjectiveC.NSObject {
+  @objc public static let sharedInstance: MoEngageGeofence.MOGeofence
+  @objc public func startGeofenceMonitoring()
+  @objc public func startGeofenceMonitoring(forAppID appID: Swift.String? = nil)
+  @objc public func setGeofenceDelegate(_ delegate: MoEngageGeofence.MOGeofenceDelegate?, appID: Swift.String? = nil)
+  @objc public func resetGeofenceDelegate(appID: Swift.String? = nil)
+  @objc deinit
+}

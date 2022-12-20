@@ -1,0 +1,11 @@
+framework module MoEngageGeofence {
+  umbrella header "MoEngageGeofence.h"
+
+  export *
+  module * { export * }
+}
+
+module MoEngageGeofence.Swift {
+    header "MoEngageGeofence-Swift.h"
+    requires objc
+}

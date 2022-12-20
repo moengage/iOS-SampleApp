@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/MoEngage-iOS-SDK/MoEngage-iOS-SDK-xcframeworks.sh
+${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageSDK.xcframework
+${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MOCore.xcframework
+${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageAnalytics.xcframework
+${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageMessaging.xcframework
+${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageObjCUtils.xcframework

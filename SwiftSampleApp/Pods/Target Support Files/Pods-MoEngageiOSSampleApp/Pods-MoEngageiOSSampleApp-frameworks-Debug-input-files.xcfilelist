@@ -1,0 +1,12 @@
+${PODS_ROOT}/Target Support Files/Pods-MoEngageiOSSampleApp/Pods-MoEngageiOSSampleApp-frameworks.sh
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageSDK.framework/MoEngageSDK
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MOCore.framework/MOCore
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageAnalytics.framework/MoEngageAnalytics
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageMessaging.framework/MoEngageMessaging
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageObjCUtils.framework/MoEngageObjCUtils
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngageCards/MoEngageCards.framework/MoEngageCards
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngageGeofence/MoEngageGeofence.framework/MoEngageGeofence
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngageInApp/MoEngageInApps.framework/MoEngageInApps
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngageInbox/MoEngageInbox.framework/MoEngageInbox
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngageRealTimeTrigger/MoEngageRealTimeTrigger.framework/MoEngageRealTimeTrigger
+${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngageRichNotification/MoEngageRichNotification.framework/MoEngageRichNotification

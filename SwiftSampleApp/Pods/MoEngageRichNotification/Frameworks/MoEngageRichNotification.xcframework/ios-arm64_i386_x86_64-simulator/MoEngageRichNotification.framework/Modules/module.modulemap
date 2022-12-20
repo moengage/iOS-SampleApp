@@ -1,0 +1,11 @@
+framework module MoEngageRichNotification {
+  umbrella header "MoEngageRichNotification.h"
+
+  export *
+  module * { export * }
+}
+
+module MoEngageRichNotification.Swift {
+    header "MoEngageRichNotification-Swift.h"
+    requires objc
+}
