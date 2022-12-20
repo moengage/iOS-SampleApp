@@ -18,9 +18,9 @@ struct MoEngageSwitUISampleAppApp: App {
     }
     
     func enableSDK() {
-        let sdkConfig = MoEngageSDKConfig(withAppID: "DAO6UGZ73D9RTK8B5W96TPYN")
+        let sdkConfig = MoEngageSDKConfig(withAppID: "YOUR APP ID")
         sdkConfig.moeDataCenter = MoEngageDataCenter.data_center_01
-        sdkConfig.appGroupID = "group.com.alphadevs.MoEngage.NotificationServices"
+        sdkConfig.appGroupID = "YOUR APP GROUP ID"
         sdkConfig.analyticsDisablePeriodicFlush = false
         sdkConfig.analyticsPeriodicFlushDuration = 60
         sdkConfig.encryptNetworkRequests = false
