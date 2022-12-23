@@ -15,12 +15,12 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set App Group ID
-        MORichNotification.setAppGroupID("<YOUR APP GROUP ID>")
+        MoEngageSDKRichNotification.setAppGroupID("<YOUR APP GROUP ID>")
     }
     
     func didReceive(_ notification: UNNotification) {
         // Method to add template to UI
-        MORichNotification.addPushTemplate(toController: self, withNotification: notification)
+        MoEngageSDKRichNotification.addPushTemplate(toController: self, withNotification: notification)
     }
 
 }

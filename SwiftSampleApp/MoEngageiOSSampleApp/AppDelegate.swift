@@ -16,28 +16,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupSDK(didFinishLaunchingWithOptions: launchOptions)
         setMessagingDelegate()
-        MoEngage.sharedInstance().registerForRemoteNotification(withCategories: nil, withUserNotificationCenterDelegate: self)
+        MoEngageSDKMessaging.sharedInstance.registerForRemoteNotification(withCategories: nil, andUserNotificationCenterDelegate: self)
         disableBadgeReset()
         
         return true
     }
     
     private func setupSDK(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        let sdkConfig = MOSDKConfig(withAppID: "<YOUR APP ID>")
+        let sdkConfig = MoEngageSDKConfig(withAppID: "<YOUR APP ID>")
         sdkConfig.appGroupID = "<YOUR APP GROUP ID>"
         // Enable logs to see the api calls happening in moengage
         sdkConfig.enableLogs = true
         sdkConfig.moeDataCenter = .data_center_01
         // Separate initialization methods for Dev and Prod initializations
 #if DEBUG
-        MoEngage.sharedInstance().initializeDefaultTestInstance(with: sdkConfig, andLaunchOptions: launchOptions)
+        MoEngage.sharedInstance.initializeDefaultTestInstance(sdkConfig)
 #else
-        MoEngage.sharedInstance().initializeDefaultLiveInstance(with: sdkConfig, andLaunchOptions: launchOptions)
+        MoEngage.sharedInstance.initializeDefaultLiveInstance(sdkConfig)
 #endif
     }
     
     private func setMessagingDelegate() {
-        MOMessaging.sharedInstance.setMessagingDelegate(self)
+        MoEngageSDKMessaging.sharedInstance.setMessagingDelegate(self)
     }
     
     private func disableBadgeReset() {
@@ -105,7 +105,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 }
 
 // MARK: - MOMessagingDelegate
-extension AppDelegate: MOMessagingDelegate {
+extension AppDelegate: MoEngageMessagingDelegate {
     
     // Notification Clicked Callback
     func notificationClicked(withScreenName screenName: String?, andKVPairs kvPairs: [AnyHashable : Any]?) {
