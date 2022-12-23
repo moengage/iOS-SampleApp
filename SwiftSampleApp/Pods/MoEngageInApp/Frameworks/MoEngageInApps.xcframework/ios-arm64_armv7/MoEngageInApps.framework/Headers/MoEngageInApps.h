@@ -15,8 +15,8 @@ FOUNDATION_EXPORT double MoEngageInAppsVersionNumber;
 FOUNDATION_EXPORT const unsigned char MoEngageInAppsVersionString[];
 
 
-#import <MoEngageInApps/MOInApp.h>
-#import <MoEngageInApps/MOModelObject.h>
-#import <MoEngageInApps/MOInAppCampaign.h>
-#import <MoEngageInApps/MOInAppNativeProtocol.h>
-#import <MoEngageInApps/MOInAppDebuggingService.h>
+#import <MoEngageInApps/MoEngageInAppHandler.h>
+#import <MoEngageInApps/MoEngageModelObject.h>
+#import <MoEngageInApps/MoEngageNudgePosition.h>
+#import <MoEngageInApps/MoEngageInAppDebuggingService.h>
+#import <MoEngageInApps/MoEngageInAppActionType.h>

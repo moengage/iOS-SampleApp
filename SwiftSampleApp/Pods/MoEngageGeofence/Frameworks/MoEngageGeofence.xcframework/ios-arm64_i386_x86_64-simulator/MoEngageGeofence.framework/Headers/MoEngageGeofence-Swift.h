@@ -215,13 +215,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class NSString;
-@protocol MOGeofenceDelegate;
+@class CLLocationManager;
+@class CLRegion;
+@class MoEngageAccountMeta;
 
-SWIFT_CLASS("_TtC16MoEngageGeofence10MOGeofence")
-@interface MOGeofence : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOGeofence * _Nonnull sharedInstance;)
-+ (MOGeofence * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_PROTOCOL("_TtP16MoEngageGeofence24MoEngageGeofenceDelegate_")
+@protocol MoEngageGeofenceDelegate
+/// Method will be called when a geofence region is entered(Optional)
+/// @param locationManager location manager instance
+/// @param region          Geofence region entered
+/// @param accountMeta     MoEngageAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
+- (void)geofenceEnterTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+/// Method will be called when a geofence region is exited(Optional)
+/// @param locationManager location manager instance
+/// @param region          Geofence region exited
+/// @param accountMeta     MoEngageAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
+- (void)geofenceExitTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+@end
+
+@class NSString;
+
+SWIFT_CLASS("_TtC16MoEngageGeofence19MoEngageSDKGeofence")
+@interface MoEngageSDKGeofence : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKGeofence * _Nonnull sharedInstance;)
++ (MoEngageSDKGeofence * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Method to start geofence monitoring
@@ -231,29 +248,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOGeofence *
 ///
 - (void)startGeofenceMonitoringForAppID:(NSString * _Nullable)appID;
 /// Method to start geofence monitoring
-/// \param delegate MOGeofenceDelegate
+/// \param delegate MoEngageGeofenceDelegate
 ///
-- (void)setGeofenceDelegate:(id <MOGeofenceDelegate> _Nullable)delegate appID:(NSString * _Nullable)appID;
+- (void)setGeofenceDelegate:(id <MoEngageGeofenceDelegate> _Nullable)delegate appID:(NSString * _Nullable)appID;
 /// Method to reset monitoring of regions
 - (void)resetGeofenceDelegateWithAppID:(NSString * _Nullable)appID;
-@end
-
-@class CLLocationManager;
-@class CLRegion;
-@class MOAccountMeta;
-
-SWIFT_PROTOCOL("_TtP16MoEngageGeofence18MOGeofenceDelegate_")
-@protocol MOGeofenceDelegate
-/// Method will be called when a geofence region is entered(Optional)
-/// @param locationManager location manager instance
-/// @param region          Geofence region entered
-/// @param accountMeta     MOAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
-- (void)geofenceEnterTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-/// Method will be called when a geofence region is exited(Optional)
-/// @param locationManager location manager instance
-/// @param region          Geofence region exited
-/// @param accountMeta     MOAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
-- (void)geofenceExitTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -478,13 +477,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class NSString;
-@protocol MOGeofenceDelegate;
+@class CLLocationManager;
+@class CLRegion;
+@class MoEngageAccountMeta;
 
-SWIFT_CLASS("_TtC16MoEngageGeofence10MOGeofence")
-@interface MOGeofence : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOGeofence * _Nonnull sharedInstance;)
-+ (MOGeofence * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_PROTOCOL("_TtP16MoEngageGeofence24MoEngageGeofenceDelegate_")
+@protocol MoEngageGeofenceDelegate
+/// Method will be called when a geofence region is entered(Optional)
+/// @param locationManager location manager instance
+/// @param region          Geofence region entered
+/// @param accountMeta     MoEngageAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
+- (void)geofenceEnterTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+/// Method will be called when a geofence region is exited(Optional)
+/// @param locationManager location manager instance
+/// @param region          Geofence region exited
+/// @param accountMeta     MoEngageAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
+- (void)geofenceExitTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+@end
+
+@class NSString;
+
+SWIFT_CLASS("_TtC16MoEngageGeofence19MoEngageSDKGeofence")
+@interface MoEngageSDKGeofence : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKGeofence * _Nonnull sharedInstance;)
++ (MoEngageSDKGeofence * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Method to start geofence monitoring
@@ -494,29 +510,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOGeofence *
 ///
 - (void)startGeofenceMonitoringForAppID:(NSString * _Nullable)appID;
 /// Method to start geofence monitoring
-/// \param delegate MOGeofenceDelegate
+/// \param delegate MoEngageGeofenceDelegate
 ///
-- (void)setGeofenceDelegate:(id <MOGeofenceDelegate> _Nullable)delegate appID:(NSString * _Nullable)appID;
+- (void)setGeofenceDelegate:(id <MoEngageGeofenceDelegate> _Nullable)delegate appID:(NSString * _Nullable)appID;
 /// Method to reset monitoring of regions
 - (void)resetGeofenceDelegateWithAppID:(NSString * _Nullable)appID;
-@end
-
-@class CLLocationManager;
-@class CLRegion;
-@class MOAccountMeta;
-
-SWIFT_PROTOCOL("_TtP16MoEngageGeofence18MOGeofenceDelegate_")
-@protocol MOGeofenceDelegate
-/// Method will be called when a geofence region is entered(Optional)
-/// @param locationManager location manager instance
-/// @param region          Geofence region entered
-/// @param accountMeta     MOAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
-- (void)geofenceEnterTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-/// Method will be called when a geofence region is exited(Optional)
-/// @param locationManager location manager instance
-/// @param region          Geofence region exited
-/// @param accountMeta     MOAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
-- (void)geofenceExitTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -741,13 +739,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
-@class NSString;
-@protocol MOGeofenceDelegate;
+@class CLLocationManager;
+@class CLRegion;
+@class MoEngageAccountMeta;
 
-SWIFT_CLASS("_TtC16MoEngageGeofence10MOGeofence")
-@interface MOGeofence : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOGeofence * _Nonnull sharedInstance;)
-+ (MOGeofence * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_PROTOCOL("_TtP16MoEngageGeofence24MoEngageGeofenceDelegate_")
+@protocol MoEngageGeofenceDelegate
+/// Method will be called when a geofence region is entered(Optional)
+/// @param locationManager location manager instance
+/// @param region          Geofence region entered
+/// @param accountMeta     MoEngageAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
+- (void)geofenceEnterTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+/// Method will be called when a geofence region is exited(Optional)
+/// @param locationManager location manager instance
+/// @param region          Geofence region exited
+/// @param accountMeta     MoEngageAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
+- (void)geofenceExitTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+@end
+
+@class NSString;
+
+SWIFT_CLASS("_TtC16MoEngageGeofence19MoEngageSDKGeofence")
+@interface MoEngageSDKGeofence : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKGeofence * _Nonnull sharedInstance;)
++ (MoEngageSDKGeofence * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Method to start geofence monitoring
@@ -757,29 +772,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOGeofence *
 ///
 - (void)startGeofenceMonitoringForAppID:(NSString * _Nullable)appID;
 /// Method to start geofence monitoring
-/// \param delegate MOGeofenceDelegate
+/// \param delegate MoEngageGeofenceDelegate
 ///
-- (void)setGeofenceDelegate:(id <MOGeofenceDelegate> _Nullable)delegate appID:(NSString * _Nullable)appID;
+- (void)setGeofenceDelegate:(id <MoEngageGeofenceDelegate> _Nullable)delegate appID:(NSString * _Nullable)appID;
 /// Method to reset monitoring of regions
 - (void)resetGeofenceDelegateWithAppID:(NSString * _Nullable)appID;
-@end
-
-@class CLLocationManager;
-@class CLRegion;
-@class MOAccountMeta;
-
-SWIFT_PROTOCOL("_TtP16MoEngageGeofence18MOGeofenceDelegate_")
-@protocol MOGeofenceDelegate
-/// Method will be called when a geofence region is entered(Optional)
-/// @param locationManager location manager instance
-/// @param region          Geofence region entered
-/// @param accountMeta     MOAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
-- (void)geofenceEnterTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-/// Method will be called when a geofence region is exited(Optional)
-/// @param locationManager location manager instance
-/// @param region          Geofence region exited
-/// @param accountMeta     MOAccountMeta instance providing the info of the MoEngage Account to which the trigger belongs
-- (void)geofenceExitTriggeredWithLocationManager:(CLLocationManager * _Nullable)locationManager andRegion:(CLRegion * _Nullable)region forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
 @end
 
 #if __has_attribute(external_source_symbol)

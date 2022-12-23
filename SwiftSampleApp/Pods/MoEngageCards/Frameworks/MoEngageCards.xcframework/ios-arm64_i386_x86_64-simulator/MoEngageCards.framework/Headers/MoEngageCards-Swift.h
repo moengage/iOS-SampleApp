@@ -218,11 +218,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSDate;
+
+SWIFT_CLASS("_TtC13MoEngageCards21MoEngageCampaignState")
+@interface MoEngageCampaignState : NSObject
+@property (nonatomic, readonly) int64_t showCountTotal;
+@property (nonatomic, readonly) BOOL isClicked;
+@property (nonatomic, readonly, copy) NSDate * _Nullable firstSeenTime;
+@property (nonatomic, readonly, copy) NSDate * _Nullable firstDeliveredTime;
+@property (nonatomic, readonly) int64_t showCountCurrentDevice;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSString;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC13MoEngageCards12MOCardAction")
-@interface MOCardAction : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards18MoEngageCardAction")
+@interface MoEngageCardAction : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
 @property (nonatomic, readonly, copy) NSString * _Nonnull value;
@@ -233,51 +246,51 @@ SWIFT_CLASS("_TtC13MoEngageCards12MOCardAction")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSDate;
-@class MOCardTemplateData;
-@class MOCardDisplayControl;
+@class MoEngageCardTemplateData;
+@class MoEngageCardDisplayControl;
 
-SWIFT_CLASS("_TtC13MoEngageCards14MOCardCampaign")
-@interface MOCardCampaign : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards20MoEngageCardCampaign")
+@interface MoEngageCardCampaign : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull cardID;
 @property (nonatomic, readonly) BOOL shouldShow;
 @property (nonatomic, readonly, copy) NSString * _Nonnull category;
 @property (nonatomic, readonly, copy) NSDate * _Nullable createdDate;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull updatedDate;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull metaData;
-@property (nonatomic, readonly, strong) MOCardTemplateData * _Nullable templateData;
-@property (nonatomic, readonly, strong) MOCardDisplayControl * _Nullable displayControl;
+@property (nonatomic, readonly, strong) MoEngageCardTemplateData * _Nullable templateData;
+@property (nonatomic, readonly, strong) MoEngageCardDisplayControl * _Nullable displayControl;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable cardPayload;
+@property (nonatomic, readonly, strong) MoEngageCampaignState * _Nonnull cardState;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class MOCardStyle;
-@class MOCardWidget;
+@class MoEngageCardStyle;
+@class MoEngageCardWidget;
 
-SWIFT_CLASS("_TtC13MoEngageCards15MOCardContainer")
-@interface MOCardContainer : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards21MoEngageCardContainer")
+@interface MoEngageCardContainer : NSObject <NSCoding>
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, strong) MOCardStyle * _Nullable style;
-@property (nonatomic, readonly, copy) NSArray<MOCardWidget *> * _Nonnull widgets;
-@property (nonatomic, readonly, copy) NSArray<MOCardAction *> * _Nonnull actions;
+@property (nonatomic, readonly, strong) MoEngageCardStyle * _Nullable style;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardWidget *> * _Nonnull widgets;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardAction *> * _Nonnull actions;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class MOCardShowTime;
+@class MoEngageCardShowTime;
 
-SWIFT_CLASS("_TtC13MoEngageCards20MOCardDisplayControl")
-@interface MOCardDisplayControl : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards26MoEngageCardDisplayControl")
+@interface MoEngageCardDisplayControl : NSObject <NSCoding>
 @property (nonatomic, readonly) BOOL isPinned;
 @property (nonatomic, readonly) int64_t maxTimesToShow;
 @property (nonatomic, readonly, copy) NSDate * _Nullable expiryDate;
-@property (nonatomic, readonly, strong) MOCardShowTime * _Nullable showTime;
+@property (nonatomic, readonly, strong) MoEngageCardShowTime * _Nullable showTime;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -285,8 +298,8 @@ SWIFT_CLASS("_TtC13MoEngageCards20MOCardDisplayControl")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards14MOCardShowTime")
-@interface MOCardShowTime : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards20MoEngageCardShowTime")
+@interface MoEngageCardShowTime : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull startTime;
 @property (nonatomic, readonly, copy) NSString * _Nonnull endTime;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
@@ -297,8 +310,8 @@ SWIFT_CLASS("_TtC13MoEngageCards14MOCardShowTime")
 
 @class UIColor;
 
-SWIFT_CLASS("_TtC13MoEngageCards11MOCardStyle")
-@interface MOCardStyle : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards17MoEngageCardStyle")
+@interface MoEngageCardStyle : NSObject <NSCoding>
 @property (nonatomic, readonly, strong) UIColor * _Nullable bgColor;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -307,10 +320,10 @@ SWIFT_CLASS("_TtC13MoEngageCards11MOCardStyle")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards18MOCardTemplateData")
-@interface MOCardTemplateData : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards24MoEngageCardTemplateData")
+@interface MoEngageCardTemplateData : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, copy) NSArray<MOCardContainer *> * _Nonnull containers;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardContainer *> * _Nonnull containers;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -318,177 +331,45 @@ SWIFT_CLASS("_TtC13MoEngageCards18MOCardTemplateData")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards12MOCardWidget")
-@interface MOCardWidget : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards18MoEngageCardWidget")
+@interface MoEngageCardWidget : NSObject <NSCoding>
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, strong) MOCardStyle * _Nullable style;
+@property (nonatomic, readonly, strong) MoEngageCardStyle * _Nullable style;
 @property (nonatomic, readonly, copy) NSString * _Nonnull content;
-@property (nonatomic, readonly, copy) NSArray<MOCardAction *> * _Nonnull actions;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardAction *> * _Nonnull actions;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@protocol MOCardsDelegate;
-@class MOCardsData;
-@class MOAccountMeta;
-@class MOCardsUIConfiguration;
-@protocol MOCardsViewControllerDelegate;
-@class UINavigationController;
-@class MOCardsListViewController;
 
-SWIFT_CLASS("_TtC13MoEngageCards7MOCards")
-@interface MOCards : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOCards * _Nonnull sharedInstance;)
-+ (MOCards * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
-/// Method to set the cards delegate
-/// \param delegate delegate object
-///
-/// \param appID optional account identifier
-///
-- (void)setCardsDelegateWithDelegate:(id <MOCardsDelegate> _Nonnull)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to sync the cards
-/// \param appID account identifier
-///
-/// \param completionBlock completion block to be called after sync is performed
-///
-- (void)syncCardsForAppID:(NSString * _Nullable)appID withCompletion:(void (^ _Nullable)(BOOL))completionBlock;
-/// Method to fetch Cards data
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards data and account info.
-///
-- (void)getCardsDataForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MOCardsData * _Nullable, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch Cards categories
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards categories and account info.
-///
-- (void)getCardsCategoriesForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch Cards campaign
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards campaign info and account info.
-///
-- (void)getCardsForCategory:(NSString * _Nonnull)category forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<MOCardCampaign *> * _Nonnull, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch ShowAllTab status.
-/// \param appID account identifier
-///
-///
-/// returns:
-/// Bool indicating if showAllTab is set to true/false.
-- (void)isAllCategoryEnabledForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(BOOL))completionBlock;
-/// Method to track cards shown and update delivery counters accordingly.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardShown:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to mark a card as clicked and tracks an event for statistical purpose.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardClicked:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to mark a card as clicked and tracks an event for statistical purpose.
-/// \param card instance of MOCardCampaign
-///
-/// \param widgetID unique identifier for the widget that was clicked
-///
-/// \param appID account identifier.
-///
-- (void)cardClicked:(MOCardCampaign * _Nonnull)card withWidgetID:(NSInteger)widgetID forAppID:(NSString * _Nullable)appID;
-/// Method to mark tracking delivery of cards to inbox.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardDelivered:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to delete the cards
-/// \param cardsArr array of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block called once card is deleted.
-///
-- (void)deleteCards:(NSArray<MOCardCampaign *> * _Nonnull)cardsArr forAppID:(NSString * _Nullable)appID andCompletionBlock:(void (^ _Nonnull)(BOOL, MOAccountMeta * _Nullable))completionBlock;
-- (void)cardsViewControllerLoadedForAppID:(NSString * _Nullable)appID;
-- (void)cardsViewControllerDismissedForAppID:(NSString * _Nullable)appID;
-/// Method to fetch new cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with new cards count and account info.
-///
-- (void)getNewCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch unclicked cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with unclicked cards count and account info.
-///
-- (void)getUnclickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch clicked cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with clicked cards count and account info.
-///
-- (void)getClickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to present the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-- (void)presentCardsViewControllerWithUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to push the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-- (void)pushCardsViewControllerToNavigationController:(UINavigationController * _Nonnull)navController withUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to return the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-///
-/// returns:
-/// returns the CardsController
-- (void)getCardsViewControllerWithUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MOCardsListViewController * _Nullable))completionBlock;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC13MoEngageCards11MOCardsData")
-@interface MOCardsData : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards17MoEngageCardsData")
+@interface MoEngageCardsData : NSObject <NSCoding>
 @property (nonatomic, readonly) BOOL showAllTab;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cardCategories;
-@property (nonatomic, readonly, copy) NSArray<MOCardCampaign *> * _Nonnull cards;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardCampaign *> * _Nonnull cards;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class MoEngageAccountMeta;
 
-SWIFT_PROTOCOL("_TtP13MoEngageCards15MOCardsDelegate_")
-@protocol MOCardsDelegate
+SWIFT_PROTOCOL("_TtP13MoEngageCards21MoEngageCardsDelegate_")
+@protocol MoEngageCardsDelegate
 @optional
-- (void)cardsSyncedSuccessfullyForAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
+- (void)cardsSyncedSuccessfullyForAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
 @end
 
 @class UITraitCollection;
 @protocol UIViewControllerTransitionCoordinator;
 @class NSBundle;
 
-SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
-@interface MOCardsListViewController : UIViewController <UIGestureRecognizerDelegate>
+SWIFT_CLASS("_TtC13MoEngageCards31MoEngageCardsListViewController")
+@interface MoEngageCardsListViewController : UIViewController <UIGestureRecognizerDelegate>
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidLayoutSubviews;
@@ -505,7 +386,7 @@ SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
 @class NSIndexPath;
 @class UITableViewCell;
 
-@interface MOCardsListViewController (SWIFT_EXTENSION(MoEngageCards)) <UITableViewDataSource, UITableViewDelegate>
+@interface MoEngageCardsListViewController (SWIFT_EXTENSION(MoEngageCards)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -518,24 +399,151 @@ SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards25MOCardsNavigationBarStyle")
-@interface MOCardsNavigationBarStyle : NSObject
+SWIFT_CLASS("_TtC13MoEngageCards31MoEngageCardsNavigationBarStyle")
+@interface MoEngageCardsNavigationBarStyle : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards22MOCardsUIConfiguration")
-@interface MOCardsUIConfiguration : NSObject
+SWIFT_CLASS("_TtC13MoEngageCards28MoEngageCardsUIConfiguration")
+@interface MoEngageCardsUIConfiguration : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_PROTOCOL("_TtP13MoEngageCards29MOCardsViewControllerDelegate_")
-@protocol MOCardsViewControllerDelegate
+SWIFT_PROTOCOL("_TtP13MoEngageCards35MoEngageCardsViewControllerDelegate_")
+@protocol MoEngageCardsViewControllerDelegate
 @optional
-- (void)cardsViewControllerDismissedForAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-- (void)cardDeletedWithCardInfo:(MOCardCampaign * _Nonnull)card forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-- (BOOL)cardClickedWithCardInfo:(MOCardCampaign * _Nonnull)card andAction:(MOCardAction * _Nonnull)action forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta SWIFT_WARN_UNUSED_RESULT;
+- (void)cardsViewControllerDismissedForAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+- (void)cardDeletedWithCardInfo:(MoEngageCardCampaign * _Nonnull)card forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+- (BOOL)cardClickedWithCardInfo:(MoEngageCardCampaign * _Nonnull)card andAction:(MoEngageCardAction * _Nonnull)action forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UINavigationController;
+
+SWIFT_CLASS("_TtC13MoEngageCards16MoEngageSDKCards")
+@interface MoEngageSDKCards : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKCards * _Nonnull sharedInstance;)
++ (MoEngageSDKCards * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+/// Method to set the cards delegate
+/// \param delegate delegate object
+///
+/// \param appID optional account identifier
+///
+- (void)setCardsDelegateWithDelegate:(id <MoEngageCardsDelegate> _Nonnull)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to sync the cards
+/// \param appID account identifier
+///
+/// \param completionBlock completion block to be called after sync is performed
+///
+- (void)syncCardsForAppID:(NSString * _Nullable)appID withCompletion:(void (^ _Nullable)(BOOL))completionBlock;
+/// Method to fetch Cards data
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards data and account info.
+///
+- (void)getCardsDataForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MoEngageCardsData * _Nullable, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch Cards categories
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards categories and account info.
+///
+- (void)getCardsCategoriesForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch Cards campaign
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards campaign info and account info.
+///
+- (void)getCardsForCategory:(NSString * _Nonnull)category forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<MoEngageCardCampaign *> * _Nonnull, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch ShowAllTab status.
+/// \param appID account identifier
+///
+///
+/// returns:
+/// Bool indicating if showAllTab is set to true/false.
+- (void)isAllCategoryEnabledForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(BOOL))completionBlock;
+/// Method to track cards shown and update delivery counters accordingly.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardShown:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to mark a card as clicked and tracks an event for statistical purpose.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardClicked:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to mark a card as clicked and tracks an event for statistical purpose.
+/// \param card instance of MOCardCampaign
+///
+/// \param widgetID unique identifier for the widget that was clicked
+///
+/// \param appID account identifier.
+///
+- (void)cardClicked:(MoEngageCardCampaign * _Nonnull)card withWidgetID:(NSInteger)widgetID forAppID:(NSString * _Nullable)appID;
+/// Method to mark tracking delivery of cards to inbox.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardDelivered:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to delete the cards
+/// \param cardsArr array of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block called once card is deleted.
+///
+- (void)deleteCards:(NSArray<MoEngageCardCampaign *> * _Nonnull)cardsArr forAppID:(NSString * _Nullable)appID andCompletionBlock:(void (^ _Nonnull)(BOOL, MoEngageAccountMeta * _Nullable))completionBlock;
+- (void)cardsViewControllerLoadedForAppID:(NSString * _Nullable)appID;
+- (void)cardsViewControllerDismissedForAppID:(NSString * _Nullable)appID;
+/// Method to fetch new cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with new cards count and account info.
+///
+- (void)getNewCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch unclicked cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with unclicked cards count and account info.
+///
+- (void)getUnclickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch clicked cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with clicked cards count and account info.
+///
+- (void)getClickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to present the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+- (void)presentCardsViewControllerWithUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to push the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+- (void)pushCardsViewControllerToNavigationController:(UINavigationController * _Nonnull)navController withUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to return the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+///
+/// returns:
+/// returns the CardsController
+- (void)getCardsViewControllerWithUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MoEngageCardsListViewController * _Nullable))completionBlock;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -764,11 +772,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSDate;
+
+SWIFT_CLASS("_TtC13MoEngageCards21MoEngageCampaignState")
+@interface MoEngageCampaignState : NSObject
+@property (nonatomic, readonly) int64_t showCountTotal;
+@property (nonatomic, readonly) BOOL isClicked;
+@property (nonatomic, readonly, copy) NSDate * _Nullable firstSeenTime;
+@property (nonatomic, readonly, copy) NSDate * _Nullable firstDeliveredTime;
+@property (nonatomic, readonly) int64_t showCountCurrentDevice;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSString;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC13MoEngageCards12MOCardAction")
-@interface MOCardAction : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards18MoEngageCardAction")
+@interface MoEngageCardAction : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
 @property (nonatomic, readonly, copy) NSString * _Nonnull value;
@@ -779,51 +800,51 @@ SWIFT_CLASS("_TtC13MoEngageCards12MOCardAction")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSDate;
-@class MOCardTemplateData;
-@class MOCardDisplayControl;
+@class MoEngageCardTemplateData;
+@class MoEngageCardDisplayControl;
 
-SWIFT_CLASS("_TtC13MoEngageCards14MOCardCampaign")
-@interface MOCardCampaign : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards20MoEngageCardCampaign")
+@interface MoEngageCardCampaign : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull cardID;
 @property (nonatomic, readonly) BOOL shouldShow;
 @property (nonatomic, readonly, copy) NSString * _Nonnull category;
 @property (nonatomic, readonly, copy) NSDate * _Nullable createdDate;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull updatedDate;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull metaData;
-@property (nonatomic, readonly, strong) MOCardTemplateData * _Nullable templateData;
-@property (nonatomic, readonly, strong) MOCardDisplayControl * _Nullable displayControl;
+@property (nonatomic, readonly, strong) MoEngageCardTemplateData * _Nullable templateData;
+@property (nonatomic, readonly, strong) MoEngageCardDisplayControl * _Nullable displayControl;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable cardPayload;
+@property (nonatomic, readonly, strong) MoEngageCampaignState * _Nonnull cardState;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class MOCardStyle;
-@class MOCardWidget;
+@class MoEngageCardStyle;
+@class MoEngageCardWidget;
 
-SWIFT_CLASS("_TtC13MoEngageCards15MOCardContainer")
-@interface MOCardContainer : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards21MoEngageCardContainer")
+@interface MoEngageCardContainer : NSObject <NSCoding>
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, strong) MOCardStyle * _Nullable style;
-@property (nonatomic, readonly, copy) NSArray<MOCardWidget *> * _Nonnull widgets;
-@property (nonatomic, readonly, copy) NSArray<MOCardAction *> * _Nonnull actions;
+@property (nonatomic, readonly, strong) MoEngageCardStyle * _Nullable style;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardWidget *> * _Nonnull widgets;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardAction *> * _Nonnull actions;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class MOCardShowTime;
+@class MoEngageCardShowTime;
 
-SWIFT_CLASS("_TtC13MoEngageCards20MOCardDisplayControl")
-@interface MOCardDisplayControl : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards26MoEngageCardDisplayControl")
+@interface MoEngageCardDisplayControl : NSObject <NSCoding>
 @property (nonatomic, readonly) BOOL isPinned;
 @property (nonatomic, readonly) int64_t maxTimesToShow;
 @property (nonatomic, readonly, copy) NSDate * _Nullable expiryDate;
-@property (nonatomic, readonly, strong) MOCardShowTime * _Nullable showTime;
+@property (nonatomic, readonly, strong) MoEngageCardShowTime * _Nullable showTime;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -831,8 +852,8 @@ SWIFT_CLASS("_TtC13MoEngageCards20MOCardDisplayControl")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards14MOCardShowTime")
-@interface MOCardShowTime : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards20MoEngageCardShowTime")
+@interface MoEngageCardShowTime : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull startTime;
 @property (nonatomic, readonly, copy) NSString * _Nonnull endTime;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
@@ -843,8 +864,8 @@ SWIFT_CLASS("_TtC13MoEngageCards14MOCardShowTime")
 
 @class UIColor;
 
-SWIFT_CLASS("_TtC13MoEngageCards11MOCardStyle")
-@interface MOCardStyle : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards17MoEngageCardStyle")
+@interface MoEngageCardStyle : NSObject <NSCoding>
 @property (nonatomic, readonly, strong) UIColor * _Nullable bgColor;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -853,10 +874,10 @@ SWIFT_CLASS("_TtC13MoEngageCards11MOCardStyle")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards18MOCardTemplateData")
-@interface MOCardTemplateData : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards24MoEngageCardTemplateData")
+@interface MoEngageCardTemplateData : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, copy) NSArray<MOCardContainer *> * _Nonnull containers;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardContainer *> * _Nonnull containers;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -864,177 +885,45 @@ SWIFT_CLASS("_TtC13MoEngageCards18MOCardTemplateData")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards12MOCardWidget")
-@interface MOCardWidget : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards18MoEngageCardWidget")
+@interface MoEngageCardWidget : NSObject <NSCoding>
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, strong) MOCardStyle * _Nullable style;
+@property (nonatomic, readonly, strong) MoEngageCardStyle * _Nullable style;
 @property (nonatomic, readonly, copy) NSString * _Nonnull content;
-@property (nonatomic, readonly, copy) NSArray<MOCardAction *> * _Nonnull actions;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardAction *> * _Nonnull actions;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@protocol MOCardsDelegate;
-@class MOCardsData;
-@class MOAccountMeta;
-@class MOCardsUIConfiguration;
-@protocol MOCardsViewControllerDelegate;
-@class UINavigationController;
-@class MOCardsListViewController;
 
-SWIFT_CLASS("_TtC13MoEngageCards7MOCards")
-@interface MOCards : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOCards * _Nonnull sharedInstance;)
-+ (MOCards * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
-/// Method to set the cards delegate
-/// \param delegate delegate object
-///
-/// \param appID optional account identifier
-///
-- (void)setCardsDelegateWithDelegate:(id <MOCardsDelegate> _Nonnull)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to sync the cards
-/// \param appID account identifier
-///
-/// \param completionBlock completion block to be called after sync is performed
-///
-- (void)syncCardsForAppID:(NSString * _Nullable)appID withCompletion:(void (^ _Nullable)(BOOL))completionBlock;
-/// Method to fetch Cards data
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards data and account info.
-///
-- (void)getCardsDataForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MOCardsData * _Nullable, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch Cards categories
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards categories and account info.
-///
-- (void)getCardsCategoriesForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch Cards campaign
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards campaign info and account info.
-///
-- (void)getCardsForCategory:(NSString * _Nonnull)category forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<MOCardCampaign *> * _Nonnull, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch ShowAllTab status.
-/// \param appID account identifier
-///
-///
-/// returns:
-/// Bool indicating if showAllTab is set to true/false.
-- (void)isAllCategoryEnabledForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(BOOL))completionBlock;
-/// Method to track cards shown and update delivery counters accordingly.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardShown:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to mark a card as clicked and tracks an event for statistical purpose.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardClicked:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to mark a card as clicked and tracks an event for statistical purpose.
-/// \param card instance of MOCardCampaign
-///
-/// \param widgetID unique identifier for the widget that was clicked
-///
-/// \param appID account identifier.
-///
-- (void)cardClicked:(MOCardCampaign * _Nonnull)card withWidgetID:(NSInteger)widgetID forAppID:(NSString * _Nullable)appID;
-/// Method to mark tracking delivery of cards to inbox.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardDelivered:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to delete the cards
-/// \param cardsArr array of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block called once card is deleted.
-///
-- (void)deleteCards:(NSArray<MOCardCampaign *> * _Nonnull)cardsArr forAppID:(NSString * _Nullable)appID andCompletionBlock:(void (^ _Nonnull)(BOOL, MOAccountMeta * _Nullable))completionBlock;
-- (void)cardsViewControllerLoadedForAppID:(NSString * _Nullable)appID;
-- (void)cardsViewControllerDismissedForAppID:(NSString * _Nullable)appID;
-/// Method to fetch new cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with new cards count and account info.
-///
-- (void)getNewCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch unclicked cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with unclicked cards count and account info.
-///
-- (void)getUnclickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch clicked cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with clicked cards count and account info.
-///
-- (void)getClickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to present the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-- (void)presentCardsViewControllerWithUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to push the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-- (void)pushCardsViewControllerToNavigationController:(UINavigationController * _Nonnull)navController withUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to return the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-///
-/// returns:
-/// returns the CardsController
-- (void)getCardsViewControllerWithUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MOCardsListViewController * _Nullable))completionBlock;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC13MoEngageCards11MOCardsData")
-@interface MOCardsData : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards17MoEngageCardsData")
+@interface MoEngageCardsData : NSObject <NSCoding>
 @property (nonatomic, readonly) BOOL showAllTab;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cardCategories;
-@property (nonatomic, readonly, copy) NSArray<MOCardCampaign *> * _Nonnull cards;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardCampaign *> * _Nonnull cards;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class MoEngageAccountMeta;
 
-SWIFT_PROTOCOL("_TtP13MoEngageCards15MOCardsDelegate_")
-@protocol MOCardsDelegate
+SWIFT_PROTOCOL("_TtP13MoEngageCards21MoEngageCardsDelegate_")
+@protocol MoEngageCardsDelegate
 @optional
-- (void)cardsSyncedSuccessfullyForAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
+- (void)cardsSyncedSuccessfullyForAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
 @end
 
 @class UITraitCollection;
 @protocol UIViewControllerTransitionCoordinator;
 @class NSBundle;
 
-SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
-@interface MOCardsListViewController : UIViewController <UIGestureRecognizerDelegate>
+SWIFT_CLASS("_TtC13MoEngageCards31MoEngageCardsListViewController")
+@interface MoEngageCardsListViewController : UIViewController <UIGestureRecognizerDelegate>
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidLayoutSubviews;
@@ -1051,7 +940,7 @@ SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
 @class NSIndexPath;
 @class UITableViewCell;
 
-@interface MOCardsListViewController (SWIFT_EXTENSION(MoEngageCards)) <UITableViewDataSource, UITableViewDelegate>
+@interface MoEngageCardsListViewController (SWIFT_EXTENSION(MoEngageCards)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -1064,24 +953,151 @@ SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards25MOCardsNavigationBarStyle")
-@interface MOCardsNavigationBarStyle : NSObject
+SWIFT_CLASS("_TtC13MoEngageCards31MoEngageCardsNavigationBarStyle")
+@interface MoEngageCardsNavigationBarStyle : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards22MOCardsUIConfiguration")
-@interface MOCardsUIConfiguration : NSObject
+SWIFT_CLASS("_TtC13MoEngageCards28MoEngageCardsUIConfiguration")
+@interface MoEngageCardsUIConfiguration : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_PROTOCOL("_TtP13MoEngageCards29MOCardsViewControllerDelegate_")
-@protocol MOCardsViewControllerDelegate
+SWIFT_PROTOCOL("_TtP13MoEngageCards35MoEngageCardsViewControllerDelegate_")
+@protocol MoEngageCardsViewControllerDelegate
 @optional
-- (void)cardsViewControllerDismissedForAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-- (void)cardDeletedWithCardInfo:(MOCardCampaign * _Nonnull)card forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-- (BOOL)cardClickedWithCardInfo:(MOCardCampaign * _Nonnull)card andAction:(MOCardAction * _Nonnull)action forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta SWIFT_WARN_UNUSED_RESULT;
+- (void)cardsViewControllerDismissedForAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+- (void)cardDeletedWithCardInfo:(MoEngageCardCampaign * _Nonnull)card forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+- (BOOL)cardClickedWithCardInfo:(MoEngageCardCampaign * _Nonnull)card andAction:(MoEngageCardAction * _Nonnull)action forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UINavigationController;
+
+SWIFT_CLASS("_TtC13MoEngageCards16MoEngageSDKCards")
+@interface MoEngageSDKCards : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKCards * _Nonnull sharedInstance;)
++ (MoEngageSDKCards * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+/// Method to set the cards delegate
+/// \param delegate delegate object
+///
+/// \param appID optional account identifier
+///
+- (void)setCardsDelegateWithDelegate:(id <MoEngageCardsDelegate> _Nonnull)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to sync the cards
+/// \param appID account identifier
+///
+/// \param completionBlock completion block to be called after sync is performed
+///
+- (void)syncCardsForAppID:(NSString * _Nullable)appID withCompletion:(void (^ _Nullable)(BOOL))completionBlock;
+/// Method to fetch Cards data
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards data and account info.
+///
+- (void)getCardsDataForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MoEngageCardsData * _Nullable, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch Cards categories
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards categories and account info.
+///
+- (void)getCardsCategoriesForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch Cards campaign
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards campaign info and account info.
+///
+- (void)getCardsForCategory:(NSString * _Nonnull)category forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<MoEngageCardCampaign *> * _Nonnull, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch ShowAllTab status.
+/// \param appID account identifier
+///
+///
+/// returns:
+/// Bool indicating if showAllTab is set to true/false.
+- (void)isAllCategoryEnabledForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(BOOL))completionBlock;
+/// Method to track cards shown and update delivery counters accordingly.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardShown:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to mark a card as clicked and tracks an event for statistical purpose.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardClicked:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to mark a card as clicked and tracks an event for statistical purpose.
+/// \param card instance of MOCardCampaign
+///
+/// \param widgetID unique identifier for the widget that was clicked
+///
+/// \param appID account identifier.
+///
+- (void)cardClicked:(MoEngageCardCampaign * _Nonnull)card withWidgetID:(NSInteger)widgetID forAppID:(NSString * _Nullable)appID;
+/// Method to mark tracking delivery of cards to inbox.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardDelivered:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to delete the cards
+/// \param cardsArr array of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block called once card is deleted.
+///
+- (void)deleteCards:(NSArray<MoEngageCardCampaign *> * _Nonnull)cardsArr forAppID:(NSString * _Nullable)appID andCompletionBlock:(void (^ _Nonnull)(BOOL, MoEngageAccountMeta * _Nullable))completionBlock;
+- (void)cardsViewControllerLoadedForAppID:(NSString * _Nullable)appID;
+- (void)cardsViewControllerDismissedForAppID:(NSString * _Nullable)appID;
+/// Method to fetch new cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with new cards count and account info.
+///
+- (void)getNewCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch unclicked cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with unclicked cards count and account info.
+///
+- (void)getUnclickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch clicked cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with clicked cards count and account info.
+///
+- (void)getClickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to present the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+- (void)presentCardsViewControllerWithUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to push the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+- (void)pushCardsViewControllerToNavigationController:(UINavigationController * _Nonnull)navController withUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to return the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+///
+/// returns:
+/// returns the CardsController
+- (void)getCardsViewControllerWithUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MoEngageCardsListViewController * _Nullable))completionBlock;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1310,11 +1326,24 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class NSDate;
+
+SWIFT_CLASS("_TtC13MoEngageCards21MoEngageCampaignState")
+@interface MoEngageCampaignState : NSObject
+@property (nonatomic, readonly) int64_t showCountTotal;
+@property (nonatomic, readonly) BOOL isClicked;
+@property (nonatomic, readonly, copy) NSDate * _Nullable firstSeenTime;
+@property (nonatomic, readonly, copy) NSDate * _Nullable firstDeliveredTime;
+@property (nonatomic, readonly) int64_t showCountCurrentDevice;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class NSString;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC13MoEngageCards12MOCardAction")
-@interface MOCardAction : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards18MoEngageCardAction")
+@interface MoEngageCardAction : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull name;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
 @property (nonatomic, readonly, copy) NSString * _Nonnull value;
@@ -1325,51 +1354,51 @@ SWIFT_CLASS("_TtC13MoEngageCards12MOCardAction")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSDate;
-@class MOCardTemplateData;
-@class MOCardDisplayControl;
+@class MoEngageCardTemplateData;
+@class MoEngageCardDisplayControl;
 
-SWIFT_CLASS("_TtC13MoEngageCards14MOCardCampaign")
-@interface MOCardCampaign : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards20MoEngageCardCampaign")
+@interface MoEngageCardCampaign : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull cardID;
 @property (nonatomic, readonly) BOOL shouldShow;
 @property (nonatomic, readonly, copy) NSString * _Nonnull category;
 @property (nonatomic, readonly, copy) NSDate * _Nullable createdDate;
 @property (nonatomic, readonly, copy) NSDate * _Nonnull updatedDate;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull metaData;
-@property (nonatomic, readonly, strong) MOCardTemplateData * _Nullable templateData;
-@property (nonatomic, readonly, strong) MOCardDisplayControl * _Nullable displayControl;
+@property (nonatomic, readonly, strong) MoEngageCardTemplateData * _Nullable templateData;
+@property (nonatomic, readonly, strong) MoEngageCardDisplayControl * _Nullable displayControl;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nullable cardPayload;
+@property (nonatomic, readonly, strong) MoEngageCampaignState * _Nonnull cardState;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class MOCardStyle;
-@class MOCardWidget;
+@class MoEngageCardStyle;
+@class MoEngageCardWidget;
 
-SWIFT_CLASS("_TtC13MoEngageCards15MOCardContainer")
-@interface MOCardContainer : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards21MoEngageCardContainer")
+@interface MoEngageCardContainer : NSObject <NSCoding>
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, strong) MOCardStyle * _Nullable style;
-@property (nonatomic, readonly, copy) NSArray<MOCardWidget *> * _Nonnull widgets;
-@property (nonatomic, readonly, copy) NSArray<MOCardAction *> * _Nonnull actions;
+@property (nonatomic, readonly, strong) MoEngageCardStyle * _Nullable style;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardWidget *> * _Nonnull widgets;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardAction *> * _Nonnull actions;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class MOCardShowTime;
+@class MoEngageCardShowTime;
 
-SWIFT_CLASS("_TtC13MoEngageCards20MOCardDisplayControl")
-@interface MOCardDisplayControl : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards26MoEngageCardDisplayControl")
+@interface MoEngageCardDisplayControl : NSObject <NSCoding>
 @property (nonatomic, readonly) BOOL isPinned;
 @property (nonatomic, readonly) int64_t maxTimesToShow;
 @property (nonatomic, readonly, copy) NSDate * _Nullable expiryDate;
-@property (nonatomic, readonly, strong) MOCardShowTime * _Nullable showTime;
+@property (nonatomic, readonly, strong) MoEngageCardShowTime * _Nullable showTime;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1377,8 +1406,8 @@ SWIFT_CLASS("_TtC13MoEngageCards20MOCardDisplayControl")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards14MOCardShowTime")
-@interface MOCardShowTime : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards20MoEngageCardShowTime")
+@interface MoEngageCardShowTime : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull startTime;
 @property (nonatomic, readonly, copy) NSString * _Nonnull endTime;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
@@ -1389,8 +1418,8 @@ SWIFT_CLASS("_TtC13MoEngageCards14MOCardShowTime")
 
 @class UIColor;
 
-SWIFT_CLASS("_TtC13MoEngageCards11MOCardStyle")
-@interface MOCardStyle : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards17MoEngageCardStyle")
+@interface MoEngageCardStyle : NSObject <NSCoding>
 @property (nonatomic, readonly, strong) UIColor * _Nullable bgColor;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -1399,10 +1428,10 @@ SWIFT_CLASS("_TtC13MoEngageCards11MOCardStyle")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards18MOCardTemplateData")
-@interface MOCardTemplateData : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards24MoEngageCardTemplateData")
+@interface MoEngageCardTemplateData : NSObject <NSCoding>
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, copy) NSArray<MOCardContainer *> * _Nonnull containers;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardContainer *> * _Nonnull containers;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -1410,177 +1439,45 @@ SWIFT_CLASS("_TtC13MoEngageCards18MOCardTemplateData")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards12MOCardWidget")
-@interface MOCardWidget : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards18MoEngageCardWidget")
+@interface MoEngageCardWidget : NSObject <NSCoding>
 @property (nonatomic, readonly) NSInteger id;
 @property (nonatomic, readonly, copy) NSString * _Nonnull typeString;
-@property (nonatomic, readonly, strong) MOCardStyle * _Nullable style;
+@property (nonatomic, readonly, strong) MoEngageCardStyle * _Nullable style;
 @property (nonatomic, readonly, copy) NSString * _Nonnull content;
-@property (nonatomic, readonly, copy) NSArray<MOCardAction *> * _Nonnull actions;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardAction *> * _Nonnull actions;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@protocol MOCardsDelegate;
-@class MOCardsData;
-@class MOAccountMeta;
-@class MOCardsUIConfiguration;
-@protocol MOCardsViewControllerDelegate;
-@class UINavigationController;
-@class MOCardsListViewController;
 
-SWIFT_CLASS("_TtC13MoEngageCards7MOCards")
-@interface MOCards : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MOCards * _Nonnull sharedInstance;)
-+ (MOCards * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
-/// Method to set the cards delegate
-/// \param delegate delegate object
-///
-/// \param appID optional account identifier
-///
-- (void)setCardsDelegateWithDelegate:(id <MOCardsDelegate> _Nonnull)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to sync the cards
-/// \param appID account identifier
-///
-/// \param completionBlock completion block to be called after sync is performed
-///
-- (void)syncCardsForAppID:(NSString * _Nullable)appID withCompletion:(void (^ _Nullable)(BOOL))completionBlock;
-/// Method to fetch Cards data
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards data and account info.
-///
-- (void)getCardsDataForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MOCardsData * _Nullable, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch Cards categories
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards categories and account info.
-///
-- (void)getCardsCategoriesForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch Cards campaign
-/// \param appID account identifier
-///
-/// \param completionBlock completion block with cards campaign info and account info.
-///
-- (void)getCardsForCategory:(NSString * _Nonnull)category forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<MOCardCampaign *> * _Nonnull, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch ShowAllTab status.
-/// \param appID account identifier
-///
-///
-/// returns:
-/// Bool indicating if showAllTab is set to true/false.
-- (void)isAllCategoryEnabledForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(BOOL))completionBlock;
-/// Method to track cards shown and update delivery counters accordingly.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardShown:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to mark a card as clicked and tracks an event for statistical purpose.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardClicked:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to mark a card as clicked and tracks an event for statistical purpose.
-/// \param card instance of MOCardCampaign
-///
-/// \param widgetID unique identifier for the widget that was clicked
-///
-/// \param appID account identifier.
-///
-- (void)cardClicked:(MOCardCampaign * _Nonnull)card withWidgetID:(NSInteger)widgetID forAppID:(NSString * _Nullable)appID;
-/// Method to mark tracking delivery of cards to inbox.
-/// \param card instance of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-- (void)cardDelivered:(MOCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
-/// Method to delete the cards
-/// \param cardsArr array of MOCardCampaign
-///
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block called once card is deleted.
-///
-- (void)deleteCards:(NSArray<MOCardCampaign *> * _Nonnull)cardsArr forAppID:(NSString * _Nullable)appID andCompletionBlock:(void (^ _Nonnull)(BOOL, MOAccountMeta * _Nullable))completionBlock;
-- (void)cardsViewControllerLoadedForAppID:(NSString * _Nullable)appID;
-- (void)cardsViewControllerDismissedForAppID:(NSString * _Nullable)appID;
-/// Method to fetch new cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with new cards count and account info.
-///
-- (void)getNewCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch unclicked cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with unclicked cards count and account info.
-///
-- (void)getUnclickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to fetch clicked cards count
-/// \param appID account identifier.
-///
-/// \param completionBlock completion block with clicked cards count and account info.
-///
-- (void)getClickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MOAccountMeta * _Nullable))completionBlock;
-/// Method to present the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-- (void)presentCardsViewControllerWithUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to push the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-- (void)pushCardsViewControllerToNavigationController:(UINavigationController * _Nonnull)navController withUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
-/// Method to return the CardsController
-/// \param config Cards config instance
-///
-/// \param delegate optional cards delegate
-///
-/// \param appID account identifier.
-///
-///
-/// returns:
-/// returns the CardsController
-- (void)getCardsViewControllerWithUIConfiguration:(MOCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MOCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MOCardsListViewController * _Nullable))completionBlock;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC13MoEngageCards11MOCardsData")
-@interface MOCardsData : NSObject <NSCoding>
+SWIFT_CLASS("_TtC13MoEngageCards17MoEngageCardsData")
+@interface MoEngageCardsData : NSObject <NSCoding>
 @property (nonatomic, readonly) BOOL showAllTab;
 @property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull cardCategories;
-@property (nonatomic, readonly, copy) NSArray<MOCardCampaign *> * _Nonnull cards;
+@property (nonatomic, readonly, copy) NSArray<MoEngageCardCampaign *> * _Nonnull cards;
 - (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
 - (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class MoEngageAccountMeta;
 
-SWIFT_PROTOCOL("_TtP13MoEngageCards15MOCardsDelegate_")
-@protocol MOCardsDelegate
+SWIFT_PROTOCOL("_TtP13MoEngageCards21MoEngageCardsDelegate_")
+@protocol MoEngageCardsDelegate
 @optional
-- (void)cardsSyncedSuccessfullyForAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
+- (void)cardsSyncedSuccessfullyForAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
 @end
 
 @class UITraitCollection;
 @protocol UIViewControllerTransitionCoordinator;
 @class NSBundle;
 
-SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
-@interface MOCardsListViewController : UIViewController <UIGestureRecognizerDelegate>
+SWIFT_CLASS("_TtC13MoEngageCards31MoEngageCardsListViewController")
+@interface MoEngageCardsListViewController : UIViewController <UIGestureRecognizerDelegate>
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 - (void)viewDidLayoutSubviews;
@@ -1597,7 +1494,7 @@ SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
 @class NSIndexPath;
 @class UITableViewCell;
 
-@interface MOCardsListViewController (SWIFT_EXTENSION(MoEngageCards)) <UITableViewDataSource, UITableViewDelegate>
+@interface MoEngageCardsListViewController (SWIFT_EXTENSION(MoEngageCards)) <UITableViewDataSource, UITableViewDelegate>
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -1610,24 +1507,151 @@ SWIFT_CLASS("_TtC13MoEngageCards25MOCardsListViewController")
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards25MOCardsNavigationBarStyle")
-@interface MOCardsNavigationBarStyle : NSObject
+SWIFT_CLASS("_TtC13MoEngageCards31MoEngageCardsNavigationBarStyle")
+@interface MoEngageCardsNavigationBarStyle : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_CLASS("_TtC13MoEngageCards22MOCardsUIConfiguration")
-@interface MOCardsUIConfiguration : NSObject
+SWIFT_CLASS("_TtC13MoEngageCards28MoEngageCardsUIConfiguration")
+@interface MoEngageCardsUIConfiguration : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
-SWIFT_PROTOCOL("_TtP13MoEngageCards29MOCardsViewControllerDelegate_")
-@protocol MOCardsViewControllerDelegate
+SWIFT_PROTOCOL("_TtP13MoEngageCards35MoEngageCardsViewControllerDelegate_")
+@protocol MoEngageCardsViewControllerDelegate
 @optional
-- (void)cardsViewControllerDismissedForAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-- (void)cardDeletedWithCardInfo:(MOCardCampaign * _Nonnull)card forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta;
-- (BOOL)cardClickedWithCardInfo:(MOCardCampaign * _Nonnull)card andAction:(MOCardAction * _Nonnull)action forAccountMeta:(MOAccountMeta * _Nonnull)accountMeta SWIFT_WARN_UNUSED_RESULT;
+- (void)cardsViewControllerDismissedForAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+- (void)cardDeletedWithCardInfo:(MoEngageCardCampaign * _Nonnull)card forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta;
+- (BOOL)cardClickedWithCardInfo:(MoEngageCardCampaign * _Nonnull)card andAction:(MoEngageCardAction * _Nonnull)action forAccountMeta:(MoEngageAccountMeta * _Nonnull)accountMeta SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class UINavigationController;
+
+SWIFT_CLASS("_TtC13MoEngageCards16MoEngageSDKCards")
+@interface MoEngageSDKCards : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKCards * _Nonnull sharedInstance;)
++ (MoEngageSDKCards * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+/// Method to set the cards delegate
+/// \param delegate delegate object
+///
+/// \param appID optional account identifier
+///
+- (void)setCardsDelegateWithDelegate:(id <MoEngageCardsDelegate> _Nonnull)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to sync the cards
+/// \param appID account identifier
+///
+/// \param completionBlock completion block to be called after sync is performed
+///
+- (void)syncCardsForAppID:(NSString * _Nullable)appID withCompletion:(void (^ _Nullable)(BOOL))completionBlock;
+/// Method to fetch Cards data
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards data and account info.
+///
+- (void)getCardsDataForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MoEngageCardsData * _Nullable, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch Cards categories
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards categories and account info.
+///
+- (void)getCardsCategoriesForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<NSString *> * _Nonnull, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch Cards campaign
+/// \param appID account identifier
+///
+/// \param completionBlock completion block with cards campaign info and account info.
+///
+- (void)getCardsForCategory:(NSString * _Nonnull)category forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSArray<MoEngageCardCampaign *> * _Nonnull, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch ShowAllTab status.
+/// \param appID account identifier
+///
+///
+/// returns:
+/// Bool indicating if showAllTab is set to true/false.
+- (void)isAllCategoryEnabledForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(BOOL))completionBlock;
+/// Method to track cards shown and update delivery counters accordingly.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardShown:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to mark a card as clicked and tracks an event for statistical purpose.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardClicked:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to mark a card as clicked and tracks an event for statistical purpose.
+/// \param card instance of MOCardCampaign
+///
+/// \param widgetID unique identifier for the widget that was clicked
+///
+/// \param appID account identifier.
+///
+- (void)cardClicked:(MoEngageCardCampaign * _Nonnull)card withWidgetID:(NSInteger)widgetID forAppID:(NSString * _Nullable)appID;
+/// Method to mark tracking delivery of cards to inbox.
+/// \param card instance of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+- (void)cardDelivered:(MoEngageCardCampaign * _Nonnull)card forAppID:(NSString * _Nullable)appID;
+/// Method to delete the cards
+/// \param cardsArr array of MoEngageCardCampaign
+///
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block called once card is deleted.
+///
+- (void)deleteCards:(NSArray<MoEngageCardCampaign *> * _Nonnull)cardsArr forAppID:(NSString * _Nullable)appID andCompletionBlock:(void (^ _Nonnull)(BOOL, MoEngageAccountMeta * _Nullable))completionBlock;
+- (void)cardsViewControllerLoadedForAppID:(NSString * _Nullable)appID;
+- (void)cardsViewControllerDismissedForAppID:(NSString * _Nullable)appID;
+/// Method to fetch new cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with new cards count and account info.
+///
+- (void)getNewCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch unclicked cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with unclicked cards count and account info.
+///
+- (void)getUnclickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to fetch clicked cards count
+/// \param appID account identifier.
+///
+/// \param completionBlock completion block with clicked cards count and account info.
+///
+- (void)getClickedCardsCountForAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(NSInteger, MoEngageAccountMeta * _Nullable))completionBlock;
+/// Method to present the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+- (void)presentCardsViewControllerWithUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to push the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+- (void)pushCardsViewControllerToNavigationController:(UINavigationController * _Nonnull)navController withUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID;
+/// Method to return the CardsController
+/// \param config Cards config instance
+///
+/// \param delegate optional cards delegate
+///
+/// \param appID account identifier.
+///
+///
+/// returns:
+/// returns the CardsController
+- (void)getCardsViewControllerWithUIConfiguration:(MoEngageCardsUIConfiguration * _Nullable)config withCardsViewControllerDelegate:(id <MoEngageCardsViewControllerDelegate> _Nullable)delegate forAppID:(NSString * _Nullable)appID withCompletionBlock:(void (^ _Nonnull)(MoEngageCardsListViewController * _Nullable))completionBlock;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

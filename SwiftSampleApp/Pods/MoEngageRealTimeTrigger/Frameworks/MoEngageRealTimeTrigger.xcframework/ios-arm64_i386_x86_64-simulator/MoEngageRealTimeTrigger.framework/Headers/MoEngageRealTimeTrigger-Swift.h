@@ -217,10 +217,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSString;
 
-SWIFT_CLASS("_TtC23MoEngageRealTimeTrigger17MORealTimeTrigger")
-@interface MORealTimeTrigger : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MORealTimeTrigger * _Nonnull sharedInstance;)
-+ (MORealTimeTrigger * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC23MoEngageRealTimeTrigger26MoEngageSDKRealTimeTrigger")
+@interface MoEngageSDKRealTimeTrigger : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKRealTimeTrigger * _Nonnull sharedInstance;)
++ (MoEngageSDKRealTimeTrigger * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Method to sync RealTimeTrigger
@@ -455,10 +455,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSString;
 
-SWIFT_CLASS("_TtC23MoEngageRealTimeTrigger17MORealTimeTrigger")
-@interface MORealTimeTrigger : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MORealTimeTrigger * _Nonnull sharedInstance;)
-+ (MORealTimeTrigger * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC23MoEngageRealTimeTrigger26MoEngageSDKRealTimeTrigger")
+@interface MoEngageSDKRealTimeTrigger : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKRealTimeTrigger * _Nonnull sharedInstance;)
++ (MoEngageSDKRealTimeTrigger * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Method to sync RealTimeTrigger
@@ -693,10 +693,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSString;
 
-SWIFT_CLASS("_TtC23MoEngageRealTimeTrigger17MORealTimeTrigger")
-@interface MORealTimeTrigger : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MORealTimeTrigger * _Nonnull sharedInstance;)
-+ (MORealTimeTrigger * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC23MoEngageRealTimeTrigger26MoEngageSDKRealTimeTrigger")
+@interface MoEngageSDKRealTimeTrigger : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MoEngageSDKRealTimeTrigger * _Nonnull sharedInstance;)
++ (MoEngageSDKRealTimeTrigger * _Nonnull)sharedInstance SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// Method to sync RealTimeTrigger

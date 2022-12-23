@@ -18,13 +18,13 @@ class NotificationService: UNNotificationServiceExtension {
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         
         // Set App group Id
-        MORichNotification.setAppGroupID("<YOUR APP GROUP ID>")
+        MoEngageSDKRichNotification.setAppGroupID("<YOUR APP GROUP ID>")
         
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
         // Call Handle richnotification request
-        MORichNotification.handle(richNotificationRequest: request, withContentHandler: contentHandler)
+        MoEngageSDKRichNotification.handle(richNotificationRequest: request, withContentHandler: contentHandler)
     }
     
     override func serviceExtensionTimeWillExpire() {

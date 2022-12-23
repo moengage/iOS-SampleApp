@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         navigationItem.title = "MoEngage Sample App"
         tableView.rowHeight = 75
         tableView.estimatedRowHeight = 100
-        MOInApp.sharedInstance().setInAppDelegate(self)
+        MoEngageSDKInApp.sharedInstance.setInAppDelegate(self)
     }
 }
 
@@ -49,7 +49,7 @@ extension ViewController: UITableViewDelegate {
         case .geofence:
             geofenceMonitoring()
         case .realTimeTrigger:
-            MOAnalytics.sharedInstance.trackEvent("Product Purchased")
+            MoEngageSDKAnalytics.sharedInstance.trackEvent("Product Purchased")
         case .trackNonInteractiveEvent:
             trackNonInteractiveEvents()
         case .logout:
@@ -67,7 +67,7 @@ extension ViewController: UITableViewDelegate {
         eventAttrDict["BrandName"] = "Apple"
         eventAttrDict["Items In Stock"] = 109
 
-        let eventProperties = MOProperties(withAttributes: eventAttrDict)
+        let eventProperties = MoEngageProperties(withAttributes: eventAttrDict)
 
         eventProperties.addAttribute(87000.00, withName: "price")
         eventProperties.addAttribute("Rupees", withName: "currency")
@@ -76,63 +76,63 @@ extension ViewController: UITableViewDelegate {
         eventProperties.addDateISOStringAttribute("2020-02-22T12:37:56Z", withName: "Time of checkout")
         eventProperties.addDateAttribute(Date(), withName: "Time of purchase")
 
-        eventProperties.addLocationAttribute(MOGeoLocation.init(withLatitude: 12.23, andLongitude: 9.23), withName: "Pickup Location")
-        MOAnalytics.sharedInstance.trackEvent("Successfully Purchase", withProperties: eventProperties)
+        eventProperties.addLocationAttribute(MoEngageGeoLocation.init(withLatitude: 12.23, andLongitude: 9.23), withName: "Pickup Location")
+        MoEngageSDKAnalytics.sharedInstance.trackEvent("Successfully Purchase", withProperties: eventProperties)
     }
     
     /// User attributes are specific traits of a user, like an email, username, mobile, gender, etc.
     /// Available User attributes: Unique Id, name, lastname, firstname, emailId, mobileNumber, gender, dateOfBirth, date, iso date and locaion
     private func trackUserAttributes() {
         let uniqueID = "test\(Int(Date().timeIntervalSince1970))@gmail.com"
-        MOAnalytics.sharedInstance.setUniqueID(uniqueID)
+        MoEngageSDKAnalytics.sharedInstance.setUniqueID(uniqueID)
                 
-        MOAnalytics.sharedInstance.setName("userName")
-        MOAnalytics.sharedInstance.setLastName("userLastname")
-        MOAnalytics.sharedInstance.setFirstName("userFirstName")
-        MOAnalytics.sharedInstance.setEmailID("userEmailID@gmail.com")
-        MOAnalytics.sharedInstance.setMobileNumber("8888888888")
-        MOAnalytics.sharedInstance.setGender(.male) //Use UserGender enumerator for this
-        MOAnalytics.sharedInstance.setDateOfBirth(Date())
-        MOAnalytics.sharedInstance.setUserAttributeDate(Date(), withAttributeName: "Date Attr 1")
-        MOAnalytics.sharedInstance.setUserAttributeISODate("2020-01-12T18:45:59Z", withAttributeName: "Date Attr 2")
-        MOAnalytics.sharedInstance.setUserAttributeISODate("2020-01-12T18:45:59.333Z", withAttributeName: "Date Attr 3")
-        MOAnalytics.sharedInstance.setLocation(MOGeoLocation.init(withLatitude: 72.90909, andLongitude: 12.34567))
-        MOAnalytics.sharedInstance.setLocation(MOGeoLocation.init(withLatitude: 72.90909, andLongitude: 12.34567), withAttributeName: "loc 1")
+        MoEngageSDKAnalytics.sharedInstance.setName("userName")
+        MoEngageSDKAnalytics.sharedInstance.setLastName("userLastname")
+        MoEngageSDKAnalytics.sharedInstance.setFirstName("userFirstName")
+        MoEngageSDKAnalytics.sharedInstance.setEmailID("userEmailID@gmail.com")
+        MoEngageSDKAnalytics.sharedInstance.setMobileNumber("8888888888")
+        MoEngageSDKAnalytics.sharedInstance.setGender(.male) //Use UserGender enumerator for this
+        MoEngageSDKAnalytics.sharedInstance.setDateOfBirth(Date())
+        MoEngageSDKAnalytics.sharedInstance.setUserAttributeDate(Date(), withAttributeName: "Date Attr 1")
+        MoEngageSDKAnalytics.sharedInstance.setUserAttributeISODate("2020-01-12T18:45:59Z", withAttributeName: "Date Attr 2")
+        MoEngageSDKAnalytics.sharedInstance.setUserAttributeISODate("2020-01-12T18:45:59.333Z", withAttributeName: "Date Attr 3")
+        MoEngageSDKAnalytics.sharedInstance.setLocation(MoEngageGeoLocation.init(withLatitude: 72.90909, andLongitude: 12.34567))
+        MoEngageSDKAnalytics.sharedInstance.setLocation(MoEngageGeoLocation.init(withLatitude: 72.90909, andLongitude: 12.34567), withAttributeName: "loc 1")
     }
     
     private func trackNonInteractiveEvents() {
         //Set Attributes
         let dict = ["NewsCategory":"Politics"]
-        let properties = MOProperties(withAttributes: dict)
+        let properties = MoEngageProperties(withAttributes: dict)
         properties.addDateAttribute(Date(), withName:"refreshTime")
 
         //Set the Event as Non-Interactive
         properties.setNonInteractive()
 
         //Track event
-        MOAnalytics.sharedInstance.trackEvent("App Content Refreshed", withProperties: properties)
+        MoEngageSDKAnalytics.sharedInstance.trackEvent("App Content Refreshed", withProperties: properties)
     }
     
     // MARK: - INBOX MESSAGES
     // To get inbox messages from MoEngage
     func getInboxMessages() {
-        MOInbox.sharedInstance.pushInboxViewController(toNavigationController: self.navigationController!, withInboxWithControllerDelegate: self)
+        MoEngageSDKInbox.sharedInstance.pushInboxViewController(toNavigationController: self.navigationController!, withInboxWithControllerDelegate: self)
         
     }
     
     // MARK: - GEOFENCE
     func geofenceMonitoring(){
-        MOGeofence.sharedInstance.startGeofenceMonitoring()
+        MoEngageSDKGeofence.sharedInstance.startGeofenceMonitoring()
     }
     
     // MARK: - INAPPs
     
     private func showInapp() {
-        MOInApp.sharedInstance().showCampaign()
+        MoEngageSDKInApp.sharedInstance.showInApp()
     }
     
     private func showSelfHandledInapp() {
-        MOInApp.sharedInstance().getSelfHandledInApp { (campaignInfo, accountMeta) in
+        MoEngageSDKInApp.sharedInstance.getSelfHandledInApp { (campaignInfo, accountMeta) in
               if let campaignInfo = campaignInfo{ print("Self-Hanled InApp Content \(campaignInfo.campaignContent)")
                   // Update UI with Self Handled InApp Content
                         
@@ -145,12 +145,12 @@ extension ViewController: UITableViewDelegate {
     // MARK: - CARDS
     
     private func showCards() {
-        MOCards.sharedInstance.pushCardsViewController(toNavigationController: self.navigationController!)
+        MoEngageSDKCards.sharedInstance.pushCardsViewController(toNavigationController: self.navigationController!)
     }
     
     // MARK: - LOGOUT
     private func logout() {
-        MOAnalytics.sharedInstance.resetUser()
+        MoEngageSDKAnalytics.sharedInstance.resetUser()
     }
 }
 
@@ -174,12 +174,12 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK: - MOInboxViewControllerDelegate
-extension ViewController: MOInboxViewControllerDelegate {
-    func inboxEntryClicked(_ inboxItem: MOInboxEntry) {
+extension ViewController: MoEngageInboxViewControllerDelegate {
+    func inboxEntryClicked(_ inboxItem: MoEngageInboxEntry) {
         print("Inbox Clicked")
     }
     
-    func inboxEntryDeleted(_ inboxItem: MOInboxEntry) {
+    func inboxEntryDeleted(_ inboxItem: MoEngageInboxEntry) {
         print("Inbox item deleted")
     }
     
@@ -189,28 +189,36 @@ extension ViewController: MOInboxViewControllerDelegate {
 }
 
 // MARK: - MOInAppNativDelegate
-extension ViewController: MOInAppNativDelegate {
+extension ViewController: MoEngageInAppNativeDelegate {
+    func selfHandledInAppTriggered(withInfo inappCampaign: MoEngageInAppSelfHandledCampaign, forAccountMeta accountMeta: MoEngageAccountMeta) {
+        
+    }
+    
     // Called when an inApp is shown on the screen
-    func inAppShown(withCampaignInfo inappCampaign: MOInAppCampaign, for accountMeta: MOAccountMeta) {
-       print("InApp shown callback for Campaign ID(\(inappCampaign.campaign_id)) and CampaignName(\(inappCampaign.campaign_name))")
+    func inAppShown(withCampaignInfo inappCampaign: MoEngageInAppCampaign, forAccountMeta accountMeta: MoEngageAccountMeta) {
+       print("InApp shown callback for Campaign ID(\(inappCampaign.campaignId)) and CampaignName(\(inappCampaign.campaignName))")
        print("Account Meta AppID: \(accountMeta.appID)")
     }
 
     // Called when an inApp is dismissed by the user
-    func inAppDismissed(withCampaignInfo inappCampaign: MOInAppCampaign, for accountMeta: MOAccountMeta) {
-        print("InApp dismissed callback for Campaign ID(\(inappCampaign.campaign_id)) and CampaignName(\(inappCampaign.campaign_name))")
+    func inAppDismissed(withCampaignInfo inappCampaign: MoEngageInAppCampaign, forAccountMeta accountMeta: MoEngageAccountMeta) {
+        print("InApp dismissed callback for Campaign ID(\(inappCampaign.campaignId)) and CampaignName(\(inappCampaign.campaignName))")
         print("Account Meta AppID: \(accountMeta.appID)")
     }
 
     // Called when an inApp is clicked by the user, and it has been configured with a custom action
-    func inAppClicked(withCampaignInfo inappCampaign: MOInAppCampaign, andCustomActionInfo customAction: MOInAppAction, for accountMeta: MOAccountMeta) {
-         print("InApp Clicked with Campaign ID \(inappCampaign.campaign_id)")
+    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andCustomActionInfo customAction: MoEngageInAppAction, for accountMeta: MoEngageAccountMeta) {
+         print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
          print("Custom Actions Key Value Pairs: \(customAction.keyValuePairs)")
     }
 
     // Called when an inApp is clicked by the user, and it has been configured with a navigation action
-    func inAppClicked(withCampaignInfo inappCampaign: MOInAppCampaign, andNavigationActionInfo navigationAction: MOInAppAction, for accountMeta: MOAccountMeta) {
-         print("InApp Clicked with Campaign ID \(inappCampaign.campaign_id)")
-         print("Navigation Action Screen Name \(navigationAction.screenName) Key Value Pairs: \((navigationAction.keyValuePairs))")
+    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andCustomActionInfo customAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
+        print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
+    }
+    
+    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andNavigationActionInfo navigationAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
+        print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
+        print("Navigation Action Screen Name \(navigationAction.screenName) Key Value Pairs: \((navigationAction.keyValuePairs))")
     }
 }

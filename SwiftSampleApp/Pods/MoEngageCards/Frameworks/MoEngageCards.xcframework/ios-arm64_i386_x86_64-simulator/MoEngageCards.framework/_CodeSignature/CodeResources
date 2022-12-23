@@ -10,11 +10,11 @@
 		</data>
 		<key>CHANGELOG.md</key>
 		<data>
-		hkHxPmDsMm0I60jRP3B1uHEbkU8=
+		IH9z3+XvdbVtkfT/52vaNEs0Zhs=
 		</data>
 		<key>Headers/MoEngageCards-Swift.h</key>
 		<data>
-		+JuUftf1x6wnpORd5rMKadVXMjQ=
+		EtPMi1tVnYQ3GL/+LAO+Tn6jYkQ=
 		</data>
 		<key>Headers/MoEngageCards.h</key>
 		<data>
@@ -22,79 +22,79 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		aw7NEG7+cKxnMEWbQwAZndVm0fE=
+		zSldoElu9Jmt/8Bn8DGmRiywr5k=
 		</data>
 		<key>LICENSE</key>
 		<data>
 		ih5AQhHYR6MqQ2cinlT1HtiVYGQ=
 		</data>
-		<key>MOCardImageView.nib</key>
+		<key>MoEngageCardImageView.nib</key>
 		<data>
 		YoKouAsjq/qtcFpyaHsiiuf6Jlw=
 		</data>
-		<key>MOCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/objects-11.0+.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/objects-11.0+.nib</key>
 		<data>
-		+V+BqsMbrnsCrcmdSI+jfp8nplo=
+		ZuUDM3XcOUMXrcnd4IjTDvRoA9Y=
 		</data>
-		<key>MOCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/runtime.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/runtime.nib</key>
 		<data>
-		Fo8nhp93SSNOpoRhbnqDKuA8hPo=
+		K0kzUHeGq+jWnuTHdQbjOYY197s=
 		</data>
-		<key>MOCardsStoryboard.storyboardc/Info.plist</key>
+		<key>MoEngageCardsStoryboard.storyboardc/Info.plist</key>
 		<data>
-		decN8P9Fvz6GP3JKyHIWZFCp/98=
+		r2OK2NdujvKc9NnR4Xq5RLqarQc=
 		</data>
-		<key>MOCardsStoryboard.storyboardc/MOCardsListViewController.nib/objects-11.0+.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/MoEngageCardsListViewController.nib/objects-11.0+.nib</key>
 		<data>
-		mcfZklIq0E7oQrFEI+BP7O2ynJg=
+		mOQeuoQq0zZg4AfQhBoF870TKMs=
 		</data>
-		<key>MOCardsStoryboard.storyboardc/MOCardsListViewController.nib/runtime.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/MoEngageCardsListViewController.nib/runtime.nib</key>
 		<data>
-		mcfZklIq0E7oQrFEI+BP7O2ynJg=
+		mOQeuoQq0zZg4AfQhBoF870TKMs=
 		</data>
-		<key>MOCategoryCell.nib/objects-11.0+.nib</key>
+		<key>MoEngageCategoryCell.nib/objects-11.0+.nib</key>
 		<data>
-		d6+1/uHKflm2RqeZrf3iB+lwT9I=
+		667nVZx80h8/9I7EHK805EnzZqM=
 		</data>
-		<key>MOCategoryCell.nib/runtime.nib</key>
+		<key>MoEngageCategoryCell.nib/runtime.nib</key>
 		<data>
-		G0xnBk3qtIvN9n+0Z28VYlBrkds=
+		yokrQ/P8PqkC24dyHsclFuLimOU=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		T0gpchnJNZZ7EqW49y6OxNxM8QU=
+		8L3XLC+/fNGWdZIWO6YeTKPBZVM=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		szHRO4jQ3Yf3FZs+IxyNyf2IOz8=
+		qj37yJaZg64Xie5q7vQPMGbAGkQ=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		5Eqi/yqhbFLoABEaNKbQAx8++Ng=
+		TR7gVOx132JsY0bxiU8HMNxhRYI=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
-		OorkYiirzF9SeFGZW9k2Uma0tiE=
+		ESobHTveWs8zZfXkjahLnxUUcCE=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<data>
-		Vj10djfwun6IfMxySEsE3q44cWA=
+		Hp/UNTGFIS2NunK7Ad3Okga+L8Q=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		0mnnpyWkyxwnrrPwf83eRXq2xYQ=
+		2u/rNZKjXDoCjCmT7boox8vNbjY=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		cF9I3wI8KJo+cHhQFCr7JWccu84=
+		qcQ3dZniX0ltTh6XHhyPqoJtntw=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		+981xhKN8I6dbWcUz1z3jbLP7ys=
+		kcWcXL/mWtYxtYdWHGzR6rfU3Xs=
 		</data>
 		<key>Modules/MoEngageCards.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		cRoQ0a/z5qLQ9MOcgqEVqmdyyZM=
+		HJSGc1i4P82rwhulOPCnoPFXfm4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -118,22 +118,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hkHxPmDsMm0I60jRP3B1uHEbkU8=
+			IH9z3+XvdbVtkfT/52vaNEs0Zhs=
 			</data>
 			<key>hash2</key>
 			<data>
-			jSljsDqxfhzbnb3S3UR7ARZ2pVmcJoCUXsltIXESfTg=
+			NiJVE0VDjPHg6qJruyJbPffA6ouIBTjl9lFjm9aKGw0=
 			</data>
 		</dict>
 		<key>Headers/MoEngageCards-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+JuUftf1x6wnpORd5rMKadVXMjQ=
+			EtPMi1tVnYQ3GL/+LAO+Tn6jYkQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			pCHDT2NK/fXoCpXcwWB3jyyuOIyiDWOB7teHx/KJj2g=
+			19M3ZqNxFPxZm4mP6C+3PqGQxurqSSFvMCh1nEnze4Y=
 			</data>
 		</dict>
 		<key>Headers/MoEngageCards.h</key>
@@ -158,7 +158,7 @@
 			DHxoqa3SWsSeiRWX4o3nIP0kO6sTBMPVanytCdzu7ME=
 			</data>
 		</dict>
-		<key>MOCardImageView.nib</key>
+		<key>MoEngageCardImageView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -169,180 +169,180 @@
 			18awYT5k4mkThV2N5wrNvKgi7LRKvlhm3wr0PK/kvjg=
 			</data>
 		</dict>
-		<key>MOCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/objects-11.0+.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+V+BqsMbrnsCrcmdSI+jfp8nplo=
+			ZuUDM3XcOUMXrcnd4IjTDvRoA9Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			DjiVbAOQTCBdTInAN+tR721wXF917YP0rsG9H40wxLM=
+			nhbqrdsFYsrehsXdkWEHjv7DA8lPu2jhDX3NIeYzcj4=
 			</data>
 		</dict>
-		<key>MOCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/runtime.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/5oj-Nb-bwU-view-ASK-kv-Zce.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Fo8nhp93SSNOpoRhbnqDKuA8hPo=
+			K0kzUHeGq+jWnuTHdQbjOYY197s=
 			</data>
 			<key>hash2</key>
 			<data>
-			mnR3W0sG9qm3MZwEyQOk+DhL5jrdK4B0URwz9S0G6g8=
+			pIcy7QC3FteXC0+VtFuB8r0r+y9FRZc7X2xPj+69Adw=
 			</data>
 		</dict>
-		<key>MOCardsStoryboard.storyboardc/Info.plist</key>
+		<key>MoEngageCardsStoryboard.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			decN8P9Fvz6GP3JKyHIWZFCp/98=
+			r2OK2NdujvKc9NnR4Xq5RLqarQc=
 			</data>
 			<key>hash2</key>
 			<data>
-			aAuRVNqcY6z4x17DlG0r608HJO9kjz7cuXTKX8XHy7c=
+			Ji3LZDB1iomBlw7iGpfiM1T5u+OYYxZ9iOiWT2jAPi0=
 			</data>
 		</dict>
-		<key>MOCardsStoryboard.storyboardc/MOCardsListViewController.nib/objects-11.0+.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/MoEngageCardsListViewController.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mcfZklIq0E7oQrFEI+BP7O2ynJg=
+			mOQeuoQq0zZg4AfQhBoF870TKMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			iAnasseNQBcxJ1x66UnK0dzbQk79nwiRfxP1dmZzD7c=
+			LG5tsH8Ay5s9Zf1MrAV/eweaHMBLL8d2mBho+/ISm4M=
 			</data>
 		</dict>
-		<key>MOCardsStoryboard.storyboardc/MOCardsListViewController.nib/runtime.nib</key>
+		<key>MoEngageCardsStoryboard.storyboardc/MoEngageCardsListViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mcfZklIq0E7oQrFEI+BP7O2ynJg=
+			mOQeuoQq0zZg4AfQhBoF870TKMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			iAnasseNQBcxJ1x66UnK0dzbQk79nwiRfxP1dmZzD7c=
+			LG5tsH8Ay5s9Zf1MrAV/eweaHMBLL8d2mBho+/ISm4M=
 			</data>
 		</dict>
-		<key>MOCategoryCell.nib/objects-11.0+.nib</key>
+		<key>MoEngageCategoryCell.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d6+1/uHKflm2RqeZrf3iB+lwT9I=
+			667nVZx80h8/9I7EHK805EnzZqM=
 			</data>
 			<key>hash2</key>
 			<data>
-			U2eIgQexIW334c0iRurKLPOwF3gVSWLdCOwDC/IXRjA=
+			qBJhU5ke8RvvnbhI0REH3wZuBofGuCztfWLtSB+jt8s=
 			</data>
 		</dict>
-		<key>MOCategoryCell.nib/runtime.nib</key>
+		<key>MoEngageCategoryCell.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			G0xnBk3qtIvN9n+0Z28VYlBrkds=
+			yokrQ/P8PqkC24dyHsclFuLimOU=
 			</data>
 			<key>hash2</key>
 			<data>
-			GwMln+hIXr+b5/EmeoVC4DF61wW0RBqq69w81VACqzw=
+			M47wJgo1iG4fVgDLwY/Ia/NR5ZUm5ftTzF3HANa/hAw=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			T0gpchnJNZZ7EqW49y6OxNxM8QU=
+			8L3XLC+/fNGWdZIWO6YeTKPBZVM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z9BpHfJbpxh82BsINLazZGZlN+tYpNZt6n6pWrgml7A=
+			+gnnc1Y4foXIkTSFULrr1Zedy5r6NvmD7u6IxmlH5x4=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			szHRO4jQ3Yf3FZs+IxyNyf2IOz8=
+			qj37yJaZg64Xie5q7vQPMGbAGkQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			SAN3KlDKoBwE2Ji7jSQXegDgLOYn6OagKDggDWSZZL8=
+			f+lWgzjTAsVHwRduHQTOKquoEjErwFfltgZrT4/wE20=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5Eqi/yqhbFLoABEaNKbQAx8++Ng=
+			TR7gVOx132JsY0bxiU8HMNxhRYI=
 			</data>
 			<key>hash2</key>
 			<data>
-			TutnUvNSAQcHU1dW4odEq7tZhnZ9ZGQMJo69wTK7ue8=
+			4f9vetMS734Q53zGap/8se96ccbxAVcDiFcJ9z3XOrw=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OorkYiirzF9SeFGZW9k2Uma0tiE=
+			ESobHTveWs8zZfXkjahLnxUUcCE=
 			</data>
 			<key>hash2</key>
 			<data>
-			vuRQ/MGuoz5AQLhPJY0TaDWzRn43nY67b6tT4FPXOi8=
+			pYPbww++EDsijXjfND4BkW3v1f1nfB98EIbCkUzr+wU=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Vj10djfwun6IfMxySEsE3q44cWA=
+			Hp/UNTGFIS2NunK7Ad3Okga+L8Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			CU6a//qsQhUC6LrG2vL3BbUEgGVT31a2wCRySZhroyk=
+			u24t4kN5jFs637z5m1UZyA788xjAZhFansL1/z9EZeA=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0mnnpyWkyxwnrrPwf83eRXq2xYQ=
+			2u/rNZKjXDoCjCmT7boox8vNbjY=
 			</data>
 			<key>hash2</key>
 			<data>
-			t3IDH5V7tLTdq91oiiwKz/1vf08oVKlNDR29xgbK2p8=
+			7HR1XvQ+LG7PrJJJJqGewDJ+5ng2OZH+XGiw0tgek68=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cF9I3wI8KJo+cHhQFCr7JWccu84=
+			qcQ3dZniX0ltTh6XHhyPqoJtntw=
 			</data>
 			<key>hash2</key>
 			<data>
-			7AEGQP9ypQZ60iRZljhNUpwUZ7YrKlW3VZGeqSRh/GY=
+			qXfC8c2kT4RMP2hcpwKpOhONJHyPfxFSf7mjZSux8Dk=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+981xhKN8I6dbWcUz1z3jbLP7ys=
+			kcWcXL/mWtYxtYdWHGzR6rfU3Xs=
 			</data>
 			<key>hash2</key>
 			<data>
-			AdaosdEYaoceNQRh7Sbi8H+i0YadExqcIb6/weJIOGI=
+			lg0k7DnFlNUCrq2QHSfyKFxV2DvOrDp7BNen1o06jmc=
 			</data>
 		</dict>
 		<key>Modules/MoEngageCards.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cRoQ0a/z5qLQ9MOcgqEVqmdyyZM=
+			HJSGc1i4P82rwhulOPCnoPFXfm4=
 			</data>
 			<key>hash2</key>
 			<data>
-			2IBxIqwffLdYuI6HxTbTZYT1+o8pESZTAQIMks8/sSg=
+			uQGWj2lVBPtXeStTj29xDBCXC24M1thtLOGRe7KYjUw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

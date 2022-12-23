@@ -2,6 +2,18 @@
 ===========================
 
 ## Change Log:
+### Version 5.1.0 *(13th December, 2022)*
+-------------------------------------------
+* Added dSYM file support for debugging.
+
+### Version 5.0.0 *(7th December, 2022)*
+-------------------------------------------
+* All the classes and modules are prefixed with `MoEngage`.
+
+### Version 4.4.0  *(18th October, 2022)*
+-------------------------------------------
+* Updated the dependency to MoEngage-iOS-SDK 8.4.0
+
 ### Version 4.3.0  *(20th July, 2022)*
 -------------------------------------------
 * Updated the dependency to MoEngage-iOS-SDK 8.3.0

@@ -6,11 +6,11 @@
 	<dict>
 		<key>CHANGELOG.md</key>
 		<data>
-		p/sjVMiiM8qQ7BZVvwpi24UYv6U=
+		cIZTFuubSzTeAkwjwjYr+eKp0wI=
 		</data>
 		<key>Headers/MoEngageInbox-Swift.h</key>
 		<data>
-		ksNXrb3ogmk0THNQmJbtE2waPps=
+		3rwz27r+dLvScVPSTQunFdgnya0=
 		</data>
 		<key>Headers/MoEngageInbox.h</key>
 		<data>
@@ -18,67 +18,67 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XkEAAC/NXclAuTvsThm1Myn+ey0=
+		BJ0uiLaoWFT2to9JZuGQXYynzSA=
 		</data>
 		<key>LICENSE</key>
 		<data>
 		ih5AQhHYR6MqQ2cinlT1HtiVYGQ=
 		</data>
-		<key>MOInbox.storyboardc/Info.plist</key>
+		<key>MoEngageInbox.storyboardc/Info.plist</key>
 		<data>
-		Zgp86pNFtvVXmVzl/VV1Ykddcjw=
+		jccau/vxU86dgncmS+v4LtJGY/A=
 		</data>
-		<key>MOInbox.storyboardc/MOInboxViewController.nib/objects-11.0+.nib</key>
+		<key>MoEngageInbox.storyboardc/MoEngageInboxViewController.nib/objects-11.0+.nib</key>
 		<data>
-		KGuB+K5csmz6t6eZX6XQu0btoCc=
+		dfGiJa5h9kh0YMXUKQg7H1UKmxA=
 		</data>
-		<key>MOInbox.storyboardc/MOInboxViewController.nib/runtime.nib</key>
+		<key>MoEngageInbox.storyboardc/MoEngageInboxViewController.nib/runtime.nib</key>
 		<data>
-		KGuB+K5csmz6t6eZX6XQu0btoCc=
+		dfGiJa5h9kh0YMXUKQg7H1UKmxA=
 		</data>
-		<key>MOInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/objects-11.0+.nib</key>
+		<key>MoEngageInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/objects-11.0+.nib</key>
 		<data>
-		12Xu3L38Zr9hryExIXPBniz2fSY=
+		PtbKCRgGop1eXfrZT+YNsjIw0lY=
 		</data>
-		<key>MOInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/runtime.nib</key>
+		<key>MoEngageInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/runtime.nib</key>
 		<data>
-		zmTRsHF/QoaNndhD9LuvcPQjk6w=
+		kjK9+Spr8n6I8kVSGgmGmAqnsLE=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		+M2u3Bs44pFZuRuHxIUyySjeD/4=
+		GPbWa8z81cDlFNgjvQySqWvW0uw=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		LPuQ85EsKLHqfRHlvD+o/smquoA=
+		/lC+htwJx+plaUKRC3pAOXTLOFQ=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ksCIwMAJLwPfj6zrJTAGeOkfJAE=
+		mSN49kNGid7KiblVL09g37GBDgQ=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
-		K4mbcIhkEzOA93RTKzYWGmns+WQ=
+		0PbEswAgzBo/iP4pmbK1cNZmXmQ=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/lLvsd89LjWsUzRRqPebu4F1swY=
+		vTqGaWdwgoTL7S4wvcKSk5o0Tr8=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		w8heuPJlstxomTQLXZOnSLQF90I=
+		rPjx7LHtpqjKZa/uG+A6yY5QGiU=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		1R0BGEvC9SNphLv60UKgnFqKOcw=
+		l+Qfu7XCLbE5gj7RqLQ0kfgX/8g=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		rRqrOh2DcHub6eA64KytxGMexB8=
+		FXZogmC7kORCrf8MbNpkmaWJdtk=
 		</data>
 		<key>Modules/MoEngageInbox.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		hMKV92Ed+nG/SxSQ4fqGxE50cgo=
+		Rxe7XhAGdQ0Tx3W9ZxzZ20I6JGk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -91,22 +91,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			p/sjVMiiM8qQ7BZVvwpi24UYv6U=
+			cIZTFuubSzTeAkwjwjYr+eKp0wI=
 			</data>
 			<key>hash2</key>
 			<data>
-			zHqsBqdU2gY5kMenXpPuzmIuL9AYaSKq6mRMOTDh8i4=
+			ajRmuxKrUB9+WQfGtKUkE83qW2n37rIiCPTVLrFGhxc=
 			</data>
 		</dict>
 		<key>Headers/MoEngageInbox-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ksNXrb3ogmk0THNQmJbtE2waPps=
+			3rwz27r+dLvScVPSTQunFdgnya0=
 			</data>
 			<key>hash2</key>
 			<data>
-			aOlLwPGLjIzNQOQgNR9PXxRJr5m1tl1gaJT2OjjihzI=
+			IdwzBxD0I/eUjUMcueWuYMFxW7wEE8kltQAvDjKi7Bk=
 			</data>
 		</dict>
 		<key>Headers/MoEngageInbox.h</key>
@@ -131,158 +131,158 @@
 			DHxoqa3SWsSeiRWX4o3nIP0kO6sTBMPVanytCdzu7ME=
 			</data>
 		</dict>
-		<key>MOInbox.storyboardc/Info.plist</key>
+		<key>MoEngageInbox.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Zgp86pNFtvVXmVzl/VV1Ykddcjw=
+			jccau/vxU86dgncmS+v4LtJGY/A=
 			</data>
 			<key>hash2</key>
 			<data>
-			JEXf1TcINljwaEnIhLY/vHa+QQL8AXa0+YchedO6hMs=
+			Y/FcZ/w0zNoyq0jqtdl4V0MjaU4jxPEzlFxHF6Eshh4=
 			</data>
 		</dict>
-		<key>MOInbox.storyboardc/MOInboxViewController.nib/objects-11.0+.nib</key>
+		<key>MoEngageInbox.storyboardc/MoEngageInboxViewController.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KGuB+K5csmz6t6eZX6XQu0btoCc=
+			dfGiJa5h9kh0YMXUKQg7H1UKmxA=
 			</data>
 			<key>hash2</key>
 			<data>
-			54hejOclIxeu0pxpj3/i4TupvTlK6FSy1bQAIRZ7CBk=
+			IbeoVaegTKCNtcuMAWE8A20vKXNIIicmko+IWedfL2M=
 			</data>
 		</dict>
-		<key>MOInbox.storyboardc/MOInboxViewController.nib/runtime.nib</key>
+		<key>MoEngageInbox.storyboardc/MoEngageInboxViewController.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KGuB+K5csmz6t6eZX6XQu0btoCc=
+			dfGiJa5h9kh0YMXUKQg7H1UKmxA=
 			</data>
 			<key>hash2</key>
 			<data>
-			54hejOclIxeu0pxpj3/i4TupvTlK6FSy1bQAIRZ7CBk=
+			IbeoVaegTKCNtcuMAWE8A20vKXNIIicmko+IWedfL2M=
 			</data>
 		</dict>
-		<key>MOInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/objects-11.0+.nib</key>
+		<key>MoEngageInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/objects-11.0+.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			12Xu3L38Zr9hryExIXPBniz2fSY=
+			PtbKCRgGop1eXfrZT+YNsjIw0lY=
 			</data>
 			<key>hash2</key>
 			<data>
-			KF+DCD/HsmKUTL4wTXSYzFyBmSrQAymqExDhuKKRcT4=
+			qpkGcbE4/ab1Nr/JCFP25rwwOyygSZHmQ8zicF2f6I0=
 			</data>
 		</dict>
-		<key>MOInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/runtime.nib</key>
+		<key>MoEngageInbox.storyboardc/Y6W-OH-hqX-view-5EZ-qb-Rvc.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zmTRsHF/QoaNndhD9LuvcPQjk6w=
+			kjK9+Spr8n6I8kVSGgmGmAqnsLE=
 			</data>
 			<key>hash2</key>
 			<data>
-			YnBTvbTofYPPXtGjQoOgqz39cDO2wssymDYiCI0vTvc=
+			p7nvNu71NkZ/Wq3Bq4XXJ38WobNMRVDAXTV6n8SHCLY=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+M2u3Bs44pFZuRuHxIUyySjeD/4=
+			GPbWa8z81cDlFNgjvQySqWvW0uw=
 			</data>
 			<key>hash2</key>
 			<data>
-			NSUvGUjcOgLGoUm/f2/Bcbtx6YMNDsiSSLv2p4n0CuI=
+			bA2+3L7Jp/NWj4eNyFnXWb5YLliTk9W9THRawZpmbt4=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LPuQ85EsKLHqfRHlvD+o/smquoA=
+			/lC+htwJx+plaUKRC3pAOXTLOFQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			IZo9yTgNHvmovqb+eLExnvo5H61TjgXfVcN/Hkretew=
+			iWPlETc7D0UUeQcosmon6OZ5VCY463gXUi3o5hETkrc=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ksCIwMAJLwPfj6zrJTAGeOkfJAE=
+			mSN49kNGid7KiblVL09g37GBDgQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			0zYq2oxdyFM4lP+b9elnIO0MNVGxRtYP5S+s9jajdD0=
+			3f5M9140uCF/KEgfcjPAXxSg2bTBEreinzDnJDVthj8=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			K4mbcIhkEzOA93RTKzYWGmns+WQ=
+			0PbEswAgzBo/iP4pmbK1cNZmXmQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			epffD0N6i8Fur8S/d98w7tGqAIp7fRgHHB6+Brx/aWo=
+			/dWyZ+k4rjKCZSX7LsM+mNsQnUI9PdcLlK82VBL20vc=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/lLvsd89LjWsUzRRqPebu4F1swY=
+			vTqGaWdwgoTL7S4wvcKSk5o0Tr8=
 			</data>
 			<key>hash2</key>
 			<data>
-			gIP5LqoDZ3K6D040IUD+6V2ui0sJGwokHzMdxjR4G5E=
+			FVT/vQlnbZiZkzFoiDGEfE1xjunsi8tJgcpiw2v6jyI=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			w8heuPJlstxomTQLXZOnSLQF90I=
+			rPjx7LHtpqjKZa/uG+A6yY5QGiU=
 			</data>
 			<key>hash2</key>
 			<data>
-			QtlP7hFnR2Sqa0f8Yr0aZc5blLN1EmTrtDlGVCPM0W4=
+			yW9D9AvwBLySOjzY09EXtWMeYLrx5NL10tZzSozdync=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1R0BGEvC9SNphLv60UKgnFqKOcw=
+			l+Qfu7XCLbE5gj7RqLQ0kfgX/8g=
 			</data>
 			<key>hash2</key>
 			<data>
-			d/HewmsCOQNUGmGaq1MJZUnO/InSpURifI6KniWrzJM=
+			bWH7Ayu4TXMp2XU6Z2qqhxpuz8hMxyxdwheUiU7QpdQ=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rRqrOh2DcHub6eA64KytxGMexB8=
+			FXZogmC7kORCrf8MbNpkmaWJdtk=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZPsjXYQ1pmUcwtO86yeakkmSjJVrUxIUQl6SECRGSm0=
+			v3jqXrYNVrqHe6Fbs5f5+Gd1iZaMAtJ2FXZanFTQVHg=
 			</data>
 		</dict>
 		<key>Modules/MoEngageInbox.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hMKV92Ed+nG/SxSQ4fqGxE50cgo=
+			Rxe7XhAGdQ0Tx3W9ZxzZ20I6JGk=
 			</data>
 			<key>hash2</key>
 			<data>
-			+HDlRgvZMY5YfabO/KwUSzX5yz7qCQ4ZvkCWYRwLD/Y=
+			ANn0LYj2VAqzX8mPM2IZEyF1twl+TflZgUMDpZGHemk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
