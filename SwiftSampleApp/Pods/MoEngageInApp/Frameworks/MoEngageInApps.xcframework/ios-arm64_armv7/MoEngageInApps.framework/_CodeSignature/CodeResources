@@ -6,43 +6,71 @@
 	<dict>
 		<key>CHANGELOG.md</key>
 		<data>
-		rQEV3gW+lAXU+h81/AQt0bVarV0=
+		q7VAvwBfFsJ8liqCqjGOUULchaU=
 		</data>
-		<key>Headers/MOInApp.h</key>
+		<key>Headers/MoEngageInAppActionType.h</key>
 		<data>
-		yApY5b47VLnAeSOIvN3vRdCe3EI=
+		J6L+Py6Gsuw8h15YhHUr+H75vjU=
 		</data>
-		<key>Headers/MOInAppCampaign.h</key>
+		<key>Headers/MoEngageInAppDebuggingService.h</key>
 		<data>
-		8znqhDv8IFPul/7Sj5r/TWaWx6A=
+		sM6vEO8L6cF8QLu/vrFEApw/LNQ=
 		</data>
-		<key>Headers/MOInAppDebuggingService.h</key>
+		<key>Headers/MoEngageInAppHandler.h</key>
 		<data>
-		GLIiXBfRqZq3vvoDa1ij/0lWPKY=
+		IO95iirlsdTzIQSQBE1RSOXnYXM=
 		</data>
-		<key>Headers/MOInAppNativeProtocol.h</key>
+		<key>Headers/MoEngageInApps-Swift.h</key>
 		<data>
-		jYbTpExSALGg6OzxfO0yqz57fok=
-		</data>
-		<key>Headers/MOModelObject.h</key>
-		<data>
-		rfz/Cq1ksvnrlJ03aSCEhmh0NRg=
+		BMeIT1oqOnbXHvWO40rojaIoBWs=
 		</data>
 		<key>Headers/MoEngageInApps.h</key>
 		<data>
-		Y3k3OnUDOGYCK5dSq68fvtgT5/w=
+		OM+1iVIW34SaQMO0U6RmV/LsRKs=
+		</data>
+		<key>Headers/MoEngageModelObject.h</key>
+		<data>
+		mYUMDE407/BnyHwGFxZ61ve+Sqk=
+		</data>
+		<key>Headers/MoEngageNudgePosition.h</key>
+		<data>
+		kecsk8lRPMan+DAm7Hn4l3GoDJI=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		jeSgMboVI77xRh3pLyiet1bBytg=
+		uCDULwJiBu6fwsplIMmtVRKEulU=
 		</data>
 		<key>LICENSE</key>
 		<data>
 		ih5AQhHYR6MqQ2cinlT1HtiVYGQ=
 		</data>
+		<key>Modules/MoEngageInApps.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<data>
+		aReYCLSb/v+4aHJrU2GlJCpLgVg=
+		</data>
+		<key>Modules/MoEngageInApps.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<data>
+		ACawi+cloZNCPB1rnB73zMio+88=
+		</data>
+		<key>Modules/MoEngageInApps.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<data>
+		e0sUz75Q11aBHpLm1r13dtFKCbs=
+		</data>
+		<key>Modules/MoEngageInApps.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<data>
+		b8T2rlquvkyTKrmt4udF5kzzP+Y=
+		</data>
+		<key>Modules/MoEngageInApps.swiftmodule/armv7-apple-ios.swiftinterface</key>
+		<data>
+		6OanZRpQRoffFMCzDT0VT6wHiWg=
+		</data>
+		<key>Modules/MoEngageInApps.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<data>
+		F6x+tx1YsMide3DzwP03SqrMU7c=
+		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		zy3eMzxXX+I7ZHBwMzkOJyEgBnk=
+		tzQy7h9QhWDz5TEmnKai3PNlJkQ=
 		</data>
 		<key>defaultCloseButton.png</key>
 		<data>
@@ -55,77 +83,88 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rQEV3gW+lAXU+h81/AQt0bVarV0=
+			q7VAvwBfFsJ8liqCqjGOUULchaU=
 			</data>
 			<key>hash2</key>
 			<data>
-			4xGs3imUzvckHHj1qr0iB+aQC8SewIXHn7vvI8bM/8w=
+			nYPLPI6xDLvXFtckkdsdP2du1dXSrCOrsv0/NEwYAR0=
 			</data>
 		</dict>
-		<key>Headers/MOInApp.h</key>
+		<key>Headers/MoEngageInAppActionType.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yApY5b47VLnAeSOIvN3vRdCe3EI=
+			J6L+Py6Gsuw8h15YhHUr+H75vjU=
 			</data>
 			<key>hash2</key>
 			<data>
-			+mfEnxmRgUMKhPH+G8zANYtBRd1r3hQlc+C696frF0o=
+			b/Wp7a28vkCJRM9r/hhMlf/W+vs4otGO8lWLD9UUJ+4=
 			</data>
 		</dict>
-		<key>Headers/MOInAppCampaign.h</key>
+		<key>Headers/MoEngageInAppDebuggingService.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8znqhDv8IFPul/7Sj5r/TWaWx6A=
+			sM6vEO8L6cF8QLu/vrFEApw/LNQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			cHHlvoN7DZOI4HD/3inNa7/m2RksNlOilQzhaPaGIkM=
+			U0Bc524sRiuNcZ/IF2h8SRjg4fbQIFFyyqBzuPT8+ck=
 			</data>
 		</dict>
-		<key>Headers/MOInAppDebuggingService.h</key>
+		<key>Headers/MoEngageInAppHandler.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GLIiXBfRqZq3vvoDa1ij/0lWPKY=
+			IO95iirlsdTzIQSQBE1RSOXnYXM=
 			</data>
 			<key>hash2</key>
 			<data>
-			aM8hA9A+48txBVLAj/VK4QQbjcttr07S6GRyf/SSamk=
+			mTNTDGQWMUtbkAyNLjYqMnD00z9dCPdIb6ZA5naw/rI=
 			</data>
 		</dict>
-		<key>Headers/MOInAppNativeProtocol.h</key>
+		<key>Headers/MoEngageInApps-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jYbTpExSALGg6OzxfO0yqz57fok=
+			BMeIT1oqOnbXHvWO40rojaIoBWs=
 			</data>
 			<key>hash2</key>
 			<data>
-			hIBWQahciupzy8snhahreEj9hZyCxiY9d769Kvoub1Q=
-			</data>
-		</dict>
-		<key>Headers/MOModelObject.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rfz/Cq1ksvnrlJ03aSCEhmh0NRg=
-			</data>
-			<key>hash2</key>
-			<data>
-			E0FnUGrLcGc/PJqzXiWijvkM41hHWg0Rd31RYBR1/9U=
+			xE9u2cOjtOnodmbrLrBQGyHvJYyWYg3toZXzQbgruOc=
 			</data>
 		</dict>
 		<key>Headers/MoEngageInApps.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Y3k3OnUDOGYCK5dSq68fvtgT5/w=
+			OM+1iVIW34SaQMO0U6RmV/LsRKs=
 			</data>
 			<key>hash2</key>
 			<data>
-			lR6YeKjxvRkvQGWEfe1iVVL33HMWLqm6CAHZO1Np/7w=
+			UjmgPBIenC2gvnWxXzP5mJOsbovqwiReNHMkGhuA3to=
+			</data>
+		</dict>
+		<key>Headers/MoEngageModelObject.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mYUMDE407/BnyHwGFxZ61ve+Sqk=
+			</data>
+			<key>hash2</key>
+			<data>
+			Hq75OpIvjviFkgiKYngl6RUE2ApdPN4lijdv3fQAL18=
+			</data>
+		</dict>
+		<key>Headers/MoEngageNudgePosition.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kecsk8lRPMan+DAm7Hn4l3GoDJI=
+			</data>
+			<key>hash2</key>
+			<data>
+			YIjKMOoMgUMBnEkVH2IqmOUEOa1rr5GEgwkszKITj34=
 			</data>
 		</dict>
 		<key>LICENSE</key>
@@ -139,15 +178,81 @@
 			DHxoqa3SWsSeiRWX4o3nIP0kO6sTBMPVanytCdzu7ME=
 			</data>
 		</dict>
+		<key>Modules/MoEngageInApps.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			aReYCLSb/v+4aHJrU2GlJCpLgVg=
+			</data>
+			<key>hash2</key>
+			<data>
+			4pzio/IoKlCe4z10TGXtAcfKQ7mH3eKxJAPbzsJYj+c=
+			</data>
+		</dict>
+		<key>Modules/MoEngageInApps.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ACawi+cloZNCPB1rnB73zMio+88=
+			</data>
+			<key>hash2</key>
+			<data>
+			X85Qxd1P2cb2KdVyT2yJBir/H+Yg7dfraYFhus0nE/U=
+			</data>
+		</dict>
+		<key>Modules/MoEngageInApps.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			e0sUz75Q11aBHpLm1r13dtFKCbs=
+			</data>
+			<key>hash2</key>
+			<data>
+			lTzQVdZucLzLq1yJiCOzgGsFTotQyrXZr1zo1kyz99g=
+			</data>
+		</dict>
+		<key>Modules/MoEngageInApps.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			b8T2rlquvkyTKrmt4udF5kzzP+Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			4OeZRRUjJ8VuBeD7SanD0dt8sn8LTGI1puIZYGhmcXs=
+			</data>
+		</dict>
+		<key>Modules/MoEngageInApps.swiftmodule/armv7-apple-ios.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6OanZRpQRoffFMCzDT0VT6wHiWg=
+			</data>
+			<key>hash2</key>
+			<data>
+			7vr3B1nLUq0JEn28Qxc8B1rWOCNqkxXECQ3afEp+jzg=
+			</data>
+		</dict>
+		<key>Modules/MoEngageInApps.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			F6x+tx1YsMide3DzwP03SqrMU7c=
+			</data>
+			<key>hash2</key>
+			<data>
+			ozPPAI9MDrB519x709CIYVjDCB7VLx9m8mZtlW/8NgI=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zy3eMzxXX+I7ZHBwMzkOJyEgBnk=
+			tzQy7h9QhWDz5TEmnKai3PNlJkQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			MkP4mgGn5UZDIXQK2bM/q1Ni64sJS1y22Se48IeRWKw=
+			aWZ7vTyqBMsZy8PcwiO2Bxs8tt5BgPSjXAI8PyVvQQA=
 			</data>
 		</dict>
 		<key>defaultCloseButton.png</key>

@@ -2,13 +2,31 @@
 // swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MoEngageCards
 import Foundation
-import MOCore
 import MoEngageAnalytics
 @_exported import MoEngageCards
+import MoEngageCore
 import Swift
 import UIKit
 import _Concurrency
-@_hasMissingDesignatedInitializers @objc public class MOCardDisplayControl : ObjectiveC.NSObject, Foundation.NSCoding {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCampaignState : ObjectiveC.NSObject {
+  @objc public var showCountTotal: Swift.Int64 {
+    get
+  }
+  @objc public var isClicked: Swift.Bool {
+    get
+  }
+  @objc public var firstSeenTime: Foundation.Date? {
+    get
+  }
+  @objc public var firstDeliveredTime: Foundation.Date? {
+    get
+  }
+  @objc public var showCountCurrentDevice: Swift.Int64 {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardDisplayControl : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var isPinned: Swift.Bool {
     get
   }
@@ -18,14 +36,14 @@ import _Concurrency
   @objc public var expiryDate: Foundation.Date? {
     get
   }
-  @objc public var showTime: MoEngageCards.MOCardShowTime? {
+  @objc public var showTime: MoEngageCards.MoEngageCardShowTime? {
     get
   }
   @objc public func encode(with aCoder: Foundation.NSCoder)
   @objc required public init(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc public class MOCardShowTime : ObjectiveC.NSObject, Foundation.NSCoding {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardShowTime : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var startTime: Swift.String {
     get
   }
@@ -36,15 +54,15 @@ import _Concurrency
   @objc required public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class CardsDelegateHandler : MOCore.CardsDelegate {
-  override public func logout(sdkInstance: MOCore.SdkInstance, onCompleted: @escaping () -> ())
-  override public func updateModule(sdkInstance: MOCore.SdkInstance)
-  override public func initializeCards(sdkInstance: MOCore.SdkInstance)
-  override public func applicationDidEnterForeground(sdkInstance: MOCore.SdkInstance)
-  override public func applicationWillBecomeInActive(sdkInstance: MOCore.SdkInstance)
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class MoEngageCardsDelegateHandler : MoEngageCore.MoEngageCardsHandler {
+  override public func logout(sdkInstance: MoEngageCore.MoEngageSDKInstance, onCompleted: @escaping () -> ())
+  override public func updateModule(sdkInstance: MoEngageCore.MoEngageSDKInstance)
+  override public func initializeCards(sdkInstance: MoEngageCore.MoEngageSDKInstance)
+  override public func applicationDidEnterForeground(sdkInstance: MoEngageCore.MoEngageSDKInstance)
+  override public func applicationWillBecomeInActive(sdkInstance: MoEngageCore.MoEngageSDKInstance)
   @objc deinit
 }
-public enum MOCardTemplateType : Swift.String {
+public enum MoEngageCardTemplateType : Swift.String {
   case basic
   case illustration
   case unknown
@@ -54,7 +72,7 @@ public enum MOCardTemplateType : Swift.String {
     get
   }
 }
-public enum MOCardActionType : Swift.String {
+public enum MoEngageCardActionType : Swift.String {
   case deepLink
   case richLanding
   case screenName
@@ -65,7 +83,7 @@ public enum MOCardActionType : Swift.String {
     get
   }
 }
-public enum MOCardWidgetType : Swift.String {
+public enum MoEngageCardWidgetType : Swift.String {
   case image
   case text
   case button
@@ -76,71 +94,71 @@ public enum MOCardWidgetType : Swift.String {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc public class MOCardTemplateData : ObjectiveC.NSObject, Foundation.NSCoding {
-  public var type: MoEngageCards.MOCardTemplateType {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardTemplateData : ObjectiveC.NSObject, Foundation.NSCoding {
+  public var type: MoEngageCards.MoEngageCardTemplateType {
     get
   }
   @objc public var typeString: Swift.String {
     get
   }
-  @objc public var containers: [MoEngageCards.MOCardContainer] {
+  @objc public var containers: [MoEngageCards.MoEngageCardContainer] {
     get
   }
   @objc public func encode(with aCoder: Foundation.NSCoder)
   @objc required public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc public class MOCardContainer : ObjectiveC.NSObject, Foundation.NSCoding {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardContainer : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var id: Swift.Int {
     get
   }
-  public var type: MoEngageCards.MOCardTemplateType {
+  public var type: MoEngageCards.MoEngageCardTemplateType {
     get
   }
   @objc public var typeString: Swift.String {
     get
   }
-  @objc public var style: MoEngageCards.MOCardStyle? {
+  @objc public var style: MoEngageCards.MoEngageCardStyle? {
     get
   }
-  @objc public var widgets: [MoEngageCards.MOCardWidget] {
+  @objc public var widgets: [MoEngageCards.MoEngageCardWidget] {
     get
   }
-  @objc public var actions: [MoEngageCards.MOCardAction] {
+  @objc public var actions: [MoEngageCards.MoEngageCardAction] {
     get
   }
   @objc public func encode(with aCoder: Foundation.NSCoder)
   @objc required public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc public class MOCardWidget : ObjectiveC.NSObject, Foundation.NSCoding {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardWidget : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var id: Swift.Int {
     get
   }
-  public var type: MoEngageCards.MOCardWidgetType {
+  public var type: MoEngageCards.MoEngageCardWidgetType {
     get
   }
   @objc public var typeString: Swift.String {
     get
   }
-  @objc public var style: MoEngageCards.MOCardStyle? {
+  @objc public var style: MoEngageCards.MoEngageCardStyle? {
     get
   }
   @objc public var content: Swift.String {
     get
   }
-  @objc public var actions: [MoEngageCards.MOCardAction] {
+  @objc public var actions: [MoEngageCards.MoEngageCardAction] {
     get
   }
   @objc public func encode(with aCoder: Foundation.NSCoder)
   @objc required public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc public class MOCardAction : ObjectiveC.NSObject, Foundation.NSCoding {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardAction : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var name: Swift.String {
     get
   }
-  public var type: MoEngageCards.MOCardActionType {
+  public var type: MoEngageCards.MoEngageCardActionType {
     get
   }
   @objc public var typeString: Swift.String {
@@ -156,7 +174,7 @@ public enum MOCardWidgetType : Swift.String {
   @objc required public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc public class MOCardStyle : ObjectiveC.NSObject, Foundation.NSCoding {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardStyle : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var bgColor: UIKit.UIColor? {
     get
   }
@@ -164,7 +182,7 @@ public enum MOCardWidgetType : Swift.String {
   @objc required public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc public class MOCardCampaign : ObjectiveC.NSObject, Foundation.NSCoding {
+@_hasMissingDesignatedInitializers @objc public class MoEngageCardCampaign : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var cardID: Swift.String {
     get
   }
@@ -183,53 +201,56 @@ public enum MOCardWidgetType : Swift.String {
   @objc public var metaData: [Swift.String : Any] {
     get
   }
-  @objc public var templateData: MoEngageCards.MOCardTemplateData? {
+  @objc public var templateData: MoEngageCards.MoEngageCardTemplateData? {
     get
   }
-  @objc public var displayControl: MoEngageCards.MOCardDisplayControl? {
+  @objc public var displayControl: MoEngageCards.MoEngageCardDisplayControl? {
     get
   }
   @objc public var cardPayload: [Swift.String : Any]? {
+    get
+  }
+  @objc public var cardState: MoEngageCards.MoEngageCampaignState {
     get
   }
   @objc public func encode(with aCoder: Foundation.NSCoder)
   @objc required public init(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@objc public protocol MOCardsDelegate {
-  @objc optional func cardsSyncedSuccessfully(forAccountMeta accountMeta: MOCore.MOAccountMeta)
+@objc public protocol MoEngageCardsDelegate {
+  @objc optional func cardsSyncedSuccessfully(forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta)
 }
-@objc public protocol MOCardsViewControllerDelegate {
-  @objc optional func cardsViewControllerDismissed(forAccountMeta accountMeta: MOCore.MOAccountMeta)
-  @objc optional func cardDeleted(withCardInfo card: MoEngageCards.MOCardCampaign, forAccountMeta accountMeta: MOCore.MOAccountMeta)
-  @objc optional func cardClicked(withCardInfo card: MoEngageCards.MOCardCampaign, andAction action: MoEngageCards.MOCardAction, forAccountMeta accountMeta: MOCore.MOAccountMeta) -> Swift.Bool
+@objc public protocol MoEngageCardsViewControllerDelegate {
+  @objc optional func cardsViewControllerDismissed(forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta)
+  @objc optional func cardDeleted(withCardInfo card: MoEngageCards.MoEngageCardCampaign, forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta)
+  @objc optional func cardClicked(withCardInfo card: MoEngageCards.MoEngageCardCampaign, andAction action: MoEngageCards.MoEngageCardAction, forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta) -> Swift.Bool
 }
-@_inheritsConvenienceInitializers @objc public class MOCards : ObjectiveC.NSObject {
-  @objc public static let sharedInstance: MoEngageCards.MOCards
-  @objc public func setCardsDelegate(delegate: MoEngageCards.MOCardsDelegate, forAppID appID: Swift.String? = nil)
+@_inheritsConvenienceInitializers @objc public class MoEngageSDKCards : ObjectiveC.NSObject {
+  @objc public static let sharedInstance: MoEngageCards.MoEngageSDKCards
+  @objc public func setCardsDelegate(delegate: MoEngageCards.MoEngageCardsDelegate, forAppID appID: Swift.String? = nil)
   @objc public func syncCards(forAppID appID: Swift.String? = nil, withCompletion completionBlock: ((_ success: Swift.Bool) -> ())? = nil)
   public func getAllCardStatusDict(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping (([[Swift.String : Any]]) -> Swift.Void))
-  @objc public func getCardsData(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ cardsData: MoEngageCards.MOCardsData?, _ accountMeta: MOCore.MOAccountMeta?) -> Swift.Void))
-  @objc public func getCardsCategories(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ categories: Swift.Array<Swift.String>, _ accountMeta: MOCore.MOAccountMeta?) -> ()))
-  @objc public func getCards(forCategory category: Swift.String, forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ cards: Swift.Array<MoEngageCards.MOCardCampaign>, _ accountMeta: MOCore.MOAccountMeta?) -> Swift.Void))
+  @objc public func getCardsData(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ cardsData: MoEngageCards.MoEngageCardsData?, _ accountMeta: MoEngageCore.MoEngageAccountMeta?) -> Swift.Void))
+  @objc public func getCardsCategories(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ categories: Swift.Array<Swift.String>, _ accountMeta: MoEngageCore.MoEngageAccountMeta?) -> ()))
+  @objc public func getCards(forCategory category: Swift.String, forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ cards: Swift.Array<MoEngageCards.MoEngageCardCampaign>, _ accountMeta: MoEngageCore.MoEngageAccountMeta?) -> Swift.Void))
   @objc public func isAllCategoryEnabled(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((Swift.Bool) -> Swift.Void))
-  @objc public func cardShown(_ card: MoEngageCards.MOCardCampaign, forAppID appID: Swift.String? = nil)
-  @objc public func cardClicked(_ card: MoEngageCards.MOCardCampaign, forAppID appID: Swift.String? = nil)
-  @objc public func cardClicked(_ card: MoEngageCards.MOCardCampaign, withWidgetID widgetID: Swift.Int, forAppID appID: Swift.String? = nil)
-  @objc public func cardDelivered(_ card: MoEngageCards.MOCardCampaign, forAppID appID: Swift.String? = nil)
-  @objc public func deleteCards(_ cardsArr: [MoEngageCards.MOCardCampaign], forAppID appID: Swift.String? = nil, andCompletionBlock completionBlock: @escaping ((_ isDeleted: Swift.Bool, _ accountMeta: MOCore.MOAccountMeta?) -> ()))
+  @objc public func cardShown(_ card: MoEngageCards.MoEngageCardCampaign, forAppID appID: Swift.String? = nil)
+  @objc public func cardClicked(_ card: MoEngageCards.MoEngageCardCampaign, forAppID appID: Swift.String? = nil)
+  @objc public func cardClicked(_ card: MoEngageCards.MoEngageCardCampaign, withWidgetID widgetID: Swift.Int, forAppID appID: Swift.String? = nil)
+  @objc public func cardDelivered(_ card: MoEngageCards.MoEngageCardCampaign, forAppID appID: Swift.String? = nil)
+  @objc public func deleteCards(_ cardsArr: [MoEngageCards.MoEngageCardCampaign], forAppID appID: Swift.String? = nil, andCompletionBlock completionBlock: @escaping ((_ isDeleted: Swift.Bool, _ accountMeta: MoEngageCore.MoEngageAccountMeta?) -> ()))
   @objc public func cardsViewControllerLoaded(forAppID appID: Swift.String? = nil)
   @objc public func cardsViewControllerDismissed(forAppID appID: Swift.String? = nil)
-  @objc public func getNewCardsCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ count: Swift.Int, _ accountMeta: MOCore.MOAccountMeta?) -> Swift.Void))
-  @objc public func getUnclickedCardsCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ count: Swift.Int, _ accountMeta: MOCore.MOAccountMeta?) -> Swift.Void))
-  @objc public func getClickedCardsCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ count: Swift.Int, _ accountMeta: MOCore.MOAccountMeta?) -> Swift.Void))
-  @objc public func presentCardsViewController(withUIConfiguration config: MoEngageCards.MOCardsUIConfiguration? = nil, withCardsViewControllerDelegate delegate: MoEngageCards.MOCardsViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil)
-  @objc public func pushCardsViewController(toNavigationController navController: UIKit.UINavigationController, withUIConfiguration config: MoEngageCards.MOCardsUIConfiguration? = nil, withCardsViewControllerDelegate delegate: MoEngageCards.MOCardsViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil)
-  @objc public func getCardsViewController(withUIConfiguration config: MoEngageCards.MOCardsUIConfiguration? = nil, withCardsViewControllerDelegate delegate: MoEngageCards.MOCardsViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((MoEngageCards.MOCardsListViewController?) -> Swift.Void))
+  @objc public func getNewCardsCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ count: Swift.Int, _ accountMeta: MoEngageCore.MoEngageAccountMeta?) -> Swift.Void))
+  @objc public func getUnclickedCardsCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ count: Swift.Int, _ accountMeta: MoEngageCore.MoEngageAccountMeta?) -> Swift.Void))
+  @objc public func getClickedCardsCount(forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((_ count: Swift.Int, _ accountMeta: MoEngageCore.MoEngageAccountMeta?) -> Swift.Void))
+  @objc public func presentCardsViewController(withUIConfiguration config: MoEngageCards.MoEngageCardsUIConfiguration? = nil, withCardsViewControllerDelegate delegate: MoEngageCards.MoEngageCardsViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil)
+  @objc public func pushCardsViewController(toNavigationController navController: UIKit.UINavigationController, withUIConfiguration config: MoEngageCards.MoEngageCardsUIConfiguration? = nil, withCardsViewControllerDelegate delegate: MoEngageCards.MoEngageCardsViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil)
+  @objc public func getCardsViewController(withUIConfiguration config: MoEngageCards.MoEngageCardsUIConfiguration? = nil, withCardsViewControllerDelegate delegate: MoEngageCards.MoEngageCardsViewControllerDelegate? = nil, forAppID appID: Swift.String? = nil, withCompletionBlock completionBlock: @escaping ((MoEngageCards.MoEngageCardsListViewController?) -> Swift.Void))
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc public class MOCardsNavigationBarStyle : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class MoEngageCardsNavigationBarStyle : ObjectiveC.NSObject {
   public var navigationBarColor: UIKit.UIColor?
   public var navigationBarTintColor: UIKit.UIColor?
   public var navigationBarTitleColor: UIKit.UIColor?
@@ -238,9 +259,9 @@ public enum MOCardWidgetType : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc public class MOCardsUIConfiguration : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class MoEngageCardsUIConfiguration : ObjectiveC.NSObject {
   public var navigationBarTitle: Swift.String
-  public var navigationBarStyle: MoEngageCards.MOCardsNavigationBarStyle?
+  public var navigationBarStyle: MoEngageCards.MoEngageCardsNavigationBarStyle?
   public var categoryTabsContainerBGColor: UIKit.UIColor
   public var categoryTabsBGColor: UIKit.UIColor
   public var categoryTabsTextColor: UIKit.UIColor
@@ -284,21 +305,21 @@ public enum MOCardWidgetType : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class MOCardsData : ObjectiveC.NSObject, Foundation.NSCoding {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class MoEngageCardsData : ObjectiveC.NSObject, Foundation.NSCoding {
   @objc public var showAllTab: Swift.Bool {
     get
   }
   @objc public var cardCategories: [Swift.String] {
     get
   }
-  @objc public var cards: [MoEngageCards.MOCardCampaign] {
+  @objc public var cards: [MoEngageCards.MoEngageCardCampaign] {
     get
   }
   @objc public func encode(with aCoder: Foundation.NSCoder)
   @objc required public init(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class MOCardsListViewController : UIKit.UIViewController, UIKit.UIGestureRecognizerDelegate {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class MoEngageCardsListViewController : UIKit.UIViewController, UIKit.UIGestureRecognizerDelegate {
   @_Concurrency.MainActor(unsafe) public func reloadInbox()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
@@ -309,7 +330,7 @@ public enum MOCardWidgetType : Swift.String {
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
-extension MoEngageCards.MOCardsListViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
+extension MoEngageCards.MoEngageCardsListViewController : UIKit.UITableViewDelegate, UIKit.UITableViewDataSource {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreGraphics.CGFloat
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
@@ -320,12 +341,12 @@ extension MoEngageCards.MOCardsListViewController : UIKit.UITableViewDelegate, U
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didUnhighlightRowAt indexPath: Foundation.IndexPath)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
 }
-extension MoEngageCards.MOCardTemplateType : Swift.Equatable {}
-extension MoEngageCards.MOCardTemplateType : Swift.Hashable {}
-extension MoEngageCards.MOCardTemplateType : Swift.RawRepresentable {}
-extension MoEngageCards.MOCardActionType : Swift.Equatable {}
-extension MoEngageCards.MOCardActionType : Swift.Hashable {}
-extension MoEngageCards.MOCardActionType : Swift.RawRepresentable {}
-extension MoEngageCards.MOCardWidgetType : Swift.Equatable {}
-extension MoEngageCards.MOCardWidgetType : Swift.Hashable {}
-extension MoEngageCards.MOCardWidgetType : Swift.RawRepresentable {}
+extension MoEngageCards.MoEngageCardTemplateType : Swift.Equatable {}
+extension MoEngageCards.MoEngageCardTemplateType : Swift.Hashable {}
+extension MoEngageCards.MoEngageCardTemplateType : Swift.RawRepresentable {}
+extension MoEngageCards.MoEngageCardActionType : Swift.Equatable {}
+extension MoEngageCards.MoEngageCardActionType : Swift.Hashable {}
+extension MoEngageCards.MoEngageCardActionType : Swift.RawRepresentable {}
+extension MoEngageCards.MoEngageCardWidgetType : Swift.Equatable {}
+extension MoEngageCards.MoEngageCardWidgetType : Swift.Hashable {}
+extension MoEngageCards.MoEngageCardWidgetType : Swift.RawRepresentable {}

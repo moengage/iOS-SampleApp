@@ -237,19 +237,17 @@
 
 /* Begin PBXFileReference section */
 		01AB848DE7304E171F7895A7F52A8B62 /* Pods-MoEngageiOSSampleApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MoEngageiOSSampleApp"; path = Pods_MoEngageiOSSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		064154B07A458BE3316646BFA6F36F67 /* MoEngageSDK.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageSDK.xcframework; path = Frameworks/MoEngageSDK.xcframework; sourceTree = "<group>"; };
 		09CF139589DFE7AB745F44F68760FF61 /* MoEngageRealTimeTrigger-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MoEngageRealTimeTrigger-xcframeworks.sh"; sourceTree = "<group>"; };
 		0B2F3F3E8B574D4E9614B0DC2AA8F8C8 /* MoEngageInbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageInbox.release.xcconfig; sourceTree = "<group>"; };
 		1047A61515D3C31172368190E77D4E81 /* Pods-MoEngageiOSSampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MoEngageiOSSampleApp-frameworks.sh"; sourceTree = "<group>"; };
-		10F90F5117384DB95132700E136AB17B /* MOCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MOCore.xcframework; path = Frameworks/MOCore.xcframework; sourceTree = "<group>"; };
 		119AC07C573B4287D50291A5E5538BA8 /* MoEngageInApps.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageInApps.xcframework; path = Frameworks/MoEngageInApps.xcframework; sourceTree = "<group>"; };
 		12F7C212FA0528071987DB53AE6193B8 /* MoEngageRealTimeTrigger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageRealTimeTrigger.debug.xcconfig; sourceTree = "<group>"; };
+		2068BB24FEB32C46C560A70BF2901E75 /* MoEngageSDK.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageSDK.xcframework; path = Frameworks/MoEngageSDK.xcframework; sourceTree = "<group>"; };
 		233D81794639A8669A12B4EED7B90AC3 /* Pods-MoEngageiOSSampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MoEngageiOSSampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2B65C761D479AC1B583F85B745E0994C /* MoEngageCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageCards.debug.xcconfig; sourceTree = "<group>"; };
 		327CA015444286B8611E0C3F37659912 /* MoEngage-iOS-SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MoEngage-iOS-SDK.release.xcconfig"; sourceTree = "<group>"; };
 		336B009C5987C33161A92BB909FFA85F /* MoEngage-iOS-SDK-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MoEngage-iOS-SDK-xcframeworks.sh"; sourceTree = "<group>"; };
 		34642B494AEDBAAF0E6CFAAE98ED960D /* Pods-NotificationServices-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NotificationServices-acknowledgements.markdown"; sourceTree = "<group>"; };
-		391CCC33A7C82C2B5FC4FD31C040C23E /* MoEngageMessaging.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageMessaging.xcframework; path = Frameworks/MoEngageMessaging.xcframework; sourceTree = "<group>"; };
 		424E702A803016C27F8D754EA705F68B /* MoEngageRichNotification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageRichNotification.release.xcconfig; sourceTree = "<group>"; };
 		45EAE0F4B4A6396682C023377C7B7DD4 /* MoEngageInApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageInApp.release.xcconfig; sourceTree = "<group>"; };
 		4FE55F5D651C247A8A7F96BF62D709EE /* Pods-MoEngageiOSSampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MoEngageiOSSampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 		6D282AA18DC7E4E4C6AAE4C6FAD5056E /* MoEngageInbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageInbox.debug.xcconfig; sourceTree = "<group>"; };
 		6D93CCF7925C033A20268AD74CB5CDFD /* MoEngageInApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageInApp.debug.xcconfig; sourceTree = "<group>"; };
 		6E2E41F4E81E714B1EE45E3565D9AB5B /* Pods-NotificationServices.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NotificationServices.modulemap"; sourceTree = "<group>"; };
-		6ECC794C0F71248F115FEF2DA1391254 /* MoEngageAnalytics.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageAnalytics.xcframework; path = Frameworks/MoEngageAnalytics.xcframework; sourceTree = "<group>"; };
 		70C60E83B16FD9F5B0871659513EF5DE /* Pods-MoEngageiOSSampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MoEngageiOSSampleApp-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		73CF629E064D67BCCAB2D5475DD4B707 /* Pods-NotificationServices-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NotificationServices-umbrella.h"; sourceTree = "<group>"; };
@@ -275,9 +272,10 @@
 		99A554CF085C1778B5D9A0F4D8BB00AE /* MoEngageRealTimeTrigger.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageRealTimeTrigger.xcframework; path = Frameworks/MoEngageRealTimeTrigger.xcframework; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EFE27FD8B652D517CF56A3283EFC2AF /* MoEngageGeofence.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageGeofence.release.xcconfig; sourceTree = "<group>"; };
+		A116CFD8905E0591678E7B1B11AC08AA /* MoEngageAnalytics.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageAnalytics.xcframework; path = Frameworks/MoEngageAnalytics.xcframework; sourceTree = "<group>"; };
 		A1A9056F4F1EC274C641E5797F36F4E5 /* MoEngageCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageCards.release.xcconfig; sourceTree = "<group>"; };
 		A3DBAFCD2D09E449BE78C0D29F716525 /* MoEngageGeofence.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageGeofence.debug.xcconfig; sourceTree = "<group>"; };
-		A51DAC6989019A0CB1DC1F841FD713DE /* MoEngageObjCUtils.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageObjCUtils.xcframework; path = Frameworks/MoEngageObjCUtils.xcframework; sourceTree = "<group>"; };
+		B575621CBF25E369C20E80859C906A20 /* MoEngageCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageCore.xcframework; path = Frameworks/MoEngageCore.xcframework; sourceTree = "<group>"; };
 		B7E2F21292B8AC0D1F61B554CFB18923 /* MoEngageInbox-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "MoEngageInbox-xcframeworks.sh"; sourceTree = "<group>"; };
 		C219EB1FB63B5AC80E29F1FB980C588A /* Pods-MoEngageiOSSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MoEngageiOSSampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		C3015ACE19CF93DFC844CE5F9FCB038E /* MoEngage-iOS-SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MoEngage-iOS-SDK.debug.xcconfig"; sourceTree = "<group>"; };
@@ -290,8 +288,10 @@
 		DC3868007882C8F76F5D88724DA86897 /* Pods-MoEngageiOSSampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MoEngageiOSSampleApp.modulemap"; sourceTree = "<group>"; };
 		DE82066644C10B20B888AF23CA8FE47D /* Pods-PushTemplateExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PushTemplateExtension-acknowledgements.plist"; sourceTree = "<group>"; };
 		E263F6CD4779D66D3F54E5B9F524F1A8 /* Pods-PushTemplateExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PushTemplateExtension-Info.plist"; sourceTree = "<group>"; };
+		E2A5C608B56BA3360F8D6DB36D373233 /* MoEngageObjCUtils.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageObjCUtils.xcframework; path = Frameworks/MoEngageObjCUtils.xcframework; sourceTree = "<group>"; };
 		E2CFEAE1DBFBE8F7BDCD498C87BC3612 /* MoEngageRichNotification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MoEngageRichNotification.debug.xcconfig; sourceTree = "<group>"; };
 		EEA0311324125E2B2CA2C487692158AF /* Pods-PushTemplateExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PushTemplateExtension.modulemap"; sourceTree = "<group>"; };
+		F6D91401C6187698E697493359132AD2 /* MoEngageMessaging.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageMessaging.xcframework; path = Frameworks/MoEngageMessaging.xcframework; sourceTree = "<group>"; };
 		F6E22F082BFB11C2C9FC641B2AE60C77 /* MoEngageRichNotification.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = MoEngageRichNotification.xcframework; path = Frameworks/MoEngageRichNotification.xcframework; sourceTree = "<group>"; };
 		F7469CEC1B37C77A550E12D9F4138FE8 /* Pods-NotificationServices-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NotificationServices-dummy.m"; sourceTree = "<group>"; };
 		F95E05E832E535B8A8CD6E18F49FF5E6 /* Pods-NotificationServices-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NotificationServices-Info.plist"; sourceTree = "<group>"; };
@@ -501,18 +501,6 @@
 			path = "Target Support Files/Pods-MoEngageiOSSampleApp";
 			sourceTree = "<group>";
 		};
-		8FD21AE74A586F194C910E0FAB2AFDF9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				10F90F5117384DB95132700E136AB17B /* MOCore.xcframework */,
-				6ECC794C0F71248F115FEF2DA1391254 /* MoEngageAnalytics.xcframework */,
-				391CCC33A7C82C2B5FC4FD31C040C23E /* MoEngageMessaging.xcframework */,
-				A51DAC6989019A0CB1DC1F841FD713DE /* MoEngageObjCUtils.xcframework */,
-				064154B07A458BE3316646BFA6F36F67 /* MoEngageSDK.xcframework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A6BA1796553C6FE15FECFC239704E611 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,7 +541,7 @@
 		B8DE4CAE38870ADA1694CC969637AFF4 /* MoEngage-iOS-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				8FD21AE74A586F194C910E0FAB2AFDF9 /* Frameworks */,
+				F4556CE8B6154194D674421498EAC022 /* Frameworks */,
 				37F9784F80BF4C7FB8B809C7BA45E919 /* Support Files */,
 			);
 			name = "MoEngage-iOS-SDK";
@@ -635,6 +623,18 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MoEngageCards";
+			sourceTree = "<group>";
+		};
+		F4556CE8B6154194D674421498EAC022 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A116CFD8905E0591678E7B1B11AC08AA /* MoEngageAnalytics.xcframework */,
+				B575621CBF25E369C20E80859C906A20 /* MoEngageCore.xcframework */,
+				F6D91401C6187698E697493359132AD2 /* MoEngageMessaging.xcframework */,
+				E2A5C608B56BA3360F8D6DB36D373233 /* MoEngageObjCUtils.xcframework */,
+				2068BB24FEB32C46C560A70BF2901E75 /* MoEngageSDK.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F98D107A8CD3A2B967FC873908ED3380 /* Frameworks */ = {

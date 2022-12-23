@@ -177,7 +177,7 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageSDK.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MOCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageCore.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageAnalytics.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageMessaging.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageObjCUtils.framework"
@@ -190,7 +190,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageSDK.framework"
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MOCore.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageCore.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageAnalytics.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageMessaging.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/MoEngage-iOS-SDK/MoEngageObjCUtils.framework"

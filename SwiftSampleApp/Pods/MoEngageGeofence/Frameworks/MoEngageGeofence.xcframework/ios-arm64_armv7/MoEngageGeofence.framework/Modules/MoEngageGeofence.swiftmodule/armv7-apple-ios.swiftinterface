@@ -3,26 +3,26 @@
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MoEngageGeofence
 import CoreLocation
 import Foundation
-import MOCore
 import MoEngageAnalytics
+import MoEngageCore
 @_exported import MoEngageGeofence
 import Swift
 import UIKit
 import _Concurrency
-@objc public protocol MOGeofenceDelegate {
-  @objc func geofenceEnterTriggered(withLocationManager locationManager: CoreLocation.CLLocationManager?, andRegion region: CoreLocation.CLRegion?, forAccountMeta accountMeta: MOCore.MOAccountMeta)
-  @objc func geofenceExitTriggered(withLocationManager locationManager: CoreLocation.CLLocationManager?, andRegion region: CoreLocation.CLRegion?, forAccountMeta accountMeta: MOCore.MOAccountMeta)
+@objc public protocol MoEngageGeofenceDelegate {
+  @objc func geofenceEnterTriggered(withLocationManager locationManager: CoreLocation.CLLocationManager?, andRegion region: CoreLocation.CLRegion?, forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta)
+  @objc func geofenceExitTriggered(withLocationManager locationManager: CoreLocation.CLLocationManager?, andRegion region: CoreLocation.CLRegion?, forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta)
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class GeofenceDelegateHandler : MOCore.GeofenceDelegate {
-  override public func initializeGeofence(sdkInstance: MOCore.SdkInstance)
-  override public func moengageSDKStateUpdated(sdkInstance: MOCore.SdkInstance)
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class MoEngageGeofenceDelegateHandler : MoEngageCore.MoEngageGeofenceHandler {
+  override public func initializeGeofence(sdkInstance: MoEngageCore.MoEngageSDKInstance)
+  override public func moengageSDKStateUpdated(sdkInstance: MoEngageCore.MoEngageSDKInstance)
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class MOGeofence : ObjectiveC.NSObject {
-  @objc public static let sharedInstance: MoEngageGeofence.MOGeofence
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class MoEngageSDKGeofence : ObjectiveC.NSObject {
+  @objc public static let sharedInstance: MoEngageGeofence.MoEngageSDKGeofence
   @objc public func startGeofenceMonitoring()
   @objc public func startGeofenceMonitoring(forAppID appID: Swift.String? = nil)
-  @objc public func setGeofenceDelegate(_ delegate: MoEngageGeofence.MOGeofenceDelegate?, appID: Swift.String? = nil)
+  @objc public func setGeofenceDelegate(_ delegate: MoEngageGeofence.MoEngageGeofenceDelegate?, appID: Swift.String? = nil)
   @objc public func resetGeofenceDelegate(appID: Swift.String? = nil)
   @objc deinit
 }

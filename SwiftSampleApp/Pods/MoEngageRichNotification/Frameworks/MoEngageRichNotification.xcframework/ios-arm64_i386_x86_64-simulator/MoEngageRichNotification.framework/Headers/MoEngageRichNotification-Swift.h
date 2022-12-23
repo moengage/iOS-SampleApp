@@ -222,8 +222,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSLayoutConstraint;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
-@interface MOCarouselCollectionView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification30MoEngageCarouselCollectionView")
+@interface MoEngageCarouselCollectionView : UIView
 @property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
 @property (nonatomic, weak) IBOutlet UIPageControl * _Null_unspecified pageControl;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified pageControlWidthConstraint;
@@ -238,7 +238,7 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
 @class UICollectionViewLayout;
 @class UIScrollView;
 
-@interface MOCarouselCollectionView (SWIFT_EXTENSION(MoEngageRichNotification)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface MoEngageCarouselCollectionView (SWIFT_EXTENSION(MoEngageRichNotification)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -250,8 +250,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
 
 @class UIImageView;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification28MOCarouselCollectionViewCell")
-@interface MOCarouselCollectionViewCell : UICollectionViewCell
+SWIFT_CLASS("_TtC24MoEngageRichNotification34MoEngageCarouselCollectionViewCell")
+@interface MoEngageCarouselCollectionViewCell : UICollectionViewCell
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -260,8 +260,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification28MOCarouselCollectionViewCell")
 
 @class UILabel;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification14MOPushBodyView")
-@interface MOPushBodyView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification20MoEngagePushBodyView")
+@interface MoEngagePushBodyView : UIView
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bodyLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified subTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
@@ -274,8 +274,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification14MOPushBodyView")
 @end
 
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification15MOPushMediaView")
-@interface MOPushMediaView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification21MoEngagePushMediaView")
+@interface MoEngagePushMediaView : UIView
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
 - (void)awakeFromNib;
 - (void)handleGesture;
@@ -289,8 +289,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification15MOPushMediaView")
 @class UNNotification;
 @class NSString;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification18MORichNotification")
-@interface MORichNotification : NSObject
+SWIFT_CLASS("_TtC24MoEngageRichNotification27MoEngageSDKRichNotification")
+@interface MoEngageSDKRichNotification : NSObject
 /// Method to let SDK show Rich Notification
 /// \param request UNNotificationRequest instance containing Remote notification info
 ///
@@ -546,8 +546,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSLayoutConstraint;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
-@interface MOCarouselCollectionView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification30MoEngageCarouselCollectionView")
+@interface MoEngageCarouselCollectionView : UIView
 @property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
 @property (nonatomic, weak) IBOutlet UIPageControl * _Null_unspecified pageControl;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified pageControlWidthConstraint;
@@ -562,7 +562,7 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
 @class UICollectionViewLayout;
 @class UIScrollView;
 
-@interface MOCarouselCollectionView (SWIFT_EXTENSION(MoEngageRichNotification)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface MoEngageCarouselCollectionView (SWIFT_EXTENSION(MoEngageRichNotification)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -574,8 +574,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
 
 @class UIImageView;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification28MOCarouselCollectionViewCell")
-@interface MOCarouselCollectionViewCell : UICollectionViewCell
+SWIFT_CLASS("_TtC24MoEngageRichNotification34MoEngageCarouselCollectionViewCell")
+@interface MoEngageCarouselCollectionViewCell : UICollectionViewCell
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -584,8 +584,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification28MOCarouselCollectionViewCell")
 
 @class UILabel;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification14MOPushBodyView")
-@interface MOPushBodyView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification20MoEngagePushBodyView")
+@interface MoEngagePushBodyView : UIView
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bodyLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified subTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
@@ -598,8 +598,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification14MOPushBodyView")
 @end
 
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification15MOPushMediaView")
-@interface MOPushMediaView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification21MoEngagePushMediaView")
+@interface MoEngagePushMediaView : UIView
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
 - (void)awakeFromNib;
 - (void)handleGesture;
@@ -613,8 +613,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification15MOPushMediaView")
 @class UNNotification;
 @class NSString;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification18MORichNotification")
-@interface MORichNotification : NSObject
+SWIFT_CLASS("_TtC24MoEngageRichNotification27MoEngageSDKRichNotification")
+@interface MoEngageSDKRichNotification : NSObject
 /// Method to let SDK show Rich Notification
 /// \param request UNNotificationRequest instance containing Remote notification info
 ///
@@ -870,8 +870,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSLayoutConstraint;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
-@interface MOCarouselCollectionView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification30MoEngageCarouselCollectionView")
+@interface MoEngageCarouselCollectionView : UIView
 @property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
 @property (nonatomic, weak) IBOutlet UIPageControl * _Null_unspecified pageControl;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified pageControlWidthConstraint;
@@ -886,7 +886,7 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
 @class UICollectionViewLayout;
 @class UIScrollView;
 
-@interface MOCarouselCollectionView (SWIFT_EXTENSION(MoEngageRichNotification)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface MoEngageCarouselCollectionView (SWIFT_EXTENSION(MoEngageRichNotification)) <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView * _Nonnull)collectionView SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
@@ -898,8 +898,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification24MOCarouselCollectionView")
 
 @class UIImageView;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification28MOCarouselCollectionViewCell")
-@interface MOCarouselCollectionViewCell : UICollectionViewCell
+SWIFT_CLASS("_TtC24MoEngageRichNotification34MoEngageCarouselCollectionViewCell")
+@interface MoEngageCarouselCollectionViewCell : UICollectionViewCell
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
 - (void)awakeFromNib;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -908,8 +908,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification28MOCarouselCollectionViewCell")
 
 @class UILabel;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification14MOPushBodyView")
-@interface MOPushBodyView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification20MoEngagePushBodyView")
+@interface MoEngagePushBodyView : UIView
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bodyLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified subTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
@@ -922,8 +922,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification14MOPushBodyView")
 @end
 
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification15MOPushMediaView")
-@interface MOPushMediaView : UIView
+SWIFT_CLASS("_TtC24MoEngageRichNotification21MoEngagePushMediaView")
+@interface MoEngagePushMediaView : UIView
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
 - (void)awakeFromNib;
 - (void)handleGesture;
@@ -937,8 +937,8 @@ SWIFT_CLASS("_TtC24MoEngageRichNotification15MOPushMediaView")
 @class UNNotification;
 @class NSString;
 
-SWIFT_CLASS("_TtC24MoEngageRichNotification18MORichNotification")
-@interface MORichNotification : NSObject
+SWIFT_CLASS("_TtC24MoEngageRichNotification27MoEngageSDKRichNotification")
+@interface MoEngageSDKRichNotification : NSObject
 /// Method to let SDK show Rich Notification
 /// \param request UNNotificationRequest instance containing Remote notification info
 ///

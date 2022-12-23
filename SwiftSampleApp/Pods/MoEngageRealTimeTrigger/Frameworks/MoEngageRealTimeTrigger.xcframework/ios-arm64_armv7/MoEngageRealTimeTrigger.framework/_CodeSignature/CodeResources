@@ -6,11 +6,11 @@
 	<dict>
 		<key>CHANGELOG.md</key>
 		<data>
-		qYkNxN1z2MjrKgu2E2VtU/dx/k4=
+		h6HYdDzVEuMNRhsQnWjXZKIP1no=
 		</data>
 		<key>Headers/MoEngageRealTimeTrigger-Swift.h</key>
 		<data>
-		0yZMMruyS6qmq70iL/4tpQlUEU0=
+		Vqi+m4w9wEKJuQJuuJ4+6FEFxh8=
 		</data>
 		<key>Headers/MoEngageRealTimeTrigger.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		5559U2sD5zIr5EXtjzbEHNKvRCc=
+		LBitWji3MvIy5IUieFdY4jxdNZA=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -26,27 +26,27 @@
 		</data>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		8i2mN5LYwI+5iZSAiVWZRyLhEIg=
+		tS/X229RGFLrVQfZC23Siansj4s=
 		</data>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		unDBVZNsWxdus+bvAgaBad2d/QI=
+		6lvTlnMzCNrnH3bnV3yvw8h50lQ=
 		</data>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		0ODL+bN5IhmuGAhMu2lKyYP85ds=
+		orx5fgROGsjImffVB82J5Lyx0DI=
 		</data>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
-		NXwOU2yUluPsrCZfgCEH+c0YsvE=
+		2sK3Kb/GoYn8fnGBgh9y4Qpx4Hs=
 		</data>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/armv7-apple-ios.swiftinterface</key>
 		<data>
-		jENqxlyI235EEaJ60Q2S7TzyDlE=
+		nyCtz0OzvDVHJQuazuMPi59ptQ0=
 		</data>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		Qz0rT72YC1Ak6ZX5PdH0jZPZfQo=
+		SqIw0GS01NTTY+k7hJoOnrpfYYA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -59,22 +59,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qYkNxN1z2MjrKgu2E2VtU/dx/k4=
+			h6HYdDzVEuMNRhsQnWjXZKIP1no=
 			</data>
 			<key>hash2</key>
 			<data>
-			wC8clxmDjGbSzt/7y5qmYzUnkOGpr597RTXDvPD+PoY=
+			8JM3+l57FKNE8YxSdIjn+NGj61OTzgFmI9BpxH/XrnA=
 			</data>
 		</dict>
 		<key>Headers/MoEngageRealTimeTrigger-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0yZMMruyS6qmq70iL/4tpQlUEU0=
+			Vqi+m4w9wEKJuQJuuJ4+6FEFxh8=
 			</data>
 			<key>hash2</key>
 			<data>
-			gUA8YKhYx8Qg7SkAbdeoIcG9ERMq1sRrADi6IFGhscw=
+			Hm0Qp0SLVtBkpzwl/6QUUscS0Wn+vRYa28l1QLRKERI=
 			</data>
 		</dict>
 		<key>Headers/MoEngageRealTimeTrigger.h</key>
@@ -103,66 +103,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8i2mN5LYwI+5iZSAiVWZRyLhEIg=
+			tS/X229RGFLrVQfZC23Siansj4s=
 			</data>
 			<key>hash2</key>
 			<data>
-			FmIsad5UcOkI6g1hugVTRwr2iqCyqvKsITvB+rbKSU8=
+			7lLss694b+BWfIP7JIch29Ga54iYueDBuBeB5Dc4Ho0=
 			</data>
 		</dict>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			unDBVZNsWxdus+bvAgaBad2d/QI=
+			6lvTlnMzCNrnH3bnV3yvw8h50lQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			NSihWoG5pc0Jmj2tc3MSB2yBts2pkGdzmwR++gm2XDk=
+			QOoqOs7akeQn+42MTRJmEKHotTqjro6lIBQw3lFTlu8=
 			</data>
 		</dict>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0ODL+bN5IhmuGAhMu2lKyYP85ds=
+			orx5fgROGsjImffVB82J5Lyx0DI=
 			</data>
 			<key>hash2</key>
 			<data>
-			ikjkvb2s0jqyzGGgd8d9vEFcv1MQTQSA3dRZVyOmL1s=
+			cz3qfJAmAGIXoB5MoqjiDr4GZLwcd+fv+Juz0S7otxY=
 			</data>
 		</dict>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NXwOU2yUluPsrCZfgCEH+c0YsvE=
+			2sK3Kb/GoYn8fnGBgh9y4Qpx4Hs=
 			</data>
 			<key>hash2</key>
 			<data>
-			Moy4soVOfuO4m6HDW696riC5IEDLtjYFQ8q1F03fFn8=
+			VvnBMzcY7dnq6lo0A9P9EZw3U77qRlVd9nldhNmOVvU=
 			</data>
 		</dict>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/armv7-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jENqxlyI235EEaJ60Q2S7TzyDlE=
+			nyCtz0OzvDVHJQuazuMPi59ptQ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			4iEdNBeRulb6k2WSv0UY90dEgtCneqveaiv48/0yBIY=
+			ByiR+w67iA/s2LdUdD4k4A93q0dY1WKlhYisSL6TU3s=
 			</data>
 		</dict>
 		<key>Modules/MoEngageRealTimeTrigger.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Qz0rT72YC1Ak6ZX5PdH0jZPZfQo=
+			SqIw0GS01NTTY+k7hJoOnrpfYYA=
 			</data>
 			<key>hash2</key>
 			<data>
-			LFR6cGZ9kUxn40n5p6Py9BFGYBLqJLSkQsQXxJrGRL0=
+			2GbKA+msqJ2uwp9zgzYps6zyZcR4fwWtp2TM5HDw6U8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

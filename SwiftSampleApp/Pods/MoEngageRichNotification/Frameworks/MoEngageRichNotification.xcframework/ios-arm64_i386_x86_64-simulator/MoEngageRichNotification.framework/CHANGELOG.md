@@ -2,6 +2,22 @@
 ===========================
 
 ## Change Log:
+### Version 7.1.0 *(13th December, 2022)*
+-------------------------------------------
+* Bugfix - Carousel Image Order Mismatch in collapsed mode for rich notifications.
+
+### Version 7.0.0 *(7th December, 2022)*
+-------------------------------------------
+* All the classes and modules are prefixed with `MoEngage`.
+
+### Version 6.4.0  *(18th October, 2022)*
+-------------------------------------------
+* Updated the dependency to MoEngage-iOS-SDK 8.4.0
+
+### Version 6.3.2  *(3rd October, 2022)*
+-------------------------------------------
+*  BugFix - Handled updating of badge count
+
 ### Version 6.3.1  *(1st August, 2022)*
 -------------------------------------------
 *  BugFix - Handled downloading of resources for Basic notification.

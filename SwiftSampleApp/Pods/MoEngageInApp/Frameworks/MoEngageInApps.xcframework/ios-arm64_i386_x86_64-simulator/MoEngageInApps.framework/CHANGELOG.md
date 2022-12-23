@@ -2,6 +2,33 @@
 =============================
 
 ## Change Log:
+### Version 4.1.0 *(13th December, 2022)*
+-------------------------------------------
+* Added dSYM file support for debugging.
+
+### Version 4.0.1 *(8th December, 2022)*
+-------------------------------------------
+* BugFix - Fixed duplicate events being tracked for inapps.
+
+### Version 4.0.0 *(7th December, 2022)*
+-------------------------------------------
+* Migrated `MoEngageInApp`, `MoEngageInAppCampaign`,`MoEngageInAppSelfHandledCampaign`,`MoEngageInAppAction`,`MoEngageInAppNativeDelegate`  from Objective-C to Swift
+* Added API documentation.
+* All the classes and modules are prefixed with `MoEngage`.
+* BugFix - Fixed Inapp getting auto dismissed before the auto dismiss interval expires.
+
+### Version 3.4.1 *(21st October, 2022)*
+-------------------------------------------
+* Added support to take safeArea inset for Applications with SceneDelegate.
+
+### Version 3.4.0 *(18th October, 2022)*
+-------------------------------------------
+* Added support to take the custom inset for inapp nudge in `MOSDKConfig` using `MoEngageInAppConfig` class.
+
+### Version 3.3.1 *(22nd September, 2022)*
+-------------------------------------------
+* Handled dataType mismatch in `trackDismiss` of HTML InApp.
+
 ### Version 3.3.0 *(20th July, 2022)*
 -------------------------------------------
 * Updated the dependency to MoEngage-iOS-SDK 8.3.0

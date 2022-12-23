@@ -17,35 +17,35 @@ RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 variant_for_slice()
 {
   case "$1" in
-  "MoEngageSDK.xcframework/tvos-arm64")
-    echo ""
-    ;;
-  "MoEngageSDK.xcframework/tvos-arm64_x86_64-simulator")
-    echo "simulator"
-    ;;
   "MoEngageSDK.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "simulator"
     ;;
   "MoEngageSDK.xcframework/ios-arm64_armv7")
     echo ""
     ;;
-  "MOCore.xcframework/tvos-arm64_x86_64-simulator")
-    echo "simulator"
-    ;;
-  "MOCore.xcframework/ios-arm64_i386_x86_64-simulator")
-    echo "simulator"
-    ;;
-  "MOCore.xcframework/ios-arm64_armv7")
+  "MoEngageSDK.xcframework/tvos-arm64")
     echo ""
     ;;
-  "MOCore.xcframework/tvos-arm64")
+  "MoEngageSDK.xcframework/tvos-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "MoEngageCore.xcframework/ios-arm64_armv7")
     echo ""
     ;;
-  "MoEngageAnalytics.xcframework/ios-arm64_armv7")
+  "MoEngageCore.xcframework/tvos-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "MoEngageCore.xcframework/ios-arm64_i386_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "MoEngageCore.xcframework/tvos-arm64")
     echo ""
     ;;
   "MoEngageAnalytics.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "simulator"
+    ;;
+  "MoEngageAnalytics.xcframework/ios-arm64_armv7")
+    echo ""
     ;;
   "MoEngageAnalytics.xcframework/tvos-arm64")
     echo ""
@@ -53,29 +53,29 @@ variant_for_slice()
   "MoEngageAnalytics.xcframework/tvos-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "MoEngageMessaging.xcframework/tvos-arm64")
+  "MoEngageMessaging.xcframework/ios-arm64_armv7")
     echo ""
     ;;
   "MoEngageMessaging.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "simulator"
     ;;
-  "MoEngageMessaging.xcframework/ios-arm64_armv7")
+  "MoEngageMessaging.xcframework/tvos-arm64")
     echo ""
     ;;
   "MoEngageMessaging.xcframework/tvos-arm64_x86_64-simulator")
     echo "simulator"
     ;;
-  "MoEngageObjCUtils.xcframework/ios-arm64_armv7")
-    echo ""
-    ;;
   "MoEngageObjCUtils.xcframework/tvos-arm64_x86_64-simulator")
-    echo "simulator"
-    ;;
-  "MoEngageObjCUtils.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "simulator"
     ;;
   "MoEngageObjCUtils.xcframework/tvos-arm64")
     echo ""
+    ;;
+  "MoEngageObjCUtils.xcframework/ios-arm64_armv7")
+    echo ""
+    ;;
+  "MoEngageObjCUtils.xcframework/ios-arm64_i386_x86_64-simulator")
+    echo "simulator"
     ;;
   esac
 }
@@ -83,35 +83,35 @@ variant_for_slice()
 archs_for_slice()
 {
   case "$1" in
-  "MoEngageSDK.xcframework/tvos-arm64")
-    echo "arm64"
-    ;;
-  "MoEngageSDK.xcframework/tvos-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
-    ;;
   "MoEngageSDK.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "arm64 i386 x86_64"
     ;;
   "MoEngageSDK.xcframework/ios-arm64_armv7")
     echo "arm64 armv7"
     ;;
-  "MOCore.xcframework/tvos-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
-    ;;
-  "MOCore.xcframework/ios-arm64_i386_x86_64-simulator")
-    echo "arm64 i386 x86_64"
-    ;;
-  "MOCore.xcframework/ios-arm64_armv7")
-    echo "arm64 armv7"
-    ;;
-  "MOCore.xcframework/tvos-arm64")
+  "MoEngageSDK.xcframework/tvos-arm64")
     echo "arm64"
     ;;
-  "MoEngageAnalytics.xcframework/ios-arm64_armv7")
+  "MoEngageSDK.xcframework/tvos-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "MoEngageCore.xcframework/ios-arm64_armv7")
     echo "arm64 armv7"
+    ;;
+  "MoEngageCore.xcframework/tvos-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "MoEngageCore.xcframework/ios-arm64_i386_x86_64-simulator")
+    echo "arm64 i386 x86_64"
+    ;;
+  "MoEngageCore.xcframework/tvos-arm64")
+    echo "arm64"
     ;;
   "MoEngageAnalytics.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "arm64 i386 x86_64"
+    ;;
+  "MoEngageAnalytics.xcframework/ios-arm64_armv7")
+    echo "arm64 armv7"
     ;;
   "MoEngageAnalytics.xcframework/tvos-arm64")
     echo "arm64"
@@ -119,29 +119,29 @@ archs_for_slice()
   "MoEngageAnalytics.xcframework/tvos-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "MoEngageMessaging.xcframework/tvos-arm64")
-    echo "arm64"
+  "MoEngageMessaging.xcframework/ios-arm64_armv7")
+    echo "arm64 armv7"
     ;;
   "MoEngageMessaging.xcframework/ios-arm64_i386_x86_64-simulator")
     echo "arm64 i386 x86_64"
     ;;
-  "MoEngageMessaging.xcframework/ios-arm64_armv7")
-    echo "arm64 armv7"
+  "MoEngageMessaging.xcframework/tvos-arm64")
+    echo "arm64"
     ;;
   "MoEngageMessaging.xcframework/tvos-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "MoEngageObjCUtils.xcframework/ios-arm64_armv7")
-    echo "arm64 armv7"
-    ;;
   "MoEngageObjCUtils.xcframework/tvos-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "MoEngageObjCUtils.xcframework/ios-arm64_i386_x86_64-simulator")
-    echo "arm64 i386 x86_64"
-    ;;
   "MoEngageObjCUtils.xcframework/tvos-arm64")
     echo "arm64"
+    ;;
+  "MoEngageObjCUtils.xcframework/ios-arm64_armv7")
+    echo "arm64 armv7"
+    ;;
+  "MoEngageObjCUtils.xcframework/ios-arm64_i386_x86_64-simulator")
+    echo "arm64 i386 x86_64"
     ;;
   esac
 }
@@ -226,8 +226,8 @@ install_xcframework() {
 }
 
 install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageSDK.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_i386_x86_64-simulator" "ios-arm64_armv7"
-install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MOCore.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_i386_x86_64-simulator" "ios-arm64_armv7"
-install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageAnalytics.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_armv7" "ios-arm64_i386_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageMessaging.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_i386_x86_64-simulator" "ios-arm64_armv7"
+install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageCore.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_armv7" "ios-arm64_i386_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageAnalytics.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_i386_x86_64-simulator" "ios-arm64_armv7"
+install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageMessaging.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_armv7" "ios-arm64_i386_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageObjCUtils.xcframework" "MoEngage-iOS-SDK" "framework" "ios-arm64_armv7" "ios-arm64_i386_x86_64-simulator"
 

@@ -5,8 +5,8 @@ import AVFoundation
 import CommonCrypto
 import Foundation
 import ImageIO
-import MOCore
 import MoEngageAnalytics
+import MoEngageCore
 import MoEngageMessaging
 @_exported import MoEngageRichNotification
 import Swift
@@ -15,7 +15,7 @@ import UserNotifications
 import UserNotificationsUI
 import _Concurrency
 public typealias contentHandler = ((UserNotifications.UNNotificationContent) -> Swift.Void)
-@_inheritsConvenienceInitializers @objc public class MORichNotification : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc public class MoEngageSDKRichNotification : ObjectiveC.NSObject {
   @objc public static func handle(richNotificationRequest request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping MoEngageRichNotification.contentHandler)
   @objc public static func handle(localNotificationRequest request: UserNotifications.UNNotificationRequest, withContentHandler contentHandler: @escaping MoEngageRichNotification.contentHandler)
   @objc public static func addPushTemplate(toController controller: UIKit.UIViewController, withNotification notification: UserNotifications.UNNotification)

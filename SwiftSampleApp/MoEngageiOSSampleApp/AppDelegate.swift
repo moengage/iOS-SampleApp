@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sdkConfig.appGroupID = "<YOUR APP GROUP ID>"
         // Enable logs to see the api calls happening in moengage
         sdkConfig.enableLogs = true
-        sdkConfig.moeDataCenter = .data_center_01
+        sdkConfig.moeDataCenter = MoEngageDataCenter.data_center_01
         // Separate initialization methods for Dev and Prod initializations
 #if DEBUG
         MoEngage.sharedInstance.initializeDefaultTestInstance(sdkConfig)
