@@ -49,7 +49,9 @@ Login to your MoEngage account, go to **Settings** in the left panel of the dash
         //-------
     }
 
-#### Following details of the different data centers you need to set based on the dashboard hosts
+### Data Center
+Following details of the different data centers you need to set based on the dashboard hosts
+
     Data Center     | Dashboard host
     -------------   | -------------
     data_center_01  | dashboard-01.moengage.com
