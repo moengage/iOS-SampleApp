@@ -5,6 +5,12 @@
 	<key>aps-environment</key>
 	<string>development</string>
 	<key>com.apple.security.application-groups</key>
-	<array/>
+	<array>
+		<string>group.com.alphadevs.MoEngage.NotificationServices</string>
+	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.alphadevs.MoEngage.keychain</string>
+	</array>
 </dict>
 </plist>

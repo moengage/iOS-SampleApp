@@ -72,11 +72,11 @@ extension ViewController: UITableViewDelegate {
         eventProperties.addAttribute(87000.00, withName: "price")
         eventProperties.addAttribute("Rupees", withName: "currency")
         eventProperties.addAttribute(true, withName: "in_stock")
+        eventProperties.addAttribute([1,2, 3], withName: "sample")
         eventProperties.addDateEpochAttribute(1439322197, withName: "Time added to cart")
         eventProperties.addDateISOStringAttribute("2020-02-22T12:37:56Z", withName: "Time of checkout")
         eventProperties.addDateAttribute(Date(), withName: "Time of purchase")
-
-        eventProperties.addLocationAttribute(MoEngageGeoLocation.init(withLatitude: 12.23, andLongitude: 9.23), withName: "Pickup Location")
+        eventProperties.addLocationAttribute(MoEngageGeoLocation(withLatitude: 12.23, andLongitude: 9.23), withName: "Pickup Location")
         MoEngageSDKAnalytics.sharedInstance.trackEvent("Successfully Purchase", withProperties: eventProperties)
     }
     
@@ -96,8 +96,8 @@ extension ViewController: UITableViewDelegate {
         MoEngageSDKAnalytics.sharedInstance.setUserAttributeDate(Date(), withAttributeName: "Date Attr 1")
         MoEngageSDKAnalytics.sharedInstance.setUserAttributeISODate("2020-01-12T18:45:59Z", withAttributeName: "Date Attr 2")
         MoEngageSDKAnalytics.sharedInstance.setUserAttributeISODate("2020-01-12T18:45:59.333Z", withAttributeName: "Date Attr 3")
-        MoEngageSDKAnalytics.sharedInstance.setLocation(MoEngageGeoLocation.init(withLatitude: 72.90909, andLongitude: 12.34567))
-        MoEngageSDKAnalytics.sharedInstance.setLocation(MoEngageGeoLocation.init(withLatitude: 72.90909, andLongitude: 12.34567), withAttributeName: "loc 1")
+        MoEngageSDKAnalytics.sharedInstance.setLocation(MoEngageGeoLocation(withLatitude: 72.90909, andLongitude: 12.34567))
+        MoEngageSDKAnalytics.sharedInstance.setLocation(MoEngageGeoLocation(withLatitude: 72.90909, andLongitude: 12.34567), withAttributeName: "loc 1")
     }
     
     private func trackNonInteractiveEvents() {
@@ -190,15 +190,14 @@ extension ViewController: MoEngageInboxViewControllerDelegate {
 
 // MARK: - MOInAppNativDelegate
 extension ViewController: MoEngageInAppNativeDelegate {
+
     func selfHandledInAppTriggered(withInfo inappCampaign: MoEngageInApps.MoEngageInAppSelfHandledCampaign, forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta) {
-        print("InApp shown callback for Campaign ID(\(inappCampaign.campaignId)) and CampaignName(\(inappCampaign.campaignName))")
-        print("Account Meta AppID: \(accountMeta.appID)")
-    }
+            }
     
     // Called when an inApp is shown on the screen
     func inAppShown(withCampaignInfo inappCampaign: MoEngageInAppCampaign, forAccountMeta accountMeta: MoEngageAccountMeta) {
-        print("InApp shown callback for Campaign ID(\(inappCampaign.campaignId)) and CampaignName(\(inappCampaign.campaignName))")
-        print("Account Meta AppID: \(accountMeta.appID)")
+       print("InApp shown callback for Campaign ID(\(inappCampaign.campaignId)) and CampaignName(\(inappCampaign.campaignName))")
+       print("Account Meta AppID: \(accountMeta.appID)")
     }
     
     // Called when an inApp is dismissed by the user
@@ -213,14 +212,14 @@ extension ViewController: MoEngageInAppNativeDelegate {
     }
     
     // Called when an inApp is clicked by the user, and it has been configured with a custom action
-    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andCustomActionInfo customAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
-        print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
-        print("Custom Actions Key Value Pairs: \(customAction.keyValuePairs)")
+    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andNavigationActionInfo customAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
+         print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
+         print("Custom Actions Key Value Pairs: \(customAction.keyValuePairs)")
     }
     
     // Called when an inApp is clicked by the user, and it has been configured with a navigation action
-    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andNavigationActionInfo navigationAction: MoEngageInAppAction, for accountMeta: MoEngageAccountMeta) {
-        print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
-        print("Navigation Action Screen Name \(navigationAction.screenName) Key Value Pairs: \((navigationAction.keyValuePairs))")
+    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andCustomActionInfo navigationAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
+         print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
+         print("Navigation Action Screen Name \(navigationAction.screenName) Key Value Pairs: \((navigationAction.keyValuePairs))")
     }
 }

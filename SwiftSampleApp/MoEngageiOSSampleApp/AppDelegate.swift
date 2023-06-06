@@ -23,11 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupSDK(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        let sdkConfig = MoEngageSDKConfig(withAppID: "<YOUR APP ID>")
-        sdkConfig.appGroupID = "<YOUR APP GROUP ID>"
+        let sdkConfig = MoEngageSDKConfig(appId: "APPID", dataCenter: .data_center_01)
+        sdkConfig.appGroupID = "group.com.alphadevs.MoEngage.NotificationServices"
         // Enable logs to see the api calls happening in moengage
         sdkConfig.enableLogs = true
-        sdkConfig.moeDataCenter = MoEngageDataCenter.data_center_01
+        
+        // storage  encryption
+        sdkConfig.storageConfig = MoEngageStorageConfig(encryptionConfig: MoEngageStorageEncryptionConfig(isEncryptionEnabled: true))
+        let teamId = "YOUR TEAM ID"
+        sdkConfig.keyChainConfig = MoEngageKeyChainConfig(groupName: "\(teamId).com.alphadevs.MoEngage.keychain")
+        
+        // network encryption
+        sdkConfig.networkConfig = MoEngageNetworkRequestConfig(authorizationConfig: MoEngageNetworkAuthorizationConfig(isJwtEnbaled: true), dataSecurityConfig: MoEngageNetworkDataSecurityConfig(isEncryptionEnabled: true, encryptionKeyDebug: "DEBUG KEY", encryptionKeyRelease: "RELEASE KEY"))
+        
         // Separate initialization methods for Dev and Prod initializations
 #if DEBUG
         MoEngage.sharedInstance.initializeDefaultTestInstance(sdkConfig)
