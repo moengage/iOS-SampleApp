@@ -210,13 +210,7 @@ extension ViewController: MoEngageInAppNativeDelegate {
         print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
         print("Account Meta AppID: \(accountMeta.appID)")
     }
-    
-    // Called when an inApp is clicked by the user, and it has been configured with a custom action
-    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andNavigationActionInfo customAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
-         print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
-         print("Custom Actions Key Value Pairs: \(customAction.keyValuePairs)")
-    }
-    
+
     // Called when an inApp is clicked by the user, and it has been configured with a navigation action
     func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andCustomActionInfo navigationAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
          print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
