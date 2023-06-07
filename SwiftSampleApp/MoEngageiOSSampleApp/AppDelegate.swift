@@ -70,22 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Remote notification Registration callback methods
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         //Call only if MoEngageAppDelegateProxyEnabled is NO
-        /* MoEngage.sharedInstance().setPushToken(deviceToken) */
+        MoEngageSDKMessaging.sharedInstance.setPushToken(deviceToken)
     }
     
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         //Call only if MoEngageAppDelegateProxyEnabled is NO
-        /* MoEngage.sharedInstance().didFailToRegisterForPush() */
+        MoEngageSDKMessaging.sharedInstance.didFailToRegisterForPush()
     }
-    
-    // MARK:- Remote notification received callback method for iOS versions below iOS10
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        
-        //Call only if MoEngageAppDelegateProxyEnabled is NO
-        /* MoEngage.sharedInstance().didReceieveNotificationinApplication(application, withInfo: userInfo) */
-        
-    }
+
 }
 
 // MARK:- UNUserNotificationCenterDelegate
@@ -96,11 +89,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         //Call only if MoEngageAppDelegateProxyEnabled is NO
-        //MoEngage.sharedInstance().userNotificationCenter(center, didReceive: response)
-        
-        //Custom Handling of notification if Any
-        let pushDictionary = response.notification.request.content.userInfo
-        print(pushDictionary)
+        MoEngageSDKMessaging.sharedInstance.userNotificationCenter(center, didReceive: response)
         
         completionHandler()
     }
