@@ -8,6 +8,9 @@
 import Foundation
 
 enum SampleDataSource: String, CaseIterable {
+    case registerUser = "Register User"
+    case unregisterUser = "UnRegister User"
+    case currentRegistrationStatus = "Current Enroll status"
     case trackEvent = "Track Event"
     case trackUserAttribute = "Track User Attribute"
     case trackNonInteractiveEvent = "Track Non-Interactive Event"
@@ -18,4 +21,5 @@ enum SampleDataSource: String, CaseIterable {
     case cards = "Cards"
     case geofence = "Initiate Geofence Campaign"
     case logout = "Logout"
+ 
 }

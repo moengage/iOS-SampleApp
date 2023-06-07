@@ -34,6 +34,12 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentRow = viewModel.dataSource[indexPath.row]
         switch currentRow {
+        case .registerUser:
+            registerUser()
+        case .unregisterUser:
+            unRegisterUser()
+        case .currentRegistrationStatus:
+             getCurrentRegisterStatus()
         case .trackEvent:
             trackEvents()
         case .trackUserAttribute:
@@ -54,6 +60,7 @@ extension ViewController: UITableViewDelegate {
             trackNonInteractiveEvents()
         case .logout:
             logout()
+        
         }
     }
     
@@ -66,9 +73,9 @@ extension ViewController: UITableViewDelegate {
         eventAttrDict["ProductName"] = "iPhone XS Max"
         eventAttrDict["BrandName"] = "Apple"
         eventAttrDict["Items In Stock"] = 109
-
+        
         let eventProperties = MoEngageProperties(withAttributes: eventAttrDict)
-
+        
         eventProperties.addAttribute(87000.00, withName: "price")
         eventProperties.addAttribute("Rupees", withName: "currency")
         eventProperties.addAttribute(true, withName: "in_stock")
@@ -85,7 +92,7 @@ extension ViewController: UITableViewDelegate {
     private func trackUserAttributes() {
         let uniqueID = "test\(Int(Date().timeIntervalSince1970))@gmail.com"
         MoEngageSDKAnalytics.sharedInstance.setUniqueID(uniqueID)
-                
+        
         MoEngageSDKAnalytics.sharedInstance.setName("userName")
         MoEngageSDKAnalytics.sharedInstance.setLastName("userLastname")
         MoEngageSDKAnalytics.sharedInstance.setFirstName("userFirstName")
@@ -152,7 +159,45 @@ extension ViewController: UITableViewDelegate {
     private func logout() {
         MoEngageSDKAnalytics.sharedInstance.resetUser()
     }
+    
+    private func registerUser() {
+        UserRegistrationUtils().getJwtId { data in
+            guard let data = data
+            else {
+                return
+            }
+            
+            MoEngageSDKCore.sharedInstance.registerUser(data: data) { registrationData in
+                print("Account Id - ", registrationData.accountMeta.appID)
+                print("Registration result - ", registrationData.result.rawValue)
+            }
+        }
+    }
+    
+    private func unRegisterUser() {
+        UserRegistrationUtils().getJwtId { data in
+            guard let data = data
+            else {
+                return
+            }
+            
+            MoEngageSDKCore.sharedInstance.unregisterUser(data: data) { registrationData in
+                print("Account Id - ", registrationData.accountMeta.appID)
+                print("Registration result - ", registrationData.result.rawValue)
+            }
+        }
+
+    }
+    
+    private func getCurrentRegisterStatus() {
+        MoEngageSDKCore.sharedInstance.getUserRegistrationStatus { status in
+            print("Account Id - ", status.accountMeta.appID)
+            print("Is user registered - ", status.isUserRegistered)
+        }
+    }
+    
 }
+
 
 // MARK: UITableViewDataSource
 

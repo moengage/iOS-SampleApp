@@ -36,6 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // network encryption
         sdkConfig.networkConfig = MoEngageNetworkRequestConfig(authorizationConfig: MoEngageNetworkAuthorizationConfig(isJwtEnbaled: true), dataSecurityConfig: MoEngageNetworkDataSecurityConfig(isEncryptionEnabled: true, encryptionKeyDebug: "DEBUG KEY", encryptionKeyRelease: "RELEASE KEY"))
         
+        // set true if user must be part of registration flow
+        sdkConfig.userRegistrationConfig = MoEngageUserRegistrationConfig(isUserRegistrationEnabled: true)
+        
         // Separate initialization methods for Dev and Prod initializations
 #if DEBUG
         MoEngage.sharedInstance.initializeDefaultTestInstance(sdkConfig)

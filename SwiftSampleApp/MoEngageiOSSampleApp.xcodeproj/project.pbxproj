@@ -24,6 +24,7 @@
 		14AA0D7C28C7276400AF5E0D /* PushTemplateExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14AA0D6E28C7276400AF5E0D /* PushTemplateExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		40B64B5CC07A8979285CE11B /* Pods_MoEngageiOSSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 567A51FD56BE6DD2DEE25B9E /* Pods_MoEngageiOSSampleApp.framework */; };
 		823F50775D44F78856D3472A /* Pods_PushTemplateExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72EA8779FE0A957D51DABC61 /* Pods_PushTemplateExtension.framework */; };
+		ACE388E62A3055CD00FF706C /* UserRegistrationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */; };
 		F1B6327110367FA1152AE8EC /* Pods_NotificationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B94103DCD9919F5F0BB56FB /* Pods_NotificationServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		6E3EFEA58ECF70A20A9E80BC /* Pods-MoEngageiOSSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoEngageiOSSampleApp.release.xcconfig"; path = "Target Support Files/Pods-MoEngageiOSSampleApp/Pods-MoEngageiOSSampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		700C841AF267494605474504 /* Pods-NotificationServices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationServices.debug.xcconfig"; path = "Target Support Files/Pods-NotificationServices/Pods-NotificationServices.debug.xcconfig"; sourceTree = "<group>"; };
 		72EA8779FE0A957D51DABC61 /* Pods_PushTemplateExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushTemplateExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				145648A228C62E2C009A41AB /* AppDelegate.swift */,
 				145648A428C62E2C009A41AB /* SceneDelegate.swift */,
 				145648A628C62E2C009A41AB /* ViewController.swift */,
+				ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */,
 				145648A828C62E2C009A41AB /* Main.storyboard */,
 				145648AB28C62E2F009A41AB /* Assets.xcassets */,
 				145648AD28C62E2F009A41AB /* LaunchScreen.storyboard */,
@@ -442,6 +445,7 @@
 				145648A328C62E2C009A41AB /* AppDelegate.swift in Sources */,
 				145648A528C62E2C009A41AB /* SceneDelegate.swift in Sources */,
 				145648B828C62EB5009A41AB /* SampleModel.swift in Sources */,
+				ACE388E62A3055CD00FF706C /* UserRegistrationUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +698,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServices/NotificationServices.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServices/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationServices;
@@ -722,7 +726,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServices/NotificationServices.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServices/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationServices;
@@ -750,7 +754,7 @@
 				CODE_SIGN_ENTITLEMENTS = PushTemplateExtension/PushTemplateExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushTemplateExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PushTemplateExtension;
@@ -778,7 +782,7 @@
 				CODE_SIGN_ENTITLEMENTS = PushTemplateExtension/PushTemplateExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PushTemplateExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PushTemplateExtension;
