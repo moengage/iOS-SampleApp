@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sdkConfig = MoEngageSDKConfig(appId: "APPID", dataCenter: .data_center_01)
         sdkConfig.appGroupID = "group.com.alphadevs.MoEngage.NotificationServices"
         // Enable logs to see the api calls happening in moengage
-        sdkConfig.enableLogs = true
+        sdkConfig.consoleLogConfig = MoEngageConsoleLogConfig(isLoggingEnabled: true, loglevel: .verbose)
         
         // storage  encryption
         sdkConfig.storageConfig = MoEngageStorageConfig(encryptionConfig: MoEngageStorageEncryptionConfig(isEncryptionEnabled: true))
@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #else
         MoEngage.sharedInstance.initializeDefaultLiveInstance(sdkConfig)
 #endif
+        MoEngageSDKCore.sharedInstance.enableAllLogs()
     }
     
     private func setMessagingDelegate() {
@@ -53,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func disableBadgeReset() {
         // Uncomment the below line to disable resetting of badge count on every launch. By default value is set to false.
-        /* MoEngage.sharedInstance().setDisableBadgeReset(true) */
+        MoEngageSDKMessaging.sharedInstance.disableBadgeReset(true)
     }
     
     // MARK: UISceneSession Lifecycle
