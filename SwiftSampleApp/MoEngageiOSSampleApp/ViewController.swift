@@ -251,14 +251,15 @@ extension ViewController: MoEngageInAppNativeDelegate {
         print("Account Meta AppID: \(accountMeta.appID)")
     }
     
-    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andNavigationActionInfo navigationAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
+    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andCustomActionInfo navigationAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
         print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
         print("Account Meta AppID: \(accountMeta.appID)")
     }
-
-    // Called when an inApp is clicked by the user, and it has been configured with a navigation action
-    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInAppCampaign, andCustomActionInfo navigationAction: MoEngageInAppAction, forAccountMeta accountMeta: MoEngageAccountMeta) {
-         print("InApp Clicked with Campaign ID \(inappCampaign.campaignId)")
-         print("Navigation Action Screen Name \(navigationAction.screenName) Key Value Pairs: \((navigationAction.keyValuePairs))")
+    
+    func inAppClicked(withCampaignInfo inappCampaign: MoEngageInApps.MoEngageInAppCampaign, andNavigationActionInfo navigationAction: MoEngageInApps.MoEngageInAppNavigationAction, forAccountMeta accountMeta: MoEngageCore.MoEngageAccountMeta) {
+        print("InApp clicked navigation action callback for Campaign ID(\(inappCampaign.campaignId)) and CampaignName(\(inappCampaign.campaignName)) ❄️")
+        print("Navigation Action value : \(navigationAction.navigationUrl) K-V pairs: \(navigationAction.keyValuePairs)")
+        print("Navigation Action Type : \(navigationAction.navigationType)")
+        print("Account Meta AppID: \(accountMeta.appID)")
     }
 }
