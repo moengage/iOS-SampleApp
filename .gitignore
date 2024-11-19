@@ -57,6 +57,7 @@ playground.xcworkspace
 #
 
 Pods/
+Podfile.lock
 
 #
 # Add this line if you want to avoid checking in source code from the Xcode workspace
@@ -91,3 +92,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 # iOSInjectionProject/
+
+# SwiftPM
+Package.resolved
