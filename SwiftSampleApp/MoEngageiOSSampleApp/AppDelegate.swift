@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setupSDK(didFinishLaunchingWithOptions: launchOptions)
         setMessagingDelegate()
-        MoEngageSDKMessaging.sharedInstance.registerForRemoteNotification(withCategories: nil, andUserNotificationCenterDelegate: self)
+        MoEngageSDKMessaging.sharedInstance.registerForRemoteNotification(withCategories: nil, andUserNotificationCenterDelegate: nil)
         disableBadgeReset()
         
         return true
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sdkConfig.keyChainConfig = MoEngageKeyChainConfig(groupName: "\(teamId).com.alphadevs.MoEngage.keychain")
         
         // network encryption
-        sdkConfig.networkConfig = MoEngageNetworkRequestConfig(authorizationConfig: MoEngageNetworkAuthorizationConfig(isJwtEnbaled: true), dataSecurityConfig: MoEngageNetworkDataSecurityConfig(isEncryptionEnabled: true, encryptionKeyDebug: "DEBUG KEY", encryptionKeyRelease: "RELEASE KEY"))
+        sdkConfig.networkConfig = MoEngageNetworkRequestConfig(authorizationConfig: MoEngageNetworkAuthorizationConfig(isJwtEnabled: true), dataSecurityConfig: MoEngageNetworkDataSecurityConfig(isEncryptionEnabled: true, encryptionKeyDebug: "DEBUG KEY", encryptionKeyRelease: "RELEASE KEY"))
         
         // set true if user must be part of registration flow
         sdkConfig.userRegistrationConfig = MoEngageUserRegistrationConfig(isUserRegistrationEnabled: true)
@@ -71,39 +71,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    //Remote notification Registration callback methods
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        //Call only if MoEngageAppDelegateProxyEnabled is NO
-        MoEngageSDKMessaging.sharedInstance.setPushToken(deviceToken)
-    }
-    
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        //Call only if MoEngageAppDelegateProxyEnabled is NO
-        MoEngageSDKMessaging.sharedInstance.didFailToRegisterForPush()
-    }
+    // NOTE: When `MoEngageAppDelegateProxyEnabled` is YES (the SDK default), MoEngage
+    // automatically swizzles these two UIApplicationDelegate methods and forwards the
+    // token / error to the SDK on your behalf — the two methods below are redundant in
+    // that mode and would double-register the push token / failure.
+    // Uncomment them ONLY if you have explicitly set `MoEngageAppDelegateProxyEnabled`
+    // to NO in Info.plist (manual integration mode).
+    //
+    //    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    //        //Call only if MoEngageAppDelegateProxyEnabled is NO
+    //        MoEngageSDKMessaging.sharedInstance.setPushToken(deviceToken)
+    //    }
+    //
+    //    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    //        //Call only if MoEngageAppDelegateProxyEnabled is NO
+    //        MoEngageSDKMessaging.sharedInstance.didFailToRegisterForPush()
+    //    }
 
 }
 
 // MARK:- UNUserNotificationCenterDelegate
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    // MARK:- UserNotifications Framework callback method
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        //Call only if MoEngageAppDelegateProxyEnabled is NO
-        MoEngageSDKMessaging.sharedInstance.userNotificationCenter(center, didReceive: response)
-        
-        completionHandler()
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        //This is to only to display Alert and enable notification sound
-        completionHandler([.sound, .badge, .alert])
-    }
-}
+// NOTE: When `MoEngageAppDelegateProxyEnabled` is YES (the SDK default), MoEngage
+// automatically swizzles `UNUserNotificationCenterDelegate` and forwards both
+// `didReceive` and `willPresent` to the SDK on your behalf — the two methods below
+// are redundant in that mode and would double-process every notification.
+// Uncomment this extension ONLY if you have explicitly set
+// `MoEngageAppDelegateProxyEnabled` to NO in Info.plist (manual integration mode).
+//
+//extension AppDelegate: UNUserNotificationCenterDelegate {
+//
+//    // MARK:- UserNotifications Framework callback method
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//
+//        //Call only if MoEngageAppDelegateProxyEnabled is NO
+//        MoEngageSDKMessaging.sharedInstance.userNotificationCenter(center, didReceive: response)
+//
+//        completionHandler()
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//
+//        //This is to only to display Alert and enable notification sound
+//        completionHandler([.sound, .badge, .alert])
+//    }
+//}
 
 // MARK: - MOMessagingDelegate
 extension AppDelegate: MoEngageMessagingDelegate {

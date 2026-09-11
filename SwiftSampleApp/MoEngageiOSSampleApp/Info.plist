@@ -13,8 +13,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>MoEngageAppDelegateProxyEnabled </key>
-	<false/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

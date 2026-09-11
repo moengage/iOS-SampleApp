@@ -69,7 +69,7 @@ extension ViewController: UITableViewDelegate {
     /// Create a dictionary of event attributes and pass that to generate an instance of MOProperties. MOProperties also allows you to add additinal attributes.
     /// It supports tracking of Int, Double, Float, String, Bool, Date, Location value types
     private func trackEvents() {
-        var eventAttrDict : Dictionary<String,Any> = Dictionary()
+        var eventAttrDict: [String: any Sendable] = [:]
         eventAttrDict["ProductName"] = "iPhone XS Max"
         eventAttrDict["BrandName"] = "Apple"
         eventAttrDict["Items In Stock"] = 109
