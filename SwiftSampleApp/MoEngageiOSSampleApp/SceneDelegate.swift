@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MoEngageSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -47,10 +48,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        print("Received callback for deeplink with url - \(URLContexts.first?.url)")
-    }
-
+    // MARK: - URL Handling (optional)
+    // Uncomment these when:
+    //   1. Your app needs the deeplink itself — routing the user to a screen, parsing
+    //      query params, etc. Implement the navigation in your own code; the
+    //      `processURL` call keeps MoEngage's source attribution working alongside it.
+    //
+    //   2. You set BOTH `MoEngageSceneDelegateProxyEnabled` and
+    //      `MoEngageAppDelegateProxyEnabled` to NO in Info.plist. The `processURL` calls
+    //      are then the only thing attributing the deeplink source — without them,
+    //      campaign attribution for deeplinks is lost.
+    //
+    //    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    //        print("Custom deeplink callback received", URLContexts.description)
+    //        for context in URLContexts {
+    //            MoEngageSDKAnalytics.sharedInstance.processURL(context.url)
+    //        }
+    //    }
+    //    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+    //        print("Universal Deeplink callback received with Incoming URL:", userActivity.webpageURL ?? "No URL")
+    //        if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+    //            MoEngageSDKAnalytics.sharedInstance.processURL(userActivity.webpageURL)
+    //        }
+    //    }
 
 }
 

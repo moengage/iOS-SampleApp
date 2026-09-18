@@ -5,7 +5,7 @@ target 'MoEngageiOSCocoaSampleApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'MoEngage-iOS-SDK', '11.00.0'
+  pod 'MoEngage-iOS-SDK', '11.02.0'
   pod 'MoEngage-iOS-SDK/InApps'
   pod 'MoEngage-iOS-SDK/Cards'
   pod 'MoEngage-iOS-SDK/GeoFence'

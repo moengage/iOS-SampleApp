@@ -954,7 +954,7 @@
 			repositoryURL = "https://github.com/moengage/MoEngage-iOS-SDK";
 			requirement = {
 				kind = exactVersion;
-				version = 11.00.0;
+				version = 11.02.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
