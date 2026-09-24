@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0366F8714B9E47F996C160DF /* BrewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02BDF0DC88B4864BB2C1458 /* BrewTab.swift */; };
+		0BA80D320A964AD688523103 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F14914BFB4461BA16F7FEB /* InboxView.swift */; };
+		11046ED5621E4113847DA3CB /* RelativeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DEC4A3D0246D5B9173DE0 /* RelativeTime.swift */; };
+		127F64E3D4F54A7C9BFEA6F0 /* MenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C212CBF28F19497BA86ED45B /* MenuHeader.swift */; };
 		145648A328C62E2C009A41AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648A228C62E2C009A41AB /* AppDelegate.swift */; };
 		145648A528C62E2C009A41AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648A428C62E2C009A41AB /* SceneDelegate.swift */; };
 		145648A728C62E2C009A41AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648A628C62E2C009A41AB /* ViewController.swift */; };
@@ -16,12 +20,41 @@
 		145648B828C62EB5009A41AB /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B628C62EB5009A41AB /* SampleModel.swift */; };
 		145648B928C62EB5009A41AB /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B728C62EB5009A41AB /* SampleViewModel.swift */; };
 		14AA0D6128C71E1800AF5E0D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0D6028C71E1800AF5E0D /* NotificationService.swift */; };
-		14AA0D6528C71E1800AF5E0D /* NotificationServices.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14AA0D5E28C71E1800AF5E0D /* NotificationServices.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		14AA0D7028C7276400AF5E0D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AA0D6F28C7276400AF5E0D /* UserNotifications.framework */; };
 		14AA0D7228C7276400AF5E0D /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AA0D7128C7276400AF5E0D /* UserNotificationsUI.framework */; };
 		14AA0D7528C7276400AF5E0D /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0D7428C7276400AF5E0D /* NotificationViewController.swift */; };
 		14AA0D7828C7276400AF5E0D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AA0D7628C7276400AF5E0D /* MainInterface.storyboard */; };
-		14AA0D7C28C7276400AF5E0D /* PushTemplateExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 14AA0D6E28C7276400AF5E0D /* PushTemplateExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1858055B44794163B10C77E8 /* MoEngageInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9D64C7081F4052A0DEFCC1 /* MoEngageInbox.swift */; };
+		19EEFBC7A219978DBE2109BD /* BrewButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F81EF9FCD08FCCFA6A54EEC /* BrewButtonStyle.swift */; };
+		2283F62EEFB94A2793432DAA /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E6DBEC45D8450CB4893B6A /* AppSession.swift */; };
+		2962C38B319F4672B55BB8BA /* MoEngageEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BAD1FBE1C9433EA05DD020 /* MoEngageEvents.swift */; };
+		2B28D1666D1BAB1A997FF698 /* PushOptInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A33B2FAD7794A608F1AC8D /* PushOptInView.swift */; };
+		2F7FEC8E6B014E3EBD925A96 /* MenuCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23CD92804CB47E0A64E5A68 /* MenuCatalogue.swift */; };
+		307BFD6C2847419297AF429E /* IconTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98488C0D13E347828C42403B /* IconTile.swift */; };
+		3103BA2C60B54F22BB144FAC /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C560413409487EAFD5B252 /* CartView.swift */; };
+		3330A9523064B96F0081BFC5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3330A9513064B96E0081BFC5 /* WidgetKit.framework */; };
+		3330A9543064B96F0081BFC5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3330A9533064B96F0081BFC5 /* SwiftUI.framework */; };
+		3330A9613064B9720081BFC5 /* BrewOrderLiveActivityExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3330A9503064B96E0081BFC5 /* BrewOrderLiveActivityExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3DED347D03E7CD3DB61A9406 /* ThinDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B39EE2E19B06A3004632E4 /* ThinDivider.swift */; };
+		40E2B66A51A046E398FD844A /* InboxState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159BF2BA984F4B3A92CFA529 /* InboxState.swift */; };
+		46F952E6141C4142B4F9C4E2 /* InboxModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AEC1B108364CE8BC1BCCD5 /* InboxModels.swift */; };
+		4717920F1DD04B228FBFAFF0 /* MenuRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B983B0579A46F6A5F588A5 /* MenuRow.swift */; };
+		48401615F0651262F718F05E /* MoEngagePush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6440CD128A1C4A3810973 /* MoEngagePush.swift */; };
+		519EAD18AA324B6F9EDF84D5 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FC8DCCE2A64D7EB4C70487 /* CategoryListView.swift */; };
+		528FA4BC3759803F4EC2560A /* BrewColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FEBBC604BC2871DBBDDF86 /* BrewColor.swift */; };
+		53895C1A3559DC9CE83AAB7B /* MoEngageSDKHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EE604E483E58138BB859EE /* MoEngageSDKHelper.swift */; };
+		53DFF6F789DD48C3BB5E14ED /* MenuModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEA47AE6A5341E39348B5A1 /* MenuModels.swift */; };
+		5536CBE06CA72850863AD25A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852F609814FE1E2E3911DF8D /* Router.swift */; };
+		5856824CF088BF0222EB5726 /* MoEngageRichNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 1EEA9EBC5DF25062DB089707 /* MoEngageRichNotification */; };
+		609180DAA59C5527DC844E60 /* BrewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6131E5050769D355C65897BA /* BrewAssets.xcassets */; };
+		67A2646429D66B5233455A5D /* BrewTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C448836B968CCA0E8C7F643 /* BrewTypography.swift */; };
+		67FED53AFD10D5B1DC297D1C /* BrewOrderAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3ABDF3166155B81808ECA /* BrewOrderAttributes.swift */; };
+		713CAB96F9FB406DA15EB516 /* MoEngageLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D67C2BE6C520112FFA2E0E4 /* MoEngageLiveActivity.swift */; };
+		7197A7EEEC324A069E94FF2A /* FooterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD3BD50B4D4D5A99EE229E /* FooterBar.swift */; };
+		734870E495D01F6ADFF46506 /* PromoPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E12AB08674BCC58A5413A65 /* PromoPayload.swift */; };
+		75E1B4918CB5450491625100 /* CartModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE24F6B5BCC4DB9AD1FB6F5 /* CartModels.swift */; };
+		75F1ECC02E2340B39CA166A5 /* SelectCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37A2C1E26541ED96C407C2 /* SelectCard.swift */; };
+		7627B3B468B1447E95000C04 /* FeaturedCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6A925FF4746CABD1C72DB /* FeaturedCard.swift */; };
 		783093492CE4B7FA00C0EFAE /* MoEngage-iOS-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = 783093482CE4B7FA00C0EFAE /* MoEngage-iOS-SDK */; };
 		7830934B2CE4B7FA00C0EFAE /* MoEngageCards in Frameworks */ = {isa = PBXBuildFile; productRef = 7830934A2CE4B7FA00C0EFAE /* MoEngageCards */; };
 		7830934D2CE4B7FA00C0EFAE /* MoEngageGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 7830934C2CE4B7FA00C0EFAE /* MoEngageGeofence */; };
@@ -32,6 +65,29 @@
 		783093572CE4B7FA00C0EFAE /* MoEngageTriggerEvaluator in Frameworks */ = {isa = PBXBuildFile; productRef = 783093562CE4B7FA00C0EFAE /* MoEngageTriggerEvaluator */; };
 		783093592CE4B80200C0EFAE /* MoEngageRichNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 783093582CE4B80200C0EFAE /* MoEngageRichNotification */; };
 		7830935B2CE4B80A00C0EFAE /* MoEngageRichNotification in Frameworks */ = {isa = PBXBuildFile; productRef = 7830935A2CE4B80A00C0EFAE /* MoEngageRichNotification */; };
+		79D0E5944E4D4938A7F9FA4B /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE01A0397284F2BB437EF40 /* DetailRow.swift */; };
+		7C3B0B35D6F53F27D01C3B85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EDFBAE82E60CD2415F169 /* ContentView.swift */; };
+		7CDB38ADA0E548E09ED819EB /* MoEngageGeofence in Frameworks */ = {isa = PBXBuildFile; productRef = 522A7B4B296A4588B535E64C /* MoEngageGeofence */; };
+		7DFC8FD0E6854EC2A0920F1F /* CartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE5A4020CB4298B31CE344 /* CartState.swift */; };
+		80C27D4CC8CF87E39F306ED8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628415DD052ED1CDE5DEB0D2 /* LoginView.swift */; };
+		82DB3195F58451B7EC5F0421 /* SelfHandledPromoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D1BDAA03E5051A07294D7 /* SelfHandledPromoCard.swift */; };
+		834F421837914293A0D6D195 /* FilterPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F0B1BDC544401A9F5FAABE /* FilterPill.swift */; };
+		85C2B9472C8AAFA3B90357E5 /* BrewOrderAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3ABDF3166155B81808ECA /* BrewOrderAttributes.swift */; };
+		8663D532F0FC4B8791106D34 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47E5A15C7E4B47A8F09BD7 /* MainTabView.swift */; };
+		86967592887506F265825C71 /* MoEngage-iOS-SDK in Frameworks */ = {isa = PBXBuildFile; productRef = E053CD8DFAC226E17155724F /* MoEngage-iOS-SDK */; };
+		87CD2371B472E2A6303D00A3 /* BackTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870D15E829947A51CEF02570 /* BackTile.swift */; };
+		900BB291C3A707E7ED49B151 /* MoEngageReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DEF04FB520FF00BBFB4BA /* MoEngageReporting.swift */; };
+		916E4557495241719FF2ED95 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CFC6EB1A284BC5A3D8AD4C /* ProfileView.swift */; };
+		96C37ED31A4C4D98910E1D0F /* MoEngageInbox in Frameworks */ = {isa = PBXBuildFile; productRef = DBF87098AB904612B02EBCF3 /* MoEngageInbox */; };
+		9772FDB2EA7E18BE934A339D /* MoEngageLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 3E414BB0DA7A78894F341A79 /* MoEngageLiveActivity */; };
+		606142D2907CF796A878B8C4 /* MoEngageLiveActivity in Frameworks */ = {isa = PBXBuildFile; productRef = 66BFCD4505CD6F6D1E2F9213 /* MoEngageLiveActivity */; };
+		97854DE00CC4E32F41A856B7 /* CoverImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFE9F6793962744454E903A /* CoverImage.swift */; };
+		9ADF7FD4E631B6B29B76892A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1952CC0683DAB076E72A26 /* SplashView.swift */; };
+		9E38EE35BA6B435CA9B24455 /* MenuState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34388D2B854412A725682C /* MenuState.swift */; };
+		A1301DBB1E4A4CC5977CBD02 /* OrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF074804F2DE44A8BA53AA9A /* OrderModels.swift */; };
+		A1B2C3D40002PERSONALIZE02 /* MoEngagePersonalization in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D40001PERSONALIZE01 /* MoEngagePersonalization */; };
+		A2D934FA93654466989AB74F /* InAppContextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45464EFF8449FF982F3A5D /* InAppContextModifier.swift */; };
+		A36C94241EDF44F1B6D85629 /* ProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC31C056E4C6FBAED5313 /* ProfileState.swift */; };
 		A451DB772CEB4F3F002E1763 /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B728C62EB5009A41AB /* SampleViewModel.swift */; };
 		A451DB782CEB4F3F002E1763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648A628C62E2C009A41AB /* ViewController.swift */; };
 		A451DB792CEB4F3F002E1763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648A228C62E2C009A41AB /* AppDelegate.swift */; };
@@ -41,24 +97,51 @@
 		A451DB882CEB4F3F002E1763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145648AD28C62E2F009A41AB /* LaunchScreen.storyboard */; };
 		A451DB892CEB4F3F002E1763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145648AB28C62E2F009A41AB /* Assets.xcassets */; };
 		A451DB8A2CEB4F3F002E1763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145648A828C62E2C009A41AB /* Main.storyboard */; };
+		AAB8CB83D3AC8FB62F645003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F30BE9E1EE113E5BB7F46 /* AppDelegate.swift */; };
 		AB779922B67F6A316733A899 /* Pods_MoEngageiOSCocoaSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6C6485C880AA7590433624 /* Pods_MoEngageiOSCocoaSampleApp.framework */; };
 		ACE388E62A3055CD00FF706C /* UserRegistrationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */; };
+		AD0F15F416FA48D9860859EF /* OrderStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44D3CBE91DF43BBB032E82F /* OrderStatusView.swift */; };
+		AD61EB2B6538487F82C8E2F4 /* CurrencyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3D946B014144E2A460E371 /* CurrencyFormat.swift */; };
+		ADAA00C6DA584567974B0F90 /* OrderCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166184677D524EA5B68FFE67 /* OrderCatalogue.swift */; };
+		B0B64BB058014D7198207B9C /* TabPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3B86CA7A5346C8BC4D1801 /* TabPill.swift */; };
+		BD8A62723FF553D452511BF0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1D0ACE7AE42F33245FEEA /* Route.swift */; };
+		BF8B3227346B52AFDE04BEEB /* MoEngageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A24BF80D768F9A0E0400D8 /* MoEngageUser.swift */; };
+		C1E110764C7C1B3C77D77D80 /* BrewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406568E7E7E66093CF0FA87A /* BrewMetrics.swift */; };
+		C3783B3D1ACA4B878D514A91 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D5181D16FC45E680CFB2BC /* SectionHeader.swift */; };
+		C9F2053C6558DFE1EB33F8C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145648AB28C62E2F009A41AB /* Assets.xcassets */; };
+		D99A215D247541C4C3A2E905 /* SaleBroadcastAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92E227FDBB5BC216C4F1F3 /* SaleBroadcastAttributes.swift */; };
+		DC684CF313514AC6AEF78733 /* MoEngageInApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B5A3F6F44B412F95D5916F /* MoEngageInApp.swift */; };
+		DC69B8A4E16BC08E546A1320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7528CF6977935D9E5FF943 /* Foundation.framework */; };
+		DE6875C6E8B840ABBFAA4C90 /* TabPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DF873495EA439FB3CE127D /* TabPlaceholderView.swift */; };
+		E087A220DB8D4798E6EF92A6 /* RootNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68948F40A71C54BA5006A2E3 /* RootNavigationContainer.swift */; };
+		E6150A1D1FA5136649D8E072 /* MoEngageiOSSwiftUISampleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E4C1DA7D8AAC971095073F /* MoEngageiOSSwiftUISampleAppApp.swift */; };
+		E7DF8BC982824C4C83EDAEA9 /* MoEngageInApps in Frameworks */ = {isa = PBXBuildFile; productRef = 2732CFA52E92406BAD382E2C /* MoEngageInApps */; };
+		E92C73881055443CB8AB32BB /* BrewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98546501E39F49BABFD49333 /* BrewCard.swift */; };
+		E9799DA88021C23FB6F9F86C /* DemoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5950AF407336D56404367AFA /* DemoUser.swift */; };
+		EA003586F5BC42698077FBEE /* SelectPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E460F97F7A4B0A8EC70298 /* SelectPill.swift */; };
+		F04D458E023A436944B003E9 /* SaleBroadcastAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92E227FDBB5BC216C4F1F3 /* SaleBroadcastAttributes.swift */; };
+		F1379CE519254058B103461F /* MoEngageGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A76134AE6413DB335D77E /* MoEngageGeofence.swift */; };
+		F1379CE519254058B103A701 /* MoEngagePersonalize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A76134AE6413DB335D701 /* MoEngagePersonalize.swift */; };
+		F1379CE519254058B103A702 /* PersonalizeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A76134AE6413DB335D702 /* PersonalizeContract.swift */; };
+		F1379CE519254058B103A703 /* PersonalizeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A76134AE6413DB335D703 /* PersonalizeState.swift */; };
+		F1379CE519254058B103A704 /* PersonalizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A76134AE6413DB335D704 /* PersonalizeView.swift */; };
+		F2ABA90FFB664752821CA555 /* BrewAppBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53033D24B685463786AFE66B /* BrewAppBar.swift */; };
+		F40A45D9EC454741A3A8856B /* CartCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8066E3B2204E6C84434923 /* CartCatalogue.swift */; };
+		F48E88A81EBA4E1383EFCE37 /* MoEngageRealTimeTrigger in Frameworks */ = {isa = PBXBuildFile; productRef = 0B4C955874B546B6BA8BF7CD /* MoEngageRealTimeTrigger */; };
+		FA1EFDDA0C824E1390058AC7 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8C4A169D6746BFB89A7CCA /* ItemDetailView.swift */; };
+		FBA865801282405099F5D896 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18D643DAB184307974BC736 /* PaymentView.swift */; };
+		FD0C94D7771F4EA59BC97856 /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7856634A8BAB47779F1BCCBF /* OrdersView.swift */; };
+		FF8529E38DF34FCA92F3521D /* MenuHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F301854D1F4EF1A3BC3BEB /* MenuHomeView.swift */; };
+		FFC1353F6B804774B4F7ED07 /* OrderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E834024624BE69B9EDE18 /* OrderState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		14AA0D6328C71E1800AF5E0D /* PBXContainerItemProxy */ = {
+		3330A95F3064B9720081BFC5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1456489728C62E2C009A41AB /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 14AA0D5D28C71E1800AF5E0D;
-			remoteInfo = NotificationServices;
-		};
-		14AA0D7A28C7276400AF5E0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1456489728C62E2C009A41AB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14AA0D6D28C7276400AF5E0D;
-			remoteInfo = PushTemplateExtension;
+			remoteGlobalIDString = 3330A94F3064B96E0081BFC5;
+			remoteInfo = BrewOrderLiveActivityExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -69,15 +152,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				14AA0D7C28C7276400AF5E0D /* PushTemplateExtension.appex in Embed App Extensions */,
-				14AA0D6528C71E1800AF5E0D /* NotificationServices.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3330A9623064B9720081BFC5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3330A9613064B9720081BFC5 /* BrewOrderLiveActivityExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		001F30BE9E1EE113E5BB7F46 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		05E4C1DA7D8AAC971095073F /* MoEngageiOSSwiftUISampleAppApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageiOSSwiftUISampleAppApp.swift; sourceTree = "<group>"; };
+		0C3B86CA7A5346C8BC4D1801 /* TabPill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabPill.swift; sourceTree = "<group>"; };
+		11F301854D1F4EF1A3BC3BEB /* MenuHomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuHomeView.swift; sourceTree = "<group>"; };
 		1456489F28C62E2C009A41AB /* MoEngageiOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoEngageiOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145648A228C62E2C009A41AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		145648A428C62E2C009A41AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,12 +198,105 @@
 		14AA0D7728C7276400AF5E0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		14AA0D7928C7276400AF5E0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14AA0D8028C728FF00AF5E0D /* PushTemplateExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushTemplateExtension.entitlements; sourceTree = "<group>"; };
+		159BF2BA984F4B3A92CFA529 /* InboxState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InboxState.swift; sourceTree = "<group>"; };
+		166184677D524EA5B68FFE67 /* OrderCatalogue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderCatalogue.swift; sourceTree = "<group>"; };
+		192DEC4A3D0246D5B9173DE0 /* RelativeTime.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RelativeTime.swift; sourceTree = "<group>"; };
+		1C3D946B014144E2A460E371 /* CurrencyFormat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CurrencyFormat.swift; sourceTree = "<group>"; };
+		1CE01A0397284F2BB437EF40 /* DetailRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
 		1E404F18873497D64EA40FFA /* Pods-MoEngageiOSCocoaSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoEngageiOSCocoaSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-MoEngageiOSCocoaSampleApp/Pods-MoEngageiOSCocoaSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		24D1D72410932A673645FB4C /* MoEngageiOSSwiftUISampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoEngageiOSSwiftUISampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B8DEF04FB520FF00BBFB4BA /* MoEngageReporting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageReporting.swift; sourceTree = "<group>"; };
+		2C448836B968CCA0E8C7F643 /* BrewTypography.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewTypography.swift; sourceTree = "<group>"; };
+		2FE24F6B5BCC4DB9AD1FB6F5 /* CartModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CartModels.swift; sourceTree = "<group>"; };
+		30FC8DCCE2A64D7EB4C70487 /* CategoryListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		3330A9503064B96E0081BFC5 /* BrewOrderLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BrewOrderLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3330A9513064B96E0081BFC5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3330A9533064B96F0081BFC5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		35DD3BD50B4D4D5A99EE229E /* FooterBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FooterBar.swift; sourceTree = "<group>"; };
+		3A8C4A169D6746BFB89A7CCA /* ItemDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		3B1952CC0683DAB076E72A26 /* SplashView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		3E0EDFBAE82E60CD2415F169 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3ECE5A4020CB4298B31CE344 /* CartState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CartState.swift; sourceTree = "<group>"; };
+		406568E7E7E66093CF0FA87A /* BrewMetrics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewMetrics.swift; sourceTree = "<group>"; };
+		40AEC1B108364CE8BC1BCCD5 /* InboxModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InboxModels.swift; sourceTree = "<group>"; };
+		42CFC6EB1A284BC5A3D8AD4C /* ProfileView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4A45464EFF8449FF982F3A5D /* InAppContextModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InAppContextModifier.swift; sourceTree = "<group>"; };
+		4BF6440CD128A1C4A3810973 /* MoEngagePush.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngagePush.swift; sourceTree = "<group>"; };
+		53033D24B685463786AFE66B /* BrewAppBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewAppBar.swift; sourceTree = "<group>"; };
+		5950AF407336D56404367AFA /* DemoUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DemoUser.swift; sourceTree = "<group>"; };
+		5F34388D2B854412A725682C /* MenuState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuState.swift; sourceTree = "<group>"; };
+		5F81EF9FCD08FCCFA6A54EEC /* BrewButtonStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewButtonStyle.swift; sourceTree = "<group>"; };
+		6131E5050769D355C65897BA /* BrewAssets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = BrewAssets.xcassets; sourceTree = "<group>"; };
+		626E834024624BE69B9EDE18 /* OrderState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderState.swift; sourceTree = "<group>"; };
+		628415DD052ED1CDE5DEB0D2 /* LoginView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		68948F40A71C54BA5006A2E3 /* RootNavigationContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootNavigationContainer.swift; sourceTree = "<group>"; };
 		6C6C6485C880AA7590433624 /* Pods_MoEngageiOSCocoaSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoEngageiOSCocoaSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D67C2BE6C520112FFA2E0E4 /* MoEngageLiveActivity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageLiveActivity.swift; sourceTree = "<group>"; };
+		6D7528CF6977935D9E5FF943 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		70DF873495EA439FB3CE127D /* TabPlaceholderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabPlaceholderView.swift; sourceTree = "<group>"; };
+		74D5181D16FC45E680CFB2BC /* SectionHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		74FEBBC604BC2871DBBDDF86 /* BrewColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewColor.swift; sourceTree = "<group>"; };
+		75A24BF80D768F9A0E0400D8 /* MoEngageUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageUser.swift; sourceTree = "<group>"; };
+		779D1BDAA03E5051A07294D7 /* SelfHandledPromoCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelfHandledPromoCard.swift; sourceTree = "<group>"; };
+		7856634A8BAB47779F1BCCBF /* OrdersView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
+		852F609814FE1E2E3911DF8D /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		85F0B1BDC544401A9F5FAABE /* FilterPill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterPill.swift; sourceTree = "<group>"; };
+		870D15E829947A51CEF02570 /* BackTile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BackTile.swift; sourceTree = "<group>"; };
+		8AF3ABDF3166155B81808ECA /* BrewOrderAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewOrderAttributes.swift; sourceTree = "<group>"; };
 		8CB61C044FE02A61E8D1D025 /* Pods-MoEngageiOSCocoaSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoEngageiOSCocoaSampleApp.release.xcconfig"; path = "Target Support Files/Pods-MoEngageiOSCocoaSampleApp/Pods-MoEngageiOSCocoaSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		8DFE9F6793962744454E903A /* CoverImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoverImage.swift; sourceTree = "<group>"; };
+		92F14914BFB4461BA16F7FEB /* InboxView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
+		96E6DBEC45D8450CB4893B6A /* AppSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
+		98488C0D13E347828C42403B /* IconTile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IconTile.swift; sourceTree = "<group>"; };
+		98546501E39F49BABFD49333 /* BrewCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewCard.swift; sourceTree = "<group>"; };
+		98EE604E483E58138BB859EE /* MoEngageSDKHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageSDKHelper.swift; sourceTree = "<group>"; };
+		9BA6A925FF4746CABD1C72DB /* FeaturedCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeaturedCard.swift; sourceTree = "<group>"; };
+		9C8066E3B2204E6C84434923 /* CartCatalogue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CartCatalogue.swift; sourceTree = "<group>"; };
+		9E12AB08674BCC58A5413A65 /* PromoPayload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PromoPayload.swift; sourceTree = "<group>"; };
+		A0E7D0239C46ADC03A1AC0C8 /* MoEngageiOSSwiftUISampleApp.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = MoEngageiOSSwiftUISampleApp.entitlements; sourceTree = "<group>"; };
+		A1E460F97F7A4B0A8EC70298 /* SelectPill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectPill.swift; sourceTree = "<group>"; };
+		A3B983B0579A46F6A5F588A5 /* MenuRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
+		A44D3CBE91DF43BBB032E82F /* OrderStatusView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderStatusView.swift; sourceTree = "<group>"; };
 		A451DB912CEB4F3F002E1763 /* MoEngageiOSCocoaSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoEngageiOSCocoaSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationUtils.swift; sourceTree = "<group>"; };
+		AEEA47AE6A5341E39348B5A1 /* MenuModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuModels.swift; sourceTree = "<group>"; };
+		B18D643DAB184307974BC736 /* PaymentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		B23CD92804CB47E0A64E5A68 /* MenuCatalogue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuCatalogue.swift; sourceTree = "<group>"; };
+		B77A76134AE6413DB335D701 /* MoEngagePersonalize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngagePersonalize.swift; sourceTree = "<group>"; };
+		B77A76134AE6413DB335D702 /* PersonalizeContract.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PersonalizeContract.swift; sourceTree = "<group>"; };
+		B77A76134AE6413DB335D703 /* PersonalizeState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PersonalizeState.swift; sourceTree = "<group>"; };
+		B77A76134AE6413DB335D704 /* PersonalizeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PersonalizeView.swift; sourceTree = "<group>"; };
+		B77A76134AE6413DB335D77E /* MoEngageGeofence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageGeofence.swift; sourceTree = "<group>"; };
+		BF074804F2DE44A8BA53AA9A /* OrderModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderModels.swift; sourceTree = "<group>"; };
+		BF92E227FDBB5BC216C4F1F3 /* SaleBroadcastAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SaleBroadcastAttributes.swift; sourceTree = "<group>"; };
+		C212CBF28F19497BA86ED45B /* MenuHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuHeader.swift; sourceTree = "<group>"; };
+		C9A33B2FAD7794A608F1AC8D /* PushOptInView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushOptInView.swift; sourceTree = "<group>"; };
+		CE37A2C1E26541ED96C407C2 /* SelectCard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SelectCard.swift; sourceTree = "<group>"; };
+		CEDDC31C056E4C6FBAED5313 /* ProfileState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileState.swift; sourceTree = "<group>"; };
+		CEE1D0ACE7AE42F33245FEEA /* Route.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		D02BDF0DC88B4864BB2C1458 /* BrewTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrewTab.swift; sourceTree = "<group>"; };
+		D7C560413409487EAFD5B252 /* CartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		D9A9F92D1CE1E00BAE89EAE8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA47E5A15C7E4B47A8F09BD7 /* MainTabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		E9B39EE2E19B06A3004632E4 /* ThinDivider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ThinDivider.swift; sourceTree = "<group>"; };
+		EE9D64C7081F4052A0DEFCC1 /* MoEngageInbox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageInbox.swift; sourceTree = "<group>"; };
+		F2BAD1FBE1C9433EA05DD020 /* MoEngageEvents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageEvents.swift; sourceTree = "<group>"; };
+		F9B5A3F6F44B412F95D5916F /* MoEngageInApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageInApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3330A9653064B9720081BFC5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3330A94F3064B96E0081BFC5 /* BrewOrderLiveActivityExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3330A9553064B96F0081BFC5 /* BrewOrderLiveActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3330A9653064B9720081BFC5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = BrewOrderLiveActivity; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1456489C28C62E2C009A41AB /* Frameworks */ = {
@@ -143,6 +332,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3330A94D3064B96E0081BFC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3330A9543064B96F0081BFC5 /* SwiftUI.framework in Frameworks */,
+				3330A9523064B96F0081BFC5 /* WidgetKit.framework in Frameworks */,
+				606142D2907CF796A878B8C4 /* MoEngageLiveActivity in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A451DB7D2CEB4F3F002E1763 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -151,18 +350,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BF483DBA25512F6A34ADD821 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC69B8A4E16BC08E546A1320 /* Foundation.framework in Frameworks */,
+				86967592887506F265825C71 /* MoEngage-iOS-SDK in Frameworks */,
+				96C37ED31A4C4D98910E1D0F /* MoEngageInbox in Frameworks */,
+				7CDB38ADA0E548E09ED819EB /* MoEngageGeofence in Frameworks */,
+				F48E88A81EBA4E1383EFCE37 /* MoEngageRealTimeTrigger in Frameworks */,
+				E7DF8BC982824C4C83EDAEA9 /* MoEngageInApps in Frameworks */,
+				A1B2C3D40002PERSONALIZE02 /* MoEngagePersonalization in Frameworks */,
+				9772FDB2EA7E18BE934A339D /* MoEngageLiveActivity in Frameworks */,
+				5856824CF088BF0222EB5726 /* MoEngageRichNotification in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		019DE61F3C8E4B55B30DCFD9 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				92F14914BFB4461BA16F7FEB /* InboxView.swift */,
+				159BF2BA984F4B3A92CFA529 /* InboxState.swift */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		077E5FD456E1A901295DA9CE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				3B1952CC0683DAB076E72A26 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		1456489628C62E2C009A41AB = {
 			isa = PBXGroup;
 			children = (
 				145648A128C62E2C009A41AB /* MoEngageiOSSampleApp */,
 				14AA0D5F28C71E1800AF5E0D /* NotificationServices */,
 				14AA0D7328C7276400AF5E0D /* PushTemplateExtension */,
+				3330A9553064B96F0081BFC5 /* BrewOrderLiveActivity */,
 				145648A028C62E2C009A41AB /* Products */,
 				145648BA28C645C6009A41AB /* Frameworks */,
 				3024D7E2F0DDB1CB03CA0F2F /* Pods */,
+				F08239C01BD44A69EBB1BE04 /* MoEngageiOSSwiftUISampleApp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,6 +407,8 @@
 				14AA0D5E28C71E1800AF5E0D /* NotificationServices.appex */,
 				14AA0D6E28C7276400AF5E0D /* PushTemplateExtension.appex */,
 				A451DB912CEB4F3F002E1763 /* MoEngageiOSCocoaSampleApp.app */,
+				24D1D72410932A673645FB4C /* MoEngageiOSSwiftUISampleApp.app */,
+				3330A9503064B96E0081BFC5 /* BrewOrderLiveActivityExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +439,9 @@
 				14AA0D6F28C7276400AF5E0D /* UserNotifications.framework */,
 				14AA0D7128C7276400AF5E0D /* UserNotificationsUI.framework */,
 				6C6C6485C880AA7590433624 /* Pods_MoEngageiOSCocoaSampleApp.framework */,
+				F70CC18598715284501197A9 /* iOS */,
+				3330A9513064B96E0081BFC5 /* WidgetKit.framework */,
+				3330A9533064B96F0081BFC5 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,6 +467,18 @@
 			path = PushTemplateExtension;
 			sourceTree = "<group>";
 		};
+		27597CDEC149C6F6D3585A15 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CEE1D0ACE7AE42F33245FEEA /* Route.swift */,
+				852F609814FE1E2E3911DF8D /* Router.swift */,
+				68948F40A71C54BA5006A2E3 /* RootNavigationContainer.swift */,
+				96E6DBEC45D8450CB4893B6A /* AppSession.swift */,
+				D02BDF0DC88B4864BB2C1458 /* BrewTab.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		3024D7E2F0DDB1CB03CA0F2F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +486,214 @@
 				8CB61C044FE02A61E8D1D025 /* Pods-MoEngageiOSCocoaSampleApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3E3C6BC5D44F45788C075D10 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3A8C4A169D6746BFB89A7CCA /* ItemDetailView.swift */,
+				30FC8DCCE2A64D7EB4C70487 /* CategoryListView.swift */,
+				A3B983B0579A46F6A5F588A5 /* MenuRow.swift */,
+				5F34388D2B854412A725682C /* MenuState.swift */,
+				11F301854D1F4EF1A3BC3BEB /* MenuHomeView.swift */,
+				C212CBF28F19497BA86ED45B /* MenuHeader.swift */,
+				779D1BDAA03E5051A07294D7 /* SelfHandledPromoCard.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		49015D4099945FA589FCE3FD /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				2C448836B968CCA0E8C7F643 /* BrewTypography.swift */,
+				406568E7E7E66093CF0FA87A /* BrewMetrics.swift */,
+				74FEBBC604BC2871DBBDDF86 /* BrewColor.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		55C4109372744C2D869A9282 /* OrderStatus */ = {
+			isa = PBXGroup;
+			children = (
+				A44D3CBE91DF43BBB032E82F /* OrderStatusView.swift */,
+			);
+			path = OrderStatus;
+			sourceTree = "<group>";
+		};
+		626C4054CB1AAAE0217D8998 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				C9A33B2FAD7794A608F1AC8D /* PushOptInView.swift */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		6F0CC0B33452133009674552 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				077E5FD456E1A901295DA9CE /* Splash */,
+				911BA321F73EE1D0D87C7350 /* Login */,
+				626C4054CB1AAAE0217D8998 /* Permission */,
+				019DE61F3C8E4B55B30DCFD9 /* Inbox */,
+				9B2F0AABA07A40FEB8FB3B6C /* Profile */,
+				6F0CC0B33452133009674701 /* Personalize */,
+				EA759E0B3416469CB0371583 /* Payment */,
+				55C4109372744C2D869A9282 /* OrderStatus */,
+				968754D3FBFC40E6B788DE24 /* Orders */,
+				A0673E34825A49AA91915B1E /* Cart */,
+				3E3C6BC5D44F45788C075D10 /* Menu */,
+				E5B20563E13342689FDF856D /* Main */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		6F0CC0B33452133009674701 /* Personalize */ = {
+			isa = PBXGroup;
+			children = (
+				B77A76134AE6413DB335D702 /* PersonalizeContract.swift */,
+				B77A76134AE6413DB335D703 /* PersonalizeState.swift */,
+				B77A76134AE6413DB335D704 /* PersonalizeView.swift */,
+			);
+			path = Personalize;
+			sourceTree = "<group>";
+		};
+		7DEF4A161343B006AD96B690 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				40AEC1B108364CE8BC1BCCD5 /* InboxModels.swift */,
+				192DEC4A3D0246D5B9173DE0 /* RelativeTime.swift */,
+				BF074804F2DE44A8BA53AA9A /* OrderModels.swift */,
+				166184677D524EA5B68FFE67 /* OrderCatalogue.swift */,
+				2FE24F6B5BCC4DB9AD1FB6F5 /* CartModels.swift */,
+				9C8066E3B2204E6C84434923 /* CartCatalogue.swift */,
+				AEEA47AE6A5341E39348B5A1 /* MenuModels.swift */,
+				B23CD92804CB47E0A64E5A68 /* MenuCatalogue.swift */,
+				1C3D946B014144E2A460E371 /* CurrencyFormat.swift */,
+				5950AF407336D56404367AFA /* DemoUser.swift */,
+				9E12AB08674BCC58A5413A65 /* PromoPayload.swift */,
+				8AF3ABDF3166155B81808ECA /* BrewOrderAttributes.swift */,
+				BF92E227FDBB5BC216C4F1F3 /* SaleBroadcastAttributes.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		911BA321F73EE1D0D87C7350 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				628415DD052ED1CDE5DEB0D2 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		968754D3FBFC40E6B788DE24 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				7856634A8BAB47779F1BCCBF /* OrdersView.swift */,
+				626E834024624BE69B9EDE18 /* OrderState.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		9B2F0AABA07A40FEB8FB3B6C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				42CFC6EB1A284BC5A3D8AD4C /* ProfileView.swift */,
+				CEDDC31C056E4C6FBAED5313 /* ProfileState.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A0673E34825A49AA91915B1E /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				D7C560413409487EAFD5B252 /* CartView.swift */,
+				3ECE5A4020CB4298B31CE344 /* CartState.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		BC8A04D6907D11E21030F3CA /* MoEngageSDKIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				EE9D64C7081F4052A0DEFCC1 /* MoEngageInbox.swift */,
+				B77A76134AE6413DB335D77E /* MoEngageGeofence.swift */,
+				B77A76134AE6413DB335D701 /* MoEngagePersonalize.swift */,
+				F2BAD1FBE1C9433EA05DD020 /* MoEngageEvents.swift */,
+				F9B5A3F6F44B412F95D5916F /* MoEngageInApp.swift */,
+				4A45464EFF8449FF982F3A5D /* InAppContextModifier.swift */,
+				98EE604E483E58138BB859EE /* MoEngageSDKHelper.swift */,
+				75A24BF80D768F9A0E0400D8 /* MoEngageUser.swift */,
+				2B8DEF04FB520FF00BBFB4BA /* MoEngageReporting.swift */,
+				4BF6440CD128A1C4A3810973 /* MoEngagePush.swift */,
+				6D67C2BE6C520112FFA2E0E4 /* MoEngageLiveActivity.swift */,
+			);
+			path = MoEngageSDKIntegration;
+			sourceTree = "<group>";
+		};
+		E0232996E51E8745BC3B6093 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1CE01A0397284F2BB437EF40 /* DetailRow.swift */,
+				CE37A2C1E26541ED96C407C2 /* SelectCard.swift */,
+				A1E460F97F7A4B0A8EC70298 /* SelectPill.swift */,
+				35DD3BD50B4D4D5A99EE229E /* FooterBar.swift */,
+				53033D24B685463786AFE66B /* BrewAppBar.swift */,
+				85F0B1BDC544401A9F5FAABE /* FilterPill.swift */,
+				98546501E39F49BABFD49333 /* BrewCard.swift */,
+				98488C0D13E347828C42403B /* IconTile.swift */,
+				74D5181D16FC45E680CFB2BC /* SectionHeader.swift */,
+				0C3B86CA7A5346C8BC4D1801 /* TabPill.swift */,
+				9BA6A925FF4746CABD1C72DB /* FeaturedCard.swift */,
+				8DFE9F6793962744454E903A /* CoverImage.swift */,
+				5F81EF9FCD08FCCFA6A54EEC /* BrewButtonStyle.swift */,
+				E9B39EE2E19B06A3004632E4 /* ThinDivider.swift */,
+				870D15E829947A51CEF02570 /* BackTile.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E5B20563E13342689FDF856D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DA47E5A15C7E4B47A8F09BD7 /* MainTabView.swift */,
+				70DF873495EA439FB3CE127D /* TabPlaceholderView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EA759E0B3416469CB0371583 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				B18D643DAB184307974BC736 /* PaymentView.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		F08239C01BD44A69EBB1BE04 /* MoEngageiOSSwiftUISampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				05E4C1DA7D8AAC971095073F /* MoEngageiOSSwiftUISampleAppApp.swift */,
+				001F30BE9E1EE113E5BB7F46 /* AppDelegate.swift */,
+				3E0EDFBAE82E60CD2415F169 /* ContentView.swift */,
+				D9A9F92D1CE1E00BAE89EAE8 /* Info.plist */,
+				A0E7D0239C46ADC03A1AC0C8 /* MoEngageiOSSwiftUISampleApp.entitlements */,
+				49015D4099945FA589FCE3FD /* DesignSystem */,
+				E0232996E51E8745BC3B6093 /* Components */,
+				6F0CC0B33452133009674552 /* Screens */,
+				6131E5050769D355C65897BA /* BrewAssets.xcassets */,
+				BC8A04D6907D11E21030F3CA /* MoEngageSDKIntegration */,
+				7DEF4A161343B006AD96B690 /* Data */,
+				27597CDEC149C6F6D3585A15 /* Navigation */,
+			);
+			path = MoEngageiOSSwiftUISampleApp;
+			sourceTree = "<group>";
+		};
+		F70CC18598715284501197A9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6D7528CF6977935D9E5FF943 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,12 +707,11 @@
 				1456489C28C62E2C009A41AB /* Frameworks */,
 				1456489D28C62E2C009A41AB /* Resources */,
 				14AA0D5528C7198300AF5E0D /* Embed App Extensions */,
+				FD3AEDEBF87B49ADE17C13E9 /* MoEngage Extensions Integrator */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				14AA0D6428C71E1800AF5E0D /* PBXTargetDependency */,
-				14AA0D7B28C7276400AF5E0D /* PBXTargetDependency */,
 			);
 			name = MoEngageiOSSampleApp;
 			packageProductDependencies = (
@@ -310,6 +768,29 @@
 			productReference = 14AA0D6E28C7276400AF5E0D /* PushTemplateExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		3330A94F3064B96E0081BFC5 /* BrewOrderLiveActivityExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3330A9663064B9720081BFC5 /* Build configuration list for PBXNativeTarget "BrewOrderLiveActivityExtension" */;
+			buildPhases = (
+				3330A94C3064B96E0081BFC5 /* Sources */,
+				3330A94D3064B96E0081BFC5 /* Frameworks */,
+				3330A94E3064B96E0081BFC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3330A9553064B96F0081BFC5 /* BrewOrderLiveActivity */,
+			);
+			name = BrewOrderLiveActivityExtension;
+			packageProductDependencies = (
+				66BFCD4505CD6F6D1E2F9213 /* MoEngageLiveActivity */,
+			);
+			productName = BrewOrderLiveActivityExtension;
+			productReference = 3330A9503064B96E0081BFC5 /* BrewOrderLiveActivityExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A451DB672CEB4F3F002E1763 /* MoEngageiOSCocoaSampleApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A451DB8E2CEB4F3F002E1763 /* Build configuration list for PBXNativeTarget "MoEngageiOSCocoaSampleApp" */;
@@ -319,16 +800,45 @@
 				A451DB7D2CEB4F3F002E1763 /* Frameworks */,
 				A451DB872CEB4F3F002E1763 /* Resources */,
 				AAF2B3923027D129F46D07E9 /* [CP] Embed Pods Frameworks */,
+				4E53991742A36CD6A89658A7 /* MoEngage Extensions Integrator */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MoEngageiOSCocoaSampleApp;
-			packageProductDependencies = (
-			);
 			productName = iosSampleApp;
 			productReference = A451DB912CEB4F3F002E1763 /* MoEngageiOSCocoaSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD9BE44F9F2FBAFC28879C98 /* MoEngageiOSSwiftUISampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41AD57F4FACD3E484D875C7F /* Build configuration list for PBXNativeTarget "MoEngageiOSSwiftUISampleApp" */;
+			buildPhases = (
+				3D45885B2D604ADB91D004CA /* Sources */,
+				BF483DBA25512F6A34ADD821 /* Frameworks */,
+				10E5C6D7832D776F612053C5 /* Resources */,
+				3330A9623064B9720081BFC5 /* Embed Foundation Extensions */,
+				8B17829F60C9150AFBF35B8C /* MoEngage Extensions Integrator */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3330A9603064B9720081BFC5 /* PBXTargetDependency */,
+			);
+			name = MoEngageiOSSwiftUISampleApp;
+			packageProductDependencies = (
+				E053CD8DFAC226E17155724F /* MoEngage-iOS-SDK */,
+				DBF87098AB904612B02EBCF3 /* MoEngageInbox */,
+				522A7B4B296A4588B535E64C /* MoEngageGeofence */,
+				0B4C955874B546B6BA8BF7CD /* MoEngageRealTimeTrigger */,
+				2732CFA52E92406BAD382E2C /* MoEngageInApps */,
+				A1B2C3D40001PERSONALIZE01 /* MoEngagePersonalization */,
+				3E414BB0DA7A78894F341A79 /* MoEngageLiveActivity */,
+				1EEA9EBC5DF25062DB089707 /* MoEngageRichNotification */,
+			);
+			productName = MoEngageiOSSwiftUISampleApp;
+			productReference = 24D1D72410932A673645FB4C /* MoEngageiOSSwiftUISampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -338,7 +848,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					1456489E28C62E2C009A41AB = {
@@ -349,6 +859,9 @@
 					};
 					14AA0D6D28C7276400AF5E0D = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					3330A94F3064B96E0081BFC5 = {
+						CreatedOnToolsVersion = 26.1.1;
 					};
 				};
 			};
@@ -372,11 +885,22 @@
 				14AA0D5D28C71E1800AF5E0D /* NotificationServices */,
 				14AA0D6D28C7276400AF5E0D /* PushTemplateExtension */,
 				A451DB672CEB4F3F002E1763 /* MoEngageiOSCocoaSampleApp */,
+				CD9BE44F9F2FBAFC28879C98 /* MoEngageiOSSwiftUISampleApp */,
+				3330A94F3064B96E0081BFC5 /* BrewOrderLiveActivityExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		10E5C6D7832D776F612053C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F2053C6558DFE1EB33F8C3 /* Assets.xcassets in Resources */,
+				609180DAA59C5527DC844E60 /* BrewAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1456489D28C62E2C009A41AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -402,6 +926,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3330A94E3064B96E0081BFC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A451DB872CEB4F3F002E1763 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +946,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4E53991742A36CD6A89658A7 /* MoEngage Extensions Integrator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"$(INSTALL_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "MoEngage Extensions Integrator";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/MoEngageExtensionsIntegration/moengage-extensions-integration.artifactbundle/moengage-extensions-integration/bin/moengage-extensions-integration\" --enable-push-notification-templates\n";
+		};
+		8B17829F60C9150AFBF35B8C /* MoEngage Extensions Integrator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"$(INSTALL_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "MoEngage Extensions Integrator";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${OBJROOT}/../../SourcePackages/artifacts/moengage-ios-sdk/moengage-extensions-integration/moengage-extensions-integration.artifactbundle/moengage-extensions-integration/bin/moengage-extensions-integration\" --enable-push-notification-templates\n";
+		};
 		A451DB752CEB4F3F002E1763 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -445,14 +1016,38 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MoEngageiOSCocoaSampleApp/Pods-MoEngageiOSCocoaSampleApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MoEngageiOSCocoaSampleApp/Pods-MoEngageiOSCocoaSampleApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoEngageiOSCocoaSampleApp/Pods-MoEngageiOSCocoaSampleApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FD3AEDEBF87B49ADE17C13E9 /* MoEngage Extensions Integrator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"$(INSTALL_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "MoEngage Extensions Integrator";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${OBJROOT}/../../SourcePackages/artifacts/moengage-ios-sdk/moengage-extensions-integration/moengage-extensions-integration.artifactbundle/moengage-extensions-integration/bin/moengage-extensions-integration\" --enable-push-notification-templates\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -486,6 +1081,97 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3330A94C3064B96E0081BFC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67FED53AFD10D5B1DC297D1C /* BrewOrderAttributes.swift in Sources */,
+				F04D458E023A436944B003E9 /* SaleBroadcastAttributes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D45885B2D604ADB91D004CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6150A1D1FA5136649D8E072 /* MoEngageiOSSwiftUISampleAppApp.swift in Sources */,
+				AAB8CB83D3AC8FB62F645003 /* AppDelegate.swift in Sources */,
+				7C3B0B35D6F53F27D01C3B85 /* ContentView.swift in Sources */,
+				67A2646429D66B5233455A5D /* BrewTypography.swift in Sources */,
+				C1E110764C7C1B3C77D77D80 /* BrewMetrics.swift in Sources */,
+				97854DE00CC4E32F41A856B7 /* CoverImage.swift in Sources */,
+				19EEFBC7A219978DBE2109BD /* BrewButtonStyle.swift in Sources */,
+				9ADF7FD4E631B6B29B76892A /* SplashView.swift in Sources */,
+				528FA4BC3759803F4EC2560A /* BrewColor.swift in Sources */,
+				53895C1A3559DC9CE83AAB7B /* MoEngageSDKHelper.swift in Sources */,
+				BF8B3227346B52AFDE04BEEB /* MoEngageUser.swift in Sources */,
+				900BB291C3A707E7ED49B151 /* MoEngageReporting.swift in Sources */,
+				E9799DA88021C23FB6F9F86C /* DemoUser.swift in Sources */,
+				3DED347D03E7CD3DB61A9406 /* ThinDivider.swift in Sources */,
+				87CD2371B472E2A6303D00A3 /* BackTile.swift in Sources */,
+				80C27D4CC8CF87E39F306ED8 /* LoginView.swift in Sources */,
+				BD8A62723FF553D452511BF0 /* Route.swift in Sources */,
+				5536CBE06CA72850863AD25A /* Router.swift in Sources */,
+				E087A220DB8D4798E6EF92A6 /* RootNavigationContainer.swift in Sources */,
+				48401615F0651262F718F05E /* MoEngagePush.swift in Sources */,
+				2B28D1666D1BAB1A997FF698 /* PushOptInView.swift in Sources */,
+				46F952E6141C4142B4F9C4E2 /* InboxModels.swift in Sources */,
+				11046ED5621E4113847DA3CB /* RelativeTime.swift in Sources */,
+				1858055B44794163B10C77E8 /* MoEngageInbox.swift in Sources */,
+				0BA80D320A964AD688523103 /* InboxView.swift in Sources */,
+				40E2B66A51A046E398FD844A /* InboxState.swift in Sources */,
+				F1379CE519254058B103461F /* MoEngageGeofence.swift in Sources */,
+				F1379CE519254058B103A701 /* MoEngagePersonalize.swift in Sources */,
+				F1379CE519254058B103A702 /* PersonalizeContract.swift in Sources */,
+				F1379CE519254058B103A703 /* PersonalizeState.swift in Sources */,
+				F1379CE519254058B103A704 /* PersonalizeView.swift in Sources */,
+				916E4557495241719FF2ED95 /* ProfileView.swift in Sources */,
+				A36C94241EDF44F1B6D85629 /* ProfileState.swift in Sources */,
+				A1301DBB1E4A4CC5977CBD02 /* OrderModels.swift in Sources */,
+				ADAA00C6DA584567974B0F90 /* OrderCatalogue.swift in Sources */,
+				FBA865801282405099F5D896 /* PaymentView.swift in Sources */,
+				AD0F15F416FA48D9860859EF /* OrderStatusView.swift in Sources */,
+				FD0C94D7771F4EA59BC97856 /* OrdersView.swift in Sources */,
+				FFC1353F6B804774B4F7ED07 /* OrderState.swift in Sources */,
+				75E1B4918CB5450491625100 /* CartModels.swift in Sources */,
+				F40A45D9EC454741A3A8856B /* CartCatalogue.swift in Sources */,
+				79D0E5944E4D4938A7F9FA4B /* DetailRow.swift in Sources */,
+				3103BA2C60B54F22BB144FAC /* CartView.swift in Sources */,
+				7DFC8FD0E6854EC2A0920F1F /* CartState.swift in Sources */,
+				75F1ECC02E2340B39CA166A5 /* SelectCard.swift in Sources */,
+				EA003586F5BC42698077FBEE /* SelectPill.swift in Sources */,
+				7197A7EEEC324A069E94FF2A /* FooterBar.swift in Sources */,
+				FA1EFDDA0C824E1390058AC7 /* ItemDetailView.swift in Sources */,
+				2962C38B319F4672B55BB8BA /* MoEngageEvents.swift in Sources */,
+				F2ABA90FFB664752821CA555 /* BrewAppBar.swift in Sources */,
+				834F421837914293A0D6D195 /* FilterPill.swift in Sources */,
+				519EAD18AA324B6F9EDF84D5 /* CategoryListView.swift in Sources */,
+				4717920F1DD04B228FBFAFF0 /* MenuRow.swift in Sources */,
+				9E38EE35BA6B435CA9B24455 /* MenuState.swift in Sources */,
+				DC684CF313514AC6AEF78733 /* MoEngageInApp.swift in Sources */,
+				A2D934FA93654466989AB74F /* InAppContextModifier.swift in Sources */,
+				713CAB96F9FB406DA15EB516 /* MoEngageLiveActivity.swift in Sources */,
+				85C2B9472C8AAFA3B90357E5 /* BrewOrderAttributes.swift in Sources */,
+				D99A215D247541C4C3A2E905 /* SaleBroadcastAttributes.swift in Sources */,
+				53DFF6F789DD48C3BB5E14ED /* MenuModels.swift in Sources */,
+				734870E495D01F6ADFF46506 /* PromoPayload.swift in Sources */,
+				2F7FEC8E6B014E3EBD925A96 /* MenuCatalogue.swift in Sources */,
+				AD61EB2B6538487F82C8E2F4 /* CurrencyFormat.swift in Sources */,
+				E92C73881055443CB8AB32BB /* BrewCard.swift in Sources */,
+				307BFD6C2847419297AF429E /* IconTile.swift in Sources */,
+				C3783B3D1ACA4B878D514A91 /* SectionHeader.swift in Sources */,
+				B0B64BB058014D7198207B9C /* TabPill.swift in Sources */,
+				7627B3B468B1447E95000C04 /* FeaturedCard.swift in Sources */,
+				FF8529E38DF34FCA92F3521D /* MenuHomeView.swift in Sources */,
+				127F64E3D4F54A7C9BFEA6F0 /* MenuHeader.swift in Sources */,
+				82DB3195F58451B7EC5F0421 /* SelfHandledPromoCard.swift in Sources */,
+				2283F62EEFB94A2793432DAA /* AppSession.swift in Sources */,
+				0366F8714B9E47F996C160DF /* BrewTab.swift in Sources */,
+				8663D532F0FC4B8791106D34 /* MainTabView.swift in Sources */,
+				DE6875C6E8B840ABBFAA4C90 /* TabPlaceholderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A451DB762CEB4F3F002E1763 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,15 +1188,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		14AA0D6428C71E1800AF5E0D /* PBXTargetDependency */ = {
+		3330A9603064B9720081BFC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 14AA0D5D28C71E1800AF5E0D /* NotificationServices */;
-			targetProxy = 14AA0D6328C71E1800AF5E0D /* PBXContainerItemProxy */;
-		};
-		14AA0D7B28C7276400AF5E0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14AA0D6D28C7276400AF5E0D /* PushTemplateExtension */;
-			targetProxy = 14AA0D7A28C7276400AF5E0D /* PBXContainerItemProxy */;
+			target = 3330A94F3064B96E0081BFC5 /* BrewOrderLiveActivityExtension */;
+			targetProxy = 3330A95F3064B9720081BFC5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -831,6 +1512,79 @@
 			};
 			name = Release;
 		};
+		3330A9633064B9720081BFC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BrewOrderLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BrewOrderLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alphadevs.MoEngage.BrewOrderLiveActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3330A9643064B9720081BFC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BrewOrderLiveActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BrewOrderLiveActivity;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.companyName.Appname.BrewOrderLiveActivity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A451DB8F2CEB4F3F002E1763 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E404F18873497D64EA40FFA /* Pods-MoEngageiOSCocoaSampleApp.debug.xcconfig */;
@@ -898,6 +1652,72 @@
 			};
 			name = Release;
 		};
+		D5E12F0707C902D16987BAFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = MoEngageiOSSwiftUISampleApp/MoEngageiOSSwiftUISampleApp.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoEngageiOSSwiftUISampleApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "So Brew Bar can greet you with an offer when you are near the store, even when the app is closed.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "So Brew Bar can tell you when your order is ready as you reach the store.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.companyName.Appname;
+				PRODUCT_NAME = MoEngageiOSSwiftUISampleApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBD712455B36C63D3DE12281 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = MoEngageiOSSwiftUISampleApp/MoEngageiOSSwiftUISampleApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BPWYRAF5X7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoEngageiOSSwiftUISampleApp/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "So Brew Bar can greet you with an offer when you are near the store, even when the app is closed.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "So Brew Bar can tell you when your order is ready as you reach the store.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alphadevs.MoEngage;
+				PRODUCT_NAME = MoEngageiOSSwiftUISampleApp;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -937,6 +1757,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3330A9663064B9720081BFC5 /* Build configuration list for PBXNativeTarget "BrewOrderLiveActivityExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3330A9633064B9720081BFC5 /* Debug */,
+				3330A9643064B9720081BFC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41AD57F4FACD3E484D875C7F /* Build configuration list for PBXNativeTarget "MoEngageiOSSwiftUISampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5E12F0707C902D16987BAFC /* Release */,
+				DBD712455B36C63D3DE12281 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A451DB8E2CEB4F3F002E1763 /* Build configuration list for PBXNativeTarget "MoEngageiOSCocoaSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -960,6 +1798,36 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0B4C955874B546B6BA8BF7CD /* MoEngageRealTimeTrigger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngageRealTimeTrigger;
+		};
+		1EEA9EBC5DF25062DB089707 /* MoEngageRichNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngageRichNotification;
+		};
+		2732CFA52E92406BAD382E2C /* MoEngageInApps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngageInApps;
+		};
+		3E414BB0DA7A78894F341A79 /* MoEngageLiveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngageLiveActivity;
+		};
+		66BFCD4505CD6F6D1E2F9213 /* MoEngageLiveActivity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngageLiveActivity;
+		};
+		522A7B4B296A4588B535E64C /* MoEngageGeofence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngageGeofence;
+		};
 		783093482CE4B7FA00C0EFAE /* MoEngage-iOS-SDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
@@ -1009,6 +1877,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
 			productName = MoEngageRichNotification;
+		};
+		A1B2C3D40001PERSONALIZE01 /* MoEngagePersonalization */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngagePersonalization;
+		};
+		DBF87098AB904612B02EBCF3 /* MoEngageInbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = MoEngageInbox;
+		};
+		E053CD8DFAC226E17155724F /* MoEngage-iOS-SDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 783093472CE4B74900C0EFAE /* XCRemoteSwiftPackageReference "MoEngage-iOS-SDK" */;
+			productName = "MoEngage-iOS-SDK";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
