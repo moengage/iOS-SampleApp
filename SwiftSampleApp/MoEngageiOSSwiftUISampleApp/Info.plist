@@ -17,7 +17,7 @@
 	<key>MoEngage</key>
 	<dict>
 		<key>AppGroupName</key>
-		<string>group.com.alphadevs.MoEngage.NotificationServices</string>
+		<string>group.YOUR_BUNDLE_ID.moengage</string>
 		<key>DataCenter</key>
 		<integer>1</integer>
 		<key>EncryptionEncodedLiveKey</key>
@@ -37,11 +37,11 @@
 		<key>IsUserRegistrationEnabled</key>
 		<false/>
 		<key>KeychainGroupName</key>
-		<string>BPWYRAF5X7.com.alphadevs.MoEngage.keychain</string>
+		<string>YOUR_TEAM_ID.YOUR_BUNDLE_ID.keychain</string>
 		<key>LogLevel</key>
 		<integer>5</integer>
 		<key>WorkspaceId</key>
-		<string>DAO6UGZ73D9RTK8B5W96TPYN</string>
+		<string>YOUR_WORKSPACE_ID</string>
 	</dict>
 	<key>MoEngageAppDelegateProxyEnabled</key>
 	<true/>

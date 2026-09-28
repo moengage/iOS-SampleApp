@@ -15,7 +15,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set App Group ID
-        MoEngageSDKRichNotification.setAppGroupID("group.com.alphadevs.MoEngage.NotificationServices")
+        MoEngageSDKRichNotification.setAppGroupID("group.YOUR_BUNDLE_ID.moengage")
     }
     
     func didReceive(_ notification: UNNotification) {
