@@ -19,6 +19,7 @@ struct MoEngageiOSSwiftUISampleAppApp: App {
         WindowGroup {
             ContentView()
                 .onOpenURL { url in
+                    
                     MoEngageSDKAnalytics.sharedInstance.processURL(url)
                 }
                 .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { userActivity in

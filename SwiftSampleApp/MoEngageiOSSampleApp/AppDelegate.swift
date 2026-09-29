@@ -37,10 +37,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         setMessagingDelegate()
 
-        MoEngageSDKMessaging.sharedInstance.registerForRemoteNotification()
+        // Campaign shown / clicked / dismissed callbacks. Registering these is
+        // optional: the SDK reports its own impression and click events either
+        // way. They are registered here so the app can add its own event, and
+        // because a custom-action CTA reaches the app through no other route.
+        MoEngageSDKHelper.registerInAppCallbacks()
+
+        // Fence crossing callbacks. Registering them does not start
+        // monitoring: that needs location permission, and is asked for from
+        // the profile screen.
+        MoEngageSDKHelper.registerGeofenceCallbacks()
+
+        // Registration is split from the permission ask on purpose.
+        //
+        // `registerForRemoteNotification()` presents the system permission alert
+        // when the status is undetermined, and iOS presents that alert once per
+        // install. Calling it here would spend it before the user has seen the
+        // app. The call below therefore registers only for a user who has
+        // already answered, which refreshes their push token without prompting;
+        // the opt-in screen asks everyone else, once it has explained why.
+        MoEngageSDKHelper.refreshPushTokenIfAlreadyAnswered()
 
         // Alternative (iOS 12+): provisional authorization — no permission dialog.
         //   MoEngageSDKMessaging.sharedInstance.registerForRemoteProvisionalNotification()
+
+        // Order-tracking Live Activity: watches for push tokens so MoEngage's
+        // backend can update/end an activity later. Must run at launch, not
+        // just after starting one — see MoEngageLiveActivity.swift.
+        if #available(iOS 18, *) {
+            MoEngageSDKHelper.registerForLiveActivityTokenUpdates()
+        }
 
         return true
     }

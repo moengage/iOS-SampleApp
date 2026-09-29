@@ -17,7 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = RootCoordinatorController()
+        window.makeKeyAndVisible()
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -48,29 +53,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
-    // MARK: - URL Handling (optional)
-    // Uncomment these when:
-    //   1. Your app needs the deeplink itself — routing the user to a screen, parsing
-    //      query params, etc. Implement the navigation in your own code; the
-    //      `processURL` call keeps MoEngage's source attribution working alongside it.
+    // MARK: - URL Handling
     //
-    //   2. You set BOTH `MoEngageSceneDelegateProxyEnabled` and
-    //      `MoEngageAppDelegateProxyEnabled` to NO in Info.plist. The `processURL` calls
-    //      are then the only thing attributing the deeplink source — without them,
-    //      campaign attribution for deeplinks is lost.
+    // Reporting the link to MoEngage happens here, at the app's entry point;
+    // `RootCoordinatorController.handle(url:)` is only concerned with where
+    // the link leads — same split as the SwiftUI app's `.onOpenURL` /
+    // `MoEngageiOSSwiftUISampleAppApp`.
     //
-    //    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-    //        print("Custom deeplink callback received", URLContexts.description)
-    //        for context in URLContexts {
-    //            MoEngageSDKAnalytics.sharedInstance.processURL(context.url)
-    //        }
-    //    }
-    //    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-    //        print("Universal Deeplink callback received with Incoming URL:", userActivity.webpageURL ?? "No URL")
-    //        if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
-    //            MoEngageSDKAnalytics.sharedInstance.processURL(userActivity.webpageURL)
-    //        }
-    //    }
+    // NOTE: When `MoEngageSceneDelegateProxyEnabled` is YES (the SDK default), MoEngage
+    // swizzles these two methods and calls `processURL` itself — the commented-out calls
+    // below would double-report the link. Uncomment them only if you set
+    // `MoEngageSceneDelegateProxyEnabled` to NO in Info.plist, where these calls are required.
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        for context in URLContexts {
+            // MoEngageSDKAnalytics.sharedInstance.processURL(context.url)
+            (window?.rootViewController as? RootCoordinatorController)?.handle(url: context.url)
+        }
+    }
 
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let url = userActivity.webpageURL else { return }
+        // MoEngageSDKAnalytics.sharedInstance.processURL(url)
+        (window?.rootViewController as? RootCoordinatorController)?.handle(url: url)
+    }
 }
 

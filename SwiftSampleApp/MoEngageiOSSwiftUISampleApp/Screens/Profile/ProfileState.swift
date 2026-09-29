@@ -65,8 +65,15 @@ final class ProfileState: NSObject, ObservableObject {
     }
 
     private func readLocation() {
-        locationStatus = locationManager.authorizationStatus
-        isPreciseLocation = locationManager.accuracyAuthorization == .fullAccuracy
+        if #available(iOS 14.0, *) {
+            locationStatus = locationManager.authorizationStatus
+            isPreciseLocation = locationManager.accuracyAuthorization == .fullAccuracy
+        } else {
+            // iOS 13 has no per-app precise-location toggle — full accuracy
+            // is simply what "authorized" means there.
+            locationStatus = CLLocationManager.authorizationStatus()
+            isPreciseLocation = true
+        }
     }
 
     // MARK: - Asking
@@ -119,8 +126,21 @@ final class ProfileState: NSObject, ObservableObject {
 extension ProfileState: CLLocationManagerDelegate {
 
     /// Fires for the answer to a prompt, and also when the user changes the
-    /// grant in Settings while the app is running.
+    /// grant in Settings while the app is running. iOS 14+ only — the system
+    /// calls `locationManager(_:didChangeAuthorization:)` below instead on
+    /// iOS 13, never both.
+    @available(iOS 14.0, *)
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        handleAuthorizationChange()
+    }
+
+    /// The pre-iOS-14 counterpart of `locationManagerDidChangeAuthorization(_:)`,
+    /// kept only so this target's iOS 13.0 minimum still gets the callback.
+    nonisolated func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        handleAuthorizationChange()
+    }
+
+    private nonisolated func handleAuthorizationChange() {
         Task { @MainActor in
             readLocation()
 

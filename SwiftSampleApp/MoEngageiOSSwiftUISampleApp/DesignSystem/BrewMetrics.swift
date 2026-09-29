@@ -16,8 +16,12 @@ enum BrewSize {
     /// Minimum height of a primary call to action.
     static let buttonHeight: CGFloat = 52
 
-    /// Height of a form field, and the side of a single one-time-code box.
+    /// Height of a form field, and of a single one-time-code box.
     static let inputHeight: CGFloat = 48
+
+    /// Width of a single one-time-code box — narrower than its height so the
+    /// digit reads as a slim box rather than a fat square tile.
+    static let otpBoxWidth: CGFloat = 40
 
     /// Height of the menu search field.
     static let searchHeight: CGFloat = 46

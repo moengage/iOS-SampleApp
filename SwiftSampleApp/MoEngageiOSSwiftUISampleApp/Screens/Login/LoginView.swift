@@ -139,7 +139,7 @@ private struct OneTimeCodeRow: View {
                 Text(String(digit))
                     .brewTextStyle(.otpDigit)
                     .foregroundColor(BrewColor.textPrimary)
-                    .frame(width: BrewSize.inputHeight, height: BrewSize.inputHeight)
+                    .frame(width: BrewSize.otpBoxWidth, height: BrewSize.inputHeight)
                     .overlay(
                         RoundedRectangle(cornerRadius: BrewCorner.input, style: .continuous)
                             .stroke(BrewColor.borderDefault, lineWidth: 1)
