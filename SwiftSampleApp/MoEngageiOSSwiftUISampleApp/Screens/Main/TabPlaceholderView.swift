@@ -2,9 +2,7 @@
 //  TabPlaceholderView.swift
 //  MoEngageiOSSwiftUISampleApp
 //
-//  Stands in for a tab's screen until that screen exists.
-//
-//  Temporary. Every use of this view is removed as its tab is built.
+//  Stands in for a tab whose screen is not implemented in this sample.
 //
 
 import SwiftUI

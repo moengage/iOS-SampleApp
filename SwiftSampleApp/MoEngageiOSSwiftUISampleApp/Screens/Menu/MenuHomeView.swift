@@ -8,7 +8,7 @@
 //  The whole screen is one scroll view, header included. The selected category
 //  lives in `MenuState`, because the category list moves it too.
 //
-//  MoEngage moments:
+//  MoEngage integration:
 //  - `Menu_Viewed` on arrival, and `Category_Browsed` on every pill tap — the
 //    latter reported by `MenuState`, since the category list changes it too.
 //  - The menu is an in-app campaign target, so it asks for one on arrival.
@@ -44,10 +44,10 @@ struct MenuHomeView: View {
 
     /// Columns 12 pt apart, each at least 150 pt wide.
     ///
-    /// Adaptive rather than a fixed pair: two columns is what 150 pt resolves to
-    /// on a portrait phone, which is the shared design's grid, but a landscape
-    /// phone or an iPad fits three or four — so the cards keep their proportions
-    /// instead of stretching to half the screen.
+    /// Adaptive rather than a fixed pair: 150 pt resolves to two columns on a
+    /// portrait phone, but a landscape phone or an iPad fits three or four, so
+    /// the cards keep their proportions instead of stretching to half the
+    /// screen.
     private let columns = [
         GridItem(.adaptive(minimum: 150), spacing: 12)
     ]
@@ -88,8 +88,9 @@ struct MenuHomeView: View {
             menuState.requestSelfHandledPromoOnce()
         }
         .onDisappear { menuState.stopListeningForSelfHandledPromo() }
-        // Runs after `inAppContext` has scoped eligibility to the menu, so the
-        // campaign asked for below is matched against the right context.
+        // Runs after `inAppContext` has scoped eligibility to the menu, and the
+        // request itself waits a further 120 ms, so the campaign is matched
+        // against the menu's context.
         .task { await menuState.requestNativeInAppOnce() }
     }
 
@@ -108,7 +109,9 @@ struct MenuHomeView: View {
         // Reports the impression the moment the card is actually drawn, not
         // when the campaign was merely fetched — a card fetched but never
         // rendered would otherwise inflate the dashboard's shown count.
-        .onAppear { MoEngageSDKHelper.trackSelfHandledShown(promo) }
+        // `MenuState` reports it once per campaign, however often the menu
+        // is revisited.
+        .onAppear { menuState.promoAppeared() }
     }
 
     // MARK: - Featured

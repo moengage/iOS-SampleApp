@@ -7,15 +7,15 @@
 //  `TabView` is used rather than a hand-built bar. The system bar keeps each
 //  tab's view alive, so a tab returns in the state it was left in; it carries
 //  the correct accessibility traits; and it insets itself above the home
-//  indicator. A custom bar would match the shared design's measurements more
-//  closely but would have to reimplement all of that.
+//  indicator. A custom bar would give finer control over measurements but would
+//  have to reimplement all of that.
 //
-//  Only the palette is ours. The bar's height, symbol size and label size are
-//  the system's and are not adjustable.
+//  Only the palette is customized. The bar's height, symbol size and label size
+//  are the system's and are not adjustable.
 //
 //  Each tab owns its own navigation stack, so pushing a screen inside one tab
 //  leaves the others where they were — and returning to a tab returns to where
-//  it was left. A tab gains its stack when it gains a screen to push.
+//  it was left. A tab with no screen to push has no stack.
 //
 
 import SwiftUI
@@ -48,8 +48,7 @@ struct MainTabView: View {
     /// Permission state, read by the Profile tab.
     @StateObject private var profile = ProfileState()
 
-    /// The Profile tab's stack. It gained one when Personalize landed — before
-    /// that the tab had nothing to push.
+    /// The Profile tab's stack, onto which Personalize is pushed.
     @StateObject private var profileRouter = Router()
 
     /// Received notifications, and the count behind the menu's bell. Owned
@@ -80,9 +79,14 @@ struct MainTabView: View {
         .tint(BrewColor.primary)
         // A link arriving now, with the tab bar already on screen.
         .onOpenURL { url in
+            MoEngageSDKHelper.trackOrderActivityOpened(url)
             guard let route = Route(deeplink: url) else { return }
             follow(route)
         }
+        // Deep-link CTAs from in-app campaigns, routed by the SDK delegate
+        // rather than through `onOpenURL`. See `MoEngageInApp`.
+        .onAppear { MoEngageSDKHelper.onInAppDeepLink(follow) }
+        .onDisappear { MoEngageSDKHelper.onInAppDeepLink(nil) }
         // A link that arrived during onboarding and was held until now.
         .task {
             guard let route = session.pendingDeepLink else { return }
@@ -121,8 +125,7 @@ struct MainTabView: View {
 
     // MARK: - Sections
 
-    /// The content of one tab. Each placeholder is replaced by its real screen
-    /// as that screen lands.
+    /// The content of one tab. The Cards tab shows a placeholder.
     @ViewBuilder
     private func content(for tab: BrewTab) -> some View {
         switch tab {
@@ -143,7 +146,6 @@ struct MainTabView: View {
     // MARK: - Menu
 
     /// The Menu tab and everything reachable from it.
-    ///
     private var menuTab: some View {
         RootNavigationContainer(router: menuRouter) {
             MenuHomeView(
@@ -189,6 +191,7 @@ struct MainTabView: View {
 
         cart.reset()
         orders.reset()
+        profile.resetNotificationPreferences()
         menuRouter.popToRoot()
         ordersRouter.popToRoot()
         profileRouter.popToRoot()
@@ -253,7 +256,7 @@ struct MainTabView: View {
                     selection = .menu
                     menuRouter.navigate(to: .cart)
                 },
-                // The self-handled cards screen is not built yet.
+                // The Cards screen is not implemented in this sample.
                 onSubscribe: {}
             )
         } destination: { route in
@@ -275,7 +278,7 @@ struct MainTabView: View {
                 )
             )
 
-        // Nothing else is reachable from this tab yet.
+        // Nothing else is reachable from this tab.
         case .login, .permission, .category, .item, .cart, .payment, .orders, .personalize,
              .inbox:
             return AnyView(EmptyView())
@@ -324,10 +327,10 @@ struct MainTabView: View {
                     onPay: {
                         let order = orders.placeOrder(from: cart)
 
-                        // Starts the order-tracking Live Activity the moment
-                        // the order exists — the app already knows everything
-                        // needed, so there's no reason to round-trip to the
-                        // backend just to start it.
+                        // Starts the order-tracking Live Activity as soon as
+                        // the order exists. The app already holds the initial
+                        // content, so the activity is started locally rather
+                        // than by a push from the backend.
                         if #available(iOS 18, *) {
                             MoEngageSDKHelper.startOrderTracking(
                                 orderID: order.id,
@@ -338,7 +341,6 @@ struct MainTabView: View {
 
                         // Replaces the stack rather than pushing: the order is
                         // paid for, so going back to payment would be wrong.
-                        // Android clears to the menu for the same reason.
                         menuRouter.replaceStack(with: .orderStatus(orderID: order.id))
                     }
                 )
@@ -358,8 +360,8 @@ struct MainTabView: View {
                 CartView(
                     cart: cart,
                     onBack: { menuRouter.pop() },
-                    // Android returns to the list for the category last
-                    // browsed rather than to the menu itself.
+                    // Returns to the list for the category last browsed
+                    // rather than to the menu itself.
                     onAddAnother: { menuRouter.navigate(to: .category(menuState.category)) },
                     onProceed: { menuRouter.navigate(to: .payment) }
                 )

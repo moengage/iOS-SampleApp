@@ -70,6 +70,10 @@ final class MainTabBarController: UITabBarController {
         profileNav.viewControllers = [makeProfileRoot()]
 
         viewControllers = [menuNav, ordersNav, cardsVC, profileNav]
+
+        // Deep-link CTAs from in-app campaigns, routed by the SDK delegate
+        // rather than through `SceneDelegate`. See `MoEngageInApp`.
+        MoEngageSDKHelper.onInAppDeepLink { [weak self] route in self?.follow(route) }
     }
 
     // MARK: - Deep links
@@ -302,9 +306,11 @@ final class MainTabBarController: UITabBarController {
     /// changes underneath them.
     private func signOut() {
         MoEngageSDKHelper.logout()
+        MoEngageSDKHelper.onInAppDeepLink(nil)
 
         cart.reset()
         orders.reset()
+        profile.resetNotificationPreferences()
         menuNav.popToRootViewController(animated: false)
         ordersNav.popToRootViewController(animated: false)
         profileNav.popToRootViewController(animated: false)

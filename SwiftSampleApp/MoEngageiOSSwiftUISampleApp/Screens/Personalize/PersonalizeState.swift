@@ -2,8 +2,8 @@
 //  PersonalizeState.swift
 //  MoEngageiOSSwiftUISampleApp
 //
-//  What the Personalize screen is showing, and the only place it talks to the
-//  SDK.
+//  What the Personalize screen is showing, and the only place it reaches the
+//  SDK — through `MoEngageSDKHelper`, like every other screen.
 //
 //  The three tabs are three business stories, each backed by its own campaign,
 //  so switching tabs re-fetches a different experience key rather than
@@ -12,7 +12,6 @@
 //
 
 import Foundation
-import MoEngagePersonalization
 
 // MARK: - Demo state
 
@@ -75,7 +74,7 @@ final class PersonalizeState: ObservableObject {
     /// The campaign behind what is on screen. Held because every tracking call
     /// needs it, and because a click attributes to it as well as to the
     /// offering.
-    private var campaign: MoEngageExperienceCampaign?
+    private var experience: PersonalizedExperience?
 
     /// Offering ids already reported shown for the tab on screen. The SDK does
     /// not deduplicate impressions, so this does.
@@ -105,7 +104,7 @@ final class PersonalizeState: ObservableObject {
         // catalogue before it ever reaches the network, so a live key still
         // fails on a device that has never synced. Cheap to repeat — inside
         // the sync interval the SDK answers from cache without a request.
-        MoEngagePersonalize.syncExperiencesMeta { [weak self] _ in
+        MoEngageSDKHelper.syncPersonalizeExperiences { [weak self] in
             self?.fetchExperience(state)
         }
     }
@@ -113,34 +112,34 @@ final class PersonalizeState: ObservableObject {
     private func fetchExperience(_ state: OfferDemoState) {
         let key = state.experienceKey
 
-        MoEngagePersonalize.fetchExperience(
+        MoEngageSDKHelper.fetchPersonalizeExperience(
             key: key,
             attributes: ["screen": "personalize", "demo_state": state.rawValue]
-        ) { [weak self] result in
+        ) { [weak self] experience in
             guard let self else { return }
             // A tab switched while the request was in flight: this answer is
             // for a screen the user has already left.
             guard state == self.demoState else { return }
 
-            self.apply(result.experiences.first { $0.experienceKey == key }, for: state)
+            self.apply(experience)
         }
     }
 
-    private func apply(_ campaign: MoEngageExperienceCampaign?, for state: OfferDemoState) {
-        self.campaign = campaign
-        offers = campaign?.offers ?? []
-        fallbackCopy = campaign?.copy ?? .none
+    private func apply(_ experience: PersonalizedExperience?) {
+        self.experience = experience
+        offers = experience?.offers ?? []
+        fallbackCopy = experience?.copy ?? .none
         isLoading = false
         hasFetched = true
 
-        guard let campaign else { return }
+        guard let experience else { return }
 
         // Impressions belong after the answer is committed to state — they
         // report what is about to be drawn, and nothing is drawn without it.
-        MoEngagePersonalize.experienceShown(campaign)
+        MoEngageSDKHelper.trackExperienceShown(experience)
 
         let unreported = offers.filter { reportedShown.insert($0.id).inserted }
-        MoEngagePersonalize.offeringsShown(unreported.map(\.rawPayload))
+        MoEngageSDKHelper.trackOfferingsShown(unreported.map(\.rawPayload))
     }
 
     // MARK: - Interaction
@@ -151,8 +150,8 @@ final class PersonalizeState: ObservableObject {
     /// The SDK's offering click fires the parent experience's click too, so
     /// nothing else is reported here — doing both would count one tap twice.
     func offerTapped(_ offer: PersonalizedOffer) -> URL? {
-        guard let campaign else { return offer.deeplink }
-        MoEngagePersonalize.offeringClicked(campaign: campaign, offeringPayload: offer.rawPayload)
+        guard let experience else { return offer.deeplink }
+        MoEngageSDKHelper.trackOfferingClicked(experience: experience, offeringPayload: offer.rawPayload)
         return offer.deeplink
     }
 }

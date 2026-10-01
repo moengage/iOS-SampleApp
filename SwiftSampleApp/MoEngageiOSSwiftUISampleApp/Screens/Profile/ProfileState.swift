@@ -36,12 +36,26 @@ final class ProfileState: NSObject, ObservableObject {
     /// once per install, so after an answer exists only Settings can change it.
     @Published private(set) var hasAnsweredPush = false
 
+    // MARK: - Notification preferences
+
+    /// The user wants offers and new-menu notifications. Kept on this device
+    /// and mirrored onto the `offers_opt_in` attribute on every change.
+    @Published private(set) var isOffersOptedIn = false
+
+    /// The user wants marketing campaigns. Mirrored onto `marketing_opt_in`.
+    @Published private(set) var isMarketingOptedIn = false
+
+    private enum PreferenceKey {
+        static let offers = "profile.offersOptIn"
+        static let marketing = "profile.marketingOptIn"
+    }
+
     // MARK: - Location
 
     @Published private(set) var locationStatus: CLAuthorizationStatus = .notDetermined
 
-    /// False when the user chose "Precise: Off" on the prompt. A fence needs
-    /// full accuracy to be reliable.
+    /// False when the user chose "Precise: Off" on the prompt. Without full
+    /// accuracy iOS does not monitor fences at all.
     @Published private(set) var isPreciseLocation = false
 
     /// True once the SDK has been asked to watch the workspace's fences.
@@ -53,6 +67,7 @@ final class ProfileState: NSObject, ObservableObject {
         super.init()
         locationManager.delegate = self
         readLocation()
+        readNotificationPreferences()
     }
 
     // MARK: - Reading
@@ -97,6 +112,33 @@ final class ProfileState: NSObject, ObservableObject {
         }
     }
 
+    func setOffersOptIn(_ enabled: Bool) {
+        isOffersOptedIn = enabled
+        UserDefaults.standard.set(enabled, forKey: PreferenceKey.offers)
+        MoEngageSDKHelper.setNotificationPreference(.offers, enabled: enabled)
+    }
+
+    func setMarketingOptIn(_ enabled: Bool) {
+        isMarketingOptedIn = enabled
+        UserDefaults.standard.set(enabled, forKey: PreferenceKey.marketing)
+        MoEngageSDKHelper.setNotificationPreference(.marketing, enabled: enabled)
+    }
+
+    /// Forgets both answers, for sign-out. Nothing is sent: signing out resets
+    /// the MoEngage user, so the attributes go with it, and the next user
+    /// starts opted out until they choose otherwise.
+    func resetNotificationPreferences() {
+        isOffersOptedIn = false
+        isMarketingOptedIn = false
+        UserDefaults.standard.removeObject(forKey: PreferenceKey.offers)
+        UserDefaults.standard.removeObject(forKey: PreferenceKey.marketing)
+    }
+
+    private func readNotificationPreferences() {
+        isOffersOptedIn = UserDefaults.standard.bool(forKey: PreferenceKey.offers)
+        isMarketingOptedIn = UserDefaults.standard.bool(forKey: PreferenceKey.marketing)
+    }
+
     /// Opens this app's page in Settings, for a permission the app can no
     /// longer ask about itself.
     func openAppSettings() {
@@ -110,6 +152,16 @@ final class ProfileState: NSObject, ObservableObject {
     ///
     /// Called after every grant rather than once: the first grant may be
     /// when-in-use, and the user may extend it to always later.
+    ///
+    /// The SDK accepts either grant, but they are not equivalent:
+    ///
+    /// - With when-in-use, iOS delivers fence crossings only while the app is
+    ///   in use. Entering or leaving a fence in the background, which is what
+    ///   a "greet you near the store" campaign relies on, needs always. That
+    ///   is why MoEngage's docs list always as required.
+    /// - With approximate location (precise location off), iOS does not
+    ///   monitor regions at all, whatever the grant. The SDK does not check for
+    ///   this, so the profile screen surfaces it instead.
     private func startMonitoringIfPermitted() {
         guard locationStatus == .authorizedAlways || locationStatus == .authorizedWhenInUse else {
             return

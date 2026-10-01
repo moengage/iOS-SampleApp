@@ -11,9 +11,9 @@ import Foundation
 /// ago", and beyond a day the weekday alone — "Mon".
 ///
 /// Written out rather than delegated to `RelativeDateTimeFormatter` so the
-/// wording matches the Android sample exactly. The system formatter would say
+/// wording is consistent across platforms. The system formatter would say
 /// "12 minutes ago" and would change with the user's locale, which would make
-/// the two apps read differently side by side.
+/// the apps read differently side by side.
 func relativeTime(since date: Date?, now: Date = Date()) -> String {
     guard let date else { return "" }
 

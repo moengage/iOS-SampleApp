@@ -28,15 +28,15 @@
 //     at all.
 //
 
-import Foundation
+import UIKit
 import MoEngageInApps
 
 // MARK: - Contexts
 
 /// The screen currently on display, as campaigns refer to it.
 ///
-/// Raw values are the contract with the MoEngage dashboard, and are identical to
-/// the Android sample's — the same campaign then targets both platforms.
+/// Raw values are the contract with the MoEngage dashboard, and are shared with
+/// the other platform samples — the same campaign then targets every platform.
 enum MoEngageInAppContext: String {
 
     case splash
@@ -54,6 +54,7 @@ enum MoEngageInAppContext: String {
 
     case orders
     case profile
+    case personalize
     case inbox
 }
 
@@ -117,6 +118,9 @@ extension MoEngageInApp {
         let payload: PromoPayload
         fileprivate let campaign: MoEngageInAppSelfHandledCampaign
 
+        /// The campaign's ID, for the app's own `InApp_Cta_Clicked` event.
+        var campaignID: String { campaign.campaignId }
+
         fileprivate init(campaign: MoEngageInAppSelfHandledCampaign) {
             self.campaign = campaign
             guard
@@ -134,6 +138,11 @@ extension MoEngageInApp {
     /// campaign pushed while the app is foregrounded reaches it — see
     /// `Delegate.selfHandledInAppTriggered`. `nil` once nothing is listening.
     static var onSelfHandledPromoTriggered: ((SelfHandledPromo) -> Void)?
+
+    /// Set by the tab bar while it is on screen, so a deep-link CTA lands on
+    /// the right tab. `nil` before sign-in, when a link falls back to being
+    /// opened like any other — see `Delegate.inAppClicked`.
+    static var onDeepLinkRoute: ((Route) -> Void)?
 
     /// Asks for a self-handled campaign eligible for the context now set.
     ///
@@ -187,13 +196,10 @@ extension MoEngageInApp {
     /// - A self-handled campaign is a payload with no presentation. Nothing
     ///   appears unless the app draws it.
     ///
-    /// Deep-link CTAs do not arrive here. `shouldProvideDeeplinkCallback` is
-    /// left at its default of `false`, which leaves the SDK to open the link —
-    /// it reaches the app through `onOpenURL` like any other, and the tab bar
-    /// routes it. The cost is that `InApp_Cta_Clicked` does not fire for those
-    /// CTAs; the benefit is that a destination the app has not mapped yet still
-    /// opens rather than dying silently. Setting that flag to `true` in
-    /// Info.plist reverses both.
+    /// Deep-link CTAs arrive here too, because `InAppShouldProvideDeeplinkCallback`
+    /// is `true` in Info.plist. The app reports `InApp_Cta_Clicked` for them and
+    /// routes the link itself; a link no route matches is
+    /// opened instead, so an unmapped destination still goes somewhere.
     final class Delegate: NSObject, MoEngageInAppNativeDelegate {
 
         // MARK: Lifecycle
@@ -214,8 +220,8 @@ extension MoEngageInApp {
 
         // MARK: Calls to action
 
-        /// A CTA that navigates: a screen name, a rich landing or an external
-        /// browser. Deep links are handled by the SDK and do not arrive here.
+        /// A CTA that navigates: a deep link, a screen name, a rich landing or
+        /// an external browser.
         func inAppClicked(
             withCampaignInfo inappCampaign: MoEngageInAppCampaign,
             andNavigationActionInfo navigationAction: MoEngageInAppNavigationAction,
@@ -227,12 +233,28 @@ extension MoEngageInApp {
                 campaignID: inappCampaign.campaignId,
                 cta: navigationAction.navigationUrl ?? ""
             )
+
+            if navigationAction.navigationType == .deepLink,
+               let url = navigationAction.navigationUrl.flatMap(URL.init(string:)) {
+                DispatchQueue.main.async { Self.route(url) }
+            }
+        }
+
+        /// Follows a deep-link CTA in the app when a route matches and the tab
+        /// bar is there to show it; otherwise opens it, as the SDK would have.
+        @MainActor
+        private static func route(_ url: URL) {
+            if let route = Route(deeplink: url), let follow = MoEngageInApp.onDeepLinkRoute {
+                follow(route)
+            } else {
+                UIApplication.shared.open(url)
+            }
         }
 
         /// A CTA carrying the campaign author's own key-value pairs.
         ///
-        /// The sample reports which keys were carried and does nothing further,
-        /// matching the Android sample. A real integration would read the
+        /// The sample reports which keys were carried and does nothing further.
+        /// A real integration would read the
         /// values and act — apply the coupon, open the offer, whatever the
         /// pairs mean.
         func inAppClicked(

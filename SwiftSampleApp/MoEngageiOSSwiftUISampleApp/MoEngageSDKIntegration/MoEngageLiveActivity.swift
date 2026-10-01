@@ -33,6 +33,34 @@ enum MoEngageLiveActivityModule {
     private static let campaignId = "<real alert ID from MoEngage dashboard>"
     private static let campaignName = "<real alert name from MoEngage dashboard>"
 
+    /// Reports a tap on the order-tracking Live Activity.
+    ///
+    /// The widget opens `brewbar://status/<orderId>` through
+    /// `moengageWidgetClickURL`, which appends MoEngage's campaign data as
+    /// query parameters. The SDK reports the click itself from those; this
+    /// adds the app's own events, as for an order notification tap. A link
+    /// without the transaction parameter didn't come from the order widget and
+    /// is ignored.
+    static func trackOrderActivityOpened(_ url: URL) {
+        guard
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+            let query = components.queryItems,
+            let orderID = query.first(where: { $0.name == QueryKey.transactionID })?.value
+        else { return }
+
+        let campaignID = query.first(where: { $0.name == QueryKey.campaignID })?.value
+        components.queryItems = nil
+
+        MoEngageEvents.trackOrderPickedUp(orderID: orderID)
+        MoEngageEvents.trackNotificationOpened(campaignID: campaignID, deeplink: components.url?.absoluteString)
+    }
+
+    /// Query parameters `moengageWidgetClickURL` adds to the widget's link.
+    private enum QueryKey {
+        static let transactionID = "moe_transaction_id"
+        static let campaignID = "cid"
+    }
+
     /// Registers to watch for Live Activity push tokens. Call once, from
     /// `didFinishLaunchingWithOptions` — this is what lets MoEngage's backend
     /// later reach a device to update or end an activity it didn't start.
@@ -73,8 +101,10 @@ enum MoEngageLiveActivityModule {
                 // Not calling trackStarted here: the SDK's own
                 // monitorLiveActivities listener (registered at launch)
                 // calls it automatically the moment this activity's push
-                // token generates. Calling it again here hits the SDK's
-                // duplicate-tracking guard and crashes.
+                // token generates. Calling it again here fails the SDK's
+                // duplicate-tracking validation (crashes in the test
+                // environment with a debugger attached; otherwise only
+                // logged).
                 _ = try BrewOrderActivity.request(
                     attributes: result.attributes,
                     content: .init(state: result.content, staleDate: nil),
@@ -99,7 +129,7 @@ enum MoEngageLiveActivityModule {
     /// per-activity push token. For now, set directly from Apple's Push
     /// Notifications console (Channels tab) for local testing — normally
     /// this would come from MoEngage's create-campaign API response.
-    private static let saleChannelId = "+kt9m+OsEfAAADpQ490hNw=="
+    private static let saleChannelId = "<broadcast channel ID from MoEngage dashboard / APNs>"
 
     /// Starts the sale broadcast locally — an OPT-IN path for a user who
     /// wants to follow along even though the primary way this starts is

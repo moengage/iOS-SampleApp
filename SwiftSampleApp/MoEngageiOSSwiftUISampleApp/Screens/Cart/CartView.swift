@@ -6,16 +6,16 @@
 //
 //  Lines are shown, not edited. The model carries a quantity and the bill
 //  multiplies by it, but this screen offers no way to change one, remove a line
-//  or empty the order — matching the Android sample, whose design has none of
-//  those controls either.
+//  or empty the order.
 //
-//  MoEngage moment: `Cart_Viewed` on arrival, with the number of lines and what
-//  the order comes to. `Add_To_Cart` was already reported by the item screen
-//  that put each line here, and `Checkout_Started` belongs to payment — so this
-//  screen reports arrival and nothing else.
+//  MoEngage integration: `Cart_Viewed` on arrival, with the number of lines
+//  and what the order comes to. `Add_To_Cart` was already reported by the item
+//  screen that put each line here, and `Checkout_Started` belongs to payment,
+//  so this screen reports arrival and nothing else.
 //
 //  No in-app campaign is requested here. The context is set, as on every
-//  screen, but only the menu, an item and the order history ask for one.
+//  screen, but only the menu, item and order history screens request a
+//  campaign.
 //
 
 import SwiftUI
@@ -26,8 +26,8 @@ struct CartView: View {
 
     let onBack: () -> Void
 
-    /// Returns to the menu to add more. Android goes to the list for the
-    /// category last browsed rather than to the menu itself.
+    /// Returns to the list for the category last browsed, so another item can
+    /// be added.
     let onAddAnother: () -> Void
 
     let onProceed: () -> Void

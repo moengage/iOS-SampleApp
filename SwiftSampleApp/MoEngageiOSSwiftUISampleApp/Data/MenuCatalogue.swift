@@ -6,8 +6,8 @@
 //
 //  The sample has no catalogue backend. These fixed items stand in for whatever
 //  a real one would return, and are the source of every item name, price and
-//  identifier reported to MoEngage — so they match the Android sample's
-//  catalogue exactly, and a campaign targeted at `flat-white` works on both.
+//  identifier reported to MoEngage — so they are shared with the other platform
+//  samples, and a campaign targeted at `flat-white` works on every platform.
 //
 
 import Foundation
@@ -58,7 +58,7 @@ enum MenuCatalogue {
     /// The category list's filter labels.
     ///
     /// Presentation only — see `CategoryListView`. They exist because the
-    /// design has them, and the Android sample does not filter on them either.
+    /// design has them.
     static let filters = ["Popular", "Under ₹200", "Vegan"]
 
     /// The signed-in user's habitual order.

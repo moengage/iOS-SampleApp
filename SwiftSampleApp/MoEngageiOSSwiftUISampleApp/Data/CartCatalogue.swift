@@ -4,8 +4,7 @@
 //
 //  The order's starting contents and pricing rules.
 //
-//  The cart starts with two lines already in it, matching the Android sample.
-//  That is deliberate: it lets the cart and payment screens be opened and
+//  The cart starts with two lines already in it. That is deliberate: it lets the cart and payment screens be opened and
 //  demonstrated without walking the whole funnel first, and it means the sample
 //  has no empty-cart state to design.
 //

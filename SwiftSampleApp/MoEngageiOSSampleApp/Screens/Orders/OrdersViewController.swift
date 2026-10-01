@@ -6,8 +6,8 @@
 //
 //  Order history, and the root of the Orders tab.
 //
-//  The filters here genuinely filter, unlike the menu's — which are
-//  presentation only. Both match the Android sample.
+//  The filters here filter the list, unlike the menu's, which are presentation
+//  only.
 //
 //  MoEngage moments:
 //  - The screen is a nudge campaign's target, so it asks for one on arrival.

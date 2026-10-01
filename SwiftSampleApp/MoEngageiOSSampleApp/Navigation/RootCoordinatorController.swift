@@ -135,6 +135,7 @@ final class RootCoordinatorController: UIViewController {
     // MoEngage — this handler is only concerned with where the link leads,
     // exactly like `ContentView`'s `.onOpenURL` for the SwiftUI app.
     func handle(url: URL) {
+        MoEngageSDKHelper.trackOrderActivityOpened(url)
         guard let route = Route(deeplink: url) else { return }
 
         switch session.phase {

@@ -8,12 +8,15 @@
 //  badge on the menu needs the count whether or not the inbox has ever been
 //  opened.
 //
-//  MoEngage moment: opening a message marks it read, reports the click against
-//  the campaign, and reports `Notification_Opened`.
+//  MoEngage integration:
+//  - Opening a message reports the click against the campaign on every open,
+//    so the SDK can tell a first click from a repeat, and tracks the app's own
+//    `Notification_Opened` event.
+//  - "Mark all read" only marks messages read. Nothing was opened, so nothing
+//    counts towards the campaign's click-through.
 //
 
 import Foundation
-import MoEngageInbox
 
 @MainActor
 final class InboxState: ObservableObject {
@@ -28,8 +31,8 @@ final class InboxState: ObservableObject {
     /// Called on arriving at the menu and at the inbox, because a campaign can
     /// land while either is open.
     func refresh() {
-        MoEngageInboxModule.fetchMessages { [weak self] entries in
-            self?.messages = entries.compactMap(InboxMessage.init(entry:))
+        MoEngageSDKHelper.fetchInboxMessages { [weak self] messages in
+            self?.messages = messages
         }
 
         refreshUnreadCount()
@@ -39,15 +42,22 @@ final class InboxState: ObservableObject {
     /// messages is an answer, and clearing the badge matters as much as
     /// setting it.
     func refreshUnreadCount() {
-        MoEngageInboxModule.fetchUnreadCount { [weak self] count in
+        MoEngageSDKHelper.fetchInboxUnreadCount { [weak self] count in
             self?.unreadCount = max(0, count)
         }
     }
 
     /// Opens a message. Returns where it leads, if anywhere.
+    ///
+    /// The click is reported even when the message is already read: the SDK
+    /// tags a repeat open as such, and it is still an open.
     @discardableResult
     func open(_ message: InboxMessage) -> URL? {
-        markRead(message)
+        // Marks the message read in the SDK too — see
+        // `MoEngageInboxModule.trackMessageClicked(campaignID:)`.
+        MoEngageSDKHelper.trackInboxMessageClicked(campaignID: message.id)
+        markReadLocally(message)
+
         MoEngageSDKHelper.trackNotificationOpened(
             campaignID: message.id,
             deeplink: message.deeplink?.absoluteString
@@ -57,52 +67,23 @@ final class InboxState: ObservableObject {
 
     func markAllRead() {
         for message in messages where !message.isRead {
-            markRead(message)
+            MoEngageSDKHelper.markInboxMessageRead(campaignID: message.id)
+            markReadLocally(message)
         }
     }
 
-    /// Marks read in the SDK and locally.
+    /// Mirrors a read into the list and the badge.
     ///
     /// The local edit is not an optimisation: the SDK is not re-read after
     /// this, so without it the row would stay bold until the next refresh.
-    private func markRead(_ message: InboxMessage) {
+    /// Guarded so an already-read message does not lower the count twice.
+    private func markReadLocally(_ message: InboxMessage) {
         guard !message.isRead else { return }
-
-        MoEngageInboxModule.markRead(campaignID: message.id)
 
         if let index = messages.firstIndex(where: { $0.id == message.id }) {
             messages[index].isRead = true
         }
 
         unreadCount = max(0, unreadCount - 1)
-    }
-}
-
-// MARK: - Mapping
-
-private extension InboxMessage {
-
-    /// Builds a row from an SDK entry, or `nil` when the entry carries no
-    /// campaign identifier — without one it cannot be marked read or reported,
-    /// so it would be a row that does nothing.
-    init?(entry: MoEngageInboxEntry) {
-        guard let campaignID = entry.campaignID, !campaignID.isEmpty else { return nil }
-
-        let sentAt = entry.sentTime ?? entry.receivedDate
-
-        self.init(
-            id: campaignID,
-            title: entry.notificationTitle,
-            body: entry.notificationBody,
-            timestamp: relativeTime(since: sentAt),
-            group: Self.group(for: sentAt),
-            isRead: entry.isRead,
-            deeplink: entry.deepLinkURL.flatMap(URL.init(string:))
-        )
-    }
-
-    static func group(for date: Date?) -> InboxGroup {
-        guard let date else { return .earlier }
-        return Calendar.current.isDateInToday(date) ? .today : .earlier
     }
 }

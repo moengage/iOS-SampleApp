@@ -32,9 +32,13 @@ final class ProfileViewController: UIViewController {
     // Live rows.
     private let pushCaptionLabel = UILabel()
     private let pushToggle = UISwitch()
+    private let offersToggle = UISwitch()
+    private let marketingToggle = UISwitch()
     private let locationCaptionLabel = UILabel()
     private let locationActionButton = UIButton(type: .system)
     private let locationValueLabel = UILabel()
+    private let preciseCaptionLabel = UILabel()
+    private let preciseActionButton = UIButton(type: .system)
     private let preciseValueLabel = UILabel()
     private let geofenceValueLabel = UILabel()
 
@@ -131,6 +135,16 @@ final class ProfileViewController: UIViewController {
             }
             .store(in: &cancellables)
 
+        state.$isOffersOptedIn
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isOn in self?.offersToggle.setOn(isOn, animated: true) }
+            .store(in: &cancellables)
+
+        state.$isMarketingOptedIn
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isOn in self?.marketingToggle.setOn(isOn, animated: true) }
+            .store(in: &cancellables)
+
         Publishers.CombineLatest3(state.$locationStatus, state.$isPreciseLocation, state.$isMonitoringGeofences)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] status, precise, monitoring in
@@ -170,6 +184,15 @@ final class ProfileViewController: UIViewController {
             )
         }
 
+        // Approximate location stops iOS monitoring regions altogether, and the
+        // SDK does not check for it, so this row is the only place it shows.
+        preciseCaptionLabel.text = isPrecise ? "Needed for fences to fire" : "Off: iOS won't monitor fences at all"
+
+        // Only Settings can turn precise location back on. Offered once location
+        // is granted, since before that there is no precision to change.
+        let isGranted = status == .authorizedAlways || status == .authorizedWhenInUse
+        preciseActionButton.isHidden = isPrecise || !isGranted
+        preciseValueLabel.isHidden = !preciseActionButton.isHidden
         preciseValueLabel.text = isPrecise ? "On" : "Off"
         preciseValueLabel.apply(.captionMedium, color: isPrecise ? BrewColor.successText : BrewColor.textTertiary)
 
@@ -177,8 +200,8 @@ final class ProfileViewController: UIViewController {
         geofenceValueLabel.apply(.bodyMedium, color: isMonitoring ? BrewColor.successText : BrewColor.textTertiary)
     }
 
-    /// iOS asks once and answers on two axes, where Android has three separate
-    /// permissions. The caption names which of ours is in play.
+    /// iOS asks once and answers on two axes: when location may be used, and
+    /// how precisely. The caption names which grant is in play.
     private func locationCaption(for status: CLAuthorizationStatus) -> String {
         switch status {
         case .authorizedAlways: return "Fences can fire with the app closed"
@@ -362,7 +385,55 @@ final class ProfileViewController: UIViewController {
         tappable.addTarget(self, action: #selector(notificationsTapped), for: .touchUpInside)
         card.stackView.addArrangedSubview(tappable)
 
+        // Unlike the row above, these are the app's own settings, so the
+        // switches operate. Each change is mirrored onto MoEngage.
+        offersToggle.addTarget(self, action: #selector(offersToggled), for: .valueChanged)
+        card.stackView.addArrangedSubview(ThinDividerView())
+        card.stackView.addArrangedSubview(
+            preferenceRow(label: "Offers & new menu", caption: "Limited-time deals and new drinks", toggle: offersToggle)
+        )
+
+        marketingToggle.addTarget(self, action: #selector(marketingToggled), for: .valueChanged)
+        card.stackView.addArrangedSubview(ThinDividerView())
+        card.stackView.addArrangedSubview(
+            preferenceRow(label: "Marketing campaigns", caption: "Promotions and seasonal news", toggle: marketingToggle)
+        )
+
         return section(title: "Notifications", content: card)
+    }
+
+    /// A notification category the user switches on or off in the app.
+    private func preferenceRow(label: String, caption: String, toggle: UISwitch) -> UIView {
+        let title = UILabel()
+        title.text = label
+        title.apply(.body, color: BrewColor.textPrimary)
+
+        let captionLabel = UILabel()
+        captionLabel.text = caption
+        captionLabel.apply(.caption, color: BrewColor.textSecondary)
+        captionLabel.numberOfLines = 0
+
+        let textStack = UIStackView(arrangedSubviews: [title, captionLabel])
+        textStack.axis = .vertical
+        textStack.spacing = 4
+
+        toggle.onTintColor = BrewColor.primary
+        toggle.accessibilityLabel = label
+        toggle.setContentHuggingPriority(.required, for: .horizontal)
+
+        let row = UIStackView(arrangedSubviews: [textStack, toggle])
+        row.axis = .horizontal
+        row.spacing = 12
+        row.alignment = .center
+        return padded(row, horizontal: 16, vertical: 16)
+    }
+
+    @objc private func offersToggled() {
+        state.setOffersOptIn(offersToggle.isOn)
+    }
+
+    @objc private func marketingToggled() {
+        state.setMarketingOptIn(marketingToggle.isOn)
     }
 
     /// Asks the OS where it can still be asked, and opens Settings once it
@@ -415,18 +486,22 @@ final class ProfileViewController: UIViewController {
         preciseTitle.text = "Precise location"
         preciseTitle.apply(.body, color: BrewColor.textPrimary)
 
-        let preciseCaption = UILabel()
-        preciseCaption.text = "A fence needs full accuracy to be reliable"
-        preciseCaption.apply(.caption, color: BrewColor.textSecondary)
-        preciseCaption.numberOfLines = 0
+        preciseCaptionLabel.apply(.caption, color: BrewColor.textSecondary)
+        preciseCaptionLabel.numberOfLines = 0
 
-        let preciseTextStack = UIStackView(arrangedSubviews: [preciseTitle, preciseCaption])
+        let preciseTextStack = UIStackView(arrangedSubviews: [preciseTitle, preciseCaptionLabel])
         preciseTextStack.axis = .vertical
         preciseTextStack.spacing = 4
 
         preciseValueLabel.setContentHuggingPriority(.required, for: .horizontal)
 
-        let preciseRow = UIStackView(arrangedSubviews: [preciseTextStack, preciseValueLabel])
+        preciseActionButton.setTitle("Open settings", for: .normal)
+        preciseActionButton.titleLabel?.font = BrewTextStyle.captionMedium.font
+        preciseActionButton.setTitleColor(BrewColor.link, for: .normal)
+        preciseActionButton.addTarget(self, action: #selector(preciseActionTapped), for: .touchUpInside)
+        preciseActionButton.setContentHuggingPriority(.required, for: .horizontal)
+
+        let preciseRow = UIStackView(arrangedSubviews: [preciseTextStack, preciseActionButton, preciseValueLabel])
         preciseRow.axis = .horizontal
         preciseRow.spacing = 12
         preciseRow.alignment = .center
@@ -459,6 +534,10 @@ final class ProfileViewController: UIViewController {
         default:
             state.requestLocation()
         }
+    }
+
+    @objc private func preciseActionTapped() {
+        state.openAppSettings()
     }
 
     // MARK: - Log out

@@ -10,7 +10,7 @@
 //  total as a consequence of changing the selection, with nothing to keep in
 //  step by hand.
 //
-//  MoEngage moments:
+//  MoEngage integration:
 //  - `Item_Viewed` on arrival, with the item's name, price and category.
 //  - The screen is an in-app campaign target and asks on every arrival —
 //    unlike the menu, which asks once per session.

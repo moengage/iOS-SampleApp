@@ -4,12 +4,11 @@
 //
 //  A self-handled in-app campaign, drawn by the app rather than the SDK.
 //
-//  MoEngage hands back a payload with no presentation at all — this card is
-//  what gives it one. Mirrors the Android sample's `SelfHandledPromoCard`: a
+//  The SDK returns a payload with no presentation; this card renders it as a
 //  dark, single-row card above the section header, dismissible without being
 //  tapped.
 //
-//  MoEngage moments, all reported by the caller rather than this view:
+//  MoEngage integration, all reported by the caller rather than this view:
 //  - Shown, the moment it appears.
 //  - Clicked, if tapped — which also resolves where it leads.
 //  - Dismissed, if closed instead.

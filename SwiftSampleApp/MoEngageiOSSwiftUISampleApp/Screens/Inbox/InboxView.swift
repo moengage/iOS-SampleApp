@@ -4,9 +4,9 @@
 //
 //  Push campaigns the device has received, kept for reading later.
 //
-//  Drawn by the app from data the SDK returns. The SDK ships its own inbox
-//  screen — see `MoEngageInbox` — but this one shares the design system, and
-//  building it is the only option on Android, so the two apps match.
+//  Drawn by the app from data the SDK returns. The SDK also ships a ready-made
+//  inbox screen — see `MoEngageInbox.swift` — but a custom screen lets the
+//  inbox share the app's design system.
 //
 //  Nothing is seeded behind this screen. On a fresh install it is empty until a
 //  campaign lands, which is why the empty state says where messages come from

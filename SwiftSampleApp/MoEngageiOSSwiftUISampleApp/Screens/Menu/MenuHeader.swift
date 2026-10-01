@@ -5,8 +5,7 @@
 //  The white block at the top of the menu screen: greeting, store strip, search
 //  field and category pills.
 //
-//  It scrolls away with the rest of the screen rather than pinning, which is
-//  what the shared design specifies.
+//  It scrolls away with the rest of the screen rather than pinning.
 //
 //  The search field is presentation only. The sample has no search, and a field
 //  that took input but did nothing would be worse than one that plainly does
@@ -75,7 +74,7 @@ struct MenuHeader: View {
                 .overlay(alignment: .topTrailing) {
                     if unreadCount > 0 {
                         badge
-                            // Sits proud of the circle's edge, as specified.
+                            // Overhangs the circle's top-trailing edge.
                             .offset(x: 3, y: -3)
                     }
                 }
@@ -120,8 +119,8 @@ struct MenuHeader: View {
 
             Spacer(minLength: 8)
 
-            // Changing store is not part of the sample; the label is shown
-            // because the design has it, and is deliberately inert.
+            // Changing store is not part of the sample; the label is
+            // deliberately inert.
             Text("Change")
                 .brewTextStyle(.captionMedium)
                 .foregroundColor(BrewColor.link)

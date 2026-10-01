@@ -14,7 +14,7 @@
 //  different experience keys rather than switching local fixtures, so each one
 //  exercises the real SDK round trip.
 //
-//  MoEngage moments: an experience impression once per answer, an offering
+//  MoEngage integration: an experience impression once per answer, an offering
 //  impression once per card drawn, and an offering click on tap.
 //
 
@@ -44,6 +44,7 @@ struct PersonalizeView: View {
             }
         }
         .background(BrewColor.pageBackground.ignoresSafeArea())
+        .inAppContext(.personalize)
         .task { state.onAppear() }
     }
 

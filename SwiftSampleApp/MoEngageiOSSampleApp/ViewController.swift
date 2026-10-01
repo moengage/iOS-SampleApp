@@ -139,14 +139,18 @@ extension ViewController: UITableViewDelegate {
     }
     
     private func showSelfHandledInapp() {
-        MoEngageSDKInApp.sharedInstance.getSelfHandledInApp { (campaignInfo, accountMeta) in
-              if let campaignInfo = campaignInfo{ print("Self-Hanled InApp Content \(campaignInfo.campaignContent)")
-                  // Update UI with Self Handled InApp Content
-                        
-              } else{
-                  print("No Self Handled campaign available")
-              }
-        }
+        MoEngageSDKInApp.sharedInstance.getSelfHandledInApp()
+            .onSuccess { result in
+                if let campaign = result.campaign {
+                    print("Self-Handled InApp Content \(campaign.campaignContent)")
+                    // Update UI with Self Handled InApp Content
+                } else {
+                    print("No Self Handled campaign available")
+                }
+            }
+            .onFailure { error in
+                print("Failed to fetch Self Handled InApp: \(error)")
+            }
     }
     
     // MARK: - CARDS

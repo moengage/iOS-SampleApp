@@ -6,8 +6,8 @@
 //  Reached through `MoEngageSDKHelper`.
 //
 //  Names and attribute keys are the contract with the MoEngage dashboard, and
-//  are identical to the Android sample's — one campaign definition then matches
-//  both platforms. Changing a string here silently breaks whatever targets it,
+//  are shared with the other platform samples — one campaign definition then
+//  matches every platform. Changing a string here silently breaks whatever targets it,
 //  which is why they are declared once and never written inline.
 //
 //  Calls are not awaited. The SDK batches and flushes on its own schedule, so a
@@ -92,8 +92,8 @@ enum MoEngageEvents {
     ///
     /// Add-ons are joined into one string rather than sent as a list, and an
     /// empty selection is reported as `"none"` rather than as an empty string
-    /// — both matching the Android sample, so one dashboard segment written
-    /// against this attribute behaves the same on either platform.
+    /// — both consistent across platforms, so one dashboard segment written
+    /// against this attribute behaves the same everywhere.
     static func trackAddToCart(item: MenuItem, selection: ItemSelection) {
         let addOns = selection.addOns.isEmpty ? "none" : selection.addOns.joined(separator: ", ")
 
@@ -112,7 +112,7 @@ enum MoEngageEvents {
     /// Reports that the user opened the order.
     ///
     /// `items_count` is the number of lines, not the total quantity — two of
-    /// the same drink is one line, matching the Android sample.
+    /// the same drink is one line, consistent across platforms.
     static func trackCartViewed(lines: [CartLine], amount: Int) {
         let properties = MoEngageProperties()
         properties.addAttribute(lines.count, withName: Attribute.itemsCount)
@@ -126,7 +126,7 @@ enum MoEngageEvents {
     /// Reports that the user reached payment.
     ///
     /// A bill with no coupon reports `"none"` rather than an absent attribute,
-    /// matching the Android sample so one segment covers both platforms.
+    /// so one segment covers every platform.
     static func trackCheckoutStarted(amount: Int, fulfilment: Fulfilment, coupon: String?) {
         let properties = MoEngageProperties()
         properties.addAttribute(amount, withName: Attribute.amount)
@@ -153,9 +153,9 @@ enum MoEngageEvents {
 
     /// Reports an order collected.
     ///
-    /// Nothing calls this yet. On Android it fires when the simulated push
-    /// preview on the status screen is tapped, and that preview — along with
-    /// the order-tracking Live Activity — is not part of this build.
+    /// Fires when the order-tracking Live Activity is tapped — the iOS
+    /// counterpart of tapping an order notification. See
+    /// `MoEngageLiveActivityModule.trackOrderActivityOpened(_:)`.
     static func trackOrderPickedUp(orderID: String) {
         let properties = MoEngageProperties()
         properties.addAttribute(orderID, withName: Attribute.orderID)
@@ -178,12 +178,13 @@ enum MoEngageEvents {
 
     /// Reports that the user opened a notification.
     ///
-    /// Absent values are reported as `"none"` rather than omitted, so the
-    /// attribute is always present and a segment written against it behaves
-    /// the same on both platforms.
+    /// Absent values are reported rather than omitted — `"unknown"` for the
+    /// campaign and `"none"` for the deep link — so the attribute is always
+    /// present and a segment written against it behaves the same on every
+    /// platform.
     static func trackNotificationOpened(campaignID: String?, deeplink: String?) {
         let properties = MoEngageProperties()
-        properties.addAttribute(campaignID ?? "none", withName: Attribute.campaignID)
+        properties.addAttribute(campaignID ?? "unknown", withName: Attribute.campaignID)
         properties.addAttribute(deeplink ?? "none", withName: Attribute.deeplink)
 
         MoEngageSDKAnalytics.sharedInstance

@@ -10,9 +10,9 @@
 //  reports `Category_Browsed` and what leaves the menu showing the same
 //  category on the way back.
 //
-//  The filter pills are presentation only, matching the Android sample: they
-//  show a selection but the list is the whole category either way. Filtering
-//  would need fields the demo catalogue does not carry.
+//  The filter pills are presentation only: they show a selection but the list
+//  is the whole category either way. Filtering would need fields the demo
+//  catalogue does not carry.
 //
 
 import SwiftUI
@@ -28,7 +28,7 @@ struct CategoryListView: View {
     let onItemSelected: (MenuItem) -> Void
 
     /// Adding is a choice of size and milk, so it opens the item rather than
-    /// putting anything in the cart — the same as the Android sample.
+    /// putting anything in the cart.
     let onAdd: (MenuItem) -> Void
 
     /// Shown as selected. Inert, as described above.

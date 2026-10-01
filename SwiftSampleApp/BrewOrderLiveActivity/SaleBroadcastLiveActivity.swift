@@ -3,13 +3,13 @@
 //  BrewOrderLiveActivity
 //
 //  The Lock Screen banner and Dynamic Island presentation for a broadcast
-//  sale — the same card shown to every subscribed user at once. Pure
-//  display: values come from SaleBroadcastAttributes' ContentState.
+//  sale — the same card shown to every subscribed user at once. Display
+//  only: values come from SaleBroadcastAttributes' ContentState.
 //
-//  Note the attributes type here: MoEngageActivityAttributes<T>, NOT
-//  MoEngageTransactionActivityAttributes<T> — broadcast and transactional
-//  wrap the app's struct differently, and the widget must match whichever
-//  one the SDK actually started the activity with.
+//  The attributes type here is MoEngageActivityAttributes<T>, not
+//  MoEngageTransactionActivityAttributes<T>. The two wrap the app's struct
+//  with different campaign data, and the widget's type must match the type
+//  the activity was started with.
 //
 
 import ActivityKit

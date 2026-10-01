@@ -4,15 +4,15 @@
 //
 //  Order history, and the root of the Orders tab.
 //
-//  The filters here genuinely filter, unlike the menu's — which are
-//  presentation only. Both match the Android sample.
+//  The filters here filter the list, unlike the menu's, which are presentation
+//  only.
 //
-//  MoEngage moments:
+//  MoEngage integration:
 //  - `Reorder_Tapped` when a past order is sent back to the cart.
 //  - The screen is a nudge campaign's target, so it asks for one on arrival.
 //    A nudge anchors itself to a position rather than covering the screen, so
-//    unlike the menu's modal it is asked for every visit rather than once a
-//    session.
+//    unlike the menu's in-app campaign it is asked for on every visit rather
+//    than once a session.
 //
 
 import SwiftUI
@@ -27,7 +27,8 @@ struct OrdersView: View {
     /// Sends a past order back to the cart.
     let onReorder: (Order) -> Void
 
-    /// Opens the self-handled cards screen, where the subscription lives.
+    /// Starts setting up a subscription. The tab bar passes an empty closure,
+    /// because the Cards screen is not implemented in this sample.
     let onSubscribe: () -> Void
 
     @State private var activeFilter: String = OrderCatalogue.filters[0]

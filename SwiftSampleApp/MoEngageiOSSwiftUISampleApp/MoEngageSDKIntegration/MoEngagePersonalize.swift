@@ -29,14 +29,28 @@
 import Foundation
 import MoEngagePersonalization
 
-enum MoEngagePersonalize {
+/// One experience campaign, decoupled from the SDK's own type so the screen can
+/// hold one without importing `MoEngagePersonalization`.
+///
+/// `campaign` stays `fileprivate` for that reason: it exists only so this file
+/// can hand it back to the SDK when reporting impressions and clicks.
+struct PersonalizedExperience {
+    let experienceKey: String
 
-    /// An empty answer, used where a failure should read to the screen exactly
-    /// as "nothing configured" does. Both end in the same fallback panel.
-    private static let emptyResult = MoEngageExperienceCampaignsResult(
-        experiences: [],
-        failures: []
-    )
+    /// The campaign's KV pairs, untouched — `PersonalizeContract` reads the
+    /// offerings and copy out of them.
+    let payload: [String: Any]
+
+    fileprivate let campaign: MoEngageExperienceCampaign
+
+    fileprivate init(campaign: MoEngageExperienceCampaign) {
+        self.experienceKey = campaign.experienceKey
+        self.payload = campaign.payload
+        self.campaign = campaign
+    }
+}
+
+enum MoEngagePersonalize {
 
     // MARK: - Metadata
 
@@ -57,9 +71,7 @@ enum MoEngagePersonalize {
     /// full unfiltered list regardless. `[]` asks for everything, which is what
     /// a sample app wants — a paused campaign is worth seeing rather than
     /// hiding.
-    static func syncExperiencesMeta(
-        _ completion: @escaping (MoEngageExperienceCampaignMetaData?) -> Void
-    ) {
+    static func syncExperiencesMeta(_ completion: @escaping () -> Void) {
         MoEngageSDKPersonalize.sharedInstance.fetchExperiencesMeta(
             status: [],
             onSuccess: { metadata in
@@ -67,13 +79,13 @@ enum MoEngagePersonalize {
                     .map { "\($0.experienceKey) [\($0.status)]" }
                     .joined(separator: ", ")
                 print("MoEngage | personalize meta (\(metadata.source)): \(names)")
-                completion(metadata)
+                completion()
             },
             onFailure: { failure in
                 report("fetchExperiencesMeta", failure)
                 // Reported, not propagated as fatal: a previous sync may still
                 // be cached, so the fetch that follows is still worth trying.
-                completion(nil)
+                completion()
             }
         )
     }
@@ -88,14 +100,14 @@ enum MoEngagePersonalize {
     /// what lets a demo steer which variation answers without altering real
     /// user data.
     ///
-    /// An empty result is a normal outcome, not an error: nothing configured
+    /// `nil` is a normal outcome, not an error: nothing configured
     /// for the key, no eligible campaign, the user outside the segment, or the
     /// user held back in a control group all arrive this way. The screen falls
     /// back rather than treating any of them as a failure.
     static func fetchExperience(
         key: String,
         attributes: [String: String] = [:],
-        _ completion: @escaping (MoEngageExperienceCampaignsResult) -> Void
+        _ completion: @escaping (PersonalizedExperience?) -> Void
     ) {
         MoEngageSDKPersonalize.sharedInstance.fetchExperience(
             experienceKey: key,
@@ -105,11 +117,14 @@ enum MoEngagePersonalize {
                 // some keys and reject others, and several rejections are
                 // informational rather than faults.
                 result.failures.forEach { report("fetchExperience(\(key))", $0) }
-                completion(result)
+                let campaign = result.experiences.first { $0.experienceKey == key }
+                completion(campaign.map(PersonalizedExperience.init(campaign:)))
             },
             onFailure: { failure in
+                // Reads to the screen exactly as "nothing configured" does —
+                // both end in the same fallback panel.
                 report("fetchExperience(\(key))", failure)
-                completion(emptyResult)
+                completion(nil)
             }
         )
     }
@@ -117,8 +132,8 @@ enum MoEngagePersonalize {
     // MARK: - Tracking
 
     /// Impression on the experience as a whole. Report once per render.
-    static func experienceShown(_ campaign: MoEngageExperienceCampaign) {
-        MoEngageSDKPersonalize.sharedInstance.experienceShown(campaign: campaign)
+    static func experienceShown(_ experience: PersonalizedExperience) {
+        MoEngageSDKPersonalize.sharedInstance.experienceShown(campaign: experience.campaign)
     }
 
     /// Impressions on the offerings actually rendered.
@@ -140,11 +155,11 @@ enum MoEngagePersonalize {
     /// `experienceClicked` must not also be called — that would count the same
     /// interaction twice.
     static func offeringClicked(
-        campaign: MoEngageExperienceCampaign,
+        experience: PersonalizedExperience,
         offeringPayload: [String: Any]
     ) {
         MoEngageSDKPersonalize.sharedInstance.offeringClicked(
-            campaign: campaign,
+            campaign: experience.campaign,
             offeringPayload: offeringPayload
         )
     }

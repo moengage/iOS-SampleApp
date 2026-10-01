@@ -4,8 +4,8 @@
 //
 //  One row of the category list.
 //
-//  A fixed height, because the design's rows are uniform and the image fills
-//  the row from top to bottom. The note is capped at two lines so a long one
+//  A fixed height, so rows are uniform and the image fills the row from top to
+//  bottom. The note is capped at two lines so a long one
 //  can never push the row taller, which keeps the price and the add control on
 //  a common baseline down the list.
 //

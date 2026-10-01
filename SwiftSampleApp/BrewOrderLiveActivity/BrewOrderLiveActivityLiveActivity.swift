@@ -3,9 +3,9 @@
 //  BrewOrderLiveActivity
 //
 //  The Lock Screen banner and Dynamic Island presentation for order
-//  tracking. Pure display: every value here comes from BrewOrderAttributes'
-//  ContentState, refreshed by MoEngage's backend — this file never decides
-//  what the order's status is, only how to draw it.
+//  tracking. Display only: every value here comes from BrewOrderAttributes'
+//  ContentState, which MoEngage updates when a backend calls the Inform API.
+//  This file never decides what the order's status is, only how to draw it.
 //
 
 import ActivityKit
@@ -19,7 +19,8 @@ struct BrewOrderLiveActivityLiveActivity: Widget {
             LockScreenView(state: context.state)
                 .activityBackgroundTint(Color(red: 0.02, green: 0.2, blue: 0.23))
                 .activitySystemActionForegroundColor(.white)
-            
+                .moengageWidgetClickURL(orderStatusURL(context.attributes), context: context, widgetId: 1)
+
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
@@ -44,7 +45,17 @@ struct BrewOrderLiveActivityLiveActivity: Widget {
                 Image(systemName: "cup.and.saucer.fill")
             }
             .keylineTint(Color(red: 0.02, green: 0.65, blue: 0.72))
+            .moengageWidgetClickURL(orderStatusURL(context.attributes), context: context, widgetId: 1)
         }
+    }
+
+    /// Where a tap leads: this order's status screen. The order ID is the
+    /// campaign's transactionId, which the app sets to the order ID when it
+    /// starts the activity. `moengageWidgetClickURL` appends MoEngage's campaign
+    /// data to the link as query parameters, from which the SDK tracks the click
+    /// when it processes the opened URL.
+    private func orderStatusURL(_ attributes: MoEngageTransactionActivityAttributes<BrewOrderAttributes>) -> URL? {
+        URL(string: "brewbar://status/\(attributes.campaign.transactionId)")
     }
 }
 

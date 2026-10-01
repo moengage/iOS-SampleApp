@@ -23,7 +23,6 @@
 //
 
 import Foundation
-import MoEngagePersonalization
 
 // MARK: - Dashboard contract
 
@@ -59,8 +58,8 @@ enum PersonalizeContract {
 
     /// The KV pair carrying the experience's offerings.
     ///
-    /// Named on the dashboard by whoever authored the campaign, and matching
-    /// the Android sample so both apps can run against the same workspace.
+    /// Named on the dashboard by whoever authored the campaign, and shared with
+    /// the other platform samples so they can run against the same workspace.
     static let offersPair = "offer_payload"
 
     /// The two KV pairs carrying the copy for the no-offerings panel, so its
@@ -124,7 +123,7 @@ struct ExperienceCopy {
 
 // MARK: - Parsing
 
-extension MoEngageExperienceCampaign {
+extension PersonalizedExperience {
 
     /// The campaign's authored copy, read from its top-level KV pairs.
     var copy: ExperienceCopy {
@@ -144,8 +143,7 @@ extension MoEngageExperienceCampaign {
     /// 2. `value` is a **String containing JSON**, so it is parsed a second
     ///    time.
     /// 3. It decodes to a **bare array**, not an object with an `offerings`
-    ///    key — the shape the iOS SDK's own fixtures carry. The Android sample
-    ///    reads `{"offerings": [...]}` instead; this app follows iOS.
+    ///    key — the shape the iOS SDK's own fixtures carry.
     ///
     /// A missing pair, a blank value, malformed JSON, or an empty array all
     /// return an empty list rather than throwing. Every one of those is a

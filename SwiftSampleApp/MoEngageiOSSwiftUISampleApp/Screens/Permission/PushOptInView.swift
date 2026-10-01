@@ -5,7 +5,7 @@
 //  Notification opt-in: the screen that explains what notifications are for,
 //  before the system permission alert appears.
 //
-//  MoEngage moment: the call to action registers for push, which presents the
+//  MoEngage integration: the call to action registers for push, which presents the
 //  system alert. The answer is not reported anywhere — the SDK reads the
 //  authorization status itself. See `MoEngagePush`.
 //

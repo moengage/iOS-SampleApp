@@ -90,8 +90,7 @@ struct Order: Identifiable, Hashable {
 ///
 /// Not a real notification. A campaign would deliver this through the system,
 /// but that needs a configured campaign and a push token, so the sample draws
-/// its own so the flow can be shown on any device — matching the Android
-/// sample, whose text this is.
+/// its own so the flow can be shown on any device.
 struct SimulatedPush: Equatable {
     let title: String
     let body: String

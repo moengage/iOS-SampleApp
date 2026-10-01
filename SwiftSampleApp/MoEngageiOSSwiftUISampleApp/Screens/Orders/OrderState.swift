@@ -7,10 +7,10 @@
 //  Spans three screens: payment reads the method, placing an order writes the
 //  record, and both the status screen and the history list read it back.
 //
-//  MoEngage moment: `Order_Placed` is reported from `placeOrder`, not from a
-//  screen. Placing an order is the thing being reported, and it happens here —
-//  reporting it from the screen that navigated away afterwards would tie the
-//  event to a view's lifecycle instead of to the fact.
+//  MoEngage integration: `Order_Placed` is reported from `placeOrder`, not
+//  from a screen. Placing an order is the thing being reported, and it happens
+//  here; reporting it from the screen that navigated away afterwards would tie
+//  the event to a view's lifecycle instead of to the action.
 //
 
 import Foundation

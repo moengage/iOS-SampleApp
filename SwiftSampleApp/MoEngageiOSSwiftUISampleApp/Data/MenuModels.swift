@@ -14,7 +14,7 @@ import Foundation
 ///
 /// Each case carries its own copy, so a category change is a single value change
 /// rather than four parallel lookups. `id` is the value a `category/{id}` deep
-/// link carries, and matches the Android sample's identifiers.
+/// link carries, and is shared with the other platform samples.
 enum MenuCategory: String, CaseIterable, Identifiable, Hashable {
 
     case coffee

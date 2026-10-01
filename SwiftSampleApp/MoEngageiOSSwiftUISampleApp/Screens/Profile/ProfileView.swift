@@ -10,7 +10,7 @@
 //  has picked. That is the point of the screen in a sample app — it shows the
 //  integration's state rather than hiding it.
 //
-//  MoEngage moment: signing out invalidates the identity, so everything
+//  MoEngage integration: signing out invalidates the identity, so everything
 //  tracked afterwards belongs to a new anonymous user. No events are reported
 //  from this screen.
 //
@@ -191,6 +191,24 @@ struct ProfileView: View {
                 .accessibilityLabel("Order updates")
                 .accessibilityValue(pushStatusLine)
                 .accessibilityHint(notificationsHint)
+
+                ThinDivider()
+
+                // Unlike the row above, these are the app's own settings, so
+                // the switches operate. Each change is mirrored onto MoEngage.
+                PreferenceRow(
+                    label: "Offers & new menu",
+                    caption: "Limited-time deals and new drinks",
+                    isOn: Binding(get: { state.isOffersOptedIn }, set: state.setOffersOptIn)
+                )
+
+                ThinDivider()
+
+                PreferenceRow(
+                    label: "Marketing campaigns",
+                    caption: "Promotions and seasonal news",
+                    isOn: Binding(get: { state.isMarketingOptedIn }, set: state.setMarketingOptIn)
+                )
             }
         }
     }
@@ -237,11 +255,11 @@ struct ProfileView: View {
 
                 PermissionRow(
                     label: "Precise location",
-                    caption: "A fence needs full accuracy to be reliable",
+                    caption: preciseLocationCaption,
                     value: state.isPreciseLocation ? "On" : "Off",
                     isGranted: state.isPreciseLocation,
-                    action: nil,
-                    onAction: {}
+                    action: preciseLocationAction,
+                    onAction: state.openAppSettings
                 )
 
                 ThinDivider()
@@ -259,8 +277,8 @@ struct ProfileView: View {
         }
     }
 
-    /// iOS asks once and answers on two axes, where Android has three separate
-    /// permissions. The caption names which of ours is in play.
+    /// iOS asks once and answers on two axes: when location may be used, and
+    /// how precisely. The caption names which grant is in play.
     private var locationCaption: String {
         switch state.locationStatus {
         case .authorizedAlways: return "Fences can fire with the app closed"
@@ -290,11 +308,55 @@ struct ProfileView: View {
         }
     }
 
+    /// Approximate location stops iOS monitoring regions altogether, and the
+    /// SDK does not check for it, so this row is the only place it shows.
+    private var preciseLocationCaption: String {
+        state.isPreciseLocation
+            ? "Needed for fences to fire"
+            : "Off: iOS won't monitor fences at all"
+    }
+
+    /// Only Settings can turn precise location back on. Offered once location
+    /// is granted, since before that there is no precision to change.
+    private var preciseLocationAction: String? {
+        guard !state.isPreciseLocation else { return nil }
+        switch state.locationStatus {
+        case .authorizedAlways, .authorizedWhenInUse: return "Open settings"
+        default: return nil
+        }
+    }
+
     private var locationActionHandler: () -> Void {
         switch state.locationStatus {
         case .denied, .restricted: return state.openAppSettings
         default: return state.requestLocation
         }
+    }
+}
+
+// MARK: - Preference row
+
+/// A notification category the user switches on or off in the app.
+private struct PreferenceRow: View {
+
+    let label: String
+    let caption: String
+    @Binding var isOn: Bool
+
+    var body: some View {
+        Toggle(isOn: $isOn) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(label)
+                    .brewTextStyle(.body)
+                    .foregroundColor(BrewColor.textPrimary)
+
+                Text(caption)
+                    .brewTextStyle(.caption)
+                    .foregroundColor(BrewColor.textSecondary)
+            }
+        }
+        .tint(BrewColor.primary)
+        .padding(16)
     }
 }
 

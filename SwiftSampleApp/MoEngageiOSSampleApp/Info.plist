@@ -10,6 +10,9 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>deeplinkscheme</string>
+				<!-- Campaign and Live Activity links, for example brewbar://status/<orderId>.
+				     Matches the SwiftUI target, so one campaign link works in every app. -->
+				<string>brewbar</string>
 			</array>
 		</dict>
 	</array>
@@ -36,10 +39,10 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-	<!-- MoEngage SDK configuration — read directly by the SDK at launch. With
-	     IsSdkAutoInitialisationEnabled = true, the SDK initializes itself from this
-	     dictionary; no init call is needed anywhere in code. Source of truth for every
-	     key below: MoEngageConfig.FileBased.Data (MoEngageCore). -->
+	<!-- MoEngage SDK configuration, read by `initializeDefaultInstance()` in
+	     AppDelegate's didFinishLaunching. With IsSdkAutoInitialisationEnabled = true
+	     the SDK can also initialize itself from this dictionary on first use, but that
+	     is only a fallback: -->
 	<key>MoEngage</key>
 	<dict>
 		<!-- Flag to enable automatic SDK initialization. Default: true. -->
@@ -109,6 +112,12 @@
 		<!-- Flag to enable the user registration flow. Default: false. -->
 		<key>IsUserRegistrationEnabled</key>
 		<false/>
+
+		<!-- Hands in-app deep-link CTAs to the app's in-app delegate instead of
+		     opening them, so the app can report InApp_Cta_Clicked and route the
+		     link itself. Default: false. -->
+		<key>InAppShouldProvideDeeplinkCallback</key>
+		<true/>
 	</dict>
 
 	<!-- Push swizzling — automatically forwards UIApplicationDelegate and

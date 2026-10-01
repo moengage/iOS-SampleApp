@@ -14,6 +14,8 @@
 //  - `MoEngagePush`       — push registration and notification permission
 //  - `MoEngageInApp`      — in-app campaign contexts and callbacks
 //  - `MoEngageGeofenceModule` — location-triggered campaigns
+//  - `MoEngageInboxModule` — the notification inbox
+//  - `MoEngagePersonalize` — personalization experiences and offerings
 //  - `MoEngageEvents`     — the event dictionary
 //  - `MoEngageReporting`  — the shared failure reporting every call goes through
 //
@@ -33,6 +35,12 @@ enum MoEngageSDKHelper {
     /// Mirrors the user's drink preferences onto their MoEngage profile.
     static func syncTasteProfile() {
         MoEngageUser.syncTasteProfile()
+    }
+
+    /// Mirrors one of the profile screen's notification categories onto the
+    /// user's MoEngage profile.
+    static func setNotificationPreference(_ preference: MoEngageUser.NotificationPreference, enabled: Bool) {
+        MoEngageUser.setNotificationPreference(preference, enabled: enabled)
     }
 
     /// Ends the signed-in session. Everything tracked afterwards belongs to a
@@ -131,6 +139,12 @@ enum MoEngageSDKHelper {
         MoEngageInApp.onSelfHandledPromoTriggered = handler
     }
 
+    /// Registers where a deep-link CTA is routed. Set by the tab bar while it
+    /// is on screen; pass `nil` to stop.
+    static func onInAppDeepLink(_ handler: ((Route) -> Void)?) {
+        MoEngageInApp.onDeepLinkRoute = handler
+    }
+
     /// Reports the promo card on screen.
     static func trackSelfHandledShown(_ promo: SelfHandledPromo) {
         MoEngageInApp.trackSelfHandledShown(promo)
@@ -144,6 +158,61 @@ enum MoEngageSDKHelper {
     /// Reports the card dismissed without being tapped.
     static func trackSelfHandledDismissed(_ promo: SelfHandledPromo) {
         MoEngageInApp.trackSelfHandledDismissed(promo)
+    }
+
+    // MARK: - Inbox
+
+    /// Every message the device has received, newest first.
+    static func fetchInboxMessages(_ onResult: @escaping ([InboxMessage]) -> Void) {
+        MoEngageInboxModule.fetchMessages(onResult)
+    }
+
+    /// The count behind the bell badge.
+    static func fetchInboxUnreadCount(_ onResult: @escaping (Int) -> Void) {
+        MoEngageInboxModule.fetchUnreadCount(onResult)
+    }
+
+    /// Reports a message opened, and marks it read. Call on every open.
+    static func trackInboxMessageClicked(campaignID: String) {
+        MoEngageInboxModule.trackMessageClicked(campaignID: campaignID)
+    }
+
+    /// Marks a message read without reporting a click.
+    static func markInboxMessageRead(campaignID: String) {
+        MoEngageInboxModule.markMessageRead(campaignID: campaignID)
+    }
+
+    // MARK: - Personalize
+
+    /// Syncs the workspace's experience-key catalogue. Required before the
+    /// first fetch on a device.
+    static func syncPersonalizeExperiences(_ completion: @escaping () -> Void) {
+        MoEngagePersonalize.syncExperiencesMeta(completion)
+    }
+
+    /// Fetches one experience campaign. `nil` means nothing to show.
+    static func fetchPersonalizeExperience(
+        key: String,
+        attributes: [String: String] = [:],
+        _ completion: @escaping (PersonalizedExperience?) -> Void
+    ) {
+        MoEngagePersonalize.fetchExperience(key: key, attributes: attributes, completion)
+    }
+
+    /// Reports the experience on screen. Once per render.
+    static func trackExperienceShown(_ experience: PersonalizedExperience) {
+        MoEngagePersonalize.experienceShown(experience)
+    }
+
+    /// Reports the offerings actually rendered. Not deduplicated by the SDK.
+    static func trackOfferingsShown(_ offeringPayloads: [[String: Any]]) {
+        MoEngagePersonalize.offeringsShown(offeringPayloads)
+    }
+
+    /// Reports one offering tapped — which counts as the experience's click
+    /// too.
+    static func trackOfferingClicked(experience: PersonalizedExperience, offeringPayload: [String: Any]) {
+        MoEngagePersonalize.offeringClicked(experience: experience, offeringPayload: offeringPayload)
     }
 
     // MARK: - Events
@@ -183,7 +252,7 @@ enum MoEngageSDKHelper {
         MoEngageEvents.trackOrderPlaced(order)
     }
 
-    /// Reports an order collected. Not called yet — see `MoEngageEvents`.
+    /// Reports an order collected.
     static func trackOrderPickedUp(orderID: String) {
         MoEngageEvents.trackOrderPickedUp(orderID: orderID)
     }
@@ -210,6 +279,12 @@ enum MoEngageSDKHelper {
     @available(iOS 18, *)
     static func registerForLiveActivityTokenUpdates() {
         MoEngageLiveActivityModule.registerForTokenUpdates()
+    }
+
+    /// Reports a tap on the order-tracking Live Activity, if `url` came from
+    /// one. Call for every link the app opens; anything else is ignored.
+    static func trackOrderActivityOpened(_ url: URL) {
+        MoEngageLiveActivityModule.trackOrderActivityOpened(url)
     }
 
     /// Starts the order-tracking Live Activity locally. Call the moment an

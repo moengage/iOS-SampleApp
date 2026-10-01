@@ -16,9 +16,8 @@
 //  experience impression once per answer, an offering impression once per card
 //  drawn, and an offering click on tap.
 //
-//  This screen sets no `MoEngageInAppContext` — `PersonalizeView.swift` itself
-//  applies no `.inAppContext(_:)` modifier, and `MoEngageInAppContext` carries
-//  no dedicated case for it either, so none is invented here.
+//  Sets the `personalize` in-app context on every appearance, matching
+//  `PersonalizeView`'s `.inAppContext(.personalize)`.
 //
 
 import UIKit
@@ -87,6 +86,7 @@ final class PersonalizeViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        MoEngageSDKHelper.setInAppContext(.personalize)
         // Matches the SwiftUI `.task { state.onAppear() }`, which runs once
         // per view identity — here, once per pushed instance of this screen.
         guard !hasCalledOnAppear else { return }

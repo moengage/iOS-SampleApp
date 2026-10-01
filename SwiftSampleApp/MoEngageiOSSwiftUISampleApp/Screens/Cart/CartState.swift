@@ -4,10 +4,9 @@
 //
 //  The order: its lines and how it is to be collected.
 //
-//  The first state in this app that outlives a screen. The catalogue is fixed
-//  and the menu's category is a presentation choice, but an order is built on
-//  one screen, read on another and paid for on a third — so it belongs to
-//  something that spans them.
+//  An order is built on the item screen, reviewed on the cart and paid for on
+//  the payment screen, so its state is owned above all three rather than by
+//  any one of them.
 //
 //  The bill is computed rather than stored. A total kept alongside the lines
 //  would be a second source of truth, and the two would eventually disagree.
@@ -38,10 +37,9 @@ final class CartState: ObservableObject {
             taxes: taxes,
             couponCode: CartCatalogue.couponCode,
             discount: discount,
-            // The design's bill totals ₹476 with "bring my own cup" selected,
-            // so the cup preference is recorded but not billed. Kept explicit
-            // rather than silently dropped — the pill still advertises the
-            // saving, and this is the line that declines to apply it.
+            // The cup preference is recorded but not billed: the pill
+            // advertises the saving, and this line deliberately leaves it out
+            // of the total.
             cupDiscount: 0
         )
     }

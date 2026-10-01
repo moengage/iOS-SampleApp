@@ -28,6 +28,25 @@ enum MoEngageUser {
         static let milkPreference = "milk_preference"
         static let sweetness = "sweetness"
         static let homeStore = "home_store"
+        static let offersOptIn = "offers_opt_in"
+        static let marketingOptIn = "marketing_opt_in"
+    }
+
+    /// The in-app notification categories on the profile screen.
+    ///
+    /// These belong to the app, not to iOS: push permission says whether the
+    /// app may notify at all, while these say which kinds the user wants. The
+    /// SDK has no equivalent, so each is mirrored onto its own attribute.
+    enum NotificationPreference {
+        case offers
+        case marketing
+
+        var attributeName: String {
+            switch self {
+            case .offers: return Attribute.offersOptIn
+            case .marketing: return Attribute.marketingOptIn
+            }
+        }
     }
 
     /// Establishes the signed-in identity and its reserved attributes.
@@ -67,6 +86,12 @@ enum MoEngageUser {
     static func logout() {
         MoEngageSDKAnalytics.sharedInstance.resetUser()
             .onFailure { MoEngageReporting.failure("resetUser", $0) }
+    }
+
+    /// Records the user's answer for one notification category.
+    static func setNotificationPreference(_ preference: NotificationPreference, enabled: Bool) {
+        MoEngageSDKAnalytics.sharedInstance.setUserAttribute(enabled, withAttributeName: preference.attributeName)
+            .onFailure { MoEngageReporting.failure(preference.attributeName, $0) }
     }
 
     static func syncTasteProfile() {

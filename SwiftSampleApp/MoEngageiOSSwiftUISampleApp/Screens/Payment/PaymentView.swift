@@ -4,13 +4,13 @@
 //
 //  Paying for the order.
 //
-//  MoEngage moment: `Checkout_Started` on arrival, with what is being paid,
+//  MoEngage integration: `Checkout_Started` on arrival, with what is being paid,
 //  how it is collected and which coupon applied. Paying itself reports
 //  `Order_Placed`, from `OrderState` rather than from here.
 //
 //  No in-app campaign is requested. The context is set, as everywhere, but
 //  interrupting a payment with a modal is the one place a campaign should not
-//  appear — and the Android sample asks on neither.
+//  appear.
 //
 
 import SwiftUI

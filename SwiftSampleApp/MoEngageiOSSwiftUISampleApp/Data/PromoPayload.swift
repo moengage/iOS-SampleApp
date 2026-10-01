@@ -5,8 +5,8 @@
 //  What a self-handled in-app campaign's card shows.
 //
 //  MoEngage hands the app a raw JSON string with no presentation — this is
-//  what that string decodes to. The keys match the Android sample's, so the
-//  same dashboard campaign drives both platforms.
+//  what that string decodes to. The keys are shared with the other platform
+//  samples, so the same dashboard campaign drives every platform.
 //
 
 import Foundation

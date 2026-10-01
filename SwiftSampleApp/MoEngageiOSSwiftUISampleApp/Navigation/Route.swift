@@ -107,8 +107,8 @@ extension Route {
         case "payment":
             self = .payment
         case "order_status", "status":
-            // Android defaults a link with no identifier to the most recent
-            // order rather than ignoring it, so a campaign can link to "the
+            // A link with no identifier defaults to the most recent order
+            // rather than being ignored, so a campaign can link to "the
             // order" without knowing which.
             self = .orderStatus(orderID: path.dropFirst().first ?? OrderCatalogue.latest().id)
         case "orders":

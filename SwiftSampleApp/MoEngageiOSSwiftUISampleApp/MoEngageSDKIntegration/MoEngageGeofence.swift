@@ -41,9 +41,8 @@ enum MoEngageGeofenceModule {
     /// Registers the crossing callbacks. Called once at launch.
     ///
     /// Optional: the SDK delivers the campaign attached to a fence whether or
-    /// not a delegate exists. Unlike the Android listener, which returns a
-    /// Bool to say whether the app handled the hit, this one is purely
-    /// informational.
+    /// not a delegate exists. These callbacks are purely informational: they
+    /// return nothing, so the app cannot stop the SDK handling a hit.
     static func registerCallbacks() {
         MoEngageSDKGeofence.sharedInstance.setGeofenceDelegate(delegate)
     }
