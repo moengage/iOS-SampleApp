@@ -69,7 +69,7 @@ extension ViewController: UITableViewDelegate {
     /// Create a dictionary of event attributes and pass that to generate an instance of MOProperties. MOProperties also allows you to add additinal attributes.
     /// It supports tracking of Int, Double, Float, String, Bool, Date, Location value types
     private func trackEvents() {
-        var eventAttrDict : Dictionary<String,Any> = Dictionary()
+        var eventAttrDict: [String: any Sendable] = [:]
         eventAttrDict["ProductName"] = "iPhone XS Max"
         eventAttrDict["BrandName"] = "Apple"
         eventAttrDict["Items In Stock"] = 109
@@ -139,14 +139,18 @@ extension ViewController: UITableViewDelegate {
     }
     
     private func showSelfHandledInapp() {
-        MoEngageSDKInApp.sharedInstance.getSelfHandledInApp { (campaignInfo, accountMeta) in
-              if let campaignInfo = campaignInfo{ print("Self-Hanled InApp Content \(campaignInfo.campaignContent)")
-                  // Update UI with Self Handled InApp Content
-                        
-              } else{
-                  print("No Self Handled campaign available")
-              }
-        }
+        MoEngageSDKInApp.sharedInstance.getSelfHandledInApp()
+            .onSuccess { result in
+                if let campaign = result.campaign {
+                    print("Self-Handled InApp Content \(campaign.campaignContent)")
+                    // Update UI with Self Handled InApp Content
+                } else {
+                    print("No Self Handled campaign available")
+                }
+            }
+            .onFailure { error in
+                print("Failed to fetch Self Handled InApp: \(error)")
+            }
     }
     
     // MARK: - CARDS

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>moengageswiftuisample</string>
+				<string>brewbar</string>
+			</array>
+		</dict>
+	</array>
+	<key>MoEngage</key>
+	<dict>
+		<key>AppGroupName</key>
+		<string>group.YOUR_BUNDLE_ID.moengage</string>
+		<key>DataCenter</key>
+		<integer>1</integer>
+		<key>EncryptionEncodedLiveKey</key>
+		<string>DASHBOARD_PROVIDED_BASE64_STRING</string>
+		<key>EncryptionEncodedTestKey</key>
+		<string>DASHBOARD_PROVIDED_BASE64_STRING</string>
+		<key>InAppShouldProvideDeeplinkCallback</key>
+		<true/>
+		<key>IsJwtEnabled</key>
+		<false/>
+		<key>IsNetworkEncryptionEnabled</key>
+		<false/>
+		<key>IsSdkAutoInitialisationEnabled</key>
+		<true/>
+		<key>IsStorageEncryptionEnabled</key>
+		<false/>
+		<key>IsTestEnvironment</key>
+		<string>$(SWIFT_ACTIVE_COMPILATION_CONDITIONS)</string>
+		<key>IsUserRegistrationEnabled</key>
+		<false/>
+		<key>KeychainGroupName</key>
+		<string>YOUR_TEAM_ID.YOUR_BUNDLE_ID.keychain</string>
+		<key>LogLevel</key>
+		<integer>5</integer>
+		<key>WorkspaceId</key>
+		<string>YOUR_WORKSPACE_ID</string>
+	</dict>
+	<key>MoEngageAppDelegateProxyEnabled</key>
+	<true/>
+	<key>MoEngageBadgeUpdateEnabled</key>
+	<true/>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+</dict>
+</plist>
