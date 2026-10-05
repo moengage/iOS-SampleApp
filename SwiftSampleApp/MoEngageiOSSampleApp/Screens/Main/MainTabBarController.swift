@@ -35,6 +35,10 @@ final class MainTabBarController: UITabBarController {
     private let ordersNav = UINavigationController()
     private let profileNav = UINavigationController()
 
+    /// Hosts the SDK's own cards screen, so its navigation bar is left visible
+    /// — the screen relies on it for its title.
+    private let cardsNav = UINavigationController()
+
     init(session: AppSession) {
         self.session = session
         super.init(nibName: nil, bundle: nil)
@@ -57,8 +61,7 @@ final class MainTabBarController: UITabBarController {
         ordersNav.tabBarItem = UITabBarItem(
             title: BrewTab.orders.title, image: UIImage(systemName: BrewTab.orders.systemImage), tag: 1
         )
-        let cardsVC = TabPlaceholderViewController(tab: .cards)
-        cardsVC.tabBarItem = UITabBarItem(
+        cardsNav.tabBarItem = UITabBarItem(
             title: BrewTab.cards.title, image: UIImage(systemName: BrewTab.cards.systemImage), tag: 2
         )
         profileNav.tabBarItem = UITabBarItem(
@@ -69,7 +72,14 @@ final class MainTabBarController: UITabBarController {
         ordersNav.viewControllers = [makeOrdersRoot()]
         profileNav.viewControllers = [makeProfileRoot()]
 
-        viewControllers = [menuNav, ordersNav, cardsVC, profileNav]
+        // The placeholder shows until the SDK hands back its cards screen, and
+        // stays if it never does (SDK not initialized).
+        cardsNav.viewControllers = [TabPlaceholderViewController(tab: .cards)]
+        MoEngageCardsTab.makeViewController { [weak self] cardsVC in
+            self?.cardsNav.setViewControllers([cardsVC], animated: false)
+        }
+
+        viewControllers = [menuNav, ordersNav, cardsNav, profileNav]
 
         // Deep-link CTAs from in-app campaigns, routed by the SDK delegate
         // rather than through `SceneDelegate`. See `MoEngageInApp`.
@@ -314,6 +324,7 @@ final class MainTabBarController: UITabBarController {
         menuNav.popToRootViewController(animated: false)
         ordersNav.popToRootViewController(animated: false)
         profileNav.popToRootViewController(animated: false)
+        cardsNav.popToRootViewController(animated: false)
         selectedIndex = 0
 
         session.signOut()

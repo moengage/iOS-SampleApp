@@ -187,6 +187,8 @@
 		A451DB792CEB4F3F002E1763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648A228C62E2C009A41AB /* AppDelegate.swift */; };
 		A451DB7A2CEB4F3F002E1763 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648A428C62E2C009A41AB /* SceneDelegate.swift */; };
 		A451DB7B2CEB4F3F002E1763 /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145648B628C62EB5009A41AB /* SampleModel.swift */; };
+		C4D0CA7D5A1B4E2F9A3B6C02 /* MoEngageCardsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0CA7D5A1B4E2F9A3B6C01 /* MoEngageCardsTab.swift */; };
+		C4D0CA7D5A1B4E2F9A3B6C03 /* MoEngageCardsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0CA7D5A1B4E2F9A3B6C01 /* MoEngageCardsTab.swift */; };
 		A451DB7C2CEB4F3F002E1763 /* UserRegistrationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */; };
 		A451DB882CEB4F3F002E1763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145648AD28C62E2F009A41AB /* LaunchScreen.storyboard */; };
 		A451DB892CEB4F3F002E1763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145648AB28C62E2F009A41AB /* Assets.xcassets */; };
@@ -456,6 +458,7 @@
 		A3B983B0579A46F6A5F588A5 /* MenuRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuRow.swift; sourceTree = "<group>"; };
 		A44D3CBE91DF43BBB032E82F /* OrderStatusView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OrderStatusView.swift; sourceTree = "<group>"; };
 		A451DB912CEB4F3F002E1763 /* MoEngageiOSCocoaSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoEngageiOSCocoaSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4D0CA7D5A1B4E2F9A3B6C01 /* MoEngageCardsTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MoEngageCardsTab.swift; sourceTree = "<group>"; };
 		ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationUtils.swift; sourceTree = "<group>"; };
 		AEEA47AE6A5341E39348B5A1 /* MenuModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuModels.swift; sourceTree = "<group>"; };
 		B08A55B2BEAE96B96C0AD572 /* CategoryListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
@@ -675,6 +678,7 @@
 				145648A428C62E2C009A41AB /* SceneDelegate.swift */,
 				145648A628C62E2C009A41AB /* ViewController.swift */,
 				ACE388E52A3055CD00FF706C /* UserRegistrationUtils.swift */,
+				C4D0CA7D5A1B4E2F9A3B6C01 /* MoEngageCardsTab.swift */,
 				145648A828C62E2C009A41AB /* Main.storyboard */,
 				145648AB28C62E2F009A41AB /* Assets.xcassets */,
 				145648AD28C62E2F009A41AB /* LaunchScreen.storyboard */,
@@ -1562,6 +1566,7 @@
 				145648A528C62E2C009A41AB /* SceneDelegate.swift in Sources */,
 				145648B828C62EB5009A41AB /* SampleModel.swift in Sources */,
 				ACE388E62A3055CD00FF706C /* UserRegistrationUtils.swift in Sources */,
+				C4D0CA7D5A1B4E2F9A3B6C02 /* MoEngageCardsTab.swift in Sources */,
 				CCA4E6EE0CBAAF04CEFFE256 /* MoEngageEvents.swift in Sources */,
 				AA46A54D44C7D19FCF4F27EC /* MoEngageGeofence.swift in Sources */,
 				8921E54C66FCF10DCBF7EE9A /* MoEngageInApp.swift in Sources */,
@@ -1759,6 +1764,7 @@
 				A451DB7A2CEB4F3F002E1763 /* SceneDelegate.swift in Sources */,
 				A451DB7B2CEB4F3F002E1763 /* SampleModel.swift in Sources */,
 				A451DB7C2CEB4F3F002E1763 /* UserRegistrationUtils.swift in Sources */,
+				C4D0CA7D5A1B4E2F9A3B6C03 /* MoEngageCardsTab.swift in Sources */,
 				CF25F99BF834F17C5F4752F8 /* MoEngageEvents.swift in Sources */,
 				CB839A5AFE276B38FD752DD7 /* MoEngageGeofence.swift in Sources */,
 				BC6A91A21BCA09CB2D17E52A /* MoEngageInApp.swift in Sources */,

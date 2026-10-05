@@ -138,5 +138,10 @@
 	     deprecated MoEngageSDKMessaging.disableBadgeReset(_:) API. -->
 	<key>MoEngageBadgeUpdateEnabled</key>
 	<true/>
+
+	<!-- Required by ActivityKit: without it Activity.request fails and the order
+	     Live Activity started at Payment never appears. -->
+	<key>NSSupportsLiveActivities</key>
+	<true/>
 </dict>
 </plist>
