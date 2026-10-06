@@ -1,15 +1,27 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '13.0'
+platform :ios, '15.0'
+
+moengage_version = '11.02.0'
 
 target 'MoEngageiOSCocoaSampleApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'MoEngage-iOS-SDK', '9.20.1'
+  pod 'MoEngage-iOS-SDK', moengage_version
   pod 'MoEngage-iOS-SDK/InApps'
   pod 'MoEngage-iOS-SDK/Cards'
   pod 'MoEngage-iOS-SDK/GeoFence'
   pod 'MoEngage-iOS-SDK/RichNotification'
   pod 'MoEngage-iOS-SDK/Inbox'
   pod 'MoEngage-iOS-SDK/RealTimeTrigger'
+  pod 'MoEngage-iOS-SDK/LiveActivity'
+  pod 'MoEngagePersonalization', '1.4.1'
+end
+
+# CocoaPods counterpart of BrewOrderLiveActivityExtension (which links via SPM),
+# embedded in MoEngageiOSCocoaSampleApp.
+target 'BrewOrderLiveActivityCocoaExtension' do
+  use_frameworks!
+
+  pod 'MoEngage-iOS-SDK/LiveActivity'
 end

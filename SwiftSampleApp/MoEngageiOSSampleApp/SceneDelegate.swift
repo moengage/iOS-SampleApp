@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MoEngageSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,7 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = RootCoordinatorController()
+        window.makeKeyAndVisible()
+        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,10 +53,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
+    // MARK: - URL Handling
+    //
+    // Links are reported to MoEngage at this entry point;
+    // `RootCoordinatorController.handle(url:)` only decides where the link leads.
+    //
+    // NOTE: This class is declared in Info.plist (`UIApplicationSceneManifest`), so when
+    // `MoEngageSceneDelegateProxyEnabled` is YES (the SDK default) MoEngage swizzles these
+    // two methods and reports each link itself. The SDK ignores `processURL` calls made
+    // inside its swizzled methods, so the commented-out calls below are redundant while
+    // swizzling is on. Uncomment them if you set `MoEngageSceneDelegateProxyEnabled` to NO
+    // in Info.plist; they are then required.
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        print("Received callback for deeplink with url - \(URLContexts.first?.url)")
+        for context in URLContexts {
+            // MoEngageSDKAnalytics.sharedInstance.processURL(context.url)
+            (window?.rootViewController as? RootCoordinatorController)?.handle(url: context.url)
+        }
     }
 
-
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let url = userActivity.webpageURL else { return }
+        // MoEngageSDKAnalytics.sharedInstance.processURL(url)
+        (window?.rootViewController as? RootCoordinatorController)?.handle(url: url)
+    }
 }
 

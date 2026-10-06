@@ -10,11 +10,12 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>deeplinkscheme</string>
+				<!-- Campaign and Live Activity links, for example brewbar://status/<orderId>.
+				     Matches the SwiftUI target, so one campaign link works in every app. -->
+				<string>brewbar</string>
 			</array>
 		</dict>
 	</array>
-	<key>MoEngageAppDelegateProxyEnabled </key>
-	<false/>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -38,5 +39,109 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<!-- MoEngage SDK configuration, read by `initializeDefaultInstance()` in
+	     AppDelegate's didFinishLaunching. With IsSdkAutoInitialisationEnabled = true
+	     the SDK can also initialize itself from this dictionary on first use, but that
+	     is only a fallback: -->
+	<key>MoEngage</key>
+	<dict>
+		<!-- Flag to enable automatic SDK initialization. Default: true. -->
+		<key>IsSdkAutoInitialisationEnabled</key>
+		<true/>
+
+		<!-- Workspace ID for the MoEngage account. MANDATORY — replace with your own. -->
+		<key>WorkspaceId</key>
+		<string>YOUR_WORKSPACE_ID</string>
+
+		<!-- Data center where the MoEngage account is hosted.
+		     1 = US, 2 = Europe, 3 = India, 4/5/6 = other regions. Default: 1. -->
+		<key>DataCenter</key>
+		<integer>1</integer>
+
+		<!-- Flag to indicate if the app is running in the test environment.
+		     Accepts a Bool, or (as here) a build-setting string — treated as test when
+		     it contains "DEBUG" — so Debug builds route to the test workspace and
+		     Release builds to live, with no #if DEBUG needed in code. -->
+		<key>IsTestEnvironment</key>
+		<string>$(SWIFT_ACTIVE_COMPILATION_CONDITIONS)</string>
+
+		<!-- App group name for sharing data between the app and its extensions
+		     (e.g. NotificationServices, PushTemplateExtension). Must match the app group
+		     configured in your app's and extensions' entitlements. Replace with your own. -->
+		<key>AppGroupName</key>
+		<string>group.YOUR_BUNDLE_ID.moengage</string>
+
+		<!-- Log level for SDK logging.
+		     0 none / 1 error / 2 warning / 3 info / 4 debug / 5 verbose. Default: 3 (info). -->
+		<key>LogLevel</key>
+		<integer>5</integer>
+
+		<!-- Flag to enable storage encryption. Requires a valid KeychainGroupName below —
+		     enable only after the matching dashboard setup. Default: false. -->
+		<key>IsStorageEncryptionEnabled</key>
+		<false/>
+
+		<!-- Keychain group name for storing encryption keys. Mandatory when
+		     IsStorageEncryptionEnabled is true; ignored otherwise. -->
+		<key>KeychainGroupName</key>
+		<string>YOUR_TEAM_ID.YOUR_BUNDLE_ID.keychain</string>
+
+		<!-- Flag to enable network encryption. Requires the matching encoded key below
+		     for the active environment — enable only after the matching dashboard setup.
+		     Default: false. -->
+		<key>IsNetworkEncryptionEnabled</key>
+		<false/>
+
+		<!-- Encoded encryption key for the test environment. Dashboard-provided base64
+		     string; required only when IsNetworkEncryptionEnabled is true and
+		     IsTestEnvironment resolves to true. -->
+		<key>EncryptionEncodedTestKey</key>
+		<string>DASHBOARD_PROVIDED_BASE64_STRING</string>
+
+		<!-- Encoded encryption key for the live environment. Dashboard-provided base64
+		     string; required only when IsNetworkEncryptionEnabled is true and
+		     IsTestEnvironment resolves to false. -->
+		<key>EncryptionEncodedLiveKey</key>
+		<string>DASHBOARD_PROVIDED_BASE64_STRING</string>
+
+		<!-- Flag to enable JWT for API requests. Meaningful only together with
+		     IsUserRegistrationEnabled below. Default: false. -->
+		<key>IsJwtEnabled</key>
+		<false/>
+
+		<!-- Flag to enable the user registration flow. Default: false. -->
+		<key>IsUserRegistrationEnabled</key>
+		<false/>
+
+		<!-- Hands in-app deep-link CTAs to the app's in-app delegate instead of
+		     opening them, so the app can report InApp_Cta_Clicked and route the
+		     link itself. Default: false. -->
+		<key>InAppShouldProvideDeeplinkCallback</key>
+		<true/>
+	</dict>
+
+	<!-- Push swizzling — automatically forwards UIApplicationDelegate and
+	     UNUserNotificationCenterDelegate push callbacks to the SDK. Omit this key or set
+	     it to true for automatic (default). Set to false for manual integration — see the
+	     commented callbacks in AppDelegate.swift. -->
+	<key>MoEngageAppDelegateProxyEnabled</key>
+	<true/>
+
+	<!-- Scene-level deeplink swizzling — automatically forwards scene(_:openURLContexts:)
+	     and scene(_:continue:) to the SDK for deep-link tracking. Separate flag from
+	     MoEngageAppDelegateProxyEnabled above; also defaults to true. -->
+	<key>MoEngageSceneDelegateProxyEnabled</key>
+	<true/>
+
+	<!-- Badge reset on launch. Defaults to true (badge is reset every launch); set to
+	     false to stop the SDK resetting the badge count on every launch. Replaces the
+	     deprecated MoEngageSDKMessaging.disableBadgeReset(_:) API. -->
+	<key>MoEngageBadgeUpdateEnabled</key>
+	<true/>
+
+	<!-- Required by ActivityKit: without it Activity.request fails and the order
+	     Live Activity started at Payment never appears. -->
+	<key>NSSupportsLiveActivities</key>
+	<true/>
 </dict>
 </plist>

@@ -4,10 +4,12 @@
 //
 //  Created by Deepa on 06/09/22.
 //
+//  Manual-integration alternative. Not embedded by default: the app targets use the
+//  MoEngage Extensions Integrator build phase instead. See README.md to switch.
+//
 
 import UserNotifications
 
-// Import MoEngageRichNotification framework
 import MoEngageRichNotification
 
 class NotificationService: UNNotificationServiceExtension {
@@ -17,19 +19,22 @@ class NotificationService: UNNotificationServiceExtension {
 
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         
-        // Set App group Id
-        MoEngageSDKRichNotification.setAppGroupID("group.com.alphadevs.MoEngage.NotificationServices")
+        // Must be the same App Group ID as `MoEngageSDKConfig.appGroupID` in the
+        // app, so the extension and the app share MoEngage data.
+        MoEngageSDKRichNotification.setAppGroupID("group.YOUR_BUNDLE_ID.moengage")
         
         self.contentHandler = contentHandler
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
-        // Call Handle richnotification request
+        // Downloads the notification's media, tracks its impression and updates
+        // the badge, then passes the updated content to `contentHandler`.
         MoEngageSDKRichNotification.handle(richNotificationRequest: request, withContentHandler: contentHandler)
     }
     
     override func serviceExtensionTimeWillExpire() {
-        // Called just before the extension will be terminated by the system.
-        // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
+        // Called just before the system terminates the extension. Delivers the
+        // unmodified content so the notification is still shown if rich content
+        // processing has not finished in time.
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
             contentHandler(bestAttemptContent)
         }
