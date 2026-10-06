@@ -19,8 +19,8 @@ The same app ships as **three app targets** that compile the **same integration 
 | Scheme | UI | SDK via | Min iOS |
 |---|---|---|---|
 | `MoEngageiOSSwiftUISampleApp` | SwiftUI | Swift Package Manager | 15.0 |
-| `MoEngageiOSSampleApp` | UIKit | Swift Package Manager | 13.0 |
-| `MoEngageiOSCocoaSampleApp` | UIKit | CocoaPods | 13.0 |
+| `MoEngageiOSSampleApp` | UIKit | Swift Package Manager | 15.0 |
+| `MoEngageiOSCocoaSampleApp` | UIKit | CocoaPods | 15.0 |
 
 The catalogue, orders and user are in-memory demo data. There is no backend, so all network traffic comes from the SDK.
 
@@ -40,7 +40,9 @@ pod install                                # only needed for MoEngageiOSCocoaSam
 open MoEngageiOSSampleApp.xcworkspace      # always open the workspace, not the .xcodeproj
 ```
 
-The SPM targets resolve `https://github.com/moengage/MoEngage-iOS-SDK` automatically on first open.
+The SPM targets resolve `https://github.com/moengage/apple-sdk.git` (exact version `11.02.0`) automatically on first open. This is the distribution repo given in the [SDK integration guide](https://www.moengage.com/docs/developer-guide/ios-sdk/sdk-integration/basic/sdk-integration); use the same URL in your own app.
+
+> SPM names the artifacts folder after the repo, so the Extensions Integrator build phase points to `SourcePackages/artifacts/apple-sdk/…`. If you add the package from a different URL, update that path to match.
 
 ### 2. Workspace ID and data centre
 
@@ -70,7 +72,7 @@ These keys sit at the top level of `Info.plist`, outside the `MoEngage` dictiona
 | Key | Default | Meaning |
 |---|---|---|
 | `MoEngageAppDelegateProxyEnabled` | `true` | The SDK swizzles the push callbacks on `UIApplicationDelegate` / `UNUserNotificationCenterDelegate`. Set to `false` for manual integration and uncomment the forwarding methods in `AppDelegate.swift`. |
-| `MoEngageSceneDelegateProxyEnabled` | `true` | The SDK swizzles the scene URL callbacks to track deep links. If you set it to `false`, report links yourself with `processURL`. |
+| `MoEngageSceneDelegateProxyEnabled` | `true` | The SDK swizzles the app's scene delegate to track deep links. Applies only when the SDK can find a scene delegate, as in the UIKit apps here. If set to `false`, report links with `processURL`. The SwiftUI app reports links with `processURL` regardless of this flag; see [Screens and deep links](#screens-and-deep-links). |
 | `MoEngageBadgeUpdateEnabled` | `true` | Resets the badge on launch. Replaces the deprecated `disableBadgeReset(_:)`. |
 
 > **Code-based initialisation.** `AppDelegate.swift` has a commented-out `setupSDK()` that builds a `MoEngageSDKConfig` and calls `initializeDefaultTestInstance` / `initializeDefaultLiveInstance`. Use **one** of the two approaches, not both.
@@ -93,7 +95,7 @@ Nothing is hard-coded. Before you run, replace every placeholder:
 ### 4. Push (APNs)
 
 1. Give the app a real bundle ID and team. Enable the **Push Notifications** and **App Groups** capabilities, and **Background Modes → Remote notifications** (already present in `Info.plist`).
-2. Upload your APNs auth key (`.p8`) or certificate in the MoEngage dashboard under Settings → Channels → Push → iOS.
+2. Upload your APNs credentials in the MoEngage dashboard under **Settings → Channels → Push → App Push**, then choose **iOS (APNS)** from the platform menu at the top ([APNs authentication key](https://www.moengage.com/docs/developer-guide/ios-sdk/push/basic/apns-authentication-key)). Use the **`.p8` auth key**: Live Activities (both transactional and broadcast) do not work with a certificate.
 3. Run on a **physical device** for a real APNs token. The token is printed in the console by `notificationRegistered(withDeviceToken:)`.
 
 See [Push and the notification extensions](#push-and-the-notification-extensions) for rich push and templates.
@@ -102,12 +104,14 @@ See [Push and the notification extensions](#push-and-the-notification-extensions
 
 | | |
 |---|---|
-| Xcode | 16 or later (Live Activity code uses the iOS 18 SDK) |
+| Xcode | 16 or later for this sample. The SDK itself needs only Xcode 15+ ([requirements](https://www.moengage.com/docs/developer-guide/introduction)), but the Live Activity code uses iOS 18 ActivityKit APIs (`MoEngageTransactionActivity`, `pushType: .channel`), which need the iOS 18 SDK that ships with Xcode 16. |
 | CocoaPods | 1.16.2 (`Podfile.lock`) |
-| `MoEngage-iOS-SDK` | 11.02.0 in the Podfile (resolves `MoEngageSDK` 11.02.1, `MoEngageCore` 11.03.0); 11.2.0 via SPM |
+| `MoEngage-iOS-SDK` | 11.02.0 in the Podfile (resolves `MoEngageSDK` 11.02.1, `MoEngageCore` 11.03.0); 11.02.0 from `apple-sdk.git` via SPM |
 | `MoEngagePersonalization` | 1.4.1 |
 | Pod subspecs | InApps, Cards, GeoFence, RichNotification, Inbox, RealTimeTrigger, LiveActivity |
-| Deployment targets | UIKit apps 13.0 · SwiftUI app 15.0 · Live Activity widgets 18.0 |
+| Deployment targets | iOS 15.0 for the apps and notification extensions (`Podfile`: `platform :ios, '15.0'`) · iOS 18.0 for the Live Activity widgets |
+
+> **Why 15.0, not 13.0.** The SDK itself supports iOS 13, but recent Xcode releases no longer accept a deployment target below iOS 15, so the sample targets 15.0. Your own app can still target iOS 13 if your Xcode accepts it.
 
 ---
 
@@ -115,7 +119,7 @@ See [Push and the notification extensions](#push-and-the-notification-extensions
 
 Every SDK call the app makes goes through **one facade**, `MoEngageSDKIntegration/MoEngageSDKHelper.swift`. Screens call `MoEngageSDKHelper`. The helper is an index of one-line calls, and each one delegates to a per-feature file in the same folder.
 
-All three app targets compile this folder, so the UIKit and SwiftUI apps make **exactly the same SDK calls**.
+All three app targets compile this folder, so the UIKit and SwiftUI apps make **the same SDK calls**, with two exceptions: only the SwiftUI app reports deep links with `processURL` (UIKit relies on swizzling), and only the UIKit apps show Cards.
 
 | Capability | SDK entry point | Helper | Fires from |
 |---|---|---|---|
@@ -136,7 +140,7 @@ All three app targets compile this folder, so the UIKit and SwiftUI apps make **
 | Geofence | `startGeofenceMonitoring()`, `stopGeofenceMonitoring()`, `MoEngageGeofenceDelegate` | `startGeofenceMonitoring()`, `registerGeofenceCallbacks()` | Profile → location toggle |
 | Personalize | `MoEngageSDKPersonalize.fetchExperiencesMeta`, `fetchExperience`, `experienceShown`, `offeringsShown`, `offeringClicked` | `syncPersonalizeExperiences`, `fetchPersonalizeExperience`, `track*` | Profile → Personalize |
 | Live Activities | `MoEngageSDKLiveActivity.monitorLiveActivities`, `createAttributes(withCampaign:)`, `trackStarted`, `moengageWidgetClickURL` | `registerForLiveActivityTokenUpdates()`, `startOrderTracking`, `trackOrderActivityOpened` | Launch, Payment, widget tap |
-| Deep links | Scene-delegate swizzling (or `processURL`) | `Route(deeplink:)` | Push, in-app, inbox, widget |
+| Deep links | UIKit: scene-delegate swizzling (automatic) · SwiftUI: `MoEngageSDKAnalytics.processURL(_:)` | `trackDeepLinkOpened` (SwiftUI only), `Route(deeplink:)` | Push, in-app, inbox, widget |
 | Cards (UIKit apps only) | `MoEngageSDKCards.getCardsViewController` (the SDK's own screen) | — (`MoEngageiOSSampleApp/MoEngageCardsTab.swift`) | Cards tab |
 
 SDK calls that return a result handle failure through `.onFailure { MoEngageReporting.failure(...) }` in `MoEngageReporting.swift`, which logs the call name and the SDK's reason. None of them are awaited: the SDK batches and flushes on its own schedule, so screens never wait on analytics.
@@ -209,7 +213,7 @@ Each app target has a **"MoEngage Extensions Integrator"** Run Script build phas
 "${PODS_ROOT}/MoEngageExtensionsIntegration/moengage-extensions-integration.artifactbundle/moengage-extensions-integration/bin/moengage-extensions-integration" --enable-push-notification-templates
 
 # SPM targets
-"${OBJROOT}/../../SourcePackages/artifacts/moengage-ios-sdk/moengage-extensions-integration/moengage-extensions-integration.artifactbundle/moengage-extensions-integration/bin/moengage-extensions-integration" --enable-push-notification-templates
+"${OBJROOT}/../../SourcePackages/artifacts/apple-sdk/moengage-extensions-integration/moengage-extensions-integration.artifactbundle/moengage-extensions-integration/bin/moengage-extensions-integration" --enable-push-notification-templates
 ```
 
 At build time this tool copies MoEngage's prebuilt extensions into the app's `PlugIns/` folder and code-signs them:
@@ -219,7 +223,15 @@ At build time this tool copies MoEngage's prebuilt extensions into the app's `Pl
 | `MoEngageNotificationService.appex` (rich media, impressions) | `<app bundle id>.MoEngageNotificationService` | Always (turn off with `--disable-push-notification-service-extension`) |
 | `MoEngageNotificationContent.appex` (push templates) | `<app bundle id>.MoEngageNotificationContent` | With `--enable-push-notification-templates` |
 
-The tool reads `AppGroupName` and `KeychainGroupName` from the app's `MoEngage` plist dictionary to build the extensions' entitlements. With **Automatic** signing it generates them from the app's profile. With **Manual** signing you need provisioning profiles for the two bundle IDs above; set `MOENGAGE_NOTIFICATION_SERVICE_EXTENSION_PROFILE` / `MOENGAGE_NOTIFICATION_CONTENT_EXTENSION_PROFILE` if the tool cannot find them.
+**Provisioning profiles are needed with either signing style.** The tool needs an installed provisioning profile for `<app bundle id>.MoEngageNotificationService`, plus one for `<app bundle id>.MoEngageNotificationContent` when templates are enabled. Each profile must match:
+
+- your team,
+- the build type (a development profile for Debug, a distribution profile for Release),
+- the app group in `AppGroupName` (plus `KeychainGroupName`, if set).
+
+The tool uses the `MoEngage` plist keys only to **select** a matching profile; the extension is signed with that profile's entitlements. It searches `~/Library/MobileDevice/Provisioning Profiles`, `~/Library/Developer/Xcode/UserData/Provisioning Profiles` and any paths in `MOENGAGE_EXTENSION_PROFILES_SEARCH_PATHS`. To pick a profile explicitly, set `MOENGAGE_NOTIFICATION_SERVICE_EXTENSION_PROFILE` / `MOENGAGE_NOTIFICATION_CONTENT_EXTENSION_PROFILE`.
+
+> **Automatic signing does not create these profiles.** Create the two App IDs and their profiles in the Apple Developer portal, with the App Group enabled, and install them, even if the app itself uses Automatic signing. Otherwise the build phase fails with a "provisioning profile not found" error.
 
 ### Optional: embed your own extension targets
 
@@ -334,7 +346,12 @@ Links resolve through `Route(deeplink:)` in `MoEngageiOSSwiftUISampleApp/Navigat
 | `brewbar://inbox` | Inbox |
 | `brewbar://personalize` | Personalize |
 
-Deep-link tracking is automatic through scene-delegate swizzling. If you set `MoEngageSceneDelegateProxyEnabled` to `false`, uncomment the `processURL` calls in `MoEngageiOSSwiftUISampleAppApp.swift` (`.onOpenURL`) or `SceneDelegate.swift`.
+**Deep-link tracking is automatic only when the SDK can find the app's scene delegate**, either declared under `UIApplicationSceneManifest` in `Info.plist` or returned from `application(_:configurationForConnecting:options:)`. The SDK then swizzles `scene(_:openURLContexts:)` and `scene(_:continue:)` and calls `processURL` for each link.
+
+- **UIKit apps: automatic.** `SceneDelegate` is declared in `Info.plist`, so the SDK swizzles it and reports every link. No app code is required. If `MoEngageSceneDelegateProxyEnabled` is set to `false`, uncomment the `processURL` calls in `SceneDelegate.swift`.
+- **SwiftUI app: explicit.** The SwiftUI `App` lifecycle uses an internal scene delegate that the SDK cannot find, so links are not reported automatically. The app calls `MoEngageSDKHelper.trackDeepLinkOpened(url)`, which wraps `MoEngageSDKAnalytics.sharedInstance.processURL(url)`, at the start of the `.onOpenURL` handlers that route the link (`ContentView` during onboarding, `MainTabView` after sign-in). Universal links are delivered to the same handlers because the app registers no `.onContinueUserActivity`. If you add one, call `processURL` in it as well.
+
+> **Report each link once.** The SDK ignores `processURL` calls made inside its swizzled scene-delegate methods, so a call there is harmless. A call made anywhere else for a link the SDK has already reported records that link a second time.
 
 ---
 
@@ -367,7 +384,7 @@ The keys your server sends must match the Swift structs **exactly**. A mismatche
 
 | Server JSON | Swift (this sample) | Changes? |
 |---|---|---|
-| `attribute_type` | The struct's name: `"BrewOrderAttributes"` / `"SaleBroadcastAttributes"` | Never |
+| `attribute_type` | The struct's name, exactly: `"BrewOrderAttributes"` / `"SaleBroadcastAttributes"`. For Inform (order tracking) this is **not** in the request: it is the alert's **Attribute Type** field on the dashboard. Only the broadcast start API takes `ios.attribute_type` in the body. | Never |
 | `attribute_info` | Stored properties of the struct: none for `BrewOrderAttributes`; `saleName` for `SaleBroadcastAttributes` | Fixed at start |
 | `content_state` | Properties of `ContentState`: `status`, `etaMinutes` / `discountText`, `timeRemaining` | Every update |
 
@@ -388,7 +405,7 @@ This is also why the widget reads `context.attributes.campaign.transactionId`: t
 
 ### Order tracking: Inform API (transactional)
 
-1. On the dashboard, create an **Inform** alert with a **Push** channel whose message type is **Live Activity** (or **Live Activity with Push Fallback**). Put its campaign ID and name in `campaignId` / `campaignName` in `MoEngageLiveActivity.swift`.
+1. On the dashboard, create an **Inform** alert with a **Push** channel whose message type is **Live Activity Only** (or **Live Activity with Push Fallback**). Set its **Attribute Type** to `BrewOrderAttributes`. Put its campaign ID and name in `campaignId` / `campaignName` in `MoEngageLiveActivity.swift`.
 2. The app starts the activity locally at Payment with `transactionId = order.id`. Your backend then drives its lifecycle with the **same `transaction_id`** through [`POST /alerts/send`](https://www.moengage.com/docs/api/transactional-alerts/send-transactional-alert).
 
 **Update** (call it for each stage of the order):
@@ -400,6 +417,7 @@ This is also why the widget reads `context.attributes.campaign.transactionId`: t
   "transaction_id": "ORD-1042",
   "payloads": {
     "PUSH": {
+      "recipient": "<push token>",
       "live_activity_attributes": {
         "la_type": "update",
         "content_state": { "status": "Ready for pickup", "etaMinutes": 0 }
@@ -409,11 +427,35 @@ This is also why the widget reads `context.attributes.campaign.transactionId`: t
 }
 ```
 
-**End** — same body with `"la_type": "end"` and the final `content_state`. Add `dismissal_date` (and optionally `stale_date`) under `personalized_attributes` to control when iOS removes it; the activity also ends by itself at `dismissal_date`.
+`payloads.PUSH.recipient` is required.
 
-**Start from the server** is possible as well (`"la_type": "start"`, with `attribute_info` and the first `content_state`), for orders placed outside the app. `monitorLiveActivities` at launch is what picks up such remotely started activities and reports their tokens. No extra code is needed.
+**End** — same body (including `recipient`) with `"la_type": "end"` and the final `content_state`. Add `dismissal_date` (and optionally `stale_date`) under `personalized_attributes` to control when iOS removes it; the activity also ends by itself at `dismissal_date`.
 
-> Use the **test** alert ID on the staging endpoint and the **live** one in production, matching the environment your build reports to (`IsTestEnvironment`). The Inform API also deduplicates on `transaction_id` for 5 minutes, so check its current docs for how to send several updates for one order in quick succession.
+**Start from the server** is possible as well (`"la_type": "start"`, with `recipient`, `attribute_info` and the first `content_state`), for orders placed outside the app. `monitorLiveActivities` at launch is what picks up such remotely started activities and reports their tokens. No extra code is needed.
+
+**Hosts and auth.** `{dc}` is your data centre number ([Inform overview](https://www.moengage.com/docs/api/inform/inform-overview)):
+
+| Alert ID | Endpoint |
+|---|---|
+| Test | `https://sandbox-api-0{dc}.moengage.com/v1.0/alerts/send` |
+| Live | `https://api-0{dc}.moengage.com/v1.0/alerts/send` |
+
+Every request needs **both** of these ([Inform API reference](https://www.moengage.com/docs/api/transactional-alerts/send-transactional-alert)):
+
+- **Basic auth**: username = workspace ID, password = the **Inform** API key (from the Inform tile under Settings → Account → APIs).
+- The **`MOE-APPKEY: <workspace id>`** header. Note: no `X-` prefix here. The broadcast Live Activity APIs below use `X-MOE-APPKEY` instead.
+
+```bash
+curl -X POST "https://sandbox-api-0{dc}.moengage.com/v1.0/alerts/send" \
+  -u "<workspace id>:<inform api key>" \
+  -H "MOE-APPKEY: <workspace id>" \
+  -H "Content-Type: application/json" \
+  -d @update.json
+```
+
+> Use the **test** alert ID with the sandbox host and the **live** one with the live host, matching the environment your build reports to (`IsTestEnvironment`). An ID sent to the wrong host is rejected with `UNAUTHORIZED`.
+
+**Live Activity updates and `transaction_id`.** Live Activities require using the same `transaction_id` across `start`, `update` and `end` requests to update the same activity widget on the user's device. Each request defines the lifecycle action via the `la_type` field (`start`, `update`, `end`) in `live_activity_attributes`. The Inform API processes these as lifecycle transitions rather than duplicate transactions, so consecutive updates can be sent as soon as events occur without deduplication conflicts.
 
 Suggested stages for Brew Bar:
 
@@ -426,8 +468,8 @@ Suggested stages for Brew Bar:
 
 ### Sale broadcast: Live Activity API (broadcast)
 
-1. Create the campaign with the [Create Push Campaigns API](https://www.moengage.com/docs/api/create-campaigns/create-campaign) using the `BROADCAST_LIVE_ACTIVITY` delivery type. The response returns the **APNs channel ID**: put it in `saleChannelId`, and the campaign ID in `saleCampaignId`.
-2. Start, update and end it for the whole audience with the broadcast endpoints. All three require the `X-MOE-APPKEY: <workspace id>` header.
+1. Create the campaign with the [Create Push Campaigns API](https://www.moengage.com/docs/api/create-campaigns/create-campaign) with `campaign_delivery_type: "BROADCAST_LIVE_ACTIVITY"`. For iOS, `basic_details.broadcast_live_activity_id` is **required**. Put the returned `campaign_id` in `saleCampaignId`. MoEngage creates the APNs broadcast channel as part of campaign creation, and the response returns its ID in `ios.channel_id`. Use it as `saleChannelId` ([Broadcast Live Activity guide](https://www.moengage.com/docs/developer-guide/ios-sdk/push/optional/broadcast-live-activity)).
+2. Start, update and end it for the whole audience with the broadcast endpoints. All three require **Basic auth** (username: workspace ID, password: the **Push** API key, from the Push tile in the dashboard's API settings) **and** the `X-MOE-APPKEY: <workspace id>` header.
 
 **Start**: [`POST /live-activity/broadcast/start`](https://www.moengage.com/docs/api/live-activities/start-broadcast-live-activity)
 
@@ -457,7 +499,7 @@ Suggested stages for Brew Bar:
 
 **End**: [`POST /live-activity/broadcast/end`](https://www.moengage.com/docs/api/live-activities/end-broadcast-live-activity), with the final `content_state`, an `alert`, and optionally `dismissal_date` (epoch seconds; a past time ends it immediately).
 
-Devices outside the campaign's audience can still join with `startSaleBroadcast(...)`, which subscribes to the same channel and calls `trackStarted` itself. iOS limits the payload to about 5 KB.
+Devices outside the campaign's audience can still join with `startSaleBroadcast(...)`, which subscribes to the same channel and calls `trackStarted` itself. The payload limit is **5120 bytes** (larger requests return `413`). Broadcast also requires a **`.p8` APNs auth key** on the dashboard; with a certificate, the API returns `403` ("Only IOS token auth is allowed, please upload .p8 file").
 
 ---
 
@@ -517,7 +559,7 @@ SwiftSampleApp/
 | Nothing reaches the dashboard | `WorkspaceId` / `DataCenter` wrong, or you are looking at the live environment with a Debug build (it reports to the test environment) |
 | No push on device | APNs key not uploaded; push capability missing; running on a simulator without a token; permission declined |
 | Push arrives but no image / no impression | App group mismatch between plist, entitlements and extension; or both the integrator and a manual service extension are embedded |
-| Integrator build phase fails | Manual signing without profiles for `<bundle id>.MoEngageNotificationService` / `.MoEngageNotificationContent` |
+| Integrator build phase fails | No installed provisioning profile for `<bundle id>.MoEngageNotificationService` / `.MoEngageNotificationContent` (required with either signing style) |
 | In-app never shows | No campaign for the current context, or the screen never calls `showInApp()` |
 | In-app CTA does nothing | Delegate not retained; or the link matches no `Route` before sign-in |
 | Personalize returns `invalidExperienceKey` | `fetchExperiencesMeta` has not run on this device, or the key is wrong |
