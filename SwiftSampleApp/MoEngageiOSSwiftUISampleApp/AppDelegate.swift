@@ -113,10 +113,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     // MARK: - Deeplinks
     //
     // A SwiftUI app is scene based, so deeplinks arrive at the scene rather than
-    // through AppDelegate, and MoEngage tracks them through scene delegate swizzling.
-    // If you set `MoEngageSceneDelegateProxyEnabled` to NO, report them from
-    // `.onOpenURL` instead (see the App struct). The method below is only for apps
-    // that are not scene based.
+    // through AppDelegate. Scene delegate swizzling cannot reach SwiftUI's own
+    // scene delegate, so this app reports each link itself with `processURL`, from
+    // the `.onOpenURL` handlers in `ContentView` and `MainTabView` — see
+    // `MoEngageSDKHelper.trackDeepLinkOpened(_:)`. The method below is only for
+    // apps that are not scene based.
     //
     //    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
     //        MoEngageSDKAnalytics.sharedInstance.processURL(url)

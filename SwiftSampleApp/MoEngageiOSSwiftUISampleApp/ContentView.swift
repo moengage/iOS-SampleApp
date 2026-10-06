@@ -34,13 +34,17 @@ struct ContentView: View {
             } destination: { route in
                 destination(for: route)
             }
-            // MoEngage tracks the link through scene delegate swizzling; this
-            // handler is only concerned with where the link leads.
+            // Reports the link to MoEngage, then works out where it leads.
+            // Reporting is explicit here because scene delegate swizzling
+            // cannot reach SwiftUI's own scene delegate — see
+            // `MoEngageEvents.trackDeepLinkOpened(_:)`. Universal links arrive
+            // here too: the app registers no `onContinueUserActivity`.
             //
             // A link naming a screen inside a tab cannot be followed yet —
             // there is no tab bar — so it is held until there is. The tab bar
             // carries its own handler for links arriving after that.
             .onOpenURL { url in
+                MoEngageSDKHelper.trackDeepLinkOpened(url)
                 MoEngageSDKHelper.trackOrderActivityOpened(url)
                 guard let route = Route(deeplink: url) else { return }
 

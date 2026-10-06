@@ -267,6 +267,12 @@ enum MoEngageSDKHelper {
         MoEngageEvents.trackNotificationOpened(campaignID: campaignID, deeplink: deeplink)
     }
 
+    /// Reports a deep link or universal link to MoEngage. SwiftUI app only —
+    /// the UIKit apps report links through scene delegate swizzling.
+    static func trackDeepLinkOpened(_ url: URL) {
+        MoEngageEvents.trackDeepLinkOpened(url)
+    }
+
     /// Reports that the user acted on an in-app campaign's call to action.
     static func trackInAppCtaClicked(campaignID: String, cta: String) {
         MoEngageEvents.trackInAppCtaClicked(campaignID: campaignID, cta: cta)

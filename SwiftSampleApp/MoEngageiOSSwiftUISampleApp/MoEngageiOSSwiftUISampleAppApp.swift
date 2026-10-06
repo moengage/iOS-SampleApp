@@ -18,18 +18,23 @@ struct MoEngageiOSSwiftUISampleAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            // NOTE: MoEngage tracks deep links and universal links on its own through
-            // scene delegate swizzling, which is on by default. If you set
-            // `MoEngageSceneDelegateProxyEnabled` to NO in Info.plist, uncomment the
-            // modifiers below to report them yourself.
+            // NOTE: Deep links and universal links are NOT tracked automatically in a
+            // SwiftUI app. MoEngage's scene delegate swizzling cannot reach SwiftUI's
+            // own scene delegate, so each link must be reported with `processURL`.
+            // This app does that in the `.onOpenURL` handlers that already route the
+            // link (`ContentView` and `MainTabView`), through
+            // `MoEngageSDKHelper.trackDeepLinkOpened(_:)`. Universal links reach those
+            // handlers too, because no `.onContinueUserActivity` is registered.
+            //
+            // An app with no routing handler of its own can report links here instead:
             //
             //    .onOpenURL { url in
             //        MoEngageSDKAnalytics.sharedInstance.processURL(url)
             //    }
-            //    .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { userActivity in
-            //        guard let url = userActivity.webpageURL else { return }
-            //        MoEngageSDKAnalytics.sharedInstance.processURL(url)
-            //    }
+            //
+            // If you register `.onContinueUserActivity(NSUserActivityTypeBrowsingWeb)`,
+            // universal links go there instead of `.onOpenURL`, so call `processURL`
+            // in it too.
         }
     }
 }

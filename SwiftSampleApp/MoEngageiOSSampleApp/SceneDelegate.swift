@@ -55,15 +55,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // MARK: - URL Handling
     //
-    // Reporting the link to MoEngage happens here, at the app's entry point;
-    // `RootCoordinatorController.handle(url:)` is only concerned with where
-    // the link leads — same split as the SwiftUI app's `.onOpenURL` /
-    // `MoEngageiOSSwiftUISampleAppApp`.
+    // Links are reported to MoEngage at this entry point;
+    // `RootCoordinatorController.handle(url:)` only decides where the link leads.
     //
-    // NOTE: When `MoEngageSceneDelegateProxyEnabled` is YES (the SDK default), MoEngage
-    // swizzles these two methods and calls `processURL` itself — the commented-out calls
-    // below would double-report the link. Uncomment them only if you set
-    // `MoEngageSceneDelegateProxyEnabled` to NO in Info.plist, where these calls are required.
+    // NOTE: This class is declared in Info.plist (`UIApplicationSceneManifest`), so when
+    // `MoEngageSceneDelegateProxyEnabled` is YES (the SDK default) MoEngage swizzles these
+    // two methods and reports each link itself. The SDK ignores `processURL` calls made
+    // inside its swizzled methods, so the commented-out calls below are redundant while
+    // swizzling is on. Uncomment them if you set `MoEngageSceneDelegateProxyEnabled` to NO
+    // in Info.plist; they are then required.
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         for context in URLContexts {
             // MoEngageSDKAnalytics.sharedInstance.processURL(context.url)

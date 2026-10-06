@@ -192,6 +192,24 @@ enum MoEngageEvents {
             .onFailure { MoEngageReporting.failure(Name.notificationOpened, $0) }
     }
 
+    /// Reports a deep link or universal link the app was opened with, so
+    /// MoEngage can attribute the session to its source (UTM parameters,
+    /// campaign links).
+    ///
+    /// Called by the SwiftUI app only. Automatic link tracking works only when
+    /// the SDK can find the app's scene delegate. The UIKit apps declare
+    /// `SceneDelegate` in Info.plist, so the SDK swizzles it and reports every
+    /// link itself. The SwiftUI app uses SwiftUI's internal scene delegate,
+    /// which the SDK cannot find, so links are reported only through this call.
+    ///
+    /// Call it once per link. The SDK ignores `processURL` calls made inside its
+    /// own swizzled scene-delegate methods, but a call made anywhere else for a
+    /// link the SDK has already reported records that link a second time.
+    static func trackDeepLinkOpened(_ url: URL) {
+        MoEngageSDKAnalytics.sharedInstance.processURL(url)
+            .onFailure { MoEngageReporting.failure("processURL", $0) }
+    }
+
     /// Reports that the user acted on an in-app campaign's call to action.
     ///
     /// The app's own record of the click. Distinct from the SDK's

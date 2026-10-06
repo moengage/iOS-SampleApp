@@ -77,8 +77,10 @@ struct MainTabView: View {
         // Tints the selected symbol and label. The unselected colour is not
         // reachable from SwiftUI and is set in `BrewTabBarAppearance`.
         .tint(BrewColor.primary)
-        // A link arriving now, with the tab bar already on screen.
+        // A link arriving now, with the tab bar already on screen. Reported
+        // to MoEngage first, as in `ContentView`.
         .onOpenURL { url in
+            MoEngageSDKHelper.trackDeepLinkOpened(url)
             MoEngageSDKHelper.trackOrderActivityOpened(url)
             guard let route = Route(deeplink: url) else { return }
             follow(route)
